@@ -15,7 +15,7 @@ class AnnouncementsTableSeeder extends Seeder
     {
        for($i=0; $i<10; $i++){
         $new_announcement = new Announcement();
-        $new_announcement->title = $faker->words(4);
+        $new_announcement->title = $faker->words(4, true);
         $new_announcement->slug = Announcement::slugGenerator($new_announcement->title);
         $new_announcement->rooms = $faker->numberBetween(1, 10);
         $new_announcement->beds = $faker->numberBetween(1, 5);
@@ -23,10 +23,10 @@ class AnnouncementsTableSeeder extends Seeder
         $new_announcement->mq = $faker->numberBetween(50, 250);
         $new_announcement->address = $faker->streetAddress();
         $new_announcement->city = $faker->city();
-        $new_announcement->city = $faker->country();
+        $new_announcement->country = $faker->country();
         $new_announcement->latitude = $faker->latitude($min = -90, $max = 90);
         $new_announcement->longitude = $faker->longitude($min = -180, $max = 180);
-        $new_announcement->visible = $faker->numberBetween(0, 1);
+        $new_announcement->is_visible = $faker->numberBetween(0, 1);
         $new_announcement->house_type = 'Villa';
         $new_announcement->room_type = 'Stanza singola';
         $new_announcement->save();
