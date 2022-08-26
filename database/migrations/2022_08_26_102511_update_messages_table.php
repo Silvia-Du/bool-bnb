@@ -14,13 +14,10 @@ class UpdateMessagesTable extends Migration
     public function up()
     {
         Schema::table('messages', function (Blueprint $table) {
-
-           $table->unsignedBigInteger('announcement_id')
+            $table->unsignedBigInteger('announcement_id')
                 ->after('id');
-
             $table->foreign('announcement_id')
-                ->references('id')
-                ->on('announcement')
+                ->references('id')->on('announcements')
                 ->onDelete('cascade');
         });
     }
@@ -33,7 +30,6 @@ class UpdateMessagesTable extends Migration
     public function down()
     {
         Schema::table('messages', function (Blueprint $table) {
-
             $table->dropForeign(['announcement_id']);
             $table->dropColumn('announcement_id');
         });
