@@ -22,8 +22,6 @@ class VisualizationsTableSeeder extends Seeder
             $announcement_id = Announcement::inRandomOrder()->first()->id;
             $new_visualization->announcement_id = $announcement_id;
             $new_visualization->save();
-
-
         }
     }
 }
