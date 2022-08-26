@@ -21,7 +21,7 @@ class CreateAnnouncementsTable extends Migration
             $table->integer('beds');
             $table->integer('bathrooms');
             $table->integer('mq');
-            $table->string('adress');
+            $table->string('address');
             $table->string('city');
             $table->string('country');
             $table->decimal('latitude', 10, 8);
