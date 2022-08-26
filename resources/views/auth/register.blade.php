@@ -26,6 +26,7 @@
                             </div>
                         </div>
 
+                        {{-- surname --}}
                         <div class="form-group row">
                             <label for="surname" class="col-md-4 col-form-label text-md-right">Cognome</label>
 
@@ -45,11 +46,17 @@
 
                         {{-- date-of-birth --}}
                         <div class="form-group row">
+
                             <label class="col-md-4 col-form-label text-md-right" for="date_of_birth">Data di nascita</label>
                             <div class="col-md-6">
-
-                                <input class="form-control" type="date" id="date_of_birth" name="date_of_birth">
+                                <input class="form-control  @error('date_of_birth') is-invalid @enderror" type="date" id="date_of_birth" name="date_of_birth">
+                                @error('date_of_birth')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
                             </div>
+
                         </div>
 
                         <div class="form-group row">
