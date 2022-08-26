@@ -13,7 +13,7 @@ class AnnouncementsTableSeeder extends Seeder
      */
     public function run(Faker $faker)
     {
-       for($i=0; $i<10; $i++){
+       for($i=0; $i<20; $i++){
         $new_announcement = new Announcement();
         $new_announcement->title = $faker->words(4, true);
         $new_announcement->slug = Announcement::slugGenerator($new_announcement->title);
