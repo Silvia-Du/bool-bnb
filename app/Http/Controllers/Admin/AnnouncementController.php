@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Announcement;
 
@@ -13,8 +14,11 @@ class AnnouncementController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
+
     {
-        $announcements = Announcement::orderBy('id', 'desc')->get();
+        $announcements = Announcement::orderBy('id','desc')->get();
+
+
         return view('admin.announcements.index', compact('announcements'));
     }
 
