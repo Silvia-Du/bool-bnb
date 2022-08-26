@@ -49,10 +49,15 @@ class RegisterController extends Controller
      */
     protected function validator(array $data)
     {
+        // $today = date('Y-m-d');
+        // dd($today);
         return Validator::make($data, [
             'name' => ['required', 'string', 'max:255'],
+            'surname' => ['required', 'string', 'max:255'],
+            'date_of_birth' =>['required', 'before:-18 years'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'password' => ['required', 'string', 'min:1', 'confirmed'],
+            'image' => ['nullable|image|max:32000']
         ]);
     }
 

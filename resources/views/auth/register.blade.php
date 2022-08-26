@@ -12,6 +12,7 @@
                         @csrf
 
                         <div class="form-group row">
+                            {{-- name --}}
                             <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
 
                             <div class="col-md-6">
@@ -26,6 +27,33 @@
                         </div>
 
                         <div class="form-group row">
+                            <label for="surname" class="col-md-4 col-form-label text-md-right">Cognome</label>
+
+                            <div class="col-md-6">
+                                <input
+                                id="surname" type="text"
+                                class="form-control @error('surname') is-invalid @enderror" name="surname" value="{{ old('surname') }}" required
+                                autofocus>
+
+                                @error('surname')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        {{-- date-of-birth --}}
+                        <div class="form-group row">
+                            <label class="col-md-4 col-form-label text-md-right" for="date_of_birth">Data di nascita</label>
+                            <div class="col-md-6">
+
+                                <input class="form-control" type="date" id="date_of_birth" name="date_of_birth">
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            {{-- email --}}
                             <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
 
                             <div class="col-md-6">
@@ -40,6 +68,7 @@
                         </div>
 
                         <div class="form-group row">
+                            {{-- p-word --}}
                             <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
 
                             <div class="col-md-6">
@@ -54,6 +83,7 @@
                         </div>
 
                         <div class="form-group row">
+                            {{-- pword-confirm --}}
                             <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Confirm Password') }}</label>
 
                             <div class="col-md-6">
