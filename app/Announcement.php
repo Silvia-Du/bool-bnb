@@ -7,7 +7,19 @@ use Illuminate\Support\Str;
 
 
 class Announcement extends Model
+
+
+
 {
+
+    public function User(){
+        return $this->belongsTo("App\User");
+    }
+
+    public function Messages(){
+        return $this->hasMany("App\Message");
+    }
+
     public static function slugGenerator($title){
 
         $slug = Str::slug($title, '-');

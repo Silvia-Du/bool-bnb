@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Seeder;
 use App\Announcement;
+use App\User;
 use Faker\Generator as Faker;
 
 class AnnouncementsTableSeeder extends Seeder
@@ -29,7 +30,11 @@ class AnnouncementsTableSeeder extends Seeder
         $new_announcement->is_visible = $faker->numberBetween(0, 1);
         $new_announcement->house_type = 'Villa';
         $new_announcement->room_type = 'Stanza singola';
+
+        $user_id = User::inRandomOrder()->first()->id;
+        $new_announcement->user_id = $user_id;
+
         $new_announcement->save();
-       }
+       };
     }
 }
