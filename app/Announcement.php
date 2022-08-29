@@ -2,6 +2,7 @@
 namespace App;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
+
 class Announcement extends Model
 {
     public function user(){
@@ -32,8 +33,8 @@ class Announcement extends Model
         }
         return $slug;
     }
+    protected $fillable = ['title', 'address', 'city', 'country', 'mq', 'rooms', 'beds', 'bathrooms', 'house_type', 'room_type', 'user_id', 'slug', 'latitude', 'longitude' ];
 }
-
 
 
 
