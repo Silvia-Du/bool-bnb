@@ -15,10 +15,19 @@ class CreateAnnouncementServiceTable extends Migration
     {
         Schema::create('announcement_service', function (Blueprint $table) {
             $table->unsignedBigInteger('announcement_id');
-            $table->foreign('announcement_id')->references('id')->on('announcements');
+            // creo la FK per la colonna appena creata
+            $table->foreign('announcement_id')
+                ->references('id')
+                ->on('announcements')
+                ->onDelete('cascade'); // all'eliminazione di un post o un tag a cascata viene eliminato il record nella tabella ponte
 
+            //creao la colonna per la FK di tags
             $table->unsignedBigInteger('service_id');
-            $table->foreign('service_id')->references('id')->on('services');
+            // creo la FK per la colonna appena creata
+            $table->foreign('service_id')
+                ->references('id')
+                ->on('services')
+                ->onDelete('cascade');
         });
     }
 
