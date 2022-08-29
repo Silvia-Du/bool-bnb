@@ -4,13 +4,13 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
 class Announcement extends Model
 {
-    public function User(){
+    public function user(){
         return $this->belongsTo("App\User");
     }
-    public function Messages(){
+    public function messages(){
         return $this->hasMany("App\Message");
     }
-    public function Services(){
+    public function services(){
         return $this->belongsToMany("App\Service");
     }
     public function visualization(){
