@@ -29,7 +29,8 @@ class AnnouncementController extends Controller
      */
     public function create()
     {
-        //
+        $announcements= Announcement::All();
+        return view('admin.announcements.create');
     }
 
     /**
