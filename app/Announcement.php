@@ -1,29 +1,22 @@
 <?php
-
 namespace App;
-
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
-
-
 class Announcement extends Model
-
 {
-
-    public function user(){
+    public function User(){
         return $this->belongsTo("App\User");
     }
-
-    public function messages(){
+    public function Messages(){
         return $this->hasMany("App\Message");
     }
-
-    public function sponsorizations(){
-        return $this->belongsToMany('App\Sponsorization');
+    public function Services(){
+        return $this->belongsToMany("App\Service");
     }
-
+    public function visualization(){
+        return $this->hasMany("App\Visualization");
+    }
     public static function slugGenerator($title){
-
         $slug = Str::slug($title, '-');
         $slug_new_announcement = $slug;
         $counter = 1;
@@ -36,3 +29,17 @@ class Announcement extends Model
         return $slug;
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
