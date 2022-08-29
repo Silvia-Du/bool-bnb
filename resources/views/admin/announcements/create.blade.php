@@ -19,7 +19,7 @@
         <div class="row">
             <div class="col-8 offset-2">
                 <h2 class="mb-3">Inserisci un nuovo Annuncio</h2>
-                <form action="" method="POST">
+                <form action="{{ route('admin.announcements.store') }}" method="POST">
                     @csrf
                     <div class="mb-3">
                         <label for="title" class="form-label">Titolo annuncio</label>

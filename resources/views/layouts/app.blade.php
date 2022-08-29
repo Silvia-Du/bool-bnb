@@ -26,7 +26,7 @@
                 <a class="navbar-brand" href="{{ route('home') }}">
                     Vai al sito pubblico
                 </a>
-                <a class="navbar-brand" href="{{ route('admin.announcement.index') }}">
+                <a class="navbar-brand" href="{{ route('admin.announcements.index') }}">
                     Vai alla index
                 </a>
 

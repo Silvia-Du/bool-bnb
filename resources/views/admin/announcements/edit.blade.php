@@ -5,7 +5,7 @@
 <h1>Edit annunci</h1>
 
 <div class="container-fluid px-5">
-    <form action="{{ route('admin.announcements.update' ['announcements' -> $announcements->id]) }}" method="announcements">
+    <form action="{{ route('admin.announcements.update', $announcement) }}" method="post">
     @csrf
     @method('PUT')
     <div class="mn-3">
@@ -27,7 +27,7 @@
     </div>
 
         <div class="mn-3">
-        <label for="address" class="form-label">Città</label>
+        <label for="city" class="form-label">Città</label>
             <input type="text" class="form-control @error('city') is-invalid @enderror" name="city" id="city" value="{{ old('city',$announcement->city)}}">
 
             @error('city')
@@ -107,14 +107,16 @@
             @enderror
     </div>
 
-        <div class="mn-3">
+        {{--
+            Manca colonna content per descrizione
+            <div class="mn-3">
         <label for="content" class="form-label">Descrizione</label>
             <input type="text" class="form-control @error('content') is-invalid @enderror" name="content" id="content" value="{{ old('content',$announcement->content)}}">
 
             @error('content')
             <p class="text-danger">{{$message}}</p>
             @enderror
-    </div>
+    </div> --}}
 
     <button type="submit" class="btn btn-primary">Invia</button>
 </form>

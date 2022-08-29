@@ -24,7 +24,7 @@ Route::middleware('auth')
         ->namespace('Admin')
         ->group( function(){
             Route::get('/', 'HomeController@index')->name('index');
-            Route::resource('/announcement', 'AnnouncementController');
+            Route::resource('/announcements', 'AnnouncementController');
         });
 
 
