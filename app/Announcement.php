@@ -20,6 +20,11 @@ class Announcement extends Model
         return $this->hasMany("App\Message");
     }
 
+    public function visualization(){
+        return $this->hasMany("App\Visualization");
+    }
+
+
     public static function slugGenerator($title){
 
         $slug = Str::slug($title, '-');
