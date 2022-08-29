@@ -19,7 +19,7 @@
         <div class="row">
             <div class="col-8 offset-2">
                 <h2 class="mb-3">Inserisci un nuovo Annuncio</h2>
-                <form action="" method="POST">
+                <form action="{{ route('admin.announcement.store') }}" method="POST">
                     @csrf
                     <div class="mb-3">
                         <label for="title" class="form-label">Titolo annuncio</label>
@@ -78,12 +78,12 @@
                     </div>
 
                     <div class="mb-3">
-                        <label for="img" class="form-label">Immagini</label>
-                        <input type="text" id="img" name="img"
-                            class="form-control @error('img') is-invalid @enderror" placeholder="Inserisci un Immagine"
-                            value="{{ old('img') }}">
+                        <label for="image" class="form-label">Immagini</label>
+                        <input type="text" id="image" name="image"
+                            class="form-control @error('image') is-invalid @enderror" placeholder="Inserisci un Immagine"
+                            value="{{ old('image') }}">
 
-                        @error('img')
+                        @error('image')
                             <p class="text-danger">
                                 {{ $message }}
                             </p>

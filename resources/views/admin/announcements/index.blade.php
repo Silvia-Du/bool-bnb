@@ -3,6 +3,11 @@
 @section('content')
 
 <h1>Elenco annunci</h1>
+<a class="btn btn-rounded-plus mb-3 ml-5" href="{{ route('admin.announcement.create') }}">
+    {{-- btn-edit --}}
+    Crea un nuovo articolo
+    <i class="fa-solid fa-file-pen"></i>
+</a>
 
 
 @if (session('post_deleted'))

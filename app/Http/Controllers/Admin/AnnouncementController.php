@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\Admin;
-
+use App\http\Requests\AnnouncementRequest;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Announcement;
@@ -29,7 +29,6 @@ class AnnouncementController extends Controller
      */
     public function create()
     {
-        $announcements= Announcement::All();
         return view('admin.announcements.create');
     }
 
@@ -39,9 +38,14 @@ class AnnouncementController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(AnnouncementRequest $request)
     {
-        //
+        $data = $request->all();
+        $new_announcement = new Announcement();
+        $data['slug'] = Announcement::slugGenerator($data['title']);
+        $new_announcement->fill($data);
+        $new_announcement->save();
+        return redirect()->route('admin.announcement.show ', $new_announcement);
     }
 
     /**
