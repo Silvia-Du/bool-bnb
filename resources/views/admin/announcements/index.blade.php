@@ -46,8 +46,12 @@
 
                     <td>
                         <a class="btn btn-warning" href="">VEDI</a>
-                        <a class="btn btn-success" href="">MODIFICA</a>
-                        <a class="btn btn-success" href="">DELETE</a>
+                        <a class="btn btn-success" href="{{route('admin.announcement.edit', $announcement)}}">MODIFICA</a>
+                        <form action="{{ route('admin.announcement.destroy', $announcements) }}" method="POST" onsubmit="return confirm('Stai per cancellare questo annuncio, confermi?')">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button class="btn btn-danger" type="submit">DELETE</button>
+                                </form>
                         {{-- <form
                         onsubmit="return confirm('Confermi l\'eliminazione del post: {{$announcement->title}}?')"
                         class="d-inline" action="{{ route('admin.posts.destroy', $announcement) }}" method="POST">
