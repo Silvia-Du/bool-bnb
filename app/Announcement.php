@@ -20,6 +20,10 @@ class Announcement extends Model
         return $this->hasMany("App\Message");
     }
 
+    public function Services(){
+        return $this->belongsToMany("App\Service");
+    }
+
     public static function slugGenerator($title){
 
         $slug = Str::slug($title, '-');
