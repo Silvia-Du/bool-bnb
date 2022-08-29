@@ -1,11 +1,16 @@
 @extends('layouts.app')
 
 @section('content')
-    <h1>Elenco annunci</h1>
 
+
+@if (session('delete_announcemenet'))
+    <div class="alert alert-danger" role="alert">
+        {{ session('post_deleted') }}
+    </div>
+@endif
 
 <h1>Elenco annunci</h1>
-<a class="btn btn-rounded-plus mb-3 ml-5" href="{{ route('admin.announcement.create') }}">
+<a class="btn btn-rounded-plus mb-3 ml-5" href="{{ route('admin.announcements.create') }}">
     {{-- btn-edit --}}
     Crea un nuovo articolo
     <i class="fa-solid fa-file-pen"></i>

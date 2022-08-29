@@ -20,7 +20,7 @@
             <div class="col-8 offset-2">
                 <h2 class="mb-3">Inserisci un nuovo Annuncio</h2>
 
-                <form action="{{ route('admin.announcements.store') }}" method="POST">
+                <form action="{{ route('admin.announcements.store') }}" method="POST" enctype="multipart/form-data">
 
                     @csrf
                     {{-- title --}}
@@ -80,22 +80,15 @@
                         @enderror
                     </div>
 
-                    {{-- image --}}
-                    <div class="mb-3">
-                        //se l'immagine esiste la mostro
-                        @if($post->image)
-                            <div class="image" >
-                                <img id='output-image' width="150" src="{{ asset('storage/' . $post->image ) }}" alt="{{ $post->image_original_name }}">
-                            </div>
-                        @endif
+                     {{-- image --}}
+                    <div class="mn-3">
                         <label for="image" class="form-label">Immagine</label>
                         <input type="file"
-                        onchange="showImage(event)"
-                        class="form-control @error('image') is-invalid @enderror"
-                        id="image" name="image" >
-                        @error('image')
-                            <p class="text-danger"> {{$message}} </p>
-                        @enderror
+                                class="form-control @error('image') is-invalid @enderror"
+                            id="image" name="image" >
+                            @error('image')
+                                <p class="text-danger"> {{$message}} </p>
+                            @enderror
                     </div>
 
                     {{-- mq --}}
