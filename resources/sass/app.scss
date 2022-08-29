@@ -6,3 +6,10 @@
 
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
+
+.btn-rounded-plus{
+    border-radius: 30px;
+    padding: 10px 15px;
+    background-color: rgb(167, 209, 199);
+    color: rgb(34, 34, 34);
+}

@@ -26,8 +26,8 @@ class CreateAnnouncementsTable extends Migration
             $table->string('country');
             $table->decimal('latitude', 10, 8);
             $table->decimal('longitude', 11, 8);
-            $table->string('img')->nullable();
-            $table->string('img_original_name')->nullable();
+            $table->string('image')->nullable();
+            $table->string('image_original_name')->nullable();
             $table->boolean('is_visible')->default(1);
             $table->string('house_type');
             $table->string('room_type');

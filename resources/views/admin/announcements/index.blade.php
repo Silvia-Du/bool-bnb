@@ -4,6 +4,13 @@
     <h1>Elenco annunci</h1>
 
 
+<h1>Elenco annunci</h1>
+<a class="btn btn-rounded-plus mb-3 ml-5" href="{{ route('admin.announcement.create') }}">
+    {{-- btn-edit --}}
+    Crea un nuovo articolo
+    <i class="fa-solid fa-file-pen"></i>
+</a>
+
     @if (session('post_deleted'))
         <div class="alert alert-danger" role="alert">
             {{ session('post_deleted') }}
@@ -11,7 +18,6 @@
     @endif
 
     <div class="container-fluid px-5">
-        <a class="btn btn-warning" href="{{ route('admin.announcements.create') }}">CREA</a>
 
         <table class="table">
             <thead>

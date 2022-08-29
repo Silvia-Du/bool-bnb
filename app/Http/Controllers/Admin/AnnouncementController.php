@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\Admin;
-
+use App\http\Requests\AnnouncementRequest;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Announcement;
@@ -41,10 +41,12 @@ class AnnouncementController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(AnnouncementRequest $request)
     {
         $data = $request->all();
 
+        $new_announcement = new Announcement();
+        
         if (array_key_exists('image', $data)) {
             $data['image_original_name'] = $request->file('image')
                 ->getClientOriginalName();
@@ -55,15 +57,12 @@ class AnnouncementController extends Controller
         $data['user_id'] = Auth::id();
         $data['latitude'] = 0; // Da inserire dopo
         $data['longitude'] = 0; // Da inserire dopo
-        $announcement = Announcement::create($data);
+       
+        $new_announcement->fill($data);
+        $new_announcement->save();
+        // return redirect()->route('admin.announcements.show', $announcement->id);
+        return redirect()->route('admin.announcement.show ', $new_announcement);
 
-        $announcement->save();
-
-        if (array_key_exists('tags', $data)) {
-            $announcement->tags()->sync($data['tags']);
-        }
-
-        return redirect()->route('admin.announcements.show', $announcement->id);
     }
 
     /**

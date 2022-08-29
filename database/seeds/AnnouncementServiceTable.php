@@ -13,18 +13,26 @@ class AnnouncementServiceTable extends Seeder
      */
     public function run()
     {
-        for( $i=0 ; $i < 40 ; $i++ ){
-            $announcement = Announcement::inRandomOrder()->first();
 
-            $service_id = Service::inRandomOrder()->first()->id;
+    $announcements = Announcement::all();
 
-            $announcement->service()->attach($service_id);
-       }
 
-    //    $announcements = Announcement::all();
-
-    //    $service_id = Service::inRandomOrder()->limit(rand(1, 9))->get();
-    //    dd($service_id);
+    foreach($announcements as $announcement){
+        $services_id = Service::inRandomOrder()->take(rand(1,9))->select('id')->get();
+        //ho un tot di servizi per id
+        foreach( $services_id as  $service_id){
+            if(!$announcement->services->contains($service_id)){
+                $announcement->services()->attach($service_id);
+            }
+        }
+        // dd($services_id);
+    }
 
     }
 }
+
+//per ogni annuncio
+
+// estrai una quantità di servizi random(id)
+//se non esiste quell'id tra quelli dell'annuncio
+//allora attaccaglielo
