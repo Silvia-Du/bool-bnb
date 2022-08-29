@@ -20,10 +20,14 @@ class Announcement extends Model
         return $this->hasMany("App\Message");
     }
 
+
+    public function Services(){
+        return $this->belongsToMany("App\Service");
+    }
+
     public function visualization(){
         return $this->hasMany("App\Visualization");
     }
-
 
     public static function slugGenerator($title){
 
