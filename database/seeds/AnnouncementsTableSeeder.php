@@ -18,6 +18,7 @@ class AnnouncementsTableSeeder extends Seeder
         $new_announcement = new Announcement();
         $new_announcement->title = $faker->words(4, true);
         $new_announcement->slug = Announcement::slugGenerator($new_announcement->title);
+        $new_announcement->description = $faker->text(400);
         $new_announcement->rooms = $faker->numberBetween(1, 10);
         $new_announcement->beds = $faker->numberBetween(1, 5);
         $new_announcement->bathrooms = $faker->numberBetween(1, 5);

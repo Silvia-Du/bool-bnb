@@ -4,7 +4,7 @@ use App\Announcement;
 use App\Sponsorization;
 use Illuminate\Database\Seeder;
 
-class AnnouncementSponsorizationTable extends Seeder
+class AnnouncementSponsorizationTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -30,8 +30,3 @@ class AnnouncementSponsorizationTable extends Seeder
 
 
 
-       //ciclo tutti gli annunci,
-       //gli associo una quantità random di sponsorizzazioni
-       //per ogni sponsorizzazione fatta creo una data randomica nel    passato e nel futuro
-       //
-       //associo l'id- e la data.

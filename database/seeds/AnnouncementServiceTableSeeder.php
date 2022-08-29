@@ -4,7 +4,7 @@ use App\Announcement;
 use App\Service;
 use Illuminate\Database\Seeder;
 
-class AnnouncementServiceTable extends Seeder
+class AnnouncementServiceTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
