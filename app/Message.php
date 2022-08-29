@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Message extends Model
 {
-    public function Announcement(){
+    public function announcement(){
         return $this->belongsTo("App\Announcement");
     }
 }

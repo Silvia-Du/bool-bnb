@@ -8,16 +8,18 @@ use Illuminate\Support\Str;
 
 class Announcement extends Model
 
-
-
 {
 
-    public function User(){
+    public function user(){
         return $this->belongsTo("App\User");
     }
 
-    public function Messages(){
+    public function messages(){
         return $this->hasMany("App\Message");
+    }
+
+    public function sponsorizations(){
+        return $this->belongsToMany('App\Sponsorization');
     }
 
     public static function slugGenerator($title){
