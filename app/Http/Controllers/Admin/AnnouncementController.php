@@ -43,7 +43,6 @@ class AnnouncementController extends Controller
      */
     public function store(AnnouncementRequest $request)
     {
-        dd($request->all());
         $data = $request->all();
         $new_announcement = new Announcement();
 
@@ -60,7 +59,7 @@ class AnnouncementController extends Controller
 
         $new_announcement->fill($data);
         $new_announcement->save();
-        return redirect()->route('admin.announcements.show ', $new_announcement);
+        return redirect()->route('admin.announcements.show', $new_announcement);
 
     }
 

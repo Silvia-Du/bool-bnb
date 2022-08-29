@@ -94,7 +94,7 @@
                     {{-- mq --}}
                     <div class="mb-3">
                         <label for="mq" class="form-label">Metri Quadri</label>
-                        <input type="numeric" id="mq" name="mq"
+                        <input type="number" id="mq" name="mq"
                             class="form-control @error('mq') is-invalid @enderror" placeholder="Inserisci i Metri Quadri"
                             value="{{ old('mq') }}">
 
@@ -108,7 +108,7 @@
                     {{-- rooms --}}
                     <div class="mb-3">
                         <label for="rooms" class="form-label">Numero Stanze</label>
-                        <input type="numeric" id="rooms" name="rooms"
+                        <input type="number" id="rooms" name="rooms"
                             class="form-control @error('rooms') is-invalid @enderror" placeholder="Inserisci il Numero di Stanze"
                             value="{{ old('rooms') }}">
 
@@ -122,7 +122,7 @@
                     {{-- beds --}}
                     <div class="mb-3">
                         <label for="beds" class="form-label">Numero Letti</label>
-                        <input type="numeric" id="beds" name="beds"
+                        <input type="number" id="beds" name="beds"
                             class="form-control @error('beds') is-invalid @enderror" placeholder="Inserisci il Numero di Letti"
                             value="{{ old('beds') }}">
 
@@ -136,7 +136,7 @@
                     {{-- bathrooms --}}
                     <div class="mb-3">
                         <label for="bathrooms" class="form-label">Numero Bagni</label>
-                        <input type="numeric" id="bathrooms" name="bathrooms"
+                        <input type="number" id="bathrooms" name="bathrooms"
                             class="form-control @error('bathrooms') is-invalid @enderror" placeholder="Inserisci il Numero di Bagni"
                             value="{{ old('bathrooms') }}">
 
@@ -177,11 +177,11 @@
 
                     {{-- content --}}
                     <div class="mb-3">
-                        <label for="content" class="form-label">Descrizione</label>
-                        <textarea class="form-control @error('content') is-invalid @enderror" name="content" id="content" cols="30"
-                            rows="10">{{ old('content') }}</textarea>
+                        <label for="description" class="form-label">Descrizione</label>
+                        <textarea class="form-control @error('description') is-invalid @enderror" name="description" id="description" cols="30"
+                            rows="10">{{ old('description') }}</textarea>
 
-                        @error('content')
+                        @error('description')
                             <p class="text-danger">
                                 {{ $message }}
                             </p>

@@ -24,12 +24,12 @@ class AnnouncementRequest extends FormRequest
     {
         return [
 
-            'title'=>'required | min:3 | max:255 | unique:announcement',
-            'rooms'=>'required | min:1 | max:10 | numeric',
-            'content'=>'required | min:10 | max:400',
-            'beds'=>'required | min:1 | max:10 | numeric',
-            'bathrooms'=>'required | min:1 | max:4 | numeric',
-            'mq'=>'required | min:15 | max:500 | numeric',
+            'title'=>'required | min:3 | max:255 | unique:announcements',
+            'rooms'=>'required | min:1 | numeric',
+            'description'=>'required | min:10 | max:400',
+            'beds'=>'required | min:1 | numeric',
+            'bathrooms'=>'required | min:1 | numeric',
+            'mq'=>'required | min:15 | numeric',
             'address'=>'required | min:7 | max:200',
             'city'=>'required | min:2 | max:250',
             'country'=>'required | min:2 | max:250',
@@ -40,42 +40,42 @@ class AnnouncementRequest extends FormRequest
         ];
     }
 
-    public function messages()
-    {
-        // 'name.required'=>'Il nome è obbligatorio',
-       return[
-        'required'=> 'Il campo :attribute è obbligatorio',
-        'min'=> [
-            'numeric'=> 'il valore di :attribute non può essere inferiore a :min',
-            'string'=> 'il campo :attribute non può avere meno di :min caratteri'
-        ],
+    // public function messages()
+    // {
+    //     // 'name.required'=>'Il nome è obbligatorio',
+    //    return[
+    //     'required'=> 'Il campo :attribute è obbligatorio',
+    //     'min'=> [
+    //         'numeric'=> 'il valore di :attribute non può essere inferiore a :min',
+    //         'string'=> 'il campo :attribute non può avere meno di :min caratteri'
+    //     ],
 
-        'max'=> [
-            'numeric'=> 'il valore di :attribute deve essere inferiore a :max',
-            'string'=> 'il campo :attribute non può avere meno di :max caratteri'
-        ],
+    //     'max'=> [
+    //         'numeric'=> 'il valore di :attribute deve essere inferiore a :max',
+    //         'string'=> 'il campo :attribute non può avere meno di :max caratteri'
+    //     ],
 
-        'numeric'=> 'Il campo :attribute deve essere un numero',
-        'image'=> 'Il file :attribute deve essere un\'immagine'
-       ];
+    //     'numeric'=> 'Il campo :attribute deve essere un numero',
+    //     'image'=> 'Il file :attribute deve essere un\'immagine'
+    //    ];
 
-    }
+    // }
 
 
-    public function attributes()
-    {
-        return [
-            'title'=>'titolo',
-            'rooms'=>'stanze',
-            'beds'=>'letti',
-            'bathrooms'=>'bagni',
-            'mq'=>'metri quadri',
-            'address'=>'via',
-            'city'=>'città',
-            'country'=>'paese',
-            'image'=>'immagine',
-            'house_type'=>'tipologia abitazione',
-            'room_type'=>'tipologia di camera',
-        ];
-    }
+    // public function attributes()
+    // {
+    //     return [
+    //         'title'=>'titolo',
+    //         'rooms'=>'stanze',
+    //         'beds'=>'letti',
+    //         'bathrooms'=>'bagni',
+    //         'mq'=>'metri quadri',
+    //         'address'=>'via',
+    //         'city'=>'città',
+    //         'country'=>'paese',
+    //         'image'=>'immagine',
+    //         'house_type'=>'tipologia abitazione',
+    //         'room_type'=>'tipologia di camera',
+    //     ];
+    // }
 }
