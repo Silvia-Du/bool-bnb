@@ -44,9 +44,8 @@ class AnnouncementController extends Controller
     public function store(AnnouncementRequest $request)
     {
         $data = $request->all();
-
         $new_announcement = new Announcement();
-        
+
         if (array_key_exists('image', $data)) {
             $data['image_original_name'] = $request->file('image')
                 ->getClientOriginalName();
@@ -57,11 +56,10 @@ class AnnouncementController extends Controller
         $data['user_id'] = Auth::id();
         $data['latitude'] = 0; // Da inserire dopo
         $data['longitude'] = 0; // Da inserire dopo
-       
+
         $new_announcement->fill($data);
         $new_announcement->save();
-        // return redirect()->route('admin.announcements.show', $announcement->id);
-        return redirect()->route('admin.announcement.show ', $new_announcement);
+        return redirect()->route('admin.announcements.show ', $new_announcement);
 
     }
 
@@ -83,9 +81,8 @@ class AnnouncementController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Announcement $announcement)
     {
-        $announcement = Announcement::find($id);
         return view('admin.announcements.edit', compact('announcement'));
     }
 
@@ -96,9 +93,9 @@ class AnnouncementController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(AnnouncementRequest $request, Announcement $announcement)
     {
-        $announcement = Announcement::find($id);
+
         $data = $request->all();
 
         if (array_key_exists('image', $data)) {
@@ -116,11 +113,7 @@ class AnnouncementController extends Controller
 
         $announcement->update($data);
 
-        if (array_key_exists('tags', $data)) {
-            $announcement->tags()->sync($data['tags']);
-        }
-
-        return redirect()->route('admin.announcements.show', $announcement->id);
+        return redirect()->route('admin.announcements.show', $announcement);
     }
 
 
@@ -130,17 +123,16 @@ class AnnouncementController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Announcement $announcement)
     {
-        $announcements = Announcement::find($id);
-        $announcements->delete();
+        $announcement->delete();
 
-        return redirect()->route('admin.announcements.index')->with('message', "Annuncio $announcements->name correttamente eliminato");
+        return redirect()->route('admin.announcements.index')->with('message', "Annuncio $announcement->title eliminato correttamente");
     }
 
-    public function getAnnouncements()
-    {
-        $announcements = Announcement::all();
-        return $announcements;
-    }
+    // public function getAnnouncements()
+    // {
+    //     $announcements = Announcement::all();
+    //     return $announcements;
+    // }
 }
