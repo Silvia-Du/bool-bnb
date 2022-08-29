@@ -16,6 +16,10 @@ class Announcement extends Model
     public function visualization(){
         return $this->hasMany("App\Visualization");
     }
+
+    public function sponsorizations(){
+        return $this->belongsToMany('App\Sponsorization');
+    }
     public static function slugGenerator($title){
         $slug = Str::slug($title, '-');
         $slug_new_announcement = $slug;
