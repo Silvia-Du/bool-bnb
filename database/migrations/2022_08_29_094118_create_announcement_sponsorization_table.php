@@ -28,6 +28,9 @@ class CreateAnnouncementSponsorizationTable extends Migration
                 ->references('id')
                 ->on('sponsorizations')
                 ->onDelete('cascade');
+            $table->timestamps();
+
+
 
 
         });

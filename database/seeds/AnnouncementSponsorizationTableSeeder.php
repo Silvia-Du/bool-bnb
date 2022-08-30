@@ -22,11 +22,13 @@ class AnnouncementSponsorizationTableSeeder extends Seeder
         }
     }
 
-
-
-
     }
  }
+
+ //per ogni annucio ci devono essere tot(random) sponsorizzazioni
+
+
+
 
 
 
