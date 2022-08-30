@@ -59,12 +59,12 @@
                         <td>{{ $announcement->is_visible }}</td>
 
 
-                        <td>
+                        <td >
                             <a class="btn btn-warning"
                                 href="{{ route('admin.announcements.show', $announcement) }}">VEDI</a>
                             <a class="btn btn-success"
                                 href="{{ route('admin.announcements.edit', $announcement) }}">MODIFICA</a>
-                            <form action="{{ route('admin.announcements.destroy', $announcement) }}" method="POST"
+                            <form class="d-inline" action="{{ route('admin.announcements.destroy', $announcement) }}" method="POST"
                                 onsubmit="return confirm('Stai per cancellare questo annuncio, confermi?')">
                                 @csrf
                                 @method('DELETE')

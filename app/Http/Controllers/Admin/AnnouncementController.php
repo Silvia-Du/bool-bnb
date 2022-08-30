@@ -31,6 +31,7 @@ class AnnouncementController extends Controller
      */
     public function create()
     {
+        
         return view('admin.announcements.create');
     }
 
@@ -82,6 +83,10 @@ class AnnouncementController extends Controller
      */
     public function edit(Announcement $announcement)
     {
+        if(Auth::id() != $announcement->user_id){
+            abort(403);
+        }
+        // abort_if(auth()->id() === $announcement->user, 403);
         return view('admin.announcements.edit', compact('announcement'));
     }
 
