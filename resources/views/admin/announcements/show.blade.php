@@ -9,6 +9,7 @@
         <div class="container col-xxl-8 px-4 py-3">
             <div class="row flex-lg-row align-items-center g-5 py-3">
                 <div class="col-10 col-sm-8 col-lg-6">
+                    {{-- Inserire poi placeholder dell'immagine --}}
                     <img src="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/suburban-house-royalty-free-image-1584972559.jpg"
                         class="img-fluid d-block mx-lg-auto rounded" alt="{{ $announcement->image_original_name }}">
                 </div>
@@ -32,6 +33,18 @@
                 <div class="card-body">
                     <p class="lead"> {{ $announcement->description }} </p>
                 </div>
+            </div>
+
+            <div class="d-flex justify-content-center my-3 p-3">
+                <a class="btn btn-warning"
+                                href="{{ route('admin.announcements.index', $announcement) }}">BACK</a>
+                <a class="btn btn-success"
+                        href="{{ route('admin.announcements.edit', $announcement) }}">MODIFICA</a>
+                 <form action="{{ route('admin.announcements.destroy', $announcement) }}" method="POST"
+                                onsubmit="return confirm('Stai per cancellare questo annuncio, confermi?')">
+                                @csrf
+                                @method('DELETE')
+                                <button class="btn btn-danger" type="submit">DELETE</button>
             </div>
 
             <div class="card my-3">
