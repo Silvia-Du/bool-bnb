@@ -30,3 +30,86 @@ Vue.component('example-component', require('./components/ExampleComponent.vue').
 const app = new Vue({
     el: '#app',
 });
+
+/*user
+testi: min:3 max:255
+email: che ci sia chiocciola e punto?...classe di bootstrap
+isNan = non a number = true nn è un numero
+split('-'), reverse(), join();
+password: lunghezza, car.speciali, numero
+
+bonus: immagine
+
+*/
+
+const bntRegister = document.getElementById('btn-register');
+const dataCollection = document.getElementsByClassName('js-data');
+const eMail =  document.getElementById('email');
+const surname =  document.getElementById('surname');
+const name =  document.getElementById('name');
+// const title =  document.querySelector('.edit.title');
+// const title =  document.querySelector('.create.title');
+
+
+// let eMailToCheck;
+
+let check = true;
+// console.log(nameSurname);
+
+bntRegister.addEventListener('click', function(){
+
+    if(check = true){
+        event.preventDefault();
+    }
+
+    // for (const data of dataCollection) {
+    //     console.log(data.value.length);
+    //     if(data.value.lenght === 0){
+    //                 alert(`Attenzione! il campo ${data.value} è obbligatorio`);
+    //             }
+    //     if(data.value.length <= 0){
+    //         alert(`Attenzione! il campo ${data.value} è obbligatorio`);
+    //     }
+    // }
+
+    // dataCollection.forEach(element => {
+    //     console.log(element.value);
+    // });
+
+    for(i=0; i< dataCollection.length ; i++){
+        console.log(dataCollection[i].value);
+
+        if(dataCollection[i].value.length == 0){
+            alert(`Attenzione! il campo ${dataCollection[i].name} è obbligatorio`);
+        }
+    }
+    // console.log(typeof name);
+    // console.log(name.length);
+    if(name.length < 3 || name.length > 100){
+        alert('il campo nome deve essere compreso tra i 3 e i 100 caratteri')
+    }
+    if(surname.length < 3 || name.length > 100){
+        alert('il campo cognome deve essere compreso tra i 3 e i 100 caratteri')
+    }
+
+    const eMailToCheck =  eMail.value.split('');
+    console.log(eMailToCheck.includes('@'));
+    if(eMailToCheck.includes('@'))
+
+    console.log(eMail);
+    console.log(eMailToCheck);
+
+
+});
+
+
+
+if(eMail.length == 0){
+    alert('la mail è obbligatoria')
+}
+
+
+
+
+
+
