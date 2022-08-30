@@ -28,7 +28,7 @@ class CreateAnnouncementSponsorizationTable extends Migration
                 ->references('id')
                 ->on('sponsorizations')
                 ->onDelete('cascade');
-            $table->timestamps();
+            $table->timestamp('start_date')->useCurrent();
 
 
 

@@ -13,19 +13,18 @@ class AnnouncementSponsorizationTableSeeder extends Seeder
      */
     public function run()
     {
-
-    $announcements = Announcement::all();
-    foreach($announcements as $announcement){
-        $tot_random = rand(1, 10);
-        for($i=0; $i< $tot_random; $i++){
-            $sponsorization_id = Sponsorization::inRandomOrder()->first()->id;
+        $announcements = Announcement::all();
+        foreach($announcements as $announcement){
+            $tot_random = rand(0, 5);
+            for($i=0; $i< $tot_random; $i++){
+                $sponsorization_id = Sponsorization::inRandomOrder()->first()->id;
+                    $announcement->sponsorizations()->attach($sponsorization_id);
+            }
         }
-    }
 
     }
- }
+}
 
- //per ogni annucio ci devono essere tot(random) sponsorizzazioni
 
 
 
