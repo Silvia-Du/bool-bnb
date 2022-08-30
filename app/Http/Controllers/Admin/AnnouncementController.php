@@ -19,9 +19,8 @@ class AnnouncementController extends Controller
     public function index()
 
     {
-        $announcements = Announcement::orderBy('id', 'desc')->get();
-
-
+        $user = Auth::id();
+        $announcements = Announcement::orderBy('id', 'desc')->where('user_id', $user)->get();
         return view('admin.announcements.index', compact('announcements'));
     }
 

@@ -22,6 +22,9 @@
         </div>
     @endif
 
+    @if (count($announcements) > 0)
+
+
     <div class="container-fluid px-5">
 
         <table class="table">
@@ -82,6 +85,7 @@
             </tbody>
         </table>
     </div>
+    @endif
     {{-- {{ $announcements->links() }} --}}
 
     </div>
