@@ -49517,73 +49517,79 @@ Vue.component('example-component', __webpack_require__(/*! ./components/ExampleC
 
 var app = new Vue({
   el: '#app'
-}); //btn
+});
+/*user
+testi: min:3 max:255
+email: che ci sia chiocciola e punto?...classe di bootstrap
+isNan = non a number = true nn è un numero
+split('-'), reverse(), join();
+password: lunghezza, car.speciali, numero
+ 
+bonus: immagine
+ 
+*/
 
-var bntRegister = document.getElementById('btn-register');
-var btnLogin = document.getElementById('btn-login');
-var btnEdit = document.getElementById('btn-edit'); //collection
+var bntRegister = document.getElementById('btn-register'); // const title =  document.querySelector('.edit.title');
+// const title =  document.querySelector('.create.title');
+// let eMailToCheck;
+// console.log(nameSurname);
 
-var dataCollection = document.getElementsByClassName('js-data');
-var loginCollection = document.getElementsByClassName('login-data');
-var editCollection = document.getElementsByClassName('edit-data'); //data condivisi
+bntRegister.addEventListener('click', function () {
+  var check = true; // const inputCollection = document.getElementsByClassName('js-data');
 
-var eMail = document.getElementById('email');
-var surname = document.getElementById('surname');
-var name = document.getElementById('name');
-var password = document.getElementById('password');
-var numericMin = ['rooms', 'beds', 'bathrooms'];
-var stringMinMax = ['title', 'city', 'country', 'room_type', 'house_type']; // const title =  document.querySelector('.edit.title');
-// btnEdit.addEventListener('click', function(){
-//     let errorsAny = false;
-//     for(i=0; i< editCollection.length ; i++){
-//         if(editCollection[i].value.length == 0){
-//             alert(`Attenzione! il campo ${editCollection[i].name} è obbligatorio`);
-//             errorsAny = true;
-//         }
-//         for(let data of numericMin){
-//             if(editCollection[i].name == data){
-//                 if(editCollection[i].value < 1){
-//                     alert(`Attenzione! il valore minimo per ${editCollection[i].name} è 1` )
-//                     errorsAny = true;
-//                 }
-//             }
-//         }
-//         for(let data of stringMinMax){
-//             if(editCollection[i].name == data){
-//                 if(editCollection[i].value.length < 3){
-//                     alert(`Attenzione! il campo ${editCollection[i].name} deve avere minimo 3 caratteri`)
-//                     errorsAny = true;
-//                 }
-//                 if(editCollection[i].value.length > 200){
-//                     alert(`Attenzione! il campo ${editCollection[i].name} può avere massimo 200 caratteri`)
-//                     errorsAny = true;
-//                 }
-//             }
-//         }
-//     }
-//     if(errorsAny = true){
-//         event.preventDefault();
-//     }
-// })
-// btnLogin.addEventListener('click', function(){
-//     let errorsAny = false;
-//     while(errorsAny = true){
-//         event.preventDefault();
-//         errorsAny = false;
-//         for(i=0; i< loginCollection.length ; i++){
-//             if(loginCollection[i].value.length == 0){
-//                 alert(`Attenzione! il campo ${loginCollection[i].name} è obbligatorio`);
-//                 errorsAny = true;
-//             }
-//         }
-//         if(password.value.length < 8 && password.value.length != 0){
-//             alert(`Attenzione! il campo ${password.name} deve avere minimo 8 caratteri`);
-//             errorsAny = true;
-//         }
-//         console.log(errorsAny);
-//     }
-//     //va messo nell'html del form il codice per la verifica e-mail
-// })
+  var inputCollection = document.getElementsByClassName('js-data');
+  var labelsCollection = document.getElementsByTagName('label');
+  var name = document.querySelector('.name.register');
+  var surname = document.querySelector('.surname.register');
+  var dateOfBirth = document.querySelector('.date-of-birth.register');
+  var eMail = document.querySelector('.email.register');
+  var password = document.querySelector('.password.register');
+  var passwordConfirm = document.querySelector('.password-confirm.register');
+
+  if (check) {
+    event.preventDefault();
+  }
+
+  for (i = 0; i < inputCollection.length; i++) {
+    // console.log(inputCollection[i].parentNode.lastChild.tagName);
+    if (inputCollection[i].value.length === 0) {
+      printEmptyError(inputCollection[i], labelsCollection[i].textContent);
+    } else {
+      printExactError(inputCollection[i], labelsCollection[i].textContent);
+    }
+  }
+
+  function printEmptyError(input, label) {
+    var correctLabel = getCorrectedLabel(label);
+    var error = document.createElement('p');
+    error.classList.add('text-danger', 'm-0');
+    error.innerHTML = "Attenzione! Il campo ".concat(correctLabel, " \xE8 obbligatiorio");
+
+    if (input.parentNode.lastChild.tagName === 'INPUT') {
+      document.getElementById(input.parentNode.id).appendChild(error);
+      errorToggle(input);
+    } else {
+      error.remove();
+    }
+  }
+
+  function errorToggle(input) {
+    // console.log(input);
+    input.addEventListener('click', function () {
+      if (input.parentNode.lastChild.tagName != 'INPUT') {
+        input.parentNode.lastChild.remove();
+      }
+    });
+  }
+
+  function printExactError(input, label) {// console.log(input);
+  }
+
+  function getCorrectedLabel(label) {
+    var correctLabel = label.slice(0, label.length - 2);
+    return correctLabel;
+  }
+});
 
 /***/ }),
 
@@ -49719,8 +49725,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\silvi\Documents\BOOLEAN\LARAVEL\bool-bnb\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\Users\silvi\Documents\BOOLEAN\LARAVEL\bool-bnb\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\Users\emanu\OneDrive\Desktop\BOOLEAN\LARAVEL\laravel-bnb\bool-bnb\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\Users\emanu\OneDrive\Desktop\BOOLEAN\LARAVEL\laravel-bnb\bool-bnb\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
