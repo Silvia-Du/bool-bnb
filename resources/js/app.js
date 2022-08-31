@@ -31,84 +31,89 @@ const app = new Vue({
     el: '#app',
 });
 
-/*user
-testi: min:3 max:255
-email: che ci sia chiocciola e punto?...classe di bootstrap
-isNan = non a number = true nn è un numero
-split('-'), reverse(), join();
-password: lunghezza, car.speciali, numero
 
-bonus: immagine
-
-*/
-
+//btn
 const bntRegister = document.getElementById('btn-register');
+const btnLogin = document.getElementById('btn-login');
+const btnEdit = document.getElementById('btn-edit');
+//collection
 const dataCollection = document.getElementsByClassName('js-data');
+const loginCollection = document.getElementsByClassName('login-data');
+const editCollection = document.getElementsByClassName('edit-data');
+//data condivisi
 const eMail =  document.getElementById('email');
 const surname =  document.getElementById('surname');
 const name =  document.getElementById('name');
+const password =  document.getElementById('password');
+const numericMin = ['rooms', 'beds', 'bathrooms'];
+const stringMinMax = ['title', 'city', 'country', 'room_type', 'house_type'];
+
+
 // const title =  document.querySelector('.edit.title');
-// const title =  document.querySelector('.create.title');
+
+// btnEdit.addEventListener('click', function(){
+
+//     let errorsAny = false;
+
+//     for(i=0; i< editCollection.length ; i++){
+
+//         if(editCollection[i].value.length == 0){
+//             alert(`Attenzione! il campo ${editCollection[i].name} è obbligatorio`);
+//             errorsAny = true;
+//         }
+//         for(let data of numericMin){
+
+//             if(editCollection[i].name == data){
+//                 if(editCollection[i].value < 1){
+//                     alert(`Attenzione! il valore minimo per ${editCollection[i].name} è 1` )
+//                     errorsAny = true;
+//                 }
+//             }
+//         }
+
+//         for(let data of stringMinMax){
+//             if(editCollection[i].name == data){
+//                 if(editCollection[i].value.length < 3){
+//                     alert(`Attenzione! il campo ${editCollection[i].name} deve avere minimo 3 caratteri`)
+//                     errorsAny = true;
+//                 }
+//                 if(editCollection[i].value.length > 200){
+//                     alert(`Attenzione! il campo ${editCollection[i].name} può avere massimo 200 caratteri`)
+//                     errorsAny = true;
+//                 }
+//             }
+//         }
+
+//     }
+
+//     if(errorsAny = true){
+//         event.preventDefault();
+//     }
+
+// })
 
 
-// let eMailToCheck;
-
-let check = true;
-// console.log(nameSurname);
-
-bntRegister.addEventListener('click', function(){
-
-    if(check = true){
+btnLogin.addEventListener('click', function(){
+    let errorsAny = false;
         event.preventDefault();
-    }
+        errorsAny = false;
+        for(i=0; i< loginCollection.length ; i++){
 
-    // for (const data of dataCollection) {
-    //     console.log(data.value.length);
-    //     if(data.value.lenght === 0){
-    //                 alert(`Attenzione! il campo ${data.value} è obbligatorio`);
-    //             }
-    //     if(data.value.length <= 0){
-    //         alert(`Attenzione! il campo ${data.value} è obbligatorio`);
-    //     }
-    // }
-
-    // dataCollection.forEach(element => {
-    //     console.log(element.value);
-    // });
-
-    for(i=0; i< dataCollection.length ; i++){
-        console.log(dataCollection[i].value);
-
-        if(dataCollection[i].value.length == 0){
-            alert(`Attenzione! il campo ${dataCollection[i].name} è obbligatorio`);
+            if(loginCollection[i].value.length == 0){
+                alert(`Attenzione! il campo ${loginCollection[i].name} è obbligatorio`);
+                errorsAny = true;
+            }
         }
+
+        if(password.value.length < 8 && password.value.length != 0){
+            alert(`Attenzione! il campo ${password.name} deve avere minimo 8 caratteri`);
+            errorsAny = true;
+        }
+        console.log(errorsAny);
     }
-    // console.log(typeof name);
-    // console.log(name.length);
-    if(name.length < 3 || name.length > 100){
-        alert('il campo nome deve essere compreso tra i 3 e i 100 caratteri')
-    }
-    if(surname.length < 3 || name.length > 100){
-        alert('il campo cognome deve essere compreso tra i 3 e i 100 caratteri')
-    }
+    //va messo nell'html del form il codice per la verifica e-mail
 
-    const eMailToCheck =  eMail.value.split('');
-    console.log(eMailToCheck.includes('@'));
-    if(eMailToCheck.includes('@'))
-
-    console.log(eMail);
-    console.log(eMailToCheck);
-
-
-});
-
-
-
-if(eMail.length == 0){
-    alert('la mail è obbligatoria')
-}
-
-
+})
 
 
 

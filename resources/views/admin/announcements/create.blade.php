@@ -29,7 +29,6 @@
                         <input type="text" id="title" name="title"
                             class="form-control @error('title') is-invalid @enderror" placeholder="Inserisci un titolo"
                             value="{{ old('title') }}">
-
                         @error('title')
                             <p class="text-danger">
                                 {{ $message }}
