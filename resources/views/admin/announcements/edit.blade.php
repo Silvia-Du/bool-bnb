@@ -5,7 +5,7 @@
 <h1 class="my-5 text-center">Modifica di {{ $announcement->title }}</h1>
 
 <div class="container px-5">
-    <form action="{{ route('admin.announcements.update', $announcement) }}" method="announcement" enctype="multipart/form-data">
+    <form action="{{ route('admin.announcements.update', $announcement) }}" method="POST" enctype="multipart/form-data">
     @csrf
     @method('PUT')
     {{-- title --}}

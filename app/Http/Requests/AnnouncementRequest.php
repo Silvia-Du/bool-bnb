@@ -24,18 +24,18 @@ class AnnouncementRequest extends FormRequest
     {
         return [
 
-            'title'=>'required | min:3 | max:255 | unique:announcements',
-            'rooms'=>'required | min:1 | numeric',
-            'description'=>'required | min:10 | max:400',
-            'beds'=>'required | min:1 | numeric',
-            'bathrooms'=>'required | min:1 | numeric',
-            'mq'=>'required | min:15 | numeric',
-            'address'=>'required | min:7 | max:200',
-            'city'=>'required | min:2 | max:250',
-            'country'=>'required | min:2 | max:250',
+            'title'=>'required|min:3|max:255|unique:announcements',
+            'rooms'=>'required|min:1|numeric',
+            'description'=>'required|min:10|max:400',
+            'beds'=>'required|min:1|numeric',
+            'bathrooms'=>'required|min:1|numeric',
+            'mq'=>'required|min:15|numeric',
+            'address'=>'required|min:7|max:200',
+            'city'=>'required|min:2|max:250',
+            'country'=>'required|min:2|max:250',
             'image'=>'nullable|image|max:32000',
-            'house_type'=>'required | min:3 | max:200',
-            'room_type'=>'required | min:3 | max:200',
+            'house_type'=>'required|min:3|max:200',
+            'room_type'=>'required|min:3|max:200',
 
         ];
     }

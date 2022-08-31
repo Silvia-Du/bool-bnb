@@ -13,3 +13,46 @@
     background-color: rgb(167, 209, 199);
     color: rgb(34, 34, 34);
 }
+
+
+.box-house{
+    border-bottom: 1px solid gray;
+    img,.house-action,.house-info{
+        width: calc(100/3);
+    }
+    img{
+        width: 30%;
+    }
+    h6{
+        text-transform: uppercase;
+        font-weight: bold;
+    }
+
+    .house-action{
+        .btn{
+            display: block;
+            width: 100%;
+        }
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    .box-house{
+        border-bottom: 1px solid gray;
+        flex-direction: column;
+        img{
+            width: 100%;
+        }
+        h6{
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+
+        .house-action{
+            .btn{
+                display: block;
+                width: 100%;
+            }
+        }
+    }
+  }
