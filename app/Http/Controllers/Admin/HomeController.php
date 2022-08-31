@@ -1,7 +1,8 @@
 <?php
 
 namespace App\Http\Controllers\Admin;
-
+use App\User;
+use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
@@ -9,6 +10,8 @@ class HomeController extends Controller
 {
     public function index()
     {
-        return view('admin.home');
+        $user_id = Auth::id();
+        $user = User::find($user_id);
+        return view('admin.home', compact('user') );
     }
 }

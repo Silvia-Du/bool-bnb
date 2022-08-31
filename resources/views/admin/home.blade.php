@@ -44,6 +44,14 @@
                             </div>
                         </a>
                     </div>
+                    {{-- esempio per parti divise host & non --}}
+                    @if ($user->announcements)
+
+                    @else
+
+                    @endif
+                    {{-- fine esempio --}}
+
 
                     <div class="border border-black my-3 p-3">
                         <h3>Scopri tutti i vantaggi di diventare <b>Host</b></h3>
@@ -59,7 +67,7 @@
 
         {{-- Dashboard Host --}}
 
-        {{-- <div class="row align-items-md-stretch">
+        <div class="row align-items-md-stretch">
             <div class="col-md-6">
                 <div class="h-100 p-5 text-white bg-dark rounded text-center ">
                     <img src="https://upload.wikimedia.org/wikipedia/commons/8/89/Portrait_Placeholder.png"
@@ -104,7 +112,7 @@
 
                 </div>
             </div>
-        </div> --}}
+        </div>
 
     </div>
     </div>
