@@ -9284,14 +9284,20 @@ h3 {
 .box-house {
   border-bottom: 1px solid gray;
 }
-.box-house img, .box-house .house-action, .box-house .house-info {
-  width: 33.3333333333;
+.box-house .house-info {
+  padding: 10px;
+  border: 1px solid gray;
+  width: 50%;
 }
 .box-house img {
   width: 30%;
 }
 .box-house h6 {
   text-transform: uppercase;
+  display: block;
+  padding: 10px;
+  width: 100%;
+  background-color: #a7d1c7;
   font-weight: bold;
 }
 .box-house .house-action .btn {
@@ -9304,8 +9310,12 @@ h3 {
     border-bottom: 1px solid gray;
     flex-direction: column;
   }
+  .box-house .house-info {
+    width: 100%;
+  }
   .box-house img {
     width: 100%;
+    margin-bottom: 20px;
   }
   .box-house h6 {
     text-transform: uppercase;
