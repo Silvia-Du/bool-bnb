@@ -99,7 +99,6 @@ class AnnouncementController extends Controller
      */
     public function update(AnnouncementRequest $request, Announcement $announcement)
     {
-
         $data = $request->all();
 
         if (array_key_exists('image', $data)) {
