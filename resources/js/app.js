@@ -31,48 +31,14 @@ const app = new Vue({
     el: '#app',
 });
 
-/*user
-testi: min:3 max:255
-email: che ci sia chiocciola e punto?...classe di bootstrap
-isNan = non a number = true nn è un numero
-split('-'), reverse(), join();
-password: lunghezza, car.speciali, numero
- 
-bonus: immagine
- 
-*/
-
 const bntRegister = document.getElementById('btn-register');
 
-// const title =  document.querySelector('.edit.title');
-// const title =  document.querySelector('.create.title');
-
-
-// let eMailToCheck;
-
-// console.log(nameSurname);
-
 bntRegister.addEventListener('click', function () {
-    let check = true;
 
-    // const inputCollection = document.getElementsByClassName('js-data');
     const inputCollection = document.getElementsByClassName('js-data');
     const labelsCollection = document.getElementsByTagName('label');
 
-    const name = document.querySelector('.name.register');
-    const surname = document.querySelector('.surname.register');
-    const dateOfBirth = document.querySelector('.date-of-birth.register');
-    const eMail = document.querySelector('.email.register');
-    const password = document.querySelector('.password.register');
-    const passwordConfirm = document.querySelector('.password-confirm.register');
-
-    if (check) {
-        event.preventDefault();
-    }
-
     for (i = 0; i < inputCollection.length; i++) {
-        // console.log(inputCollection[i].parentNode.lastChild.tagName);
-
         if (inputCollection[i].value.length === 0) {
             printEmptyError(inputCollection[i], labelsCollection[i].textContent)
         } else {
@@ -82,11 +48,10 @@ bntRegister.addEventListener('click', function () {
 
 
     function printEmptyError(input, label) {
-
         const correctLabel = getCorrectedLabel(label);
         const error = document.createElement('p');
         error.classList.add('text-danger', 'm-0');
-        error.innerHTML = `Attenzione! Il campo ${correctLabel} è obbligatiorio`;
+        error.innerHTML = `Attenzione! Il campo ${correctLabel} è obbligatorio`;
         if (input.parentNode.lastChild.tagName === 'INPUT') {
             document.getElementById(input.parentNode.id).appendChild(error);
             errorToggle(input);
@@ -96,7 +61,6 @@ bntRegister.addEventListener('click', function () {
     }
 
     function errorToggle(input) {
-        // console.log(input);
         input.addEventListener('click', function () {
             if (input.parentNode.lastChild.tagName != 'INPUT') {
                 input.parentNode.lastChild.remove();
@@ -104,8 +68,101 @@ bntRegister.addEventListener('click', function () {
         })
     }
 
-    function printExactError(input, label) {
-        // console.log(input);
+    function printExactError(input) {
+        if(input.id === 'name'){
+            nameValidation(input);
+        }else if(input.id === 'surname'){
+            surnameValidation(input);
+        }else if(input.id === 'email'){
+            emailValidation(input);
+        }else if(input.id === 'password'){
+            passwordValidation(input);
+        }else if(input.id === 'password-confirm'){
+            confirmPassword(input);
+        }
+    }
+
+    function nameValidation(input){
+        const error = document.createElement('p');
+        error.classList.add('text-danger', 'm-0');
+        if(input.value.length < 3){
+            error.innerHTML = `Il nome deve contenere più di 3 caratteri`;
+            if (input.parentNode.lastChild.tagName === 'INPUT') {
+                document.getElementById(input.parentNode.id).appendChild(error);
+                errorToggle(input);
+            }
+        }else if(input.value.length > 20){
+            error.innerHTML = `Il nome deve contenere meno di 20 caratteri`;
+            if (input.parentNode.lastChild.tagName === 'INPUT') {
+                document.getElementById(input.parentNode.id).appendChild(error);
+                errorToggle(input);
+            }
+        }else if(!isNaN(input.value)){
+            error.innerHTML = `Il nome non può essere un numero`;
+            if (input.parentNode.lastChild.tagName === 'INPUT') {
+                document.getElementById(input.parentNode.id).appendChild(error);
+                errorToggle(input);
+            }
+        }
+    }
+
+    function surnameValidation(input){
+        const error = document.createElement('p');
+        error.classList.add('text-danger', 'm-0');
+        if(input.value.length < 3){
+            if (input.parentNode.lastChild.tagName === 'INPUT') {
+                error.innerHTML = `Il nome deve contenere più di 3 caratteri`;
+                document.getElementById(input.parentNode.id).appendChild(error);
+                errorToggle(input);
+            }
+        }else if(input.value.length > 20){
+            if (input.parentNode.lastChild.tagName === 'INPUT') {
+                error.innerHTML = `Il nome deve contenere meno di 20 caratteri`;
+                document.getElementById(input.parentNode.id).appendChild(error);
+                errorToggle(input);
+            }
+        }else if(!isNaN(input.value)){
+            error.innerHTML = `Il cognome non può essere un numero`;
+            if (input.parentNode.lastChild.tagName === 'INPUT') {
+                document.getElementById(input.parentNode.id).appendChild(error);
+                errorToggle(input);
+            }
+        }
+    }
+
+    function emailValidation(input){
+        let mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+        const error = document.createElement('p');
+        error.classList.add('text-danger', 'm-0');
+        if(!input.value.match(mailformat)){
+            if (input.parentNode.lastChild.tagName === 'INPUT') {
+                error.innerHTML = `Inserire un'email corretta`;
+                document.getElementById(input.parentNode.id).appendChild(error);
+                errorToggle(input);
+            }
+        }
+    }
+
+    function passwordValidation(input){
+        const error = document.createElement('p');
+        error.classList.add('text-danger', 'm-0');            
+        if(input.value.length < 8){
+            error.innerHTML = `Inserire una password con almeno 8 caratteri`;
+            document.getElementById(input.parentNode.id).appendChild(error);
+            errorToggle(input);
+        }
+        
+    }
+
+    function confirmPassword(input){
+        const error = document.createElement('p');
+        error.classList.add('text-danger', 'm-0');  
+        const passwordToCheck = document.getElementById('password');
+        if(input.value != passwordToCheck.value){
+            error.innerHTML = `Il campo e la password non combaciano`;
+            document.getElementById(input.parentNode.id).appendChild(error);
+            errorToggle(input);
+        }
     }
 
     function getCorrectedLabel(label) {
