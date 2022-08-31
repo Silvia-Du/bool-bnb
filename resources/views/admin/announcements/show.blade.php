@@ -23,6 +23,19 @@
                             <p>Nr stanze: {{ $announcement->rooms }}</p>
                             <p>Nr Letti: {{ $announcement->beds }}</p>
                             <p>Nr Bagni: {{ $announcement->bathrooms }}</p>
+
+                            <div class="d-flex flex-row-reverse">
+                                <a class="btn btn-warning"
+                                    href="{{ route('admin.announcements.index', $announcement) }}">BACK</a>
+                                <a class="btn btn-success mx-2"
+                                    href="{{ route('admin.announcements.edit', $announcement) }}">MODIFICA</a>
+                                <form action="{{ route('admin.announcements.destroy', $announcement) }}" method="POST"
+                                    onsubmit="return confirm('Stai per cancellare questo annuncio, confermi?')">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button class="btn btn-danger" type="submit">DELETE</button>
+                                </form>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -39,7 +52,17 @@
                     <p class="lead">Sponsorizzazione</p>
                 </div>
             </div>
+
+            {{-- Chart.Js --}}
+            <div class="card my-3">
+                <div class="card-body">
+                    <p class="lead">Statistiche annuncio</p>
+
+                    <img src="https://api.backlinko.com/app/uploads/2021/06/airbnb-revenue.png"
+                        class="img-fluid d-block mx-lg-auto rounded" alt="chart example" width="700" height="250">
+
+                </div>
+            </div>
         </div>
     </div>
-
 @endsection
