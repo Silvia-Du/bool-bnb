@@ -49517,152 +49517,225 @@ Vue.component('example-component', __webpack_require__(/*! ./components/ExampleC
 
 var app = new Vue({
   el: '#app'
-});
+}); // //btn
+
 var bntRegister = document.getElementById('btn-register');
-bntRegister.addEventListener('click', function () {
-  var inputCollection = document.getElementsByClassName('js-data');
-  var labelsCollection = document.getElementsByTagName('label');
+var btnLogin = document.getElementById('btn-login');
+var btnEdit = document.getElementById('btn-edit'); // bntRegister.addEventListener('click', function () {
+//     const inputCollection = document.getElementsByClassName('js-data');
+//     const labelsCollection = document.getElementsByTagName('label');
+//     for (i = 0; i < inputCollection.length; i++) {
+//         if (inputCollection[i].value.length === 0) {
+//             printEmptyError(inputCollection[i], labelsCollection[i].textContent)
+//         } else {
+//             printExactError(inputCollection[i], labelsCollection[i].textContent);
+//         }
+//     }
+//     function printEmptyError(input, label) {
+//         const correctLabel = getCorrectedLabel(label);
+//         const error = document.createElement('p');
+//         error.classList.add('text-danger', 'm-0');
+//         error.innerHTML = `Attenzione! Il campo ${correctLabel} è obbligatorio`;
+//         if (input.parentNode.lastChild.tagName === 'INPUT') {
+//             document.getElementById(input.parentNode.id).appendChild(error);
+//             errorToggle(input);
+//         } else {
+//             error.remove();
+//         }
+//     }
+//     function errorToggle(input) {
+//         input.addEventListener('click', function () {
+//             if (input.parentNode.lastChild.tagName != 'INPUT') {
+//                 input.parentNode.lastChild.remove();
+//             }
+//         })
+//     }
+//     function printExactError(input) {
+//         if(input.id === 'name'){
+//             nameValidation(input);
+//         }else if(input.id === 'surname'){
+//             surnameValidation(input);
+//         }else if(input.id === 'email'){
+//             emailValidation(input);
+//         }else if(input.id === 'password'){
+//             passwordValidation(input);
+//         }else if(input.id === 'password-confirm'){
+//             confirmPassword(input);
+//         }
+//     }
+//     function nameValidation(input){
+//         const error = document.createElement('p');
+//         error.classList.add('text-danger', 'm-0');
+//         if(input.value.length < 3){
+//             error.innerHTML = `Il nome deve contenere più di 3 caratteri`;
+//             if (input.parentNode.lastChild.tagName === 'INPUT') {
+//                 document.getElementById(input.parentNode.id).appendChild(error);
+//                 errorToggle(input);
+//             }
+//         }else if(input.value.length > 20){
+//             error.innerHTML = `Il nome deve contenere meno di 20 caratteri`;
+//             if (input.parentNode.lastChild.tagName === 'INPUT') {
+//                 document.getElementById(input.parentNode.id).appendChild(error);
+//                 errorToggle(input);
+//             }
+//         }else if(!isNaN(input.value)){
+//             error.innerHTML = `Il nome non può essere un numero`;
+//             if (input.parentNode.lastChild.tagName === 'INPUT') {
+//                 document.getElementById(input.parentNode.id).appendChild(error);
+//                 errorToggle(input);
+//             }
+//         }
+//     }
+//     function surnameValidation(input){
+//         const error = document.createElement('p');
+//         error.classList.add('text-danger', 'm-0');
+//         if(input.value.length < 3){
+//             if (input.parentNode.lastChild.tagName === 'INPUT') {
+//                 error.innerHTML = `Il nome deve contenere più di 3 caratteri`;
+//                 document.getElementById(input.parentNode.id).appendChild(error);
+//                 errorToggle(input);
+//             }
+//         }else if(input.value.length > 20){
+//             if (input.parentNode.lastChild.tagName === 'INPUT') {
+//                 error.innerHTML = `Il nome deve contenere meno di 20 caratteri`;
+//                 document.getElementById(input.parentNode.id).appendChild(error);
+//                 errorToggle(input);
+//             }
+//         }else if(!isNaN(input.value)){
+//             error.innerHTML = `Il cognome non può essere un numero`;
+//             if (input.parentNode.lastChild.tagName === 'INPUT') {
+//                 document.getElementById(input.parentNode.id).appendChild(error);
+//                 errorToggle(input);
+//             }
+//         }
+//     }
+//     function emailValidation(input){
+//         let mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+//         const error = document.createElement('p');
+//         error.classList.add('text-danger', 'm-0');
+//         if(!input.value.match(mailformat)){
+//             if (input.parentNode.lastChild.tagName === 'INPUT') {
+//                 error.innerHTML = `Inserire un'email corretta`;
+//                 document.getElementById(input.parentNode.id).appendChild(error);
+//                 errorToggle(input);
+//             }
+//         }
+//     }
+//     function passwordValidation(input){
+//         const error = document.createElement('p');
+//         error.classList.add('text-danger', 'm-0');
+//         if(input.value.length < 8){
+//             error.innerHTML = `Inserire una password con almeno 8 caratteri`;
+//             document.getElementById(input.parentNode.id).appendChild(error);
+//             errorToggle(input);
+//         }
+//     }
+//     function confirmPassword(input){
+//         const error = document.createElement('p');
+//         error.classList.add('text-danger', 'm-0');
+//         const passwordToCheck = document.getElementById('password');
+//         if(input.value != passwordToCheck.value){
+//             error.innerHTML = `Il campo e la password non combaciano`;
+//             document.getElementById(input.parentNode.id).appendChild(error);
+//             errorToggle(input);
+//         }
+//     }
+//     function getCorrectedLabel(label) {
+//         let correctLabel = label.slice(0, label.length - 2)
+//         return correctLabel;
+//     }
+// });
+//collection
 
-  for (i = 0; i < inputCollection.length; i++) {
-    if (inputCollection[i].value.length === 0) {
-      printEmptyError(inputCollection[i], labelsCollection[i].textContent);
-    } else {
-      printExactError(inputCollection[i], labelsCollection[i].textContent);
+var loginCollection = document.getElementsByClassName('login-data'); //data condivisi
+
+var eMail = document.getElementById('email');
+var surname = document.getElementById('surname');
+var name = document.getElementById('name');
+var password = document.getElementById('password');
+var numericMin = ['rooms', 'beds', 'bathrooms'];
+var stringMinMax = ['title', 'city', 'country', 'room_type', 'house_type'];
+var title = document.querySelector('.edit.title');
+var errorsAny = false;
+btnEdit.addEventListener('click', function () {
+  console.log('sono dentro');
+  var editCollection = document.getElementsByClassName('edit-data');
+
+  for (i = 0; i < editCollection.length; i++) {
+    if (editCollection[i].value.length == 0) {
+      alert("Attenzione! il campo ".concat(editCollection[i].name, " \xE8 obbligatorio"));
+      errorsAny = true;
+    }
+
+    if (editCollection[i].name === 'mq') {
+      if (editCollection[i].value < 30) {
+        alert("Attenzione! la dimensione deve essere almeno di 30 mq");
+        errorsAny = true;
+      } // else if(isNaN(editCollection[i].value)){
+      //     alert(`Attenzione! il valore di ${editCollection[i].name} deve essere un numero` );
+      //     errorsAny = true;
+      // }
+
+    }
+
+    if (editCollection[i].name === 'address') {
+      if (editCollection[i].value.length < 7 || editCollection[i].value.length > 200) {
+        alert("Attenzione! l'indirizzo deve avere almeno 7 caratteri e non superare i 200");
+        errorsAny = true;
+      } // else if(!isNaN(editCollection[i].value)){
+      //     alert(`Attenzione! il valore di ${editCollection[i].name} non può essere un numero` );
+      //     errorsAny = true;
+      // }
+
+    }
+
+    if (stringMinMax.includes(editCollection[i].name)) {
+      if (editCollection[i].value.length < 3) {
+        alert("Attenzione! il valore di ".concat(editCollection[i].name, " deve essere superiore a 3 caratteri"));
+        errorsAny = true;
+      } // else if(!isNaN(editCollection[i].value)){
+      //     alert(`Attenzione! il valore di ${editCollection[i].name} non può essere un numero` );
+      //     errorsAny = true;
+      // }
+
+    }
+
+    if (numericMin.includes(editCollection[i].name)) {
+      if (editCollection[i].value < 1) {
+        alert("Attenzione! il valore di ".concat(editCollection[i].name, " deve avere valore minimo 1"));
+        errorsAny = true;
+      } // else if(isNaN(editCollection[i].value)){
+      //     alert(`Attenzione! il valore di ${editCollection[i].name} deve essere un numero` );
+      //     errorsAny = true;
+      // }
+
     }
   }
 
-  function printEmptyError(input, label) {
-    var correctLabel = getCorrectedLabel(label);
-    var error = document.createElement('p');
-    error.classList.add('text-danger', 'm-0');
-    error.innerHTML = "Attenzione! Il campo ".concat(correctLabel, " \xE8 obbligatorio");
+  console.log(errorsAny);
 
-    if (input.parentNode.lastChild.tagName === 'INPUT') {
-      document.getElementById(input.parentNode.id).appendChild(error);
-      errorToggle(input);
-    } else {
-      error.remove();
-    }
+  if (errorsAny) {
+    event.preventDefault(); // errorsAny = false;
   }
-
-  function errorToggle(input) {
-    input.addEventListener('click', function () {
-      if (input.parentNode.lastChild.tagName != 'INPUT') {
-        input.parentNode.lastChild.remove();
-      }
-    });
-  }
-
-  function printExactError(input) {
-    if (input.id === 'name') {
-      nameValidation(input);
-    } else if (input.id === 'surname') {
-      surnameValidation(input);
-    } else if (input.id === 'email') {
-      emailValidation(input);
-    } else if (input.id === 'password') {
-      passwordValidation(input);
-    } else if (input.id === 'password-confirm') {
-      confirmPassword(input);
-    }
-  }
-
-  function nameValidation(input) {
-    var error = document.createElement('p');
-    error.classList.add('text-danger', 'm-0');
-
-    if (input.value.length < 3) {
-      error.innerHTML = "Il nome deve contenere pi\xF9 di 3 caratteri";
-
-      if (input.parentNode.lastChild.tagName === 'INPUT') {
-        document.getElementById(input.parentNode.id).appendChild(error);
-        errorToggle(input);
-      }
-    } else if (input.value.length > 20) {
-      error.innerHTML = "Il nome deve contenere meno di 20 caratteri";
-
-      if (input.parentNode.lastChild.tagName === 'INPUT') {
-        document.getElementById(input.parentNode.id).appendChild(error);
-        errorToggle(input);
-      }
-    } else if (!isNaN(input.value)) {
-      error.innerHTML = "Il nome non pu\xF2 essere un numero";
-
-      if (input.parentNode.lastChild.tagName === 'INPUT') {
-        document.getElementById(input.parentNode.id).appendChild(error);
-        errorToggle(input);
-      }
-    }
-  }
-
-  function surnameValidation(input) {
-    var error = document.createElement('p');
-    error.classList.add('text-danger', 'm-0');
-
-    if (input.value.length < 3) {
-      if (input.parentNode.lastChild.tagName === 'INPUT') {
-        error.innerHTML = "Il nome deve contenere pi\xF9 di 3 caratteri";
-        document.getElementById(input.parentNode.id).appendChild(error);
-        errorToggle(input);
-      }
-    } else if (input.value.length > 20) {
-      if (input.parentNode.lastChild.tagName === 'INPUT') {
-        error.innerHTML = "Il nome deve contenere meno di 20 caratteri";
-        document.getElementById(input.parentNode.id).appendChild(error);
-        errorToggle(input);
-      }
-    } else if (!isNaN(input.value)) {
-      error.innerHTML = "Il cognome non pu\xF2 essere un numero";
-
-      if (input.parentNode.lastChild.tagName === 'INPUT') {
-        document.getElementById(input.parentNode.id).appendChild(error);
-        errorToggle(input);
-      }
-    }
-  }
-
-  function emailValidation(input) {
-    var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-    var error = document.createElement('p');
-    error.classList.add('text-danger', 'm-0');
-
-    if (!input.value.match(mailformat)) {
-      if (input.parentNode.lastChild.tagName === 'INPUT') {
-        error.innerHTML = "Inserire un'email corretta";
-        document.getElementById(input.parentNode.id).appendChild(error);
-        errorToggle(input);
-      }
-    }
-  }
-
-  function passwordValidation(input) {
-    var error = document.createElement('p');
-    error.classList.add('text-danger', 'm-0');
-
-    if (input.value.length < 8) {
-      error.innerHTML = "Inserire una password con almeno 8 caratteri";
-      document.getElementById(input.parentNode.id).appendChild(error);
-      errorToggle(input);
-    }
-  }
-
-  function confirmPassword(input) {
-    var error = document.createElement('p');
-    error.classList.add('text-danger', 'm-0');
-    var passwordToCheck = document.getElementById('password');
-
-    if (input.value != passwordToCheck.value) {
-      error.innerHTML = "Il campo e la password non combaciano";
-      document.getElementById(input.parentNode.id).appendChild(error);
-      errorToggle(input);
-    }
-  }
-
-  function getCorrectedLabel(label) {
-    var correctLabel = label.slice(0, label.length - 2);
-    return correctLabel;
-  }
-});
+}); // btnLogin.addEventListener('click', function(){
+//     let errorsAny = false;
+//     while(errorsAny = true){
+//         event.preventDefault();
+//         errorsAny = false;
+//         for(i=0; i< loginCollection.length ; i++){
+//             if(loginCollection[i].value.length == 0){
+//                 alert(`Attenzione! il campo ${loginCollection[i].name} è obbligatorio`);
+//                 errorsAny = true;
+//             }
+//         }
+//         if(password.value.length < 8 && password.value.length != 0){
+//             alert(`Attenzione! il campo ${password.name} deve avere minimo 8 caratteri`);
+//             errorsAny = true;
+//         }
+//         console.log(errorsAny);
+//     }
+//     //va messo nell'html del form il codice per la verifica e-mail
+// })
 
 /***/ }),
 

@@ -29,7 +29,7 @@ class AnnouncementRequest extends FormRequest
             'rooms'=>'required | min:1 | numeric',
             'beds'=>'required | min:1 | numeric',
             'bathrooms'=>'required | min:1 | numeric',
-            'mq'=>'required | min:15 | numeric',
+            'mq'=>'required | min:30 | numeric',
             'address'=>'required | min:7 | max:200',
             'city'=>'required | min:2 | max:250',
             'country'=>'required | min:2 | max:250',

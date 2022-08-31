@@ -62,7 +62,7 @@
                       </svg> Immagine</label>
                       <input type="file"
                       onchange="showImage(event)"
-                      class="edit-data form-control @error('image') is-invalid @enderror"
+                      class=" form-control @error('image') is-invalid @enderror"
                       id="image" name="image" >
                       @error('image')
                           <p class="text-danger"> {{$message}} </p>
@@ -152,12 +152,13 @@
             </form>
         </div>
     </div>
-</div>>
-<script>
+</div>
+{{-- <script>
     var showImage = function(event) {
         const image = document.getElementById('output-image');
         image.src = URL.createObjectURL(event.target.files[0]);
     };
-</script>
+
+</script> --}}
 @endsection
 
