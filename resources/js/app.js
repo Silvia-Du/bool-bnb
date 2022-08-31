@@ -93,27 +93,29 @@ const stringMinMax = ['title', 'city', 'country', 'room_type', 'house_type'];
 // })
 
 
-btnLogin.addEventListener('click', function(){
-    let errorsAny = false;
-        event.preventDefault();
-        errorsAny = false;
-        for(i=0; i< loginCollection.length ; i++){
+// btnLogin.addEventListener('click', function(){
+//     let errorsAny = false;
 
-            if(loginCollection[i].value.length == 0){
-                alert(`Attenzione! il campo ${loginCollection[i].name} è obbligatorio`);
-                errorsAny = true;
-            }
-        }
+//     while(errorsAny = true){
+//         event.preventDefault();
+//         errorsAny = false;
+//         for(i=0; i< loginCollection.length ; i++){
 
-        if(password.value.length < 8 && password.value.length != 0){
-            alert(`Attenzione! il campo ${password.name} deve avere minimo 8 caratteri`);
-            errorsAny = true;
-        }
-        console.log(errorsAny);
-    }
-    //va messo nell'html del form il codice per la verifica e-mail
+//             if(loginCollection[i].value.length == 0){
+//                 alert(`Attenzione! il campo ${loginCollection[i].name} è obbligatorio`);
+//                 errorsAny = true;
+//             }
+//         }
 
-})
+//         if(password.value.length < 8 && password.value.length != 0){
+//             alert(`Attenzione! il campo ${password.name} deve avere minimo 8 caratteri`);
+//             errorsAny = true;
+//         }
+//         console.log(errorsAny);
+//     }
+//     //va messo nell'html del form il codice per la verifica e-mail
+
+// })
 
 
 

@@ -22,6 +22,8 @@ class AnnouncementRequest extends FormRequest
      */
     public function rules()
     {
+
+
         return [
 
             'title'=>'required | min:3 | max:255 | unique:announcements',
@@ -38,6 +40,7 @@ class AnnouncementRequest extends FormRequest
             'room_type'=>'required | min:3 | max:200',
 
         ];
+        dd('sono dentro');
     }
 
     // public function messages()

@@ -31,7 +31,7 @@ class AnnouncementController extends Controller
      */
     public function create()
     {
-        
+
         return view('admin.announcements.create');
     }
 
@@ -99,7 +99,7 @@ class AnnouncementController extends Controller
      */
     public function update(AnnouncementRequest $request, Announcement $announcement)
     {
-
+        dd('ciao');
         $data = $request->all();
 
         if (array_key_exists('image', $data)) {
