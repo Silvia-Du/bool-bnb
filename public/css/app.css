@@ -9280,3 +9280,39 @@ h3 {
   background-color: rgb(167, 209, 199);
   color: rgb(34, 34, 34);
 }
+
+.box-house {
+  border-bottom: 1px solid gray;
+}
+.box-house img, .box-house .house-action, .box-house .house-info {
+  width: 33.3333333333;
+}
+.box-house img {
+  width: 30%;
+}
+.box-house h6 {
+  text-transform: uppercase;
+  font-weight: bold;
+}
+.box-house .house-action .btn {
+  display: block;
+  width: 100%;
+}
+
+@media screen and (max-width: 1000px) {
+  .box-house {
+    border-bottom: 1px solid gray;
+    flex-direction: column;
+  }
+  .box-house img {
+    width: 100%;
+  }
+  .box-house h6 {
+    text-transform: uppercase;
+    font-weight: bold;
+  }
+  .box-house .house-action .btn {
+    display: block;
+    width: 100%;
+  }
+}
