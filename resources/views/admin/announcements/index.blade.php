@@ -9,8 +9,8 @@
     </div>
 @endif
 
-<h1>Elenco annunci</h1>
-<a class="btn btn-rounded-plus mb-3 ml-5" href="{{ route('admin.announcements.create') }}">
+<h1 class="text-center">Elenco annunci</h1>
+<a class="btn btn-rounded-plus mb-3 ml-5 text-center" href="{{ route('admin.announcements.create') }}">
     {{-- btn-edit --}}
     Crea un nuovo articolo
     <i class="fa-solid fa-file-pen"></i>
@@ -25,65 +25,49 @@
     @if (count($announcements) > 0)
 
 
-    <div class="container-fluid px-5">
+    <div class="container-fluid  px-5">
 
-        <table class="table">
-            <thead>
-                <tr>
-                    <th scope="col">#ID</th>
-                    <th scope="col">Titlo</th>
-                    <th scope="col">Camere</th>
-                    <th scope="col">Letti</th>
-                    <th scope="col">Bagni</th>
-                    <th scope="col">mq</th>
-                    <th scope="col">indirizzo</th>
-                    <th scope="col">Tipologia alloggio</th>
-                    <th scope="col">Tipologia camera</th>
-                    <th scope="col">Pubblico</th>
-                    <th scope="col">Azioni</th>
-                </tr>
-            </thead>
-            <tbody>
+
+
+            <div class="row ">
                 @foreach ($announcements as $announcement)
-                    <tr>
-                        <th scope="row">{{ $announcement->id }}</th>
 
-                        <td>{{ $announcement->title }}</td>
-                        <td>{{ $announcement->rooms }}</td>
-                        <td>{{ $announcement->beds }}</td>
-                        <td>{{ $announcement->bathrooms }}</td>
-                        <td>{{ $announcement->mq }}</td>
-                        <td>{{ $announcement->address . ',' . $announcement->city . ',' . $announcement->country }} </td>
-                        <td>{{ $announcement->house_type }}</td>
-                        <td>{{ $announcement->room_type }}</td>
-                        <td>{{ $announcement->is_visible }}</td>
+                    <div class="box-house  col-sm-12 col-lg-12   container-fluid d-flex justify-content-around p-4 ">
+                        <img src="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/suburban-house-royalty-free-image-1584972559.jpg" alt="">
+                        <div class=" house-info py-4 ">
+                            <h6> indirizzo:</h6>
+                            <p>{{ $announcement->address  }}</p>
+                            <p>{{ $announcement->city }}</p>
+                            <p>{{ $announcement->country }}</p>
+                            <h6> tipologia camera:</h6>
+                            <p>{{ $announcement->house_type }}</p>
+                            <h6> status:</h6>
+                            @if ($announcement->is_visible == 1)
+                            <p>Pubblico</p>
+                            @else
+                            <p>Privato</p>
+                            @endif
 
+                        </div>
 
-                        <td >
-                            <a class="btn btn-warning"
-                                href="{{ route('admin.announcements.show', $announcement) }}">VEDI</a>
-                            <a class="btn btn-success"
-                                href="{{ route('admin.announcements.edit', $announcement) }}">MODIFICA</a>
-                            <form class="d-inline" action="{{ route('admin.announcements.destroy', $announcement) }}" method="POST"
+                        <div class="house-action  justify-content-center py-4">
+                            <a class="btn btn-warning my-3"
+                            href="{{ route('admin.announcements.show', $announcement) }}">VEDI</a>
+                            <a class="btn btn-success my-3"
+                            href="{{ route('admin.announcements.edit', $announcement) }}">MODIFICA</a>
+                            <form action="{{ route('admin.announcements.destroy', $announcement) }}" method="POST"
                                 onsubmit="return confirm('Stai per cancellare questo annuncio, confermi?')">
                                 @csrf
                                 @method('DELETE')
                                 <button class="btn btn-danger" type="submit">DELETE</button>
                             </form>
-                            {{-- <form
-                        onsubmit="return confirm('Confermi l\'eliminazione del post: {{$announcement->title}}?')"
-                        class="d-inline" action="{{ route('admin.posts.destroy', $announcement) }}" method="POST">
-                        @csrf
-                        @method('DELETE')
-                        <button type="submit" class="btn btn-danger" >ELIMINA</button>
-                        </form> --}}
-                        </td>
-                    </tr>
+                        </div>
+                    </div>
+
                 @endforeach
+            </div>
 
 
-            </tbody>
-        </table>
     </div>
     @endif
     {{-- {{ $announcements->links() }} --}}
