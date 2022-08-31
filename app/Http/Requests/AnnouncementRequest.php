@@ -22,8 +22,9 @@ class AnnouncementRequest extends FormRequest
      */
     public function rules()
     {
-        return [
 
+
+        return [
             'title'=>'required|min:3|max:255|unique:announcements',
             'rooms'=>'required|min:1|numeric',
             'description'=>'required|min:10|max:400',
@@ -36,7 +37,6 @@ class AnnouncementRequest extends FormRequest
             'image'=>'nullable|image|max:32000',
             'house_type'=>'required|min:3|max:200',
             'room_type'=>'required|min:3|max:200',
-
         ];
     }
 

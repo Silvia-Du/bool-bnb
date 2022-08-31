@@ -11,7 +11,7 @@
     {{-- title --}}
     <div class="mb-3">
         <label for="title" class="form-label">Titolo annuncio</label>
-            <input type="text" class="form-control @error('title') is-invalid @enderror" name="title" id="title" value="{{ old('title',$announcement->title)}}">
+            <input type="text" class="edit-data form-control @error('title') is-invalid @enderror" name="title" id="title" value="{{ old('title',$announcement->title)}}">
 
             @error('title')
             <p class="text-danger">{{$message}}</p>
@@ -21,7 +21,7 @@
     {{-- address --}}
     <div class="mb-3">
         <label for="address" class="form-label">Indirizzo</label>
-            <input type="text" class="form-control @error('address') is-invalid @enderror" name="address" id="address" value="{{ old('address',$announcement->address)}}">
+            <input type="text" class="edit-data form-control @error('address') is-invalid @enderror" name="address" id="address" value="{{ old('address',$announcement->address)}}">
 
             @error('address')
             <p class="text-danger">{{$message}}</p>
@@ -31,16 +31,16 @@
     {{-- city --}}
     <div class="mb-3">
     <label for="city" class="form-label">Città</label>
-        <input type="text" class="form-control @error('city') is-invalid @enderror" name="city" id="city" value="{{ old('city',$announcement->city)}}">
+        <input type="text" class="edit-data form-control @error('city') is-invalid @enderror" name="city" id="city" value="{{ old('city',$announcement->city)}}">
 
         @error('city')
         <p class="text-danger">{{$message}}</p>
         @enderror
     </div>
-
+    {{-- country --}}
     <div class="mb-3">
     <label for="country" class="form-label">Nazione</label>
-        <input type="text" class="form-control @error('country') is-invalid @enderror" name="country" id="country" value="{{ old('country',$announcement->country)}}">
+        <input type="text" class="edit-data form-control @error('country') is-invalid @enderror" name="country" id="country" value="{{ old('country',$announcement->country)}}">
 
         @error('country')
         <p class="text-danger">{{$message}}</p>
@@ -69,7 +69,7 @@
     {{-- mq --}}
     <div class="mb-3">
     <label for="mq" class="form-label">Metri Quadri</label>
-        <input type="text" class="form-control @error('mq') is-invalid @enderror" name="mq" id="mq" value="{{ old('mq',$announcement->mq)}}">
+        <input type="text" class="edit-data form-control @error('mq') is-invalid @enderror" name="mq" id="mq" value="{{ old('mq',$announcement->mq)}}">
 
         @error('mq')
         <p class="text-danger">{{$message}}</p>
@@ -79,7 +79,7 @@
     {{-- stanze --}}
     <div class="mb-3">
     <label for="rooms" class="form-label">Numero Stanze</label>
-        <input type="text" class="form-control @error('rooms') is-invalid @enderror" name="rooms" id="rooms" value="{{ old('rooms',$announcement->rooms)}}">
+        <input type="text" class="edit-data form-control @error('rooms') is-invalid @enderror" name="rooms" id="rooms" value="{{ old('rooms',$announcement->rooms)}}">
 
         @error('rooms')
         <p class="text-danger">{{$message}}</p>
@@ -89,7 +89,7 @@
     {{-- beds --}}
     <div class="mb-3">
     <label for="beds" class="form-label">Numero letti</label>
-        <input type="text" class="form-control @error('beds') is-invalid @enderror" name="beds" id="beds" value="{{ old('beds',$announcement->beds)}}">
+        <input type="text" class="edit-data form-control @error('beds') is-invalid @enderror" name="beds" id="beds" value="{{ old('beds',$announcement->beds)}}">
 
         @error('beds')
         <p class="text-danger">{{$message}}</p>
@@ -99,7 +99,7 @@
     {{-- bathroom --}}
     <div class="mb-3">
     <label for="bathrooms" class="form-label">Numero bagni</label>
-        <input type="text" class="form-control @error('bathrooms') is-invalid @enderror" name="bathrooms" id="bathrooms" value="{{ old('bathrooms',$announcement->bathrooms)}}">
+        <input type="text" class="edit-data form-control @error('bathrooms') is-invalid @enderror" name="bathrooms" id="bathrooms" value="{{ old('bathrooms',$announcement->bathrooms)}}">
 
         @error('bathrooms')
         <p class="text-danger">{{$message}}</p>
@@ -109,7 +109,7 @@
     {{-- house-type --}}
     <div class="mb-3">
     <label for="house_type" class="form-label">Tipo di Casa</label>
-        <input type="text" class="form-control @error('house_type') is-invalid @enderror" name="house_type" id="house_type" value="{{ old('house_type',$announcement->house_type)}}">
+        <input type="text" class="edit-data form-control @error('house_type') is-invalid @enderror" name="house_type" id="house_type" value="{{ old('house_type',$announcement->house_type)}}">
 
         @error('house_type')
         <p class="text-danger">{{$message}}</p>
@@ -119,7 +119,7 @@
     {{-- room-type --}}
     <div class="mb-3">
     <label for="room_type" class="form-label">Tipo di Stanza</label>
-        <input type="text" class="form-control @error('room_type') is-invalid @enderror" name="room_type" id="room_type" value="{{ old('room_type',$announcement->room_type)}}">
+        <input type="text" class="edit-data form-control @error('room_type') is-invalid @enderror" name="room_type" id="room_type" value="{{ old('room_type',$announcement->room_type)}}">
 
         @error('room_type')
         <p class="text-danger">{{$message}}</p>
@@ -129,14 +129,14 @@
     {{-- content --}}
     <div class="mb-3">
         <label for="content" class="form-label">Descrizione</label>
-            <input type="text" class="form-control @error('content') is-invalid @enderror" name="content" id="content" value="{{ old('content',$announcement->content)}}">
+            <input type="text" class="edit-data form-control @error('content') is-invalid @enderror" name="content" id="content" value="{{ old('content',$announcement->content)}}">
 
             @error('content')
             <p class="text-danger">{{$message}}</p>
             @enderror
     </div>
 
-    <button type="submit" class="btn btn-primary">Invia</button>
+    <button id="btn-edit" type="submit" class="btn btn-primary">Invia</button>
 </form>
 </div>
 

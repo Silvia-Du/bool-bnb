@@ -49517,72 +49517,73 @@ Vue.component('example-component', __webpack_require__(/*! ./components/ExampleC
 
 var app = new Vue({
   el: '#app'
-});
-/*user
-testi: min:3 max:255
-email: che ci sia chiocciola e punto?...classe di bootstrap
-isNan = non a number = true nn è un numero
-split('-'), reverse(), join();
-password: lunghezza, car.speciali, numero
-
-bonus: immagine
-
-*/
+}); //btn
 
 var bntRegister = document.getElementById('btn-register');
+var btnLogin = document.getElementById('btn-login');
+var btnEdit = document.getElementById('btn-edit'); //collection
+
 var dataCollection = document.getElementsByClassName('js-data');
+var loginCollection = document.getElementsByClassName('login-data');
+var editCollection = document.getElementsByClassName('edit-data'); //data condivisi
+
 var eMail = document.getElementById('email');
 var surname = document.getElementById('surname');
-var name = document.getElementById('name'); // const title =  document.querySelector('.edit.title');
-// const title =  document.querySelector('.create.title');
-// let eMailToCheck;
-
-var check = true; // console.log(nameSurname);
-
-bntRegister.addEventListener('click', function () {
-  if (check = true) {
-    event.preventDefault();
-  } // for (const data of dataCollection) {
-  //     console.log(data.value.length);
-  //     if(data.value.lenght === 0){
-  //                 alert(`Attenzione! il campo ${data.value} è obbligatorio`);
-  //             }
-  //     if(data.value.length <= 0){
-  //         alert(`Attenzione! il campo ${data.value} è obbligatorio`);
-  //     }
-  // }
-  // dataCollection.forEach(element => {
-  //     console.log(element.value);
-  // });
-
-
-  for (i = 0; i < dataCollection.length; i++) {
-    console.log(dataCollection[i].value);
-
-    if (dataCollection[i].value.length == 0) {
-      alert("Attenzione! il campo ".concat(dataCollection[i].name, " \xE8 obbligatorio"));
-    }
-  } // console.log(typeof name);
-  // console.log(name.length);
-
-
-  if (name.length < 3 || name.length > 100) {
-    alert('il campo nome deve essere compreso tra i 3 e i 100 caratteri');
-  }
-
-  if (surname.length < 3 || name.length > 100) {
-    alert('il campo cognome deve essere compreso tra i 3 e i 100 caratteri');
-  }
-
-  var eMailToCheck = eMail.value.split('');
-  console.log(eMailToCheck.includes('@'));
-  if (eMailToCheck.includes('@')) console.log(eMail);
-  console.log(eMailToCheck);
-});
-
-if (eMail.length == 0) {
-  alert('la mail è obbligatoria');
-}
+var name = document.getElementById('name');
+var password = document.getElementById('password');
+var numericMin = ['rooms', 'beds', 'bathrooms'];
+var stringMinMax = ['title', 'city', 'country', 'room_type', 'house_type']; // const title =  document.querySelector('.edit.title');
+// btnEdit.addEventListener('click', function(){
+//     let errorsAny = false;
+//     for(i=0; i< editCollection.length ; i++){
+//         if(editCollection[i].value.length == 0){
+//             alert(`Attenzione! il campo ${editCollection[i].name} è obbligatorio`);
+//             errorsAny = true;
+//         }
+//         for(let data of numericMin){
+//             if(editCollection[i].name == data){
+//                 if(editCollection[i].value < 1){
+//                     alert(`Attenzione! il valore minimo per ${editCollection[i].name} è 1` )
+//                     errorsAny = true;
+//                 }
+//             }
+//         }
+//         for(let data of stringMinMax){
+//             if(editCollection[i].name == data){
+//                 if(editCollection[i].value.length < 3){
+//                     alert(`Attenzione! il campo ${editCollection[i].name} deve avere minimo 3 caratteri`)
+//                     errorsAny = true;
+//                 }
+//                 if(editCollection[i].value.length > 200){
+//                     alert(`Attenzione! il campo ${editCollection[i].name} può avere massimo 200 caratteri`)
+//                     errorsAny = true;
+//                 }
+//             }
+//         }
+//     }
+//     if(errorsAny = true){
+//         event.preventDefault();
+//     }
+// })
+// btnLogin.addEventListener('click', function(){
+//     let errorsAny = false;
+//     while(errorsAny = true){
+//         event.preventDefault();
+//         errorsAny = false;
+//         for(i=0; i< loginCollection.length ; i++){
+//             if(loginCollection[i].value.length == 0){
+//                 alert(`Attenzione! il campo ${loginCollection[i].name} è obbligatorio`);
+//                 errorsAny = true;
+//             }
+//         }
+//         if(password.value.length < 8 && password.value.length != 0){
+//             alert(`Attenzione! il campo ${password.name} deve avere minimo 8 caratteri`);
+//             errorsAny = true;
+//         }
+//         console.log(errorsAny);
+//     }
+//     //va messo nell'html del form il codice per la verifica e-mail
+// })
 
 /***/ }),
 
