@@ -31,7 +31,10 @@ const app = new Vue({
     el: '#app',
 });
 
+// //btn
 const bntRegister = document.getElementById('btn-register');
+const btnLogin = document.getElementById('btn-login');
+const btnEdit = document.getElementById('btn-edit');
 
 bntRegister.addEventListener('click', function () {
 
@@ -45,7 +48,6 @@ bntRegister.addEventListener('click', function () {
             printExactError(inputCollection[i], labelsCollection[i].textContent);
         }
     }
-
 
     function printEmptyError(input, label) {
         const correctLabel = getCorrectedLabel(label);
@@ -145,18 +147,18 @@ bntRegister.addEventListener('click', function () {
 
     function passwordValidation(input){
         const error = document.createElement('p');
-        error.classList.add('text-danger', 'm-0');            
+        error.classList.add('text-danger', 'm-0');
         if(input.value.length < 8){
             error.innerHTML = `Inserire una password con almeno 8 caratteri`;
             document.getElementById(input.parentNode.id).appendChild(error);
             errorToggle(input);
         }
-        
+
     }
 
     function confirmPassword(input){
         const error = document.createElement('p');
-        error.classList.add('text-danger', 'm-0');  
+        error.classList.add('text-danger', 'm-0');
         const passwordToCheck = document.getElementById('password');
         if(input.value != passwordToCheck.value){
             error.innerHTML = `Il campo e la password non combaciano`;
@@ -170,6 +172,112 @@ bntRegister.addEventListener('click', function () {
         return correctLabel;
     }
 });
+
+
+
+
+//collection
+const loginCollection = document.getElementsByClassName('login-data');
+//data condivisi
+const eMail =  document.getElementById('email');
+const surname =  document.getElementById('surname');
+const name =  document.getElementById('name');
+const password =  document.getElementById('password');
+const numericMin = ['rooms', 'beds', 'bathrooms'];
+const stringMinMax = ['title', 'city', 'country', 'room_type', 'house_type'];
+
+const title =  document.querySelector('.edit.title');
+
+let errorsAny = false;
+btnEdit.addEventListener('click', function(){
+
+    console.log('sono dentro');
+    const editCollection = document.getElementsByClassName('edit-data');
+
+    for(i=0; i< editCollection.length ; i++){
+
+        if(editCollection[i].value.length == 0){
+            alert(`Attenzione! il campo ${editCollection[i].name} è obbligatorio`);
+            errorsAny = true;
+        }
+
+        if(editCollection[i].name === 'mq'){
+            if(editCollection[i].value < 30){
+                alert(`Attenzione! la dimensione deve essere almeno di 30 mq`)
+                errorsAny = true;
+            }
+            // else if(isNaN(editCollection[i].value)){
+            //     alert(`Attenzione! il valore di ${editCollection[i].name} deve essere un numero` );
+            //     errorsAny = true;
+            // }
+        }
+        if(editCollection[i].name === 'address'){
+            if(editCollection[i].value.length < 7 || editCollection[i].value.length >200){
+                alert(`Attenzione! l'indirizzo deve avere almeno 7 caratteri e non superare i 200`)
+                errorsAny = true;
+            }
+            // else if(!isNaN(editCollection[i].value)){
+            //     alert(`Attenzione! il valore di ${editCollection[i].name} non può essere un numero` );
+            //     errorsAny = true;
+            // }
+        }
+
+        if(stringMinMax.includes(editCollection[i].name)){
+
+            if(editCollection[i].value.length < 3){
+                alert(`Attenzione! il valore di ${editCollection[i].name} deve essere superiore a 3 caratteri` );
+                errorsAny = true;
+            }
+            // else if(!isNaN(editCollection[i].value)){
+            //     alert(`Attenzione! il valore di ${editCollection[i].name} non può essere un numero` );
+            //     errorsAny = true;
+            // }
+        }
+
+        if(numericMin.includes(editCollection[i].name)){
+
+            if(editCollection[i].value < 1 ){
+                alert(`Attenzione! il valore di ${editCollection[i].name} deve avere valore minimo 1` )
+                errorsAny = true;
+            }
+            // else if(isNaN(editCollection[i].value)){
+            //     alert(`Attenzione! il valore di ${editCollection[i].name} deve essere un numero` );
+            //     errorsAny = true;
+            // }
+        }
+
+    }
+
+    console.log(errorsAny);
+    if(errorsAny){
+        event.preventDefault();
+        // errorsAny = false;
+    }
+
+});
+
+
+
+// btnLogin.addEventListener('click', function(){
+//     let errorsAny = false;
+//     while(errorsAny = true){
+//         event.preventDefault();
+//         errorsAny = false;
+//         for(i=0; i< loginCollection.length ; i++){
+//             if(loginCollection[i].value.length == 0){
+//                 alert(`Attenzione! il campo ${loginCollection[i].name} è obbligatorio`);
+//                 errorsAny = true;
+//             }
+//         }
+//         if(password.value.length < 8 && password.value.length != 0){
+//             alert(`Attenzione! il campo ${password.name} deve avere minimo 8 caratteri`);
+//             errorsAny = true;
+//         }
+//         console.log(errorsAny);
+//     }
+//     //va messo nell'html del form il codice per la verifica e-mail
+// })
+
 
 
 
