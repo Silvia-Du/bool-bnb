@@ -1,4 +1,24 @@
 @import url(https://fonts.googleapis.com/css?family=Nunito);@charset "UTF-8";
+.box h1 {
+  padding-bottom: 30px;
+}
+
+.comp_form {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
+}
+.comp_form .field {
+  display: inline-block;
+  width: 400px;
+  margin: 0 80px;
+  border-radius: 25px;
+}
+.comp_form .btn_comp {
+  margin-top: 20px;
+}
+
 /*!
  * Bootstrap v4.6.2 (https://getbootstrap.com/)
  * Copyright 2011-2022 The Bootstrap Authors
