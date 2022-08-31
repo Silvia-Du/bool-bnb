@@ -31,91 +31,89 @@ const app = new Vue({
     el: '#app',
 });
 
+/*user
+testi: min:3 max:255
+email: che ci sia chiocciola e punto?...classe di bootstrap
+isNan = non a number = true nn è un numero
+split('-'), reverse(), join();
+password: lunghezza, car.speciali, numero
+ 
+bonus: immagine
+ 
+*/
 
-//btn
 const bntRegister = document.getElementById('btn-register');
-const btnLogin = document.getElementById('btn-login');
-const btnEdit = document.getElementById('btn-edit');
-//collection
-const dataCollection = document.getElementsByClassName('js-data');
-const loginCollection = document.getElementsByClassName('login-data');
-const editCollection = document.getElementsByClassName('edit-data');
-//data condivisi
-const eMail =  document.getElementById('email');
-const surname =  document.getElementById('surname');
-const name =  document.getElementById('name');
-const password =  document.getElementById('password');
-const numericMin = ['rooms', 'beds', 'bathrooms'];
-const stringMinMax = ['title', 'city', 'country', 'room_type', 'house_type'];
-
 
 // const title =  document.querySelector('.edit.title');
-
-// btnEdit.addEventListener('click', function(){
-
-//     let errorsAny = false;
-
-//     for(i=0; i< editCollection.length ; i++){
-
-//         if(editCollection[i].value.length == 0){
-//             alert(`Attenzione! il campo ${editCollection[i].name} è obbligatorio`);
-//             errorsAny = true;
-//         }
-//         for(let data of numericMin){
-
-//             if(editCollection[i].name == data){
-//                 if(editCollection[i].value < 1){
-//                     alert(`Attenzione! il valore minimo per ${editCollection[i].name} è 1` )
-//                     errorsAny = true;
-//                 }
-//             }
-//         }
-
-//         for(let data of stringMinMax){
-//             if(editCollection[i].name == data){
-//                 if(editCollection[i].value.length < 3){
-//                     alert(`Attenzione! il campo ${editCollection[i].name} deve avere minimo 3 caratteri`)
-//                     errorsAny = true;
-//                 }
-//                 if(editCollection[i].value.length > 200){
-//                     alert(`Attenzione! il campo ${editCollection[i].name} può avere massimo 200 caratteri`)
-//                     errorsAny = true;
-//                 }
-//             }
-//         }
-
-//     }
-
-//     if(errorsAny = true){
-//         event.preventDefault();
-//     }
-
-// })
+// const title =  document.querySelector('.create.title');
 
 
-// btnLogin.addEventListener('click', function(){
-//     let errorsAny = false;
+// let eMailToCheck;
 
-//     while(errorsAny = true){
-//         event.preventDefault();
-//         errorsAny = false;
-//         for(i=0; i< loginCollection.length ; i++){
+// console.log(nameSurname);
 
-//             if(loginCollection[i].value.length == 0){
-//                 alert(`Attenzione! il campo ${loginCollection[i].name} è obbligatorio`);
-//                 errorsAny = true;
-//             }
-//         }
+bntRegister.addEventListener('click', function () {
+    let check = true;
 
-//         if(password.value.length < 8 && password.value.length != 0){
-//             alert(`Attenzione! il campo ${password.name} deve avere minimo 8 caratteri`);
-//             errorsAny = true;
-//         }
-//         console.log(errorsAny);
-//     }
-//     //va messo nell'html del form il codice per la verifica e-mail
+    // const inputCollection = document.getElementsByClassName('js-data');
+    const inputCollection = document.getElementsByClassName('js-data');
+    const labelsCollection = document.getElementsByTagName('label');
 
-// })
+    const name = document.querySelector('.name.register');
+    const surname = document.querySelector('.surname.register');
+    const dateOfBirth = document.querySelector('.date-of-birth.register');
+    const eMail = document.querySelector('.email.register');
+    const password = document.querySelector('.password.register');
+    const passwordConfirm = document.querySelector('.password-confirm.register');
+
+    if (check) {
+        event.preventDefault();
+    }
+
+    for (i = 0; i < inputCollection.length; i++) {
+        // console.log(inputCollection[i].parentNode.lastChild.tagName);
+
+        if (inputCollection[i].value.length === 0) {
+            printEmptyError(inputCollection[i], labelsCollection[i].textContent)
+        } else {
+            printExactError(inputCollection[i], labelsCollection[i].textContent);
+        }
+    }
+
+
+    function printEmptyError(input, label) {
+
+        const correctLabel = getCorrectedLabel(label);
+        const error = document.createElement('p');
+        error.classList.add('text-danger', 'm-0');
+        error.innerHTML = `Attenzione! Il campo ${correctLabel} è obbligatiorio`;
+        if (input.parentNode.lastChild.tagName === 'INPUT') {
+            document.getElementById(input.parentNode.id).appendChild(error);
+            errorToggle(input);
+        } else {
+            error.remove();
+        }
+    }
+
+    function errorToggle(input) {
+        // console.log(input);
+        input.addEventListener('click', function () {
+            if (input.parentNode.lastChild.tagName != 'INPUT') {
+                input.parentNode.lastChild.remove();
+            }
+        })
+    }
+
+    function printExactError(input, label) {
+        // console.log(input);
+    }
+
+    function getCorrectedLabel(label) {
+        let correctLabel = label.slice(0, label.length - 2)
+        return correctLabel;
+    }
+});
+
 
 
 
