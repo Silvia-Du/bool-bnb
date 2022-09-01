@@ -49916,6 +49916,11 @@ function errorToggle(input) {
   });
 }
 
+var labels = ['January', 'February', 'March', 'April', 'May', 'June'];
+/*SEZIONE CHART.JS */
+
+var myChart = new Chart(document.getElementById('myChart'), config);
+
 /***/ }),
 
 /***/ "./resources/js/bootstrap.js":

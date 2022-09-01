@@ -21,6 +21,8 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
 </head>
 <body>
     <div id="app">
@@ -83,5 +85,8 @@
             @yield('content')
         </main>
     </div>
+
 </body>
+
+
 </html>

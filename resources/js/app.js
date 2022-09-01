@@ -426,3 +426,22 @@ function errorToggle(input){
     }
   })
 }
+
+
+
+const labels = [
+  'January',
+  'February',
+  'March',
+  'April',
+  'May',
+  'June',
+];
+
+  /*SEZIONE CHART.JS */
+
+
+  const myChart = new Chart(
+    document.getElementById('myChart'),
+    config
+  );

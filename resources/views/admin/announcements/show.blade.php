@@ -64,15 +64,45 @@
             </div>
 
             {{-- Chart.Js --}}
-            <div class="card my-3">
-                <div class="card-body">
-                    <p class="lead">Statistiche annuncio</p>
 
-                    <img src="https://api.backlinko.com/app/uploads/2021/06/airbnb-revenue.png"
-                        class="img-fluid d-block mx-lg-auto rounded" alt="chart example" width="700" height="250">
 
+
+                <div class="card my-3">
+                    <canvas id="myChart"></canvas>
                 </div>
-            </div>
+
+
         </div>
     </div>
+
+    <script>
+        const labels = [
+          'Gennaio',
+          'Febbraio',
+          'Marzo',
+          'Aprile',
+          'Maggio',
+          'Giugno',
+        ];
+
+        const data = {
+          labels: labels,
+          datasets: [{
+            label: 'Visualizzazioni',
+            backgroundColor: '#a7d1c7',
+            borderColor: '#a7d1c7',
+            data: [0, 10, 5, 2, 20, 30, 45],
+          }]
+        };
+
+        const config = {
+          type: 'bar',
+          data: data,
+          options: {
+            indexAxis:'y',
+          }
+        };
+      </script>
+
+
 @endsection
