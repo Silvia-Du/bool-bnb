@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('content')
-    <div class="container my-5">
+    <div class="container w-75 my-5">
         <div class="row ">
             <div class=" box">
                 <h1 class="text-center">Inserisci un nuovo Annuncio</h1>
@@ -189,6 +189,29 @@
                                     </p>
                                 @enderror
                             </div>
+                            {{-- Services --}}
+                            <div class="col-12 mt-1">
+
+
+                                <form >
+                                    <label for="room_type" class="form-label d-block">
+                                        <i class="fa-solid fa-door-open"></i>
+                                        Servizi
+                                    </label>
+
+                                    @foreach ($services as $service)
+
+                                    <input type="checkbox"
+                                    id="service-{{ $loop->iteration }}"
+                                    name="services[]"
+                                    value="{{ $service->id }}"
+                                    @if (in_array($service->id, old("services",[]))) checked @endif>
+
+                                    <label for="">{{ $service->name }}</label><br>
+                                    @endforeach
+
+                                </form>
+                            </div>
 
                             {{-- content --}}
                             <div class="col-12">
@@ -207,8 +230,9 @@
                                 <button id="btn-edit" class="sm w-100 btn btn-dark btn-lg my-3" type="submit">Invia</button>
 
                             </div>
+
                     </form>
-                </div> 
+                </div>
             </div>
         </div>
     </div>

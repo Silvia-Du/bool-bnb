@@ -5,6 +5,7 @@ use App\http\Requests\AnnouncementRequest;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Announcement;
+use App\Service;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Auth;
 
@@ -31,8 +32,8 @@ class AnnouncementController extends Controller
      */
     public function create()
     {
-
-        return view('admin.announcements.create');
+        $services = Service::all();
+        return view('admin.announcements.create', compact('services'));
     }
 
     /**
@@ -43,6 +44,7 @@ class AnnouncementController extends Controller
      */
     public function store(AnnouncementRequest $request)
     {
+
         $data = $request->all();
         $new_announcement = new Announcement();
 
@@ -59,6 +61,10 @@ class AnnouncementController extends Controller
 
         $new_announcement->fill($data);
         $new_announcement->save();
+
+        if(array_key_exists("services", $data)){
+            $new_announcement->services()->attach($data["services"]);
+           }
         return redirect()->route('admin.announcements.show', $new_announcement);
 
     }
@@ -83,11 +89,12 @@ class AnnouncementController extends Controller
      */
     public function edit(Announcement $announcement)
     {
+        $services = Service::all();
         if(Auth::id() != $announcement->user_id){
             abort(403);
         }
         // abort_if(auth()->id() === $announcement->user, 403);
-        return view('admin.announcements.edit', compact('announcement'));
+        return view('admin.announcements.edit', compact('announcement','services'));
     }
 
     /**
@@ -112,6 +119,12 @@ class AnnouncementController extends Controller
 
         if ($data['title'] != $announcement->title) {
             $data['slug'] = Announcement::slugGenerator($data['title']);
+        }
+
+        if(array_key_exists("services", $data)){
+            $announcement->services()->sync($data["services"]);
+        }else{
+            $announcement->services()->detach();
         }
 
         $announcement->update($data);

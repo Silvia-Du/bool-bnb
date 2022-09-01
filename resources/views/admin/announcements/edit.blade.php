@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('content')
-    <div class="container my-5">
+    <div class="container w-75 my-5">
         <div class="row">
             <div class="box">
                 <h1 class="text-center">Modifica di {{ $announcement->title }}</h1>
@@ -143,6 +143,34 @@
                                 @error('room_type')
                                     <p class="text-danger">{{ $message }}</p>
                                 @enderror
+                            </div>
+                            {{-- Services --}}
+                            <div class="col-12 mt-1">
+
+
+                                <form >
+                                    <label for="services" class="form-label d-block">
+                                        <i class="fa-solid fa-bell-concierge"></i>
+                                        Servizi
+                                    </label>
+
+                                    @foreach ($services as $service)
+
+                                    <input type="checkbox"
+                                    id="service-{{ $loop->iteration }}"
+                                    name="services[]"
+                                    value="{{ $service->id }}"
+                                    @if (!$errors->any() && $announcement->services->contains($service->id))
+                                            checked
+                                    @elseif ($errors->any() && in_array($service->id, old("services",[])))
+                                            checked
+                                    @endif
+                                    @if (in_array($service->id, old("services",[]))) checked @endif>
+
+                                    <label for="">{{ $service->name }}</label><br>
+                                    @endforeach
+
+                                </form>
                             </div>
 
                             {{-- description --}}

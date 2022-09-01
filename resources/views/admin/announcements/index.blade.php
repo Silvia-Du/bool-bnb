@@ -47,6 +47,11 @@
                             @else
                             <p>Privato</p>
                             @endif
+                            <h6>Servizi</h6>
+                            @foreach ($announcement->services as $service)
+                                <p>{{ $service->name }}</p>
+                            @endforeach
+
 
                         </div>
 

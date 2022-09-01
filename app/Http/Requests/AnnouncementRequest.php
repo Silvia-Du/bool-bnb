@@ -36,6 +36,8 @@ class AnnouncementRequest extends FormRequest
             'image'=>'nullable|image|max:32000',
             'house_type'=>'required | min:3 | max:200',
             'room_type'=>'required | min:3 | max:200',
+            'services'=>'required'
+
         ];
     }
 }

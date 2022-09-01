@@ -22,9 +22,9 @@
                         <a class="font-weight-bolder text-white" href="#">Aggiorna foto</a>
 
                         <div class="my-3 p-3">
-                            <div class="my-3"><a class="btn btn-outline-light" href="#">Aggiungi nuovo
+                            <div class="my-3"><a class="btn btn-outline-light" href="{{ route('admin.announcements.create') }}">Aggiungi nuovo
                                     appartamento</a></div>
-                            <div class="my-3"><a class="btn btn-outline-light" href="#">I tuoi appartamenti</a>
+                            <div class="my-3"><a class="btn btn-outline-light" href="{{ route('admin.announcements.index') }}">I tuoi appartamenti</a>
                             </div>
                             <div class="my-3"><a class="btn btn-outline-light" href="#">Le tue sponsorships
                                     attive</a></div>

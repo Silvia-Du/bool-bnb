@@ -19,10 +19,20 @@
 
                     <div class="card">
                         <div class="card-body">
-                            <p>MQ: {{ $announcement->mq }}</p>
-                            <p>Nr stanze: {{ $announcement->rooms }}</p>
-                            <p>Nr Letti: {{ $announcement->beds }}</p>
-                            <p>Nr Bagni: {{ $announcement->bathrooms }}</p>
+                            <h6>MQ:</h6>
+                            <p>{{ $announcement->mq }}</p>
+                            <h6>Nr stanze:</h6>
+                            <p>{{ $announcement->rooms }}</p>
+                            <h6>Nr Letti:</h6>
+                            <p>{{ $announcement->beds }}</p>
+                            <h6>Nr Bagni:</h6>
+                            <p>{{ $announcement->bathrooms }}</p>
+                            <h6>Servizi:</h6>
+                            <ul>
+                                @foreach ($announcement->services as $service )
+                                    <li><p>{{ $service->name }}</p></li>
+                                @endforeach
+                            </ul>
 
                             <div class="d-flex flex-row-reverse">
                                 <a class="btn btn-warning"
