@@ -20,7 +20,10 @@
                     @csrf
                     {{-- title --}}
                     <div class="mb-3 field">
-                        <label for="title" class="form-label"><i class="fa-solid fa-pencil"></i> Titolo annuncio</label>
+                        <label for="title" class="form-label">
+                            <i class="fa-solid fa-pencil"></i>
+                            Titolo annuncio
+                        </label>
                         <input type="text" id="title" name="title"
                             class="js-data form-control @error('title') is-invalid @enderror" placeholder="Inserisci un titolo"
                             value="{{ old('title') }}">
@@ -32,8 +35,10 @@
                     </div>
                     {{-- address --}}
                     <div class="mb-3 field">
-                        <label for="address" class="form-label"><i class="fa-solid fa-map-location-dot"></i>
-                            Indirizzo</label>
+                        <label for="address" class="form-label">
+                            <i class="fa-solid fa-map-location-dot"></i>
+                            Indirizzo
+                        </label>
                         <input type="text" id="address" name="address"
                             class="js-data form-control @error('address') is-invalid @enderror" placeholder="Inserisci un Indirizzo"
                             value="{{ old('address') }}">
@@ -45,7 +50,10 @@
                     </div>
                     {{-- city --}}
                     <div class="mb-3 field">
-                        <label for="city" class="form-label"><i class="fa-solid fa-location-dot"></i> Città</label>
+                        <label for="city" class="form-label">
+                            <i class="fa-solid fa-location-dot"></i>
+                            Città
+                        </label>
                         <input type="text" id="city" name="city"
                             class="js-data form-control @error('city') is-invalid @enderror" placeholder="Inserisci una Città"
                             value="{{ old('city') }}">
@@ -57,7 +65,10 @@
                     </div>
                     {{-- country --}}
                     <div class="mb-3 field">
-                        <label for="country" class="form-label"><i class="fa-solid fa-earth-europe"></i> Nazione</label>
+                        <label for="country" class="form-label">
+                            <i class="fa-solid fa-earth-europe"></i>
+                            Nazione
+                        </label>
                         <input type="text" id="country" name="country"
                             class="js-data form-control @error('country') is-invalid @enderror" placeholder="Inserisci una Nazione"
                             value="{{ old('country') }}">
@@ -69,7 +80,10 @@
                     </div>
                     {{-- image --}}
                     <div class="mn-3 field">
-                        <label for="image" class="form-label"><i class="fa-solid fa-image"></i> Immagine</label>
+                        <label for="image" class="form-label">
+                            <i class="fa-solid fa-image"></i>
+                            Immagine
+                        </label>
                         <input type="file" class="form-control @error('image') is-invalid @enderror" id="image"
                             name="image">
                         @error('image')
@@ -78,7 +92,10 @@
                     </div>
                     {{-- mq --}}
                     <div class="mb-3 field">
-                        <label for="mq" class="form-label"><i class="fa-solid fa-maximize"></i> Metri Quadri</label>
+                        <label for="mq" class="form-label">
+                            <i class="fa-solid fa-maximize"></i>
+                            Metri Quadri
+                        </label>
                         <input type="number" id="mq" name="mq"
                             class="js-data form-control @error('mq') is-invalid @enderror" placeholder="Inserisci i Metri Quadri"
                             value="{{ old('mq') }}">
@@ -90,7 +107,10 @@
                     </div>
                     {{-- rooms --}}
                     <div class="mb-3 field">
-                        <label for="rooms" class="form-label"><i class="fa-solid fa-house"></i> Numero Stanze</label>
+                        <label for="rooms" class="form-label">
+                            <i class="fa-solid fa-house"></i>
+                            Numero Stanze
+                        </label>
                         <input type="number" id="rooms" name="rooms"
                             class="js-data form-control @error('rooms') is-invalid @enderror"
                             placeholder="Inserisci il Numero di Stanze" value="{{ old('rooms') }}">
@@ -102,7 +122,10 @@
                     </div>
                     {{-- beds --}}
                     <div class="mb-3 field">
-                        <label for="beds" class="form-label"><i class="fa-solid fa-bed"></i> Numero Letti</label>
+                        <label for="beds" class="form-label">
+                            <i class="fa-solid fa-bed"></i>
+                            Numero Letti
+                        </label>
                         <input type="number" id="beds" name="beds"
                             class="js-data form-control @error('beds') is-invalid @enderror"
                             placeholder="Inserisci il Numero di Letti" value="{{ old('beds') }}">
@@ -114,7 +137,10 @@
                     </div>
                     {{-- bathrooms --}}
                     <div class="mb-3 field">
-                        <label for="bathrooms" class="form-label"><i class="fa-solid fa-sink"></i> Numero Bagni</label>
+                        <label for="bathrooms" class="form-label">
+                            <i class="fa-solid fa-sink"></i>
+                            Numero Bagni
+                        </label>
                         <input type="number" id="bathrooms" name="bathrooms"
                             class="js-data form-control @error('bathrooms') is-invalid @enderror"
                             placeholder="Inserisci il Numero di Bagni" value="{{ old('bathrooms') }}">
@@ -126,7 +152,10 @@
                     </div>
                     {{-- house_type --}}
                     <div class="mb-3 field">
-                        <label for="house_type" class="form-label"><i class="fa-solid fa-igloo"></i> Tipo di Casa</label>
+                        <label for="house_type" class="form-label">
+                            <i class="fa-solid fa-igloo"></i>
+                            Tipo di Casa
+                        </label>
                         <input type="text" id="house_type" name="house_type"
                             class="js-data form-control @error('house_type') is-invalid @enderror"
                             placeholder="Inserisci un Tipo di Casa" value="{{ old('house_type') }}">
@@ -138,8 +167,11 @@
                     </div>
                     {{-- room_type --}}
                     <div class="mb-3 field">
-                        <label for="room_type" class="form-label"><i class="fa-solid fa-door-open"></i> Tipo di
-                            Stanza</label>
+                        <label for="room_type" class="form-label">
+                            <i class="fa-solid fa-door-open"></i>
+                            Tipo di
+                            Stanza
+                        </label>
                         <input type="text" id="room_type" name="room_type"
                             class="js-data form-control @error('room_type') is-invalid @enderror"
                             placeholder="Inserisci un Tipo di Stanza" value="{{ old('room_type') }}">
@@ -151,8 +183,10 @@
                     </div>
                     {{-- content --}}
                     <div class="mb-3 field">
-                        <label for="description" class="form-label"><i class="fa-solid fa-pen-nib"></i>
-                            Descrizione</label>
+                        <label for="description" class="form-label">
+                            <i class="fa-solid fa-pen-nib"></i>
+                            Descrizione
+                        </label>
                         <textarea class="js-data form-control @error('description') is-invalid @enderror" name="description" id="description"
                             cols="30" rows="5">{{ old('description') }}</textarea>
                         @error('description')
