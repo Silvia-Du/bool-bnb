@@ -1,5 +1,7 @@
 <template>
-  <header class="debug">header</header>
+  <header class="debug">
+    <li><router-link :to="{name: 'home'}">Home</router-link></li>
+  </header>
 </template>
 
 <script>

@@ -2,7 +2,7 @@
   <div>
     <HeaderComp />
     <main>
-        home main
+        <router-view></router-view>
     </main>
     <FooterComp />
   </div>
@@ -18,7 +18,30 @@ export default {
      components:{
         HeaderComp,
         FooterComp
+    },
+
+    data() {
+        return {
+            apiUrl: 'api/announcements',
+        }
+    },
+
+    methods: {
+        getAnnouncement(){
+            axios.get(this.apiUrl)
+            .then(response =>{
+                console.log(response);
+                // this.announcements = response.data.announcements;
+            })
+        }
+    },
+
+
+    mounted(){
+        this.getAnnouncement();
     }
+
+
 }
 </script>
 

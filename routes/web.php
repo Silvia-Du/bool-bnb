@@ -14,10 +14,6 @@ use Illuminate\Support\Facades\Route;
 */
 Auth::routes();
 
-Route::get('/', function () {
-    return view('guest.home');
-})->name('home');
-
 Route::middleware('auth')
         ->name('admin.')
         ->prefix('admin')
@@ -26,5 +22,9 @@ Route::middleware('auth')
             Route::get('/', 'HomeController@index')->name('index');
             Route::resource('/announcements', 'AnnouncementController');
         });
+
+Route::get('{any?}', function(){
+    return view('guest.home');
+})->where('any', '.*')->name('home');
 
 

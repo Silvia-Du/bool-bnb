@@ -10,7 +10,7 @@ class PageController extends Controller
 {
     public function index(){
         $announcement = Announcement::all();
-        dd($announcement);
+
 
         return response()->json($announcement);
     }
