@@ -35,11 +35,11 @@
                     <div class="box-house  col-sm-12 col-lg-12   container-fluid d-flex justify-content-around p-4 ">
                         <img src="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/suburban-house-royalty-free-image-1584972559.jpg" alt="">
                         <div class=" house-info py-4 ">
-                            <h6> indirizzo:</h6>
+                            <h6> indirizzo :</h6>
                             <p>{{ $announcement->address  }}</p>
                             <p>{{ $announcement->city }}</p>
                             <p>{{ $announcement->country }}</p>
-                            <h6> tipologia camera:</h6>
+                            <h6> tipologia camera :</h6>
                             <p>{{ $announcement->house_type }}</p>
                             <h6> status:</h6>
                             @if ($announcement->is_visible == 1)
