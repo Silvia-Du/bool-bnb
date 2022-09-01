@@ -23,9 +23,7 @@ class AnnouncementsTableSeeder extends Seeder
         $new_announcement->beds = $faker->numberBetween(1, 5);
         $new_announcement->bathrooms = $faker->numberBetween(1, 5);
         $new_announcement->mq = $faker->numberBetween(50, 250);
-        $new_announcement->address = $faker->streetAddress();
-        $new_announcement->city = $faker->city();
-        $new_announcement->country = $faker->country();
+        $new_announcement->address = $faker->address();
         $new_announcement->latitude = $faker->latitude($min = -90, $max = 90);
         $new_announcement->longitude = $faker->longitude($min = -180, $max = 180);
         $new_announcement->is_visible = $faker->numberBetween(0, 1);

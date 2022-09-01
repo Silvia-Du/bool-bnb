@@ -23,8 +23,6 @@ class CreateAnnouncementsTable extends Migration
             $table->integer('bathrooms');
             $table->integer('mq');
             $table->string('address');
-            $table->string('city');
-            $table->string('country');
             $table->decimal('latitude', 10, 8);
             $table->decimal('longitude', 11, 8);
             $table->string('image')->nullable();
