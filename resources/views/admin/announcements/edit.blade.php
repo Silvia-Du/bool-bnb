@@ -28,7 +28,7 @@
                             Indirizzo
                         </label>
                         <input type="text" class="js-data form-control @error('address') is-invalid @enderror"
-                            name="address" id="address" value="{{ old('address', $announcement->address) }}">
+                            name="address" id="input-address" value="{{ old('address', $announcement->address) }}">
                         @error('address')
                             <p class="text-danger">{{ $message }}</p>
                         @enderror

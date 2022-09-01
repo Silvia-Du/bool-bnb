@@ -36,14 +36,15 @@
                         @enderror
                     </div>
                     {{-- address --}}
-                    <div class="mb-3 field">
+                    <div class="mb-3 field address">
                         <label for="address" class="form-label">
                             <i class="fa-solid fa-map-location-dot"></i>
                             Indirizzo
                         </label>
-                        <input type="text" id="address" name="address"
+                        {{-- <input type="text" id="address" name="address"
                             class="js-data form-control @error('address') is-invalid @enderror" placeholder="Inserisci un Indirizzo"
-                            value="{{ old('address') }}">
+                            value="{{ old('address') }}"> --}}
+                            
                         @error('address')
                             <p class="text-danger">
                                 {{ $message }}
