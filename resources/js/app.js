@@ -120,7 +120,6 @@ btnLogin.addEventListener('click', function(){
 });
 /* END LOGIN VALIDATION */
 
-
 /* START REGISTER VALIDATION */
 let preventDefaultRegister = true;
 bntRegister.addEventListener('click', function () {
