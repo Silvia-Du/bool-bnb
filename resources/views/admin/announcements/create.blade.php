@@ -24,7 +24,7 @@
                             <path d="M2.309 9.27c-1.22 1.073-.49 3.034 1.978 3.034 1.434 0 2.868-.925 3.994-2.406-1.602-.789-2.959-1.353-4.425-1.207-.397.04-1.14.217-1.547.58Z"/>
                           </svg> Titolo annuncio</label>
                         <input type="text" id="title" name="title"
-                            class="form-control @error('title') is-invalid @enderror" placeholder="Inserisci un titolo"
+                            class="js-data form-control @error('title') is-invalid @enderror" placeholder="Inserisci un titolo"
                             value="{{ old('title') }}">
                         @error('title')
                             <p class="text-danger">
@@ -38,7 +38,7 @@
                             <path d="M7 1.414V2H2a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h5v1H2.5a1 1 0 0 0-.8.4L.725 8.7a.5.5 0 0 0 0 .6l.975 1.3a1 1 0 0 0 .8.4H7v5h2v-5h5a1 1 0 0 0 1-1V8a1 1 0 0 0-1-1H9V6h4.5a1 1 0 0 0 .8-.4l.975-1.3a.5.5 0 0 0 0-.6L14.3 2.4a1 1 0 0 0-.8-.4H9v-.586a1 1 0 0 0-2 0zM13.5 3l.75 1-.75 1H2V3h11.5zm.5 5v2H2.5l-.75-1 .75-1H14z"/>
                           </svg> Indirizzo</label>
                         <input type="text" id="address" name="address"
-                            class="form-control @error('address') is-invalid @enderror" placeholder="Inserisci un Indirizzo"
+                            class="js-data form-control @error('address') is-invalid @enderror" placeholder="Inserisci un Indirizzo"
                             value="{{ old('address') }}">
                         @error('address')
                             <p class="text-danger">
@@ -53,7 +53,7 @@
                             <path d="M8 8a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 1a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
                           </svg> Città</label>
                         <input type="text" id="city" name="city"
-                            class="form-control @error('city') is-invalid @enderror" placeholder="Inserisci una Città"
+                            class="js-data form-control @error('city') is-invalid @enderror" placeholder="Inserisci una Città"
                             value="{{ old('city') }}">
                         @error('city')
                             <p class="text-danger">
@@ -67,7 +67,7 @@
                             <path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm7.5-6.923c-.67.204-1.335.82-1.887 1.855A7.97 7.97 0 0 0 5.145 4H7.5V1.077zM4.09 4a9.267 9.267 0 0 1 .64-1.539 6.7 6.7 0 0 1 .597-.933A7.025 7.025 0 0 0 2.255 4H4.09zm-.582 3.5c.03-.877.138-1.718.312-2.5H1.674a6.958 6.958 0 0 0-.656 2.5h2.49zM4.847 5a12.5 12.5 0 0 0-.338 2.5H7.5V5H4.847zM8.5 5v2.5h2.99a12.495 12.495 0 0 0-.337-2.5H8.5zM4.51 8.5a12.5 12.5 0 0 0 .337 2.5H7.5V8.5H4.51zm3.99 0V11h2.653c.187-.765.306-1.608.338-2.5H8.5zM5.145 12c.138.386.295.744.468 1.068.552 1.035 1.218 1.65 1.887 1.855V12H5.145zm.182 2.472a6.696 6.696 0 0 1-.597-.933A9.268 9.268 0 0 1 4.09 12H2.255a7.024 7.024 0 0 0 3.072 2.472zM3.82 11a13.652 13.652 0 0 1-.312-2.5h-2.49c.062.89.291 1.733.656 2.5H3.82zm6.853 3.472A7.024 7.024 0 0 0 13.745 12H11.91a9.27 9.27 0 0 1-.64 1.539 6.688 6.688 0 0 1-.597.933zM8.5 12v2.923c.67-.204 1.335-.82 1.887-1.855.173-.324.33-.682.468-1.068H8.5zm3.68-1h2.146c.365-.767.594-1.61.656-2.5h-2.49a13.65 13.65 0 0 1-.312 2.5zm2.802-3.5a6.959 6.959 0 0 0-.656-2.5H12.18c.174.782.282 1.623.312 2.5h2.49zM11.27 2.461c.247.464.462.98.64 1.539h1.835a7.024 7.024 0 0 0-3.072-2.472c.218.284.418.598.597.933zM10.855 4a7.966 7.966 0 0 0-.468-1.068C9.835 1.897 9.17 1.282 8.5 1.077V4h2.355z"/>
                           </svg> Nazione</label>
                         <input type="text" id="country" name="country"
-                            class="form-control @error('country') is-invalid @enderror" placeholder="Inserisci una Nazione"
+                            class="js-data form-control @error('country') is-invalid @enderror" placeholder="Inserisci una Nazione"
                             value="{{ old('country') }}">
                         @error('country')
                             <p class="text-danger">
@@ -95,7 +95,7 @@
                             <path d="M2 4.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 0 1H3v2.5a.5.5 0 0 1-1 0v-3zm12 7a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1 0-1H13V8.5a.5.5 0 0 1 1 0v3z"/>
                           </svg> Metri Quadri</label>
                         <input type="number" id="mq" name="mq"
-                            class="form-control @error('mq') is-invalid @enderror" placeholder="Inserisci i Metri Quadri"
+                            class="js-data form-control @error('mq') is-invalid @enderror" placeholder="Inserisci i Metri Quadri"
                             value="{{ old('mq') }}">
                         @error('mq')
                             <p class="text-danger">
@@ -111,7 +111,7 @@
                             <path d="M4.5 2.5a.5.5 0 0 0-1 0v9.793l-1.146-1.147a.5.5 0 0 0-.708.708l2 1.999.007.007a.497.497 0 0 0 .7-.006l2-2a.5.5 0 0 0-.707-.708L4.5 12.293V2.5z"/>
                           </svg> Numero Stanze</label>
                         <input type="number" id="rooms" name="rooms"
-                            class="form-control @error('rooms') is-invalid @enderror" placeholder="Inserisci il Numero di Stanze"
+                            class="js-data form-control @error('rooms') is-invalid @enderror" placeholder="Inserisci il Numero di Stanze"
                             value="{{ old('rooms') }}">
                         @error('rooms')
                             <p class="text-danger">
@@ -127,7 +127,7 @@
                             <path d="M4.5 2.5a.5.5 0 0 0-1 0v9.793l-1.146-1.147a.5.5 0 0 0-.708.708l2 1.999.007.007a.497.497 0 0 0 .7-.006l2-2a.5.5 0 0 0-.707-.708L4.5 12.293V2.5z"/>
                           </svg> Numero Letti</label>
                         <input type="number" id="beds" name="beds"
-                            class="form-control @error('beds') is-invalid @enderror" placeholder="Inserisci il Numero di Letti"
+                            class="js-data form-control @error('beds') is-invalid @enderror" placeholder="Inserisci il Numero di Letti"
                             value="{{ old('beds') }}">
                         @error('beds')
                             <p class="text-danger">
@@ -143,7 +143,7 @@
                             <path d="M4.5 2.5a.5.5 0 0 0-1 0v9.793l-1.146-1.147a.5.5 0 0 0-.708.708l2 1.999.007.007a.497.497 0 0 0 .7-.006l2-2a.5.5 0 0 0-.707-.708L4.5 12.293V2.5z"/>
                           </svg> Numero Bagni</label>
                         <input type="number" id="bathrooms" name="bathrooms"
-                            class="form-control @error('bathrooms') is-invalid @enderror" placeholder="Inserisci il Numero di Bagni"
+                            class="js-data form-control @error('bathrooms') is-invalid @enderror" placeholder="Inserisci il Numero di Bagni"
                             value="{{ old('bathrooms') }}">
                         @error('bathrooms')
                             <p class="text-danger">
@@ -158,7 +158,7 @@
                             <path d="M10.828.122A.5.5 0 0 1 11 .5V1h.5A1.5 1.5 0 0 1 13 2.5V15h1.5a.5.5 0 0 1 0 1h-13a.5.5 0 0 1 0-1H3V1.5a.5.5 0 0 1 .43-.495l7-1a.5.5 0 0 1 .398.117zM11.5 2H11v13h1V2.5a.5.5 0 0 0-.5-.5zM4 1.934V15h6V1.077l-6 .857z"/>
                           </svg> Tipo di Casa</label>
                         <input type="text" id="house_type" name="house_type"
-                            class="form-control @error('house_type') is-invalid @enderror" placeholder="Inserisci un Tipo di Casa"
+                            class="js-data form-control @error('house_type') is-invalid @enderror" placeholder="Inserisci un Tipo di Casa"
                             value="{{ old('house_type') }}">
                         @error('house_type')
                             <p class="text-danger">
@@ -173,7 +173,7 @@
                             <path d="M10.828.122A.5.5 0 0 1 11 .5V1h.5A1.5 1.5 0 0 1 13 2.5V15h1.5a.5.5 0 0 1 0 1h-13a.5.5 0 0 1 0-1H3V1.5a.5.5 0 0 1 .43-.495l7-1a.5.5 0 0 1 .398.117zM11.5 2H11v13h1V2.5a.5.5 0 0 0-.5-.5zM4 1.934V15h6V1.077l-6 .857z"/>
                           </svg> Tipo di Stanza</label>
                         <input type="text" id="room_type" name="room_type"
-                            class="form-control @error('room_type') is-invalid @enderror" placeholder="Inserisci un Tipo di Stanza"
+                            class="js-data form-control @error('room_type') is-invalid @enderror" placeholder="Inserisci un Tipo di Stanza"
                             value="{{ old('room_type') }}">
                         @error('room_type')
                             <p class="text-danger">
@@ -187,7 +187,7 @@
                             <path fill-rule="evenodd" d="M10.646.646a.5.5 0 0 1 .708 0l4 4a.5.5 0 0 1 0 .708l-1.902 1.902-.829 3.313a1.5 1.5 0 0 1-1.024 1.073L1.254 14.746 4.358 4.4A1.5 1.5 0 0 1 5.43 3.377l3.313-.828L10.646.646zm-1.8 2.908-3.173.793a.5.5 0 0 0-.358.342l-2.57 8.565 8.567-2.57a.5.5 0 0 0 .34-.357l.794-3.174-3.6-3.6z"/>
                             <path fill-rule="evenodd" d="M2.832 13.228 8 9a1 1 0 1 0-1-1l-4.228 5.168-.026.086.086-.026z"/>
                           </svg> Descrizione</label>
-                        <textarea class="form-control @error('description') is-invalid @enderror" name="description" id="description" cols="30"
+                        <textarea class="js-data form-control @error('description') is-invalid @enderror" name="description" id="description" cols="30"
                             rows="5">{{ old('description') }}</textarea>
                         @error('description')
                             <p class="text-danger">
@@ -195,7 +195,7 @@
                             </p>
                         @enderror
                     </div>
-                    <button type="submit" class="btn btn-primary btn_comp">Invia</button>
+                    <button id="btn-create" type="submit" class="btn btn-primary btn_comp">Invia</button>
                 </form>
             </div>
         </div>
