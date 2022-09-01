@@ -70,7 +70,7 @@
                             Immagine
                         </label>
                         <input type="file" onchange="showImage(event)"
-                            class=" form-control @error('image') is-invalid @enderror" id="image"
+                            class="form-control @error('image') is-invalid @enderror" id="image"
                             name="image">
                         @error('image')
                             <p class="text-danger"> {{ $message }} </p>

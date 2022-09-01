@@ -49495,9 +49495,6 @@ module.exports = function(module) {
  * includes Vue and other libraries. It is a great starting point when
  * building robust, powerful web applications using Vue and Laravel.
  */
-var _require = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js"),
-    event = _require.event;
-
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
 window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
@@ -49520,7 +49517,268 @@ Vue.component('example-component', __webpack_require__(/*! ./components/ExampleC
 
 var app = new Vue({
   el: '#app'
+}); // //btn
+
+var bntRegister = document.getElementById('btn-register');
+var btnLogin = document.getElementById('btn-login');
+var btnEdit = document.getElementById('btn-edit');
+/* START LOGIN VALIDATION */
+
+var preventDefaultLogin = true;
+btnLogin.addEventListener('click', function () {
+  if (preventDefaultLogin) {
+    event.preventDefault();
+  }
+
+  var inputCollection = document.getElementsByClassName('login-data');
+  var labelsCollection = document.getElementsByTagName('label');
+
+  for (i = 0; i < inputCollection.length; i++) {
+    if (inputCollection[i].value.length === 0) {
+      printEmptyError(inputCollection[i], labelsCollection[i].textContent);
+    } else {
+      printExactError(inputCollection[i], labelsCollection[i].textContent);
+    }
+  }
+
+  function printEmptyError(input, label) {
+    var correctLabel = getCorrectedLabel(label);
+    var error = document.createElement('p');
+    error.classList.add('text-danger', 'm-0');
+    error.innerHTML = "Attenzione! Il campo ".concat(correctLabel, " \xE8 obbligatorio");
+
+    if (input.parentNode.lastChild.tagName === 'INPUT') {
+      document.getElementById(input.parentNode.id).appendChild(error);
+      errorToggle(input);
+    } else {
+      error.remove();
+    }
+  }
+
+  function errorToggle(input) {
+    input.addEventListener('click', function () {
+      if (input.parentNode.lastChild.tagName != 'INPUT') {
+        input.parentNode.lastChild.remove();
+      }
+    });
+  }
+
+  function printExactError(input) {
+    if (input.id === 'email') {
+      emailValidation(input);
+    } else if (input.id === 'password') {
+      passwordValidation(input);
+    }
+  }
+
+  function emailValidation(input) {
+    var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+    var error = document.createElement('p');
+    error.classList.add('text-danger', 'm-0');
+
+    if (!input.value.match(mailformat)) {
+      if (input.parentNode.lastChild.tagName === 'INPUT') {
+        error.innerHTML = "Inserire un'email corretta";
+        document.getElementById(input.parentNode.id).appendChild(error);
+        errorToggle(input);
+      }
+    } else {
+      preventDefaultRegister = false;
+    }
+  }
+
+  function passwordValidation(input) {
+    var error = document.createElement('p');
+    error.classList.add('text-danger', 'm-0');
+
+    if (input.value.length < 8) {
+      if (input.parentNode.lastChild.tagName === 'INPUT') {
+        error.innerHTML = "Inserire una password con almeno 8 caratteri";
+        document.getElementById(input.parentNode.id).appendChild(error);
+        errorToggle(input);
+      }
+    } else {
+      preventDefaultRegister = false;
+    }
+  }
+
+  function getCorrectedLabel(label) {
+    var correctLabel = label.slice(0, label.length);
+    return correctLabel;
+  }
 });
+/* END LOGIN VALIDATION */
+
+/* START REGISTER VALIDATION */
+
+var preventDefaultRegister = true;
+bntRegister.addEventListener('click', function () {
+  console.log(preventDefaultRegister);
+
+  if (preventDefaultRegister) {
+    event.preventDefault();
+  }
+
+  var inputCollection = document.getElementsByClassName('js-data');
+  var labelsCollection = document.getElementsByTagName('label');
+
+  for (i = 0; i < inputCollection.length; i++) {
+    if (inputCollection[i].value.length === 0) {
+      printEmptyError(inputCollection[i], labelsCollection[i].textContent);
+    } else {
+      printExactError(inputCollection[i], labelsCollection[i].textContent);
+    }
+  }
+
+  function printEmptyError(input, label) {
+    var correctLabel = getCorrectedLabel(label);
+    var error = document.createElement('p');
+    error.classList.add('text-danger', 'm-0');
+    error.innerHTML = "Attenzione! Il campo ".concat(correctLabel, " \xE8 obbligatorio");
+
+    if (input.parentNode.lastChild.tagName === 'INPUT') {
+      document.getElementById(input.parentNode.id).appendChild(error);
+      errorToggle(input);
+    } else {
+      error.remove();
+    }
+  }
+
+  function errorToggle(input) {
+    input.addEventListener('click', function () {
+      if (input.parentNode.lastChild.tagName != 'INPUT') {
+        input.parentNode.lastChild.remove();
+      }
+    });
+  }
+
+  function printExactError(input) {
+    if (input.id === 'name') {
+      nameValidation(input);
+    } else if (input.id === 'surname') {
+      surnameValidation(input);
+    } else if (input.id === 'email') {
+      emailValidation(input);
+    } else if (input.id === 'password') {
+      passwordValidation(input);
+    } else if (input.id === 'password-confirm') {
+      confirmPassword(input);
+    }
+  }
+
+  function nameValidation(input) {
+    var error = document.createElement('p');
+    error.classList.add('text-danger', 'm-0');
+
+    if (input.value.length < 3) {
+      error.innerHTML = "Il nome deve contenere pi\xF9 di 3 caratteri";
+
+      if (input.parentNode.lastChild.tagName === 'INPUT') {
+        document.getElementById(input.parentNode.id).appendChild(error);
+        errorToggle(input);
+      }
+    } else if (input.value.length > 20) {
+      error.innerHTML = "Il nome deve contenere meno di 20 caratteri";
+
+      if (input.parentNode.lastChild.tagName === 'INPUT') {
+        document.getElementById(input.parentNode.id).appendChild(error);
+        errorToggle(input);
+      }
+    } else if (!isNaN(input.value)) {
+      error.innerHTML = "Il nome non pu\xF2 essere un numero";
+
+      if (input.parentNode.lastChild.tagName === 'INPUT') {
+        document.getElementById(input.parentNode.id).appendChild(error);
+        errorToggle(input);
+      }
+    } else {
+      preventDefaultRegister = false;
+    }
+  }
+
+  function surnameValidation(input) {
+    var error = document.createElement('p');
+    error.classList.add('text-danger', 'm-0');
+
+    if (input.value.length < 3) {
+      if (input.parentNode.lastChild.tagName === 'INPUT') {
+        error.innerHTML = "Il nome deve contenere pi\xF9 di 3 caratteri";
+        document.getElementById(input.parentNode.id).appendChild(error);
+        errorToggle(input);
+      }
+    } else if (input.value.length > 20) {
+      if (input.parentNode.lastChild.tagName === 'INPUT') {
+        error.innerHTML = "Il nome deve contenere meno di 20 caratteri";
+        document.getElementById(input.parentNode.id).appendChild(error);
+        errorToggle(input);
+      }
+    } else if (!isNaN(input.value)) {
+      error.innerHTML = "Il cognome non pu\xF2 essere un numero";
+
+      if (input.parentNode.lastChild.tagName === 'INPUT') {
+        document.getElementById(input.parentNode.id).appendChild(error);
+        errorToggle(input);
+      }
+    } else {
+      preventDefaultRegister = false;
+    }
+  }
+
+  function emailValidation(input) {
+    var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+    var error = document.createElement('p');
+    error.classList.add('text-danger', 'm-0');
+
+    if (!input.value.match(mailformat)) {
+      if (input.parentNode.lastChild.tagName === 'INPUT') {
+        error.innerHTML = "Inserire un'email corretta";
+        document.getElementById(input.parentNode.id).appendChild(error);
+        errorToggle(input);
+      }
+    } else {
+      preventDefaultRegister = false;
+    }
+  }
+
+  function passwordValidation(input) {
+    var error = document.createElement('p');
+    error.classList.add('text-danger', 'm-0');
+
+    if (input.value.length < 8) {
+      if (input.parentNode.lastChild.tagName === 'INPUT') {
+        error.innerHTML = "Inserire una password con almeno 8 caratteri";
+        document.getElementById(input.parentNode.id).appendChild(error);
+        errorToggle(input);
+      }
+    } else {
+      preventDefaultRegister = false;
+    }
+  }
+
+  function confirmPassword(input) {
+    var error = document.createElement('p');
+    error.classList.add('text-danger', 'm-0');
+    var passwordToCheck = document.getElementById('password');
+
+    if (input.value != passwordToCheck.value) {
+      if (input.parentNode.lastChild.tagName === 'INPUT') {
+        error.innerHTML = "Il campo e la password devono combaciare";
+        document.getElementById(input.parentNode.id).appendChild(error);
+        errorToggle(input);
+      }
+
+      ;
+    } else {
+      preventDefaultRegister = false;
+    }
+  }
+
+  function getCorrectedLabel(label) {
+    var correctLabel = label.slice(0, label.length - 2);
+    return correctLabel;
+  }
+});
+/* END REGISTER VALIDATION */
 
 /***/ }),
 
