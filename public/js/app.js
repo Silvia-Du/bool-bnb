@@ -49755,14 +49755,6 @@ function loginValidation() {
       }
     }
 
-    function errorToggle(input) {
-      input.addEventListener('click', function () {
-        if (input.parentNode.lastChild.tagName != 'INPUT') {
-          input.parentNode.lastChild.remove();
-        }
-      });
-    }
-
     function printExactError(input) {
       if (input.id === 'email') {
         emailValidation(input);
@@ -49939,10 +49931,25 @@ ttSearchBox._container.classList.add('m-0');
 ttSearchBox._container.firstChild.style.padding = '6px';
 ttSearchBox._container.firstChild.style.borderRadius = '5px';
 var inputSearchBox = ttSearchBox._container.firstChild.children[2];
-inputSearchBox.classList.add('js-data');
+inputSearchBox.name = 'address';
+inputSearchBox.id = 'address';
+inputSearchBox.placeholder = 'Inserire l\'indirizzo';
 btnCreate.addEventListener('click', function () {
-  var value = ttSearchBox._container.firstChild.children[2].value;
-  console.log(value);
+  if (inputSearchBox.value === '') {
+    // console.log(inputSearchBox.parentNode.childNodes[2].tagName === 'INPUT');
+    var error = document.createElement('p');
+    error.classList.add('text-danger', 'm-0');
+
+    if (inputSearchBox.parentNode.childNodes[2].tagName === 'INPUT') {
+      error.innerHTML = "Attenzione! Il campo indirizzo \xE8 obbligatorio";
+      document.querySelector('.tt-search-box').appendChild(error);
+      console.log(inputSearchBox);
+      inputSearchBox.addEventListener('click', function () {
+        error.remove();
+      });
+      preventDefaultLogin = true;
+    }
+  }
 });
 /* TOMTOM SEARCHBOX */
 

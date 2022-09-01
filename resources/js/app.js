@@ -259,14 +259,6 @@ function loginValidation() {
             }
         }
 
-        function errorToggle(input) {
-            input.addEventListener('click', function () {
-                if (input.parentNode.lastChild.tagName != 'INPUT') {
-                    input.parentNode.lastChild.remove();
-                }
-            })
-        }
-
         function printExactError(input) {
             if (input.id === 'email') {
                 emailValidation(input);
@@ -428,6 +420,8 @@ function errorToggle(input) {
 }
 
 
+
+
 /* TOMTOM SEARCHBOX */
 
 let options = {
@@ -441,8 +435,8 @@ let options = {
         language: 'it-IT'
     }
 };
-var ttSearchBox = new tt.plugins.SearchBox(tt.services, options);
-var searchBoxHTML = ttSearchBox.getSearchBoxHTML();
+let ttSearchBox = new tt.plugins.SearchBox(tt.services, options);
+let searchBoxHTML = ttSearchBox.getSearchBoxHTML();
 let address = document.querySelector('.address');
 
 address.append(searchBoxHTML);
@@ -452,10 +446,25 @@ ttSearchBox._container.firstChild.style.padding = '6px';
 ttSearchBox._container.firstChild.style.borderRadius = '5px';
 
 let inputSearchBox = ttSearchBox._container.firstChild.children[2];
-inputSearchBox.classList.add('js-data');
+inputSearchBox.name = 'address';
+inputSearchBox.id = 'address';
+inputSearchBox.placeholder = 'Inserire l\'indirizzo';
 
 btnCreate.addEventListener('click', function () {
-    let value = ttSearchBox._container.firstChild.children[2].value;
-    console.log(value);
+    if(inputSearchBox.value === ''){
+        // console.log(inputSearchBox.parentNode.childNodes[2].tagName === 'INPUT');
+        const error = document.createElement('p');
+        error.classList.add('text-danger', 'm-0');
+        if (inputSearchBox.parentNode.childNodes[2].tagName === 'INPUT') {
+            error.innerHTML = `Attenzione! Il campo indirizzo è obbligatorio`;
+            
+            document.querySelector('.tt-search-box').appendChild(error);
+            console.log(inputSearchBox);
+            inputSearchBox.addEventListener('click', function(){
+                error.remove();
+            });
+            preventDefaultLogin = true
+        }
+    }
 })
  /* TOMTOM SEARCHBOX */

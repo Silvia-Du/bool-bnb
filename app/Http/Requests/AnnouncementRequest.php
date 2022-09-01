@@ -31,8 +31,6 @@ class AnnouncementRequest extends FormRequest
             'bathrooms'=>'required | min:1 | numeric',
             'mq'=>'required | min:30 | numeric',
             'address'=>'required | min:7 | max:200',
-            'city'=>'required | min:2 | max:250',
-            'country'=>'required | min:2 | max:250',
             'image'=>'nullable|image|max:32000',
             'house_type'=>'required | min:3 | max:200',
             'room_type'=>'required | min:3 | max:200',
