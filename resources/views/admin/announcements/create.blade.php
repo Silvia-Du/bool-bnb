@@ -1,14 +1,10 @@
 @extends('layouts.app')
 @section('content')
     <div class="container my-5">
-        <div class="row">
+        <div class="row ">
             <div class=" box">
                 <h1 class="text-center">Inserisci un nuovo Annuncio</h1>
-                <form action="{{ route('admin.announcements.store') }}" method="POST" enctype="multipart/form-data"
-                    class="comp_form">
-                    @csrf
-
-                    @if ($errors->any())
+                 @if ($errors->any())
                         <div class="col-8 offset-2 alert alert-danger">
                             <ul>
                                 @foreach ($errors->all() as $error)
@@ -17,6 +13,9 @@
                             </ul>
                         </div>
                     @endif
+                <form action="{{ route('admin.announcements.store') }}" method="POST" enctype="multipart/form-data"
+                    class="comp_form">
+                    @csrf
                     <form class="needs-validation">
                         <div class="row g-3">
                             {{-- title --}}
@@ -209,7 +208,7 @@
 
                             </div>
                     </form>
-                </div>
+                </div> 
             </div>
         </div>
     </div>

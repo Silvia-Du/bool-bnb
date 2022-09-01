@@ -8,6 +8,7 @@
                     enctype="multipart/form-data" class="comp_form">
                     @csrf
                     @method('PUT')
+
                     <form class="needs-validation">
                         <div class="row g-3">
                             {{-- title --}}
@@ -153,6 +154,7 @@
                                 @error('description')
                                     <p class="text-danger">{{ $message }}</p>
                                 @enderror
+
 
                                 <button id="btn-edit" class="w-100 btn btn-dark btn-lg my-3" type="submit">Invia</button>
 
