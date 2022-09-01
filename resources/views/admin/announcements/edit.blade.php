@@ -33,30 +33,7 @@
                             <p class="text-danger">{{ $message }}</p>
                         @enderror
                     </div>
-                    {{-- city --}}
-                    <div class="mb-3 field">
-                        <label for="city" class="form-label">
-                            <i class="fa-solid fa-location-dot"></i>
-                            Città
-                        </label>
-                        <input type="text" class="js-data form-control @error('city') is-invalid @enderror"
-                            name="city" id="city" value="{{ old('city', $announcement->city) }}">
-                        @error('city')
-                            <p class="text-danger">{{ $message }}</p>
-                        @enderror
-                    </div>
-                    {{-- country --}}
-                    <div class="mb-3 field">
-                        <label for="country" class="form-label">
-                            <i class="fa-solid fa-earth-europe"></i>
-                            Nazione
-                        </label>
-                        <input type="text" class="js-data form-control @error('country') is-invalid @enderror"
-                            name="country" id="country" value="{{ old('country', $announcement->country) }}">
-                        @error('country')
-                            <p class="text-danger">{{ $message }}</p>
-                        @enderror
-                    </div>
+                    
                     {{-- image --}}
                     <div class="mn-3 field">
                         @if ($announcement->image)

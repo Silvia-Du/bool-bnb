@@ -49939,6 +49939,7 @@ ttSearchBox._container.classList.add('m-0');
 ttSearchBox._container.firstChild.style.padding = '6px';
 ttSearchBox._container.firstChild.style.borderRadius = '5px';
 var inputSearchBox = ttSearchBox._container.firstChild.children[2];
+inputSearchBox.classList.add('js-data');
 btnCreate.addEventListener('click', function () {
   var value = ttSearchBox._container.firstChild.children[2].value;
   console.log(value);
