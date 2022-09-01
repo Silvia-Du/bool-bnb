@@ -10,8 +10,6 @@
 </head>
 <body>
 
-    <h1>Home di vue</h1>
-
     <div id="app"></div>
 
 </body>

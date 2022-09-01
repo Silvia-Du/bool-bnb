@@ -37286,12 +37286,11 @@ if (btnRegister) {
 } else if (btnLogin) {
   loginValidation();
 } else if (btnEdit) {
-  console.log('esiste edit');
   getAddEvent(btnEdit);
 } else if (btnCreate) {
-  console.log('esiste create');
   getAddEvent(btnCreate);
-}
+} //REGISTARTION
+
 
 function registerValidation() {
   var preventDefaultRegister = false;
@@ -37471,8 +37470,9 @@ function registerValidation() {
       return correctLabel;
     }
   });
-  /* END REGISTER VALIDATION */
 }
+/* END REGISTER VALIDATION */
+
 
 function loginValidation() {
   var preventDefaultLogin = false;
