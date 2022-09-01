@@ -49915,6 +49915,35 @@ function errorToggle(input) {
     }
   });
 }
+/* TOMTOM SEARCHBOX */
+
+
+var options = {
+  searchOptions: {
+    key: 'ieE6bIkIjKCULYNaPIeiocY8WifbHuDb',
+    language: 'it-IT',
+    limit: 10
+  },
+  autocompleteOptions: {
+    key: 'ieE6bIkIjKCULYNaPIeiocY8WifbHuDb',
+    language: 'it-IT'
+  }
+};
+var ttSearchBox = new tt.plugins.SearchBox(tt.services, options);
+var searchBoxHTML = ttSearchBox.getSearchBoxHTML();
+var address = document.querySelector('.address');
+address.append(searchBoxHTML);
+
+ttSearchBox._container.classList.add('m-0');
+
+ttSearchBox._container.firstChild.style.padding = '6px';
+ttSearchBox._container.firstChild.style.borderRadius = '5px';
+var inputSearchBox = ttSearchBox._container.firstChild.children[2];
+btnCreate.addEventListener('click', function () {
+  var value = ttSearchBox._container.firstChild.children[2].value;
+  console.log(value);
+});
+/* TOMTOM SEARCHBOX */
 
 /***/ }),
 
@@ -50050,8 +50079,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\silvi\Documents\BOOLEAN\LARAVEL\bool-bnb\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\Users\silvi\Documents\BOOLEAN\LARAVEL\bool-bnb\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\Users\emanu\OneDrive\Desktop\BOOLEAN\LARAVEL\laravel-bnb\bool-bnb\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\Users\emanu\OneDrive\Desktop\BOOLEAN\LARAVEL\laravel-bnb\bool-bnb\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
