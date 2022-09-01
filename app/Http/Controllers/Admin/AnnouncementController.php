@@ -130,7 +130,7 @@ class AnnouncementController extends Controller
     {
         $announcement->delete();
 
-        return redirect()->route('admin.announcements.index')->with('delete_announcemenet', "Annuncio $announcement->title eliminato correttamente");
+        return redirect()->route('admin.announcements.index')->with('delete_announcement', "Annuncio $announcement->title eliminato correttamente");
     }
 
     // public function getAnnouncements()

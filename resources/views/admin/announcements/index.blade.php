@@ -3,9 +3,9 @@
 @section('content')
 
 
-@if (session('delete_announcemenet'))
-    <div class="alert alert-danger" role="alert">
-        {{ session('post_deleted') }}
+@if (session('delete_announcement'))
+    <div class="alert alert-danger container py-3 text-center" role="alert">
+        {{ session('delete_announcement') }}
     </div>
 @endif
 
