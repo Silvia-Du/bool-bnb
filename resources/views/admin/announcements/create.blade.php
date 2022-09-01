@@ -2,6 +2,7 @@
 @section('content')
     <div class="container my-5">
         <div class="row">
+
             @if ($errors->any())
                 <div class="col-8 offset-2 alert alert-danger">
                     <ul>
@@ -11,6 +12,7 @@
                     </ul>
                 </div>
             @endif
+
         </div>
         <div class="row ">
             <div class=" box">
