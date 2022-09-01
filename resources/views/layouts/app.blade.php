@@ -10,7 +10,7 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="{{ asset('js/admin/admin.js') }}" defer></script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -25,7 +25,7 @@
     <script src="https://api.tomtom.com/maps-sdk-for-web/cdn/6.x/6.1.2-public-preview.15/services/services-web.min.js"></script>
 
     <!-- Styles -->
-    <link href="{{ asset('') }}" rel="stylesheet">
+    <link href="{{ asset('css/admin/style.css') }}" rel="stylesheet">
 </head>
 <body>
     <div id="app">
