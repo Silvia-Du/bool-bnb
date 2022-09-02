@@ -47,8 +47,5 @@ export default {
 
 <style>
 
-main{
-    height: calc(100vh - 160px);
-}
 
 </style>
