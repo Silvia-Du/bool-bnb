@@ -54,8 +54,7 @@ class AnnouncementController extends Controller
         $encoded_address = urlencode($data['address']);
         $response = Http::get('https://api.tomtom.com/search/2/geocode/' .$encoded_address. '.json/?key=ieE6bIkIjKCULYNaPIeiocY8WifbHuDb');
         $response_json = $response->json();
-        // dd($response_json['results'][0]['position']);
-        
+
 
         if (array_key_exists('image', $data)) {
             $data['image_original_name'] = $request->file('image')
@@ -68,14 +67,13 @@ class AnnouncementController extends Controller
         $data['latitude'] = $response_json['results'][0]['position']['lat']; // Da inserire dopo
         $data['longitude'] = $response_json['results'][0]['position']['lon']; // Da inserire dopo
 
-        /* if(array_key_exists("services", $data)){
-            $new_announcement->services()->attach($data["services"]);
-        }
- */
-        // dd($request->all());
-
         $new_announcement->fill($data);
         $new_announcement->save();
+        dd('eccoci');
+         if(array_key_exists("services", $data)){
+            $new_announcement->services()->attach($data["services"]);
+        }
+
         return redirect()->route('admin.announcements.show', $new_announcement);
 
     }

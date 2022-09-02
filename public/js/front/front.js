@@ -1954,14 +1954,10 @@ __webpack_require__.r(__webpack_exports__);
     InEvidenceRow: _partials_InEvidenceRow_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
   },
   data: function data() {
-<<<<<<< HEAD
     return {
       categories: ['baite', 'campagna', 'wow', 'spiaggia', 'minicase', 'camper', 'design', 'b&b', 'luxe', 'ville', 'spazi creativi', 'co-working', 'co-leaving'] // devono avere l'icona (stringe) e l'active (true/false)
 
     };
-=======
-    return {};
->>>>>>> 7d98f209d7cd7fbb94cc5b40d3546384a2e63182
   }
 });
 
@@ -2051,7 +2047,6 @@ var render = function render() {
   var _vm = this,
       _c = _vm._self._c;
 
-<<<<<<< HEAD
   return _c("div", [_vm._m(0), _vm._v(" "), _c("div", {
     staticClass: "filter-row debug px-lg-5 py-4"
   }, [_c("div", {
@@ -2068,16 +2063,12 @@ var render = function render() {
   }), _vm._v(" "), _c("i", {
     staticClass: "fa-solid fa-circle-chevron-right"
   })], 2), _vm._v(" "), _vm._m(1)])]), _vm._v(" "), _c("InEvidenceRow")], 1);
-=======
-  return _vm._m(0);
->>>>>>> 7d98f209d7cd7fbb94cc5b40d3546384a2e63182
 };
 
 var staticRenderFns = [function () {
   var _vm = this,
       _c = _vm._self._c;
 
-<<<<<<< HEAD
   return _c("div", {
     staticClass: "jumbotron debug py-0 px-lg-5 mb-0 d-none d-md-block"
   }, [_c("div", {
@@ -2094,15 +2085,6 @@ var staticRenderFns = [function () {
   }), _vm._v(" "), _c("span", {
     staticClass: "ml-4"
   }, [_vm._v("Filtri")])]);
-=======
-  return _c("div", [_c("div", {
-    staticClass: "jumbotron debug d-flex justify-content-center align-items-center mb-0"
-  }, [_c("h1", {
-    staticClass: "debug d-inline-block"
-  }, [_vm._v("Jumbo")])]), _vm._v(" "), _c("div", {
-    staticClass: "filter-row debug d-flex justify-content-around align-items-center"
-  })]);
->>>>>>> 7d98f209d7cd7fbb94cc5b40d3546384a2e63182
 }];
 render._withStripped = true;
 
@@ -2259,11 +2241,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-<<<<<<< HEAD
 exports.push([module.i, ".jumbotron[data-v-4b10c5b8] {\n  height: 500px;\n}\n.filter-row[data-v-4b10c5b8] {\n  overflow-x: auto;\n}\n.filter-row i[data-v-4b10c5b8] {\n  font-size: 1.7rem;\n}\n.filter-row .categories[data-v-4b10c5b8] {\n  width: 85px;\n  height: 50px;\n  font-size: 0.8rem;\n  font-weight: 600;\n  flex-shrink: 0;\n}\n.filter-row .filter[data-v-4b10c5b8] {\n  border-radius: 15px;\n  font-weight: bold;\n  font-size: 1rem;\n  flex-shrink: 0;\n}\n.filter-row .filter i[data-v-4b10c5b8] {\n  font-size: 1.4rem;\n}", ""]);
-=======
-exports.push([module.i, ".jumbotron[data-v-4b10c5b8] {\n  height: 500px;\n}\n.filter-row[data-v-4b10c5b8] {\n  height: 100px;\n}", ""]);
->>>>>>> 7d98f209d7cd7fbb94cc5b40d3546384a2e63182
 
 // exports
 
@@ -2301,30 +2279,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-<<<<<<< HEAD
 exports.push([module.i, "header .logo[data-v-494e1ffe] {\n  height: 50px;\n  width: 90px;\n}\nheader .nav-map[data-v-494e1ffe] {\n  width: 80%;\n  height: 45px;\n}\nheader .nav-map .search-i[data-v-494e1ffe] {\n  font-size: 1.2rem;\n}\nheader .nav-map .nav-text .question[data-v-494e1ffe] {\n  font-size: 0.7rem;\n  font-weight: bolder;\n}\nheader .nav-map .nav-text .answer[data-v-494e1ffe] {\n  font-size: 0.6rem;\n}\nheader .nav-map .slider-box[data-v-494e1ffe] {\n  border-radius: 50%;\n  height: 27px;\n  width: 27px;\n}\nheader .link-col a[data-v-494e1ffe] {\n  color: rgba(0, 0, 0, 0.884);\n  font-size: 0.8rem;\n  font-weight: bold;\n}\nheader .link-col i[data-v-494e1ffe] {\n  font-size: 1.2rem;\n}\nheader .link-col .user-box[data-v-494e1ffe] {\n  height: 45px;\n}\nheader .link-col .user-box i[data-v-494e1ffe] {\n  font-size: 1rem;\n}\nheader .link-col .user-box .fa-circle-user[data-v-494e1ffe] {\n  font-size: 1.5rem;\n}", ""]);
-=======
-exports.push([module.i, "header[data-v-494e1ffe] {\n  height: 80px;\n}", ""]);
-
-// exports
-
-
-/***/ }),
-
-/***/ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/App.vue?vue&type=style&index=0&id=f348271a&lang=css&":
-/*!**********************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/css-loader??ref--7-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--7-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/App.vue?vue&type=style&index=0&id=f348271a&lang=css& ***!
-  \**********************************************************************************************************************************************************************************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__(/*! ../../node_modules/css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
-// imports
-
-
-// module
-exports.push([module.i, "\nmain{\r\n    height: calc(100vh - 160px);\n}\r\n\r\n", ""]);
->>>>>>> 7d98f209d7cd7fbb94cc5b40d3546384a2e63182
 
 // exports
 
@@ -18512,7 +18467,7 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\emanu\OneDrive\Desktop\BOOLEAN\LARAVEL\laravel-bnb\bool-bnb\resources\js\front.js */"./resources/js/front.js");
+module.exports = __webpack_require__(/*! C:\Users\silvi\Documents\BOOLEAN\LARAVEL\bool-bnb\resources\js\front.js */"./resources/js/front.js");
 
 
 /***/ })
