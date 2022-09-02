@@ -15,19 +15,18 @@
             <div class="row align-items-md-stretch">
                 <div class="col-md-6">
                     <div class="h-100 p-5 text-white bg-dark rounded text-center ">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/8/89/Portrait_Placeholder.png"
-                            class="img-fluid d-block mx-lg-auto rounded-circle my-3"
-                            alt="{{ Auth::user()->name }} profile picture" width="300" height="300">
+                        <div class="d-flex justify-content-center">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/8/89/Portrait_Placeholder.png"
+                                class="img-fluid d-block mx-lg-auto rounded-circle my-3"
+                                alt="{{ Auth::user()->name }} profile picture" width="300" height="300">
+                        </div>
 
                         <a class="font-weight-bolder text-white" href="#">Aggiorna foto</a>
 
-                        <div class="my-3 p-3">
-                            <div class="my-3"><a class="btn btn-outline-light" href="#">Aggiungi nuovo
-                                    appartamento</a></div>
-                            <div class="my-3"><a class="btn btn-outline-light" href="#">I tuoi appartamenti</a>
-                            </div>
-                            <div class="my-3"><a class="btn btn-outline-light" href="#">Le tue sponsorships
-                                    attive</a></div>
+                        <div class="my-3 p-3 flex-column">
+                            <div class="my-3"><a class="btn btn-outline-light" href="#">Aggiungi nuovo appartamento</a></div>
+                            <div class="my-3"><a class="btn btn-outline-light" href="#">I tuoi appartamenti</a></div>
+                            <div class="my-3"><a class="btn btn-outline-light" href="#">Le tue sponsorshipsattive</a></div>
                         </div>
 
                     </div>
@@ -54,8 +53,7 @@
 
                         <div class="border border-black my-3 p-3">
                             <h3>Migliora la tua esperienza come Host con le nostre <b>Sponsorships</b></h3>
-                            <p>Incrementa le tue possibilità di ricevere prenotazioni pubblicizzando efficacemente il tuo
-                                annuncio.</p>
+                            <p>Incrementa le tue possibilità di ricevere prenotazioni pubblicizzando efficacemente il tuo annuncio.</p>
                             <button class="btn btn-outline-dark" type="button">Scopri di più</button>
                         </div>
 
