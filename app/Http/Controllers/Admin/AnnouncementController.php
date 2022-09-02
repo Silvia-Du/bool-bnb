@@ -8,6 +8,8 @@ use App\Service;
 use App\Announcement;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Http;
+
 
 
 class AnnouncementController extends Controller
@@ -49,6 +51,12 @@ class AnnouncementController extends Controller
         $data = $request->all();
         $new_announcement = new Announcement();
 
+        $encoded_address = urlencode($data['address']);
+        $response = Http::get('https://api.tomtom.com/search/2/geocode/' .$encoded_address. '.json/?key=ieE6bIkIjKCULYNaPIeiocY8WifbHuDb');
+        $response_json = $response->json();
+        // dd($response_json['results'][0]['position']);
+        
+
         if (array_key_exists('image', $data)) {
             $data['image_original_name'] = $request->file('image')
                 ->getClientOriginalName();
@@ -60,9 +68,11 @@ class AnnouncementController extends Controller
         $data['latitude'] = 0; // Da inserire dopo
         $data['longitude'] = 0; // Da inserire dopo
 
-        if(array_key_exists("services", $data)){
+        /* if(array_key_exists("services", $data)){
             $new_announcement->services()->attach($data["services"]);
-           }
+        }
+ */
+        dd($request->all());
 
         $new_announcement->fill($data);
         $new_announcement->save();

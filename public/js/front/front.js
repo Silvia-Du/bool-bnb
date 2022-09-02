@@ -1949,9 +1949,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'HomeComp',
   data: function data() {
-    return {
-      items: ['items1', 'items1', 'items1', 'items1', 'items1', 'items1', 'items1', 'items1', 'items1']
-    };
+    return {};
   }
 });
 
@@ -2026,29 +2024,20 @@ var render = function render() {
   var _vm = this,
       _c = _vm._self._c;
 
-  return _c("div", [_vm._m(0), _vm._v(" "), _c("div", {
-    staticClass: "filter-row debug d-flex justify-content-around align-items-center"
-  }, [_c("div", {
-    key: "item".concat(_vm.i),
-    staticClass: "item debug",
-    on: {
-      "v-for": function vFor($event) {
-        ;
-        (_vm.item, _vm.i) in _vm.items;
-      }
-    }
-  }, [_vm._v(_vm._s(_vm.item))])])]);
+  return _vm._m(0);
 };
 
 var staticRenderFns = [function () {
   var _vm = this,
       _c = _vm._self._c;
 
-  return _c("div", {
+  return _c("div", [_c("div", {
     staticClass: "jumbotron debug d-flex justify-content-center align-items-center mb-0"
   }, [_c("h1", {
     staticClass: "debug d-inline-block"
-  }, [_vm._v("Jumbo")])]);
+  }, [_vm._v("Jumbo")])]), _vm._v(" "), _c("div", {
+    staticClass: "filter-row debug d-flex justify-content-around align-items-center"
+  })]);
 }];
 render._withStripped = true;
 
@@ -2125,7 +2114,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, ".jumbotron[data-v-4b10c5b8] {\n  height: 500px;\n}\n.filter-row[data-v-4b10c5b8] {\n  height: 100px;\n}\n.filter-row .item[data-v-4b10c5b8] {\n  height: 50px;\n  width: 90px;\n}", ""]);
+exports.push([module.i, ".jumbotron[data-v-4b10c5b8] {\n  height: 500px;\n}\n.filter-row[data-v-4b10c5b8] {\n  height: 100px;\n}", ""]);
 
 // exports
 
@@ -2182,7 +2171,7 @@ exports = module.exports = __webpack_require__(/*! ../../node_modules/css-loader
 
 
 // module
-exports.push([module.i, "\nmain{\n    height: calc(100vh - 160px);\n}\n\n", ""]);
+exports.push([module.i, "\nmain{\r\n    height: calc(100vh - 160px);\n}\r\n\r\n", ""]);
 
 // exports
 
@@ -18349,7 +18338,7 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\silvi\Documents\BOOLEAN\LARAVEL\bool-bnb\resources\js\front.js */"./resources/js/front.js");
+module.exports = __webpack_require__(/*! C:\Users\emanu\OneDrive\Desktop\BOOLEAN\LARAVEL\laravel-bnb\bool-bnb\resources\js\front.js */"./resources/js/front.js");
 
 
 /***/ })

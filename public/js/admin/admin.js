@@ -37267,8 +37267,7 @@ module.exports = function(module) {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js"); // console.log('vengo compilato');
-// //btn
+__webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js"); // //btn
 
 
 var btnRegister = document.getElementById('btn-register');
@@ -37286,11 +37285,12 @@ if (btnRegister) {
 } else if (btnLogin) {
   loginValidation();
 } else if (btnEdit) {
+  console.log('esiste edit');
   getAddEvent(btnEdit);
 } else if (btnCreate) {
+  console.log('esiste create');
   getAddEvent(btnCreate);
-} //REGISTARTION
-
+}
 
 function registerValidation() {
   var preventDefaultRegister = false;
@@ -37470,9 +37470,8 @@ function registerValidation() {
       return correctLabel;
     }
   });
+  /* END REGISTER VALIDATION */
 }
-/* END REGISTER VALIDATION */
-
 
 function loginValidation() {
   var preventDefaultLogin = false;
@@ -37781,9 +37780,9 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\silvi\Documents\BOOLEAN\LARAVEL\bool-bnb\resources\js\admin.js */"./resources/js/admin.js");
-__webpack_require__(/*! C:\Users\silvi\Documents\BOOLEAN\LARAVEL\bool-bnb\resources\sass\admin\style.scss */"./resources/sass/admin/style.scss");
-module.exports = __webpack_require__(/*! C:\Users\silvi\Documents\BOOLEAN\LARAVEL\bool-bnb\resources\sass\front\style.scss */"./resources/sass/front/style.scss");
+__webpack_require__(/*! C:\Users\emanu\OneDrive\Desktop\BOOLEAN\LARAVEL\laravel-bnb\bool-bnb\resources\js\admin.js */"./resources/js/admin.js");
+__webpack_require__(/*! C:\Users\emanu\OneDrive\Desktop\BOOLEAN\LARAVEL\laravel-bnb\bool-bnb\resources\sass\admin\style.scss */"./resources/sass/admin/style.scss");
+module.exports = __webpack_require__(/*! C:\Users\emanu\OneDrive\Desktop\BOOLEAN\LARAVEL\laravel-bnb\bool-bnb\resources\sass\front\style.scss */"./resources/sass/front/style.scss");
 
 
 /***/ })

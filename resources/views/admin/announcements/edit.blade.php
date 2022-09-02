@@ -51,28 +51,6 @@
                                 @enderror
                             </div>
 
-                            {{-- city --}}
-                            <div class="col-sm-6">
-                                <label for="city" class="form-label"><i class="fa-solid fa-location-dot"></i>
-                                    Città</label>
-                                <input type="text" class="edit-data form-control @error('city') is-invalid @enderror"
-                                    name="city" id="city" value="{{ old('city', $announcement->city) }}">
-                                @error('city')
-                                    <p class="text-danger">{{ $message }}</p>
-                                @enderror
-                            </div>
-
-                            {{-- country --}}
-                            <div class="col-sm-6">
-                                <label for="country" class="form-label"><i class="fa-solid fa-earth-europe"></i>
-                                    Nazione</label>
-                                <input type="text" class="edit-data form-control @error('country') is-invalid @enderror"
-                                    name="country" id="country" value="{{ old('country', $announcement->country) }}">
-                                @error('country')
-                                    <p class="text-danger">{{ $message }}</p>
-                                @enderror
-                            </div>
-
                             {{-- mq --}}
                             <div class="col-sm-6">
                                 <label for="mq" class="form-label"><i class="fa-solid fa-maximize"></i> Metri

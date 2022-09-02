@@ -46,51 +46,19 @@
                             </div>
 
                             {{-- address --}}
-                            <div class="col-12">
+                            <div class="col-12 address">
                                 <label for="address" class="form-label">
                                     <i class="fa-solid fa-map-location-dot"></i>
                                     Indirizzo
                                 </label>
-                                <input type="text" id="address" name="address"
+                                {{-- <input type="text" id="address" name="address"
                                     class="js-data form-control @error('address') is-invalid @enderror"
                                     placeholder="Inserisci un Indirizzo" value="{{ old('address') }}">
                                 @error('address')
                                     <p class="text-danger">
                                         {{ $message }}
                                     </p>
-                                @enderror
-                            </div>
-
-                            {{-- city --}}
-                            <div class="col-sm-6">
-                                <label for="city" class="form-label">
-                                    <i class="fa-solid fa-location-dot"></i>
-                                    Città
-                                </label>
-                                <input type="text" id="city" name="city"
-                                    class="js-data form-control @error('city') is-invalid @enderror"
-                                    placeholder="Inserisci una Città" value="{{ old('city') }}">
-                                @error('city')
-                                    <p class="text-danger">
-                                        {{ $message }}
-                                    </p>
-                                @enderror
-                            </div>
-
-                            {{-- country --}}
-                            <div class="col-sm-6">
-                                <label for="country" class="form-label">
-                                    <i class="fa-solid fa-earth-europe"></i>
-                                    Nazione
-                                </label>
-                                <input type="text" id="country" name="country"
-                                    class="js-data form-control @error('country') is-invalid @enderror"
-                                    placeholder="Inserisci una Nazione" value="{{ old('country') }}">
-                                @error('country')
-                                    <p class="text-danger">
-                                        {{ $message }}
-                                    </p>
-                                @enderror
+                                @enderror --}}
                             </div>
 
                             {{-- mq --}}
@@ -227,7 +195,7 @@
                                     </p>
                                 @enderror
 
-                                <button id="btn-edit" class="sm w-100 btn btn-dark btn-lg my-3" type="submit">Invia</button>
+                                <button id="btn-create" class="sm w-100 btn btn-dark btn-lg my-3" type="submit">Invia</button>
 
                             </div>
 
