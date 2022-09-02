@@ -4,9 +4,12 @@ namespace App\Http\Controllers\Admin;
 use App\http\Requests\AnnouncementRequest;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Service;
 use App\Announcement;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Http;
+
 
 
 class AnnouncementController extends Controller
@@ -31,8 +34,9 @@ class AnnouncementController extends Controller
      */
     public function create()
     {
+        $services = Service::all();
 
-        return view('admin.announcements.create');
+        return view('admin.announcements.create', compact('services'));
     }
 
     /**
@@ -47,6 +51,12 @@ class AnnouncementController extends Controller
         $data = $request->all();
         $new_announcement = new Announcement();
 
+        $encoded_address = urlencode($data['address']);
+        $response = Http::get('https://api.tomtom.com/search/2/geocode/' .$encoded_address. '.json/?key=ieE6bIkIjKCULYNaPIeiocY8WifbHuDb');
+        $response_json = $response->json();
+        // dd($response_json['results'][0]['position']);
+        
+
         if (array_key_exists('image', $data)) {
             $data['image_original_name'] = $request->file('image')
                 ->getClientOriginalName();
@@ -55,8 +65,14 @@ class AnnouncementController extends Controller
 
         $data['slug'] = Announcement::slugGenerator($data['title']);
         $data['user_id'] = Auth::id();
-        $data['latitude'] = 0; // Da inserire dopo
-        $data['longitude'] = 0; // Da inserire dopo
+        $data['latitude'] = $response_json['results'][0]['position']['lat']; // Da inserire dopo
+        $data['longitude'] = $response_json['results'][0]['position']['lon']; // Da inserire dopo
+
+        /* if(array_key_exists("services", $data)){
+            $new_announcement->services()->attach($data["services"]);
+        }
+ */
+        // dd($request->all());
 
         $new_announcement->fill($data);
         $new_announcement->save();
@@ -87,8 +103,9 @@ class AnnouncementController extends Controller
         if(Auth::id() != $announcement->user_id){
             abort(403);
         }
-        // abort_if(auth()->id() === $announcement->user, 403);
-        return view('admin.announcements.edit', compact('announcement'));
+        $services = Service::all();
+
+        return view('admin.announcements.edit', compact('announcement','services'));
     }
 
     /**
@@ -114,6 +131,13 @@ class AnnouncementController extends Controller
         if ($data['title'] != $announcement->title) {
             $data['slug'] = Announcement::slugGenerator($data['title']);
         }
+
+        if(array_key_exists("services", $data)){
+            $announcement->services()->sync($data["services"]);
+        }else{
+            $announcement->services()->detach();
+        }
+
 
         $announcement->update($data);
 
