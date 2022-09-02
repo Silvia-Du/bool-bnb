@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 use App\http\Requests\AnnouncementRequest;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Service;
 use App\Announcement;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Auth;
@@ -31,8 +32,9 @@ class AnnouncementController extends Controller
      */
     public function create()
     {
+        $services = Service::all();
 
-        return view('admin.announcements.create');
+        return view('admin.announcements.create', compact('services'));
     }
 
     /**
@@ -57,6 +59,10 @@ class AnnouncementController extends Controller
         $data['user_id'] = Auth::id();
         $data['latitude'] = 0; // Da inserire dopo
         $data['longitude'] = 0; // Da inserire dopo
+
+        if(array_key_exists("services", $data)){
+            $new_announcement->services()->attach($data["services"]);
+           }
 
         $new_announcement->fill($data);
         $new_announcement->save();
@@ -87,8 +93,9 @@ class AnnouncementController extends Controller
         if(Auth::id() != $announcement->user_id){
             abort(403);
         }
-        // abort_if(auth()->id() === $announcement->user, 403);
-        return view('admin.announcements.edit', compact('announcement'));
+        $services = Service::all();
+
+        return view('admin.announcements.edit', compact('announcement','services'));
     }
 
     /**
@@ -114,6 +121,13 @@ class AnnouncementController extends Controller
         if ($data['title'] != $announcement->title) {
             $data['slug'] = Announcement::slugGenerator($data['title']);
         }
+
+        if(array_key_exists("services", $data)){
+            $announcement->services()->sync($data["services"]);
+        }else{
+            $announcement->services()->detach();
+        }
+
 
         $announcement->update($data);
 
