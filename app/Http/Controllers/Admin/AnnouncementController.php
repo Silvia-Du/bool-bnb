@@ -65,14 +65,14 @@ class AnnouncementController extends Controller
 
         $data['slug'] = Announcement::slugGenerator($data['title']);
         $data['user_id'] = Auth::id();
-        $data['latitude'] = 0; // Da inserire dopo
-        $data['longitude'] = 0; // Da inserire dopo
+        $data['latitude'] = $response_json['results'][0]['position']['lat']; // Da inserire dopo
+        $data['longitude'] = $response_json['results'][0]['position']['lon']; // Da inserire dopo
 
         /* if(array_key_exists("services", $data)){
             $new_announcement->services()->attach($data["services"]);
         }
  */
-        dd($request->all());
+        // dd($request->all());
 
         $new_announcement->fill($data);
         $new_announcement->save();
