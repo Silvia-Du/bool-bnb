@@ -4,6 +4,7 @@
     <main>
 
         <router-view></router-view>
+
     </main>
     <FooterComp />
   </div>
@@ -23,30 +24,18 @@ export default {
 
     data() {
         return {
-            apiUrl: 'api/announcements',
-        }
-    },
 
-    methods: {
-        getAnnouncement(){
-            axios.get(this.apiUrl)
-            .then(response =>{
-                console.log(response);
-                // this.announcements = response.data.announcements;
-            })
         }
     },
 
 
-    mounted(){
-        this.getAnnouncement();
-    }
 
 
 }
 </script>
 
 <style>
+
 
 
 </style>

@@ -37559,7 +37559,6 @@ function loginValidation() {
 function getAddEvent(button) {
   button.addEventListener('click', function (event) {
     var errorsAny = false;
-    console.log('riparto');
 
     for (i = 0; i < inputCollection.length; i++) {
       if (inputCollection[i].value.length == 0) {
@@ -37632,11 +37631,13 @@ function getAddEvent(button) {
 }
 
 function tagPrinter(input, message) {
-  console.log('dentro tag printer');
   var errorTag = document.createElement('p');
   errorTag.classList.add('text-danger', 'mb-0'); //questo verifica che nn ci sia gia un p appeso
 
+  console.log(input.parentNode);
+
   if (input.parentNode.lastChild.tagName === 'INPUT') {
+    console.log('eccomi qui');
     var parentDiv = input.parentNode;
     errorTag.innerHTML = message;
     parentDiv.appendChild(errorTag);
