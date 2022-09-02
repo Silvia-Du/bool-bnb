@@ -1,7 +1,15 @@
 
+// Variables
+@import '../admin/variables';
+
+
+// Bootstrap
+@import '~bootstrap/scss/bootstrap';
+
+
 .debug{
     background-color: rgba(95, 158, 160, 0.808);
-
+    border: 1px solid rgb(32, 32, 32);
 }
 
 .box h1{
