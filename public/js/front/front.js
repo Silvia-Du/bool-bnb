@@ -1948,19 +1948,28 @@ __webpack_require__.r(__webpack_exports__);
     return {
       // devono avere l'icona (stringe) e l'active (true/false)
       categories: ['baite', 'campagna', 'wow', 'spiaggia', 'minicase', 'camper', 'design', 'b&b', 'luxe', 'ville', 'spazi creativi', 'co-working', 'co-leaving'],
-      apiUrl: 'api/announcements',
+      announcApiUrl: 'api/announcements',
       announcments: null,
-      showDropD: true
+      showDropD: false,
+      isActive: -1,
+      selectedCat: ''
     };
   },
   methods: {
     getAnnouncement: function getAnnouncement() {
       var _this = this;
 
-      axios.get(this.apiUrl).then(function (response) {
+      axios.get(this.announcApiUrl).then(function (response) {
         _this.announcments = response.data.data;
         console.log(_this.announcments);
       });
+    },
+    getCategory: function getCategory(index, category) {
+      this.isActive = index;
+      this.selectedCat = category;
+    },
+    hideModal: function hideModal(isShow) {
+      this.showDropD = isShow;
     }
   },
   mounted: function mounted() {
@@ -1979,7 +1988,19 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ({});
+/* harmony default export */ __webpack_exports__["default"] = ({
+  name: 'ModaleFilter',
+  isShow: true,
+  props: {
+    showFilters: Boolean
+  },
+  methods: {
+    hideModal: function hideModal() {
+      this.isShow = false;
+      this.$emit('isHide', this.isShow);
+    }
+  }
+});
 
 /***/ }),
 
@@ -2076,12 +2097,7 @@ var render = function render() {
   return _c("div", {
     staticClass: "home"
   }, [_vm._m(0), _vm._v(" "), _c("div", {
-    staticClass: "filter-row debug px-lg-5 py-4",
-    on: {
-      click: function click($event) {
-        _vm.showDropD = !_vm.showDropD;
-      }
-    }
+    staticClass: "filter-row debug px-lg-5 py-4"
   }, [_c("div", {
     staticClass: "row mx-lg-5"
   }, [_c("div", {
@@ -2089,13 +2105,38 @@ var render = function render() {
   }, [_vm._l(_vm.categories, function (category, i) {
     return _c("div", {
       key: "category".concat(i),
-      staticClass: "categories debug text-center d-flex flex-column"
+      staticClass: "categories debug d-flex flex-column pt-1 justify-content-center align-items-center",
+      "class": {
+        active: i === _vm.isActive
+      },
+      on: {
+        click: function click($event) {
+          return _vm.getCategory(i, category);
+        }
+      }
     }, [_c("i", {
-      staticClass: "fa-brands fa-fort-awesome debug"
-    }), _vm._v("\n                " + _vm._s(category) + "\n                ")]);
+      staticClass: "fa-brands fa-fort-awesome debug mb-1"
+    }), _vm._v(" "), _c("p", {
+      staticClass: "mb-0 category"
+    }, [_vm._v(_vm._s(category))])]);
   }), _vm._v(" "), _c("i", {
     staticClass: "fa-solid fa-circle-chevron-right"
-  })], 2), _vm._v(" "), _vm._m(1)])]), _vm._v(" "), _c("div", {
+  })], 2), _vm._v(" "), _c("div", {
+    staticClass: "col-2 debug filter align-items-center px-4 d-none d-md-flex",
+    on: {
+      click: function click($event) {
+        _vm.showDropD = !_vm.showDropD;
+      }
+    }
+  }, [_c("i", {
+    staticClass: "fa-solid fa-sliders mr-5"
+  }), _vm._v(" "), _c("span", {
+    staticClass: "ml-4"
+  }, [_vm._v("Filtri")])]), _vm._v(" "), _vm.showDropD ? _c("ModaleFilter", {
+    on: {
+      isHide: _vm.hideModal
+    }
+  }) : _vm._e()], 1)]), _vm._v(" "), _c("div", {
     staticClass: "debug sponsorized-row px-lg-5 container-fluid pt-md-5"
   }, [_c("div", {
     staticClass: "row debug d-flex mx-lg-5 flex-wrap justify-content-around align-items-baseline pt-5 px-sm-2"
@@ -2108,7 +2149,7 @@ var render = function render() {
     });
   }), _vm._v(" "), _c("h2", {
     staticClass: "d-none d-md-block"
-  }, [_vm._v("Selezionati per te")])], 2)]), _vm._v(" "), _c("ModaleFilter")], 1);
+  }, [_vm._v("Selezionati per te")])], 2)])]);
 };
 
 var staticRenderFns = [function () {
@@ -2120,17 +2161,6 @@ var staticRenderFns = [function () {
   }, [_c("div", {
     staticClass: "debug h-100 mx-5"
   })]);
-}, function () {
-  var _vm = this,
-      _c = _vm._self._c;
-
-  return _c("div", {
-    staticClass: "col-2 debug filter align-items-center px-4 d-none d-md-flex"
-  }, [_c("i", {
-    staticClass: "fa-solid fa-sliders mr-5"
-  }), _vm._v(" "), _c("span", {
-    staticClass: "ml-4"
-  }, [_vm._v("Filtri")])]);
 }];
 render._withStripped = true;
 
@@ -2153,11 +2183,95 @@ var render = function render() {
       _c = _vm._self._c;
 
   return _c("div", {
-    staticClass: "modal debug"
-  }, [_vm._v("modale")]);
+    staticClass: "modal-container debug"
+  }, [_c("div", {
+    staticClass: "m-modal h-100 debug pt-5"
+  }, [_c("i", {
+    staticClass: "fa-solid fa-x",
+    on: {
+      click: function click($event) {
+        return _vm.hideModal();
+      }
+    }
+  }), _vm._v(" "), _vm._m(0)])]);
 };
 
-var staticRenderFns = [];
+var staticRenderFns = [function () {
+  var _vm = this,
+      _c = _vm._self._c;
+
+  return _c("div", {
+    staticClass: "filter debug container-fluid pt-2"
+  }, [_c("h5", {
+    staticClass: "my-3"
+  }, [_vm._v("Tipologia di alloggio")]), _vm._v(" "), _c("div", {
+    staticClass: "row debug d-flex justify-content-around py-3 px-lg-5 mb-3"
+  }, [_c("div", {
+    staticClass: "col-3 room-cad debug mx-xl-4"
+  }), _vm._v(" "), _c("div", {
+    staticClass: "col-3 room-cad debug mx-xl-4"
+  }), _vm._v(" "), _c("div", {
+    staticClass: "col-3 room-cad debug mx-xl-4"
+  })]), _vm._v(" "), _c("h5", [_vm._v("Stanze e letti")]), _vm._v(" "), _c("div", {
+    staticClass: "row buttton-row debug d-flex p-3"
+  }, [_c("p", {
+    staticClass: "my-2"
+  }, [_vm._v("Camere")]), _vm._v(" "), _c("div", {
+    staticClass: "col-12 debug d-flex justify-content-lg-start align-items-center"
+  }, [_c("div", {
+    staticClass: "_btn black rounded-pill p-3 debug"
+  }, [_vm._v("Qualsiasi")]), _vm._v(" "), _c("div", {
+    staticClass: "_btn 1 rounded-pill p-3 debug"
+  }, [_vm._v("1")]), _vm._v(" "), _c("div", {
+    staticClass: "_btn 2 rounded-pill p-3 debug"
+  }, [_vm._v("2")]), _vm._v(" "), _c("div", {
+    staticClass: "_btn 3 rounded-pill p-3 debug"
+  }, [_vm._v("3+")])]), _vm._v(" "), _c("p", {
+    staticClass: "mt-4 mb-2"
+  }, [_vm._v("Letti")]), _vm._v(" "), _c("div", {
+    staticClass: "col-12 debug d-flex justify-content-lg-start align-items-center"
+  }, [_c("div", {
+    staticClass: "_btn black rounded-pill p-3 debug"
+  }, [_vm._v("Qualsiasi")]), _vm._v(" "), _c("div", {
+    staticClass: "_btn 1 rounded-pill p-3 debug"
+  }, [_vm._v("1")]), _vm._v(" "), _c("div", {
+    staticClass: "_btn 2 rounded-pill p-3 debug"
+  }, [_vm._v("2")]), _vm._v(" "), _c("div", {
+    staticClass: "_btn 3 rounded-pill p-3 debug"
+  }, [_vm._v("3+")])]), _vm._v(" "), _c("p", {
+    staticClass: "mt-4 mb-2"
+  }, [_vm._v("Bagni")]), _vm._v(" "), _c("div", {
+    staticClass: "col-12 debug d-flex justify-content-lg-start align-items-center mb-3"
+  }, [_c("div", {
+    staticClass: "_btn black rounded-pill p-3 debug"
+  }, [_vm._v("Qualsiasi")]), _vm._v(" "), _c("div", {
+    staticClass: "_btn 1 rounded-pill p-3 debug"
+  }, [_vm._v("1")]), _vm._v(" "), _c("div", {
+    staticClass: "_btn 2 rounded-pill p-3 debug"
+  }, [_vm._v("2")]), _vm._v(" "), _c("div", {
+    staticClass: "_btn 3 rounded-pill p-3 debug"
+  }, [_vm._v("3+")])])]), _vm._v(" "), _c("h5", {
+    staticClass: "my-3"
+  }, [_vm._v("Tipologia di alloggio")]), _vm._v(" "), _c("div", {
+    staticClass: "row cat-row debug d-flex justify-content-around py-3 px-lg-5 mb-3"
+  }, [_c("div", {
+    staticClass: "col-6 col-lg-3 cat-card p-3"
+  }, [_c("div", {
+    staticClass: "cat-box debug h-100"
+  })]), _vm._v(" "), _c("div", {
+    staticClass: "col-6 col-xl-3 cat-card p-3"
+  }, [_c("div", {
+    staticClass: "cat-box debug h-100"
+  })]), _vm._v(" "), _c("div", {
+    staticClass: "col-6 col-xl-3 cat-card p-3"
+  }, [_c("div", {
+    staticClass: "cat-box debug h-100"
+  })]), _vm._v(" "), _c("div", {
+    staticClass: "col-6 col-xl-3 cat-card p-3"
+  }, [_c("div", {
+    staticClass: "cat-box debug h-100"
+  })])])]);
+}];
 render._withStripped = true;
 
 
@@ -2327,7 +2441,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, ".home[data-v-4b10c5b8] {\n  position: relative;\n}\n.home .jumbotron[data-v-4b10c5b8] {\n  height: 500px;\n}\n.home .filter-row[data-v-4b10c5b8] {\n  overflow-x: auto;\n}\n.home .filter-row i[data-v-4b10c5b8] {\n  font-size: 1.7rem;\n}\n.home .filter-row .categories[data-v-4b10c5b8] {\n  width: 85px;\n  height: 50px;\n  font-size: 0.8rem;\n  font-weight: 600;\n  flex-shrink: 0;\n}\n.home .filter-row .filter[data-v-4b10c5b8] {\n  border-radius: 15px;\n  font-weight: bold;\n  font-size: 1rem;\n  flex-shrink: 0;\n}\n.home .filter-row .filter i[data-v-4b10c5b8] {\n  font-size: 1.4rem;\n}\n.home .sponsorized-row[data-v-4b10c5b8] {\n  position: relative;\n}\n.home .sponsorized-row h2[data-v-4b10c5b8] {\n  z-index: 2;\n  position: absolute;\n  top: 30px;\n  left: 50%;\n  transform: translate(-50%);\n  font-size: 4rem;\n  opacity: 80%;\n}", ""]);
+exports.push([module.i, ".home .jumbotron[data-v-4b10c5b8] {\n  height: 500px;\n}\n.home .filter-row[data-v-4b10c5b8] {\n  overflow-x: auto;\n}\n.home .filter-row i[data-v-4b10c5b8] {\n  font-size: 1.7rem;\n}\n.home .filter-row .categories[data-v-4b10c5b8] {\n  width: 85px;\n  min-height: 50px;\n  font-size: 0.8rem;\n  font-weight: 600;\n  flex-shrink: 0;\n  border-bottom: 3px solid white;\n}\n.home .filter-row .categories[data-v-4b10c5b8]:hover {\n  border-bottom: 3px solid black;\n}\n.home .filter-row .categories.active[data-v-4b10c5b8] {\n  border-bottom: 3px solid black;\n}\n.home .filter-row .filter[data-v-4b10c5b8] {\n  border-radius: 15px;\n  font-weight: bold;\n  font-size: 1rem;\n  flex-shrink: 0;\n}\n.home .filter-row .filter i[data-v-4b10c5b8] {\n  font-size: 1.4rem;\n}\n.home .sponsorized-row[data-v-4b10c5b8] {\n  position: relative;\n}\n.home .sponsorized-row h2[data-v-4b10c5b8] {\n  z-index: 2;\n  position: absolute;\n  top: 30px;\n  left: 50%;\n  transform: translate(-50%);\n  font-size: 4rem;\n  opacity: 80%;\n}", ""]);
 
 // exports
 
@@ -2346,7 +2460,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, ".modal[data-v-17e0e4f4] {\n  position: absolute;\n  width: 200px;\n  height: 200px;\n  top: 0;\n  left: 0;\n  transform: translate(-50%, -50%);\n}", ""]);
+exports.push([module.i, ".modal-container[data-v-17e0e4f4] {\n  position: absolute;\n  z-index: 999;\n  border-radius: 10px;\n  width: 60%;\n  top: 50%;\n  left: 50%;\n  transform: translate(-50%, -50%);\n}\n.modal-container p[data-v-17e0e4f4] {\n  font-weight: bold;\n}\n.modal-container .m-modal[data-v-17e0e4f4] {\n  position: relative;\n  border-radius: 10px;\n}\n.modal-container i[data-v-17e0e4f4] {\n  position: absolute;\n  font-size: 1.2rem;\n  right: 18px;\n  top: 13px;\n}\n.modal-container .filter[data-v-17e0e4f4] {\n  border-top: 1px solid gray;\n}\n.modal-container .filter .room-cad[data-v-17e0e4f4] {\n  height: 50px;\n  border-radius: 5px;\n}\n.modal-container .filter .buttton-row ._btn[data-v-17e0e4f4] {\n  width: 120px;\n  text-align: center;\n  margin: 0 20px 0 0;\n}\n.modal-container .filter .buttton-row ._btn.black[data-v-17e0e4f4] {\n  background-color: rgb(31, 30, 30);\n  color: rgb(219, 219, 219);\n}\n.modal-container .filter .cat-row .cat-card[data-v-17e0e4f4] {\n  height: 164px;\n  border-radius: 15px;\n  flex-shrink: 0;\n}\n.modal-container .filter .cat-row .cat-card .cat-box[data-v-17e0e4f4] {\n  border-radius: 15px;\n}", ""]);
 
 // exports
 

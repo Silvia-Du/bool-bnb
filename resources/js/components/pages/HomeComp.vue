@@ -6,20 +6,25 @@
     </div>
 
     <!-- row filter -->
-    <div class="filter-row debug px-lg-5 py-4" @click="showDropD = !showDropD">
-        <div class="row mx-lg-5">
+    <div class="filter-row debug px-lg-5 py-4">
+        <div class="row mx-lg-5 ">
+
             <div class="col-10 debug d-flex justify-content-around align-items-center">
-                <div v-for="(category, i) in categories" :key="`category${i}`"
-                class="categories debug text-center d-flex flex-column">
-                <i class="fa-brands fa-fort-awesome debug "></i>
-                {{ category }}
+
+                <div @click="getCategory(i, category)"
+                v-for="(category, i) in categories" :key="`category${i}`"
+                class="categories debug d-flex flex-column pt-1 justify-content-center align-items-center" :class="{'active': i === isActive}">
+                    <i class="fa-brands fa-fort-awesome debug mb-1"></i>
+                    <p class="mb-0 category">{{ category }}</p>
                 </div>
+
                 <i class="fa-solid fa-circle-chevron-right"></i>
             </div>
-            <div class="col-2 debug filter align-items-center px-4 d-none d-md-flex">
+            <div @click="showDropD =! showDropD" class=" col-2 debug filter align-items-center px-4 d-none d-md-flex ">
                 <i class="fa-solid fa-sliders mr-5"></i>
                 <span class="ml-4">Filtri</span>
             </div>
+                <ModaleFilter v-if ="showDropD" @isHide ="hideModal"/>
         </div>
     </div>
 
@@ -30,7 +35,7 @@
             <h2 class="d-none d-md-block">Selezionati per te</h2>
         </div>
     </div>
-    <ModaleFilter />
+
 </div>
 
 </template>
@@ -51,21 +56,33 @@ export default {
             // devono avere l'icona (stringe) e l'active (true/false)
             categories : ['baite', 'campagna', 'wow', 'spiaggia', 'minicase', 'camper', 'design', 'b&b', 'luxe', 'ville', 'spazi creativi', 'co-working', 'co-leaving' ],
 
-            apiUrl: 'api/announcements',
+            announcApiUrl: 'api/announcements',
             announcments: null,
-            showDropD: true
+            showDropD: false,
+            isActive: -1,
+            selectedCat: '',
         }
     },
 
      methods: {
         getAnnouncement(){
-            axios.get(this.apiUrl)
+            axios.get(this.announcApiUrl)
             .then(response =>{
                 this.announcments = response.data.data;
                 console.log(this.announcments);
             })
+        },
+
+        getCategory(index, category){
+            this.isActive = index;
+            this.selectedCat = category;
+        },
+
+        hideModal(isShow){
+            this.showDropD = isShow;
         }
     },
+
 
     mounted(){
         this.getAnnouncement();
@@ -76,22 +93,30 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+
 .home{
-    position: relative;
     .jumbotron{
         height: 500px;
     }
     .filter-row{
+
         overflow-x: auto;
         i{
             font-size: 1.7rem;
         }
         .categories{
             width: 85px;
-            height: 50px;
+            min-height: 50px;
             font-size: 0.8rem;
             font-weight: 600;
             flex-shrink: 0;
+            border-bottom: 3px solid white;
+            &:hover{
+                border-bottom: 3px solid black;
+            }
+            &.active{
+                border-bottom: 3px solid black;
+            }
 
 
         }
