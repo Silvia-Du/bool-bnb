@@ -1947,7 +1947,7 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       // devono avere l'icona (stringe) e l'active (true/false)
-      categories: ['baite', 'campagna', 'wow', 'spiaggia', 'minicase', 'camper', 'design', 'b&b', 'luxe', 'ville', 'spazi creativi', 'co-working', 'co-leaving'],
+      categories: ['baite', 'campagna', 'wow', 'minicase', 'camper', 'design', 'b&b', 'luxe', 'ville', 'spazi creativi', 'co-working', 'co-leaving'],
       announcApiUrl: 'api/announcements',
       announcments: null,
       showDropD: false,
@@ -1961,15 +1961,18 @@ __webpack_require__.r(__webpack_exports__);
 
       axios.get(this.announcApiUrl).then(function (response) {
         _this.announcments = response.data.data;
-        console.log(_this.announcments);
       });
     },
     getCategory: function getCategory(index, category) {
       this.isActive = index;
       this.selectedCat = category;
+      axios.post();
     },
     hideModal: function hideModal(isShow) {
       this.showDropD = isShow;
+    },
+    getFilteredAnnounce: function getFilteredAnnounce(data) {
+      console.log(data);
     }
   },
   mounted: function mounted() {
@@ -1990,15 +1993,108 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'ModaleFilter',
-  isShow: true,
   props: {
-    showFilters: Boolean
+    showFilters: Boolean,
+    catCollection: Array
+  },
+  data: function data() {
+    return {
+      isShow: true,
+      servicesApi: 'api/announcements/get-services',
+      services: 'all',
+      checkedServices: [],
+      checkedCategory: [],
+      selectedRoomType: 'all',
+      indexSelectedRoom: -1,
+      roomTypeCollection: ['stanza singola', 'stanza condivisa', 'intero alloggio'],
+      numberOfSheet: ['Qualsiasi', '1', '2', '3+'],
+      selectedRooms: 'all',
+      roomIndex: 0,
+      selectedBeds: 'all',
+      bedsIndex: 0,
+      selectedBathroms: 'all',
+      bathromsIndex: 0,
+      data: null
+    };
   },
   methods: {
     hideModal: function hideModal() {
       this.isShow = false;
       this.$emit('isHide', this.isShow);
+    },
+    getServices: function getServices() {
+      var _this = this;
+
+      axios.get(this.servicesApi).then(function (response) {
+        _this.services = response.data;
+        console.log(response.data);
+      });
+    },
+    checkedCat: function checkedCat(category) {
+      var _this2 = this;
+
+      if (!this.checkedCategory.includes(category)) {
+        this.checkedCategory.push(category);
+      } else {
+        this.checkedCategory.forEach(function (cat, i) {
+          if (cat === category) {
+            _this2.checkedCategory.splice(i, 1);
+          }
+        });
+      }
+    },
+    getCheckedService: function getCheckedService(service) {
+      var _this3 = this;
+
+      if (!this.checkedServices.includes(service)) {
+        this.checkedServices.push(service);
+      } else {
+        this.checkedServices.forEach(function (checked, i) {
+          if (checked === service) _this3.checkedServices.splice(i, 1);
+        });
+      }
+    },
+    getRoomType: function getRoomType(roomT, index) {
+      console.log(index);
+      this.selectedRoomType = roomT;
+      this.indexSelectedRoom = index;
+    },
+    getSheetNumber: function getSheetNumber(data, index, type) {
+      if (type === 'rooms') {
+        this.selectedRooms = data;
+        this.roomIndex = index;
+      } else if (type === 'beds') {
+        this.selectedBeds = data;
+        this.bedsIndex = index;
+      } else if (type === 'bathroms') {
+        this.selectedBathroms = data;
+        this.bathromsIndex = index;
+      }
+    },
+    deleteAll: function deleteAll() {
+      this.selectedRooms = 'all';
+      this.roomIndex = 0;
+      this.selectedBeds = 'all';
+      this.bedsIndex = 0;
+      this.selectedBathroms = 'all';
+      this.bathromsIndex = 0;
+      this.checkedCategory = [];
+      this.selectedRoomType = 'all';
+      this.indexSelectedRoom = -1;
+    },
+    getFilteredAnnounce: function getFilteredAnnounce() {
+      this.data = [{
+        rooms: this.selectedRooms,
+        beds: this.selectedBeds,
+        bathroms: this.selectedBathroms,
+        roomType: this.selectedRoomType,
+        services: this.checkedServices,
+        houseType: this.checkedCategory
+      }], this.$emit('filterData', this.data);
     }
+  },
+  mounted: function mounted() {
+    this.getServices();
   }
 });
 
@@ -2133,8 +2229,12 @@ var render = function render() {
   }), _vm._v(" "), _c("span", {
     staticClass: "ml-4"
   }, [_vm._v("Filtri")])]), _vm._v(" "), _vm.showDropD ? _c("ModaleFilter", {
+    attrs: {
+      catCollection: _vm.categories
+    },
     on: {
-      isHide: _vm.hideModal
+      isHide: _vm.hideModal,
+      filterData: _vm.getFilteredAnnounce
     }
   }) : _vm._e()], 1)]), _vm._v(" "), _c("div", {
     staticClass: "debug sponsorized-row px-lg-5 container-fluid pt-md-5"
@@ -2193,85 +2293,153 @@ var render = function render() {
         return _vm.hideModal();
       }
     }
-  }), _vm._v(" "), _vm._m(0)])]);
-};
-
-var staticRenderFns = [function () {
-  var _vm = this,
-      _c = _vm._self._c;
-
-  return _c("div", {
+  }), _vm._v(" "), _c("div", {
     staticClass: "filter debug container-fluid pt-2"
   }, [_c("h5", {
     staticClass: "my-3"
   }, [_vm._v("Tipologia di alloggio")]), _vm._v(" "), _c("div", {
     staticClass: "row debug d-flex justify-content-around py-3 px-lg-5 mb-3"
-  }, [_c("div", {
-    staticClass: "col-3 room-cad debug mx-xl-4"
-  }), _vm._v(" "), _c("div", {
-    staticClass: "col-3 room-cad debug mx-xl-4"
-  }), _vm._v(" "), _c("div", {
-    staticClass: "col-3 room-cad debug mx-xl-4"
-  })]), _vm._v(" "), _c("h5", [_vm._v("Stanze e letti")]), _vm._v(" "), _c("div", {
+  }, _vm._l(_vm.roomTypeCollection, function (roomT, i) {
+    return _c("div", {
+      key: "room".concat(i),
+      staticClass: "col-3 room-cad debug mx-xl-4 d-flex justify-content-between align-items-center",
+      on: {
+        click: function click($event) {
+          return _vm.getRoomType(roomT, i);
+        }
+      }
+    }, [_c("p", {
+      staticClass: "mb-0 text-capitalize"
+    }, [_vm._v(_vm._s(roomT))]), _vm._v(" "), _c("div", {
+      staticClass: "check-b d-flex align-items-center justify-content-center"
+    }, [_vm.indexSelectedRoom === i ? _c("i", {
+      staticClass: "fa-solid fa-square-check"
+    }) : _vm._e()])]);
+  }), 0), _vm._v(" "), _c("h5", [_vm._v("Stanze e letti")]), _vm._v(" "), _c("div", {
     staticClass: "row buttton-row debug d-flex p-3"
   }, [_c("p", {
     staticClass: "my-2"
   }, [_vm._v("Camere")]), _vm._v(" "), _c("div", {
     staticClass: "col-12 debug d-flex justify-content-lg-start align-items-center"
-  }, [_c("div", {
-    staticClass: "_btn black rounded-pill p-3 debug"
-  }, [_vm._v("Qualsiasi")]), _vm._v(" "), _c("div", {
-    staticClass: "_btn 1 rounded-pill p-3 debug"
-  }, [_vm._v("1")]), _vm._v(" "), _c("div", {
-    staticClass: "_btn 2 rounded-pill p-3 debug"
-  }, [_vm._v("2")]), _vm._v(" "), _c("div", {
-    staticClass: "_btn 3 rounded-pill p-3 debug"
-  }, [_vm._v("3+")])]), _vm._v(" "), _c("p", {
+  }, _vm._l(_vm.numberOfSheet, function (room, i) {
+    return _c("div", {
+      key: "room".concat(i),
+      staticClass: "_btn rounded-pill p-3 debug",
+      "class": {
+        black: i === _vm.roomIndex
+      },
+      on: {
+        click: function click($event) {
+          return _vm.getSheetNumber(room, i, "rooms");
+        }
+      }
+    }, [_vm._v(_vm._s(room))]);
+  }), 0), _vm._v(" "), _c("p", {
     staticClass: "mt-4 mb-2"
   }, [_vm._v("Letti")]), _vm._v(" "), _c("div", {
     staticClass: "col-12 debug d-flex justify-content-lg-start align-items-center"
-  }, [_c("div", {
-    staticClass: "_btn black rounded-pill p-3 debug"
-  }, [_vm._v("Qualsiasi")]), _vm._v(" "), _c("div", {
-    staticClass: "_btn 1 rounded-pill p-3 debug"
-  }, [_vm._v("1")]), _vm._v(" "), _c("div", {
-    staticClass: "_btn 2 rounded-pill p-3 debug"
-  }, [_vm._v("2")]), _vm._v(" "), _c("div", {
-    staticClass: "_btn 3 rounded-pill p-3 debug"
-  }, [_vm._v("3+")])]), _vm._v(" "), _c("p", {
+  }, _vm._l(_vm.numberOfSheet, function (bed, i) {
+    return _c("div", {
+      key: "bed".concat(i),
+      staticClass: "_btn rounded-pill p-3 debug",
+      "class": {
+        black: i === _vm.bedsIndex
+      },
+      on: {
+        click: function click($event) {
+          return _vm.getSheetNumber(bed, i, "beds");
+        }
+      }
+    }, [_vm._v(_vm._s(bed))]);
+  }), 0), _vm._v(" "), _c("p", {
     staticClass: "mt-4 mb-2"
   }, [_vm._v("Bagni")]), _vm._v(" "), _c("div", {
     staticClass: "col-12 debug d-flex justify-content-lg-start align-items-center mb-3"
+  }, _vm._l(_vm.numberOfSheet, function (bathrom, i) {
+    return _c("div", {
+      key: "bath".concat(i),
+      staticClass: "_btn rounded-pill p-3 debug",
+      "class": {
+        black: i === _vm.bathromsIndex
+      },
+      on: {
+        click: function click($event) {
+          return _vm.getSheetNumber(bathrom, i, "bathroms");
+        }
+      }
+    }, [_vm._v(_vm._s(bathrom))]);
+  }), 0)]), _vm._v(" "), _c("div", {
+    staticClass: "row cat-service-row debug d-flex justify-content-around py-3 mb-3"
   }, [_c("div", {
-    staticClass: "_btn black rounded-pill p-3 debug"
-  }, [_vm._v("Qualsiasi")]), _vm._v(" "), _c("div", {
-    staticClass: "_btn 1 rounded-pill p-3 debug"
-  }, [_vm._v("1")]), _vm._v(" "), _c("div", {
-    staticClass: "_btn 2 rounded-pill p-3 debug"
-  }, [_vm._v("2")]), _vm._v(" "), _c("div", {
-    staticClass: "_btn 3 rounded-pill p-3 debug"
-  }, [_vm._v("3+")])])]), _vm._v(" "), _c("h5", {
-    staticClass: "my-3"
+    staticClass: "col-12 col-md-6 debug"
+  }, [_c("h5", {
+    staticClass: "my-3 ml-3"
+  }, [_vm._v("Servizi")]), _vm._v(" "), _c("div", {
+    staticClass: "container-fluid"
+  }, _vm._l(_vm.services, function (service, i) {
+    return _c("div", {
+      key: "s".concat(i),
+      staticClass: "d-flex justify-content-between debug py-2 px-3"
+    }, [_c("p", {
+      staticClass: "mb-0"
+    }, [_vm._v(_vm._s(service.name))]), _vm._v(" "), _c("div", {
+      staticClass: "check-b d-flex align-items-center justify-content-center",
+      on: {
+        click: function click($event) {
+          return _vm.getCheckedService(service.name);
+        }
+      }
+    }, [_vm.checkedServices.includes(service.name) ? _c("i", {
+      staticClass: "fa-solid fa-square-check"
+    }) : _vm._e()])]);
+  }), 0)]), _vm._v(" "), _c("div", {
+    staticClass: "col-12 col-md-6 category-col debug d-flex flex-column justify-content-between"
+  }, [_c("h5", {
+    staticClass: "my-3 ml-3"
   }, [_vm._v("Tipologia di alloggio")]), _vm._v(" "), _c("div", {
-    staticClass: "row cat-row debug d-flex justify-content-around py-3 px-lg-5 mb-3"
+    staticClass: "container-fluid debug py-4"
   }, [_c("div", {
-    staticClass: "col-6 col-lg-3 cat-card p-3"
-  }, [_c("div", {
-    staticClass: "cat-box debug h-100"
-  })]), _vm._v(" "), _c("div", {
-    staticClass: "col-6 col-xl-3 cat-card p-3"
-  }, [_c("div", {
-    staticClass: "cat-box debug h-100"
-  })]), _vm._v(" "), _c("div", {
-    staticClass: "col-6 col-xl-3 cat-card p-3"
-  }, [_c("div", {
-    staticClass: "cat-box debug h-100"
-  })]), _vm._v(" "), _c("div", {
-    staticClass: "col-6 col-xl-3 cat-card p-3"
-  }, [_c("div", {
-    staticClass: "cat-box debug h-100"
-  })])])]);
-}];
+    staticClass: "row debug"
+  }, _vm._l(_vm.catCollection, function (category, i) {
+    return _c("div", {
+      key: "cat-".concat(i),
+      staticClass: "col-4 col-md-3 mb-3 cat-card p-2 position-relative"
+    }, [_c("div", {
+      staticClass: "cat-box debug h-100 d-flex flex-column align-items-center justify-content-center",
+      on: {
+        click: function click($event) {
+          return _vm.checkedCat(category);
+        }
+      }
+    }, [_c("i", {
+      staticClass: "fa-brands fa-fort-awesome mb-1 p-1"
+    }), _vm._v(" "), _c("p", {
+      staticClass: "mb-0"
+    }, [_vm._v(_vm._s(category))])]), _vm._v(" "), _vm.checkedCategory.includes(category) ? _c("i", {
+      staticClass: "fa-solid fa-circle-check position-absolute"
+    }) : _vm._e()]);
+  }), 0)])])]), _vm._v(" "), _c("div", {
+    staticClass: "row action-row debug d-flex justify-content-between py-3 px-5 align-items-center"
+  }, [_c("p", {
+    staticClass: "delete-all mb-0 mx-lg-2",
+    on: {
+      click: function click($event) {
+        return _vm.deleteAll();
+      }
+    }
+  }, [_vm._v("Cancella tutto")]), _vm._v(" "), _c("div", {
+    staticClass: "show-location py-3 px-4 rounded-pill text-center mx-lg-2",
+    on: {
+      click: function click($event) {
+        return _vm.getFilteredAnnounce();
+      }
+    }
+  }, [_c("p", {
+    staticClass: "mb-0"
+  }, [_vm._v("Mostra annunci")])])])])])]);
+};
+
+var staticRenderFns = [];
 render._withStripped = true;
 
 
@@ -2460,7 +2628,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, ".modal-container[data-v-17e0e4f4] {\n  position: absolute;\n  z-index: 999;\n  border-radius: 10px;\n  width: 60%;\n  top: 50%;\n  left: 50%;\n  transform: translate(-50%, -50%);\n}\n.modal-container p[data-v-17e0e4f4] {\n  font-weight: bold;\n}\n.modal-container .m-modal[data-v-17e0e4f4] {\n  position: relative;\n  border-radius: 10px;\n}\n.modal-container i[data-v-17e0e4f4] {\n  position: absolute;\n  font-size: 1.2rem;\n  right: 18px;\n  top: 13px;\n}\n.modal-container .filter[data-v-17e0e4f4] {\n  border-top: 1px solid gray;\n}\n.modal-container .filter .room-cad[data-v-17e0e4f4] {\n  height: 50px;\n  border-radius: 5px;\n}\n.modal-container .filter .buttton-row ._btn[data-v-17e0e4f4] {\n  width: 120px;\n  text-align: center;\n  margin: 0 20px 0 0;\n}\n.modal-container .filter .buttton-row ._btn.black[data-v-17e0e4f4] {\n  background-color: rgb(31, 30, 30);\n  color: rgb(219, 219, 219);\n}\n.modal-container .filter .cat-row .cat-card[data-v-17e0e4f4] {\n  height: 164px;\n  border-radius: 15px;\n  flex-shrink: 0;\n}\n.modal-container .filter .cat-row .cat-card .cat-box[data-v-17e0e4f4] {\n  border-radius: 15px;\n}", ""]);
+exports.push([module.i, ".modal-container[data-v-17e0e4f4] {\n  position: absolute;\n  z-index: 999;\n  border-radius: 10px;\n  width: 60%;\n  top: 500px;\n  left: 50%;\n  transform: translate(-50%);\n}\n.modal-container p[data-v-17e0e4f4] {\n  font-weight: bold;\n}\n.modal-container .check-b[data-v-17e0e4f4] {\n  border: 1px solid rgb(51, 51, 51);\n  border-radius: 5px;\n  width: 20px;\n  height: 20px;\n  font-size: 1.5rem;\n  cursor: pointer;\n}\n.modal-container .m-modal[data-v-17e0e4f4] {\n  position: relative;\n  border-radius: 10px;\n}\n.modal-container .fa-x[data-v-17e0e4f4] {\n  position: absolute;\n  font-size: 1.2rem;\n  right: 18px;\n  top: 13px;\n}\n.modal-container .filter[data-v-17e0e4f4] {\n  border-top: 1px solid gray;\n}\n.modal-container .filter .room-cad[data-v-17e0e4f4] {\n  height: 50px;\n  border-radius: 5px;\n}\n.modal-container .filter .buttton-row ._btn[data-v-17e0e4f4] {\n  width: 120px;\n  text-align: center;\n  margin: 0 20px 0 0;\n  cursor: pointer;\n}\n.modal-container .filter .buttton-row ._btn.black[data-v-17e0e4f4] {\n  background-color: rgb(31, 30, 30);\n  color: rgb(219, 219, 219);\n}\n.modal-container .filter .cat-service-row .cat-card[data-v-17e0e4f4] {\n  height: 91px;\n  border-radius: 15px;\n  flex-shrink: 0;\n}\n.modal-container .filter .cat-service-row .cat-card .cat-box[data-v-17e0e4f4] {\n  border-radius: 15px;\n  cursor: pointer;\n}\n.modal-container .filter .cat-service-row .cat-card .cat-box p[data-v-17e0e4f4] {\n  text-transform: capitalize;\n}\n.modal-container .filter .cat-service-row label[data-v-17e0e4f4] {\n  font-size: 1rem;\n}\n.modal-container .filter .cat-service-row i[data-v-17e0e4f4] {\n  font-size: 1.3rem;\n}\n.modal-container .filter .cat-service-row .category-col .fa-circle-check[data-v-17e0e4f4] {\n  top: 8px;\n  right: 7px;\n}\n.modal-container .filter .action-row[data-v-17e0e4f4] {\n  border-top: 1px solid gray;\n}\n.modal-container .filter .action-row .delete-all[data-v-17e0e4f4] {\n  text-decoration: underline;\n  font-weight: bold;\n  font-size: 1rem;\n  cursor: pointer;\n}\n.modal-container .filter .action-row .show-location[data-v-17e0e4f4] {\n  background-color: rgb(36, 36, 36);\n  color: white;\n  width: 172px;\n  flex-shrink: 0;\n  cursor: pointer;\n}", ""]);
 
 // exports
 

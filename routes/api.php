@@ -23,6 +23,7 @@ Route::namespace('Api')
     ->group(function(){
 
         Route::get('/', 'PageController@index');
+        Route::get('/get-services', 'PageController@getServices');
 
     });
 

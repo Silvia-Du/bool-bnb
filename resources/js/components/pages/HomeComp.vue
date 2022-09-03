@@ -24,7 +24,7 @@
                 <i class="fa-solid fa-sliders mr-5"></i>
                 <span class="ml-4">Filtri</span>
             </div>
-                <ModaleFilter v-if ="showDropD" @isHide ="hideModal"/>
+                <ModaleFilter v-if ="showDropD" @isHide ="hideModal" :catCollection ="categories" @filterData ="getFilteredAnnounce" />
         </div>
     </div>
 
@@ -54,7 +54,7 @@ export default {
     data() {
         return {
             // devono avere l'icona (stringe) e l'active (true/false)
-            categories : ['baite', 'campagna', 'wow', 'spiaggia', 'minicase', 'camper', 'design', 'b&b', 'luxe', 'ville', 'spazi creativi', 'co-working', 'co-leaving' ],
+            categories : ['baite', 'campagna', 'wow', 'minicase', 'camper', 'design', 'b&b', 'luxe', 'ville', 'spazi creativi', 'co-working', 'co-leaving' ],
 
             announcApiUrl: 'api/announcements',
             announcments: null,
@@ -69,17 +69,20 @@ export default {
             axios.get(this.announcApiUrl)
             .then(response =>{
                 this.announcments = response.data.data;
-                console.log(this.announcments);
             })
         },
 
         getCategory(index, category){
             this.isActive = index;
             this.selectedCat = category;
+            axios.post()
         },
 
         hideModal(isShow){
             this.showDropD = isShow;
+        },
+        getFilteredAnnounce(data){
+            console.log(data);
         }
     },
 
