@@ -5,10 +5,10 @@
             <!-- <i class="fa-solid fa-heart"></i> -->
         </div>
         <div class="text">
-            <p class="mb-0 type">House Type - tot letti</p>
-            <p class="mb-0 title">Titolo dell'annuncio</p>
-            <p class="mb-0 street">Street name, country</p>
-            <p class="mb-0 price">Price &euro;/ notte</p>
+            <p class="mb-0 type">{{ announcementItem.house_type }} - {{ announcementItem.beds }} letti</p>
+            <p class="mb-0 title">{{ announcementItem.title }}</p>
+            <p class="mb-0 street">{{ announcementItem.address }}</p>
+            <p class="mb-0 price">{{ announcementItem.price }} &euro;/ notte</p>
             <i class="fa-solid fa-star"></i>
         </div>
     </div>

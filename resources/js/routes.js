@@ -9,6 +9,7 @@ Vue.use(VueRouter);
 
 //importo i componenti di cui voglio le rotte
 import HomeComp from './components/pages/HomeComp';
+import AdvancedComp from './components/pages/AdvancedComp';
 
 //creo il router
 const router = new VueRouter({
@@ -20,6 +21,11 @@ const router = new VueRouter({
             path: '/',
             name: 'home',
             component: HomeComp,
+        },
+        {
+            path: '/advanced-resource',
+            name: 'advanced',
+            component: AdvancedComp,
         }
     ]
 });

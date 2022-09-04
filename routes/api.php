@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Api\PageController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -21,10 +22,10 @@ use Illuminate\Support\Facades\Route;
 Route::namespace('Api')
     ->prefix('announcements')
     ->group(function(){
-
         Route::get('/', 'PageController@index');
         Route::get('/get-services', 'PageController@getServices');
-
+        Route::get('/category/{category}', 'PageController@getSelectedCategory');
+        Route::get('/advanced/{bathrooms}/{beds}/{houseType}/{roomType}/{rooms}/{services}', 'PageController@getAdvancedFilter');
     });
 
 

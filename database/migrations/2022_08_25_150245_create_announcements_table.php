@@ -29,6 +29,7 @@ class CreateAnnouncementsTable extends Migration
             $table->string('image_original_name')->nullable();
             $table->boolean('is_visible')->default(1);
             $table->string('house_type');
+            $table->string('price');
             $table->string('room_type');
             $table->timestamps();
         });

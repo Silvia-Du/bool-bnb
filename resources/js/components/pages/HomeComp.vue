@@ -58,6 +58,8 @@ export default {
 
             announcApiUrl: 'api/announcements',
             announcments: null,
+            announcementFilteredCategory : null,
+            announcementFilteredModal: null,
             showDropD: false,
             isActive: -1,
             selectedCat: '',
@@ -75,14 +77,30 @@ export default {
         getCategory(index, category){
             this.isActive = index;
             this.selectedCat = category;
-            axios.post()
+            axios.get(this.announcApiUrl + '/category/' + this.selectedCat)
+            .then(response => {
+                this.announcments = response.data;
+            })
         },
 
         hideModal(isShow){
             this.showDropD = isShow;
         },
+
         getFilteredAnnounce(data){
-            console.log(data);
+            this.announcementFilteredModal = data[0];
+            axios.get(this.announcApiUrl 
+            + '/advanced/' 
+            + this.announcementFilteredModal.bathrooms 
+            + this.announcementFilteredModal.beds 
+            + this.announcementFilteredModal.houseType 
+            + this.announcementFilteredModal.roomType 
+            + this.announcementFilteredModal.rooms 
+            + this.announcementFilteredModal.services)
+            .then(response => {
+                this.announcementFilteredModal = response.data;
+                console.log(this.announcementFilteredModal);
+            })
         }
     },
 

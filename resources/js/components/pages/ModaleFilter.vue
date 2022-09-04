@@ -141,7 +141,7 @@ export default {
             axios.get(this.servicesApi)
             .then(response =>{
                 this.services = response.data;
-                console.log(response.data);
+                // console.log(response.data);
             })
         },
 
@@ -170,7 +170,7 @@ export default {
         },
 
         getRoomType(roomT, index){
-            console.log(index);
+            // console.log(index);
             this.selectedRoomType = roomT;
             this.indexSelectedRoom = index;
         },
@@ -203,13 +203,14 @@ export default {
                 {
                     rooms: this.selectedRooms,
                     beds: this.selectedBeds,
-                    bathroms: this.selectedBathroms,
+                    bathrooms: this.selectedBathroms,
                     roomType: this.selectedRoomType,
                     services: this.checkedServices,
                     houseType: this.checkedCategory
                 },
             ],
             this.$emit('filterData', this.data);
+            // console.log(this.data);
 
         }
     },

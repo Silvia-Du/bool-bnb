@@ -37276,8 +37276,9 @@ var btnEdit = document.getElementById('btn-edit');
 var btnCreate = document.getElementById('btn-create');
 var numericMin = ['rooms', 'beds', 'bathrooms'];
 var stringMinMax = ['title', 'city', 'country', 'room_type', 'house_type'];
-var nameCollection = ['titolo', 'indirizzo', 'città', 'nazione', 'metri quadri', 'stanze', 'letti', 'bagni', 'tipo di abitazione', 'stanza', 'descrizione'];
+var nameCollection = ['titolo', 'indirizzo', 'metri quadri', 'stanze', 'letti', 'bagni', 'tipo di casa', 'tipo di stanza', 'descrizione'];
 var inputCollection = document.getElementsByClassName('js-data');
+var servicesCollection = document.getElementsByName('services[]');
 var message;
 
 if (btnRegister) {
@@ -37285,24 +37286,15 @@ if (btnRegister) {
 } else if (btnLogin) {
   loginValidation();
 } else if (btnEdit) {
-  console.log('esiste edit');
   getAddEvent(btnEdit);
 } else if (btnCreate) {
-  console.log('esiste create');
   getAddEvent(btnCreate);
 }
 
 function registerValidation() {
-  var preventDefaultRegister = false;
-  btnRegister.addEventListener('click', function () {
-    console.log(preventDefaultRegister);
-
-    if (preventDefaultRegister) {
-      event.preventDefault();
-    }
-
+  btnRegister.addEventListener('click', function (event) {
+    var preventDefaultRegister = false;
     var inputCollection = document.getElementsByClassName('js-data');
-    console.log(inputCollection);
     var labelsCollection = document.getElementsByTagName('label');
 
     for (i = 0; i < inputCollection.length; i++) {
@@ -37319,7 +37311,7 @@ function registerValidation() {
       error.classList.add('text-danger', 'm-0');
       error.innerHTML = "Attenzione! Il campo ".concat(correctLabel, " \xE8 obbligatorio");
 
-      if (input.parentNode.lastChild.tagName === 'INPUT') {
+      if (input.parentNode.lastElementChild.tagName === 'INPUT') {
         document.getElementById(input.parentNode.id).appendChild(error);
         errorToggle(input);
       } else {
@@ -37329,8 +37321,8 @@ function registerValidation() {
 
     function errorToggle(input) {
       input.addEventListener('click', function () {
-        if (input.parentNode.lastChild.tagName != 'INPUT') {
-          input.parentNode.lastChild.remove();
+        if (input.parentNode.lastElementChild.tagName != 'INPUT') {
+          input.parentNode.lastElementChild.remove();
         }
       });
     }
@@ -37350,99 +37342,100 @@ function registerValidation() {
     }
 
     function nameValidation(input) {
-      var error = document.createElement('p');
-      error.classList.add('text-danger', 'm-0');
-
       if (input.value.length < 3) {
-        error.innerHTML = "Il nome deve contenere pi\xF9 di 3 caratteri";
+        preventDefaultRegister = true;
 
-        if (input.parentNode.lastChild.tagName === 'INPUT') {
-          document.getElementById(input.parentNode.id).appendChild(error);
+        if (input.parentNode.lastElementChild.tagName === 'INPUT') {
+          var _error = document.createElement('p');
+
+          _error.classList.add('text-danger', 'm-0');
+
+          _error.innerHTML = "Il nome deve contenere pi\xF9 di 3 caratteri";
+          document.getElementById(input.parentNode.id).appendChild(_error);
           errorToggle(input);
-          preventDefaultRegister = true;
         }
       } else if (input.value.length > 20) {
-        error.innerHTML = "Il nome deve contenere meno di 20 caratteri";
+        preventDefaultRegister = true;
 
-        if (input.parentNode.lastChild.tagName === 'INPUT') {
+        if (input.parentNode.lastElementChild.tagName === 'INPUT') {
+          error.innerHTML = "Il nome deve contenere meno di 20 caratteri";
           document.getElementById(input.parentNode.id).appendChild(error);
           errorToggle(input);
-          preventDefaultRegister = true;
         }
       } else if (!isNaN(input.value)) {
-        error.innerHTML = "Il nome non pu\xF2 essere un numero";
+        preventDefaultRegister = true;
 
-        if (input.parentNode.lastChild.tagName === 'INPUT') {
+        if (input.parentNode.lastElementChild.tagName === 'INPUT') {
+          error.innerHTML = "Il nome non pu\xF2 essere un numero";
           document.getElementById(input.parentNode.id).appendChild(error);
           errorToggle(input);
-          preventDefaultRegister = true;
         }
-      } else {
-        preventDefaultRegister = false;
       }
     }
 
     function surnameValidation(input) {
-      var error = document.createElement('p');
-      error.classList.add('text-danger', 'm-0');
-
       if (input.value.length < 3) {
-        if (input.parentNode.lastChild.tagName === 'INPUT') {
-          error.innerHTML = "Il nome deve contenere pi\xF9 di 3 caratteri";
-          document.getElementById(input.parentNode.id).appendChild(error);
+        preventDefaultRegister = true;
+
+        if (input.parentNode.lastElementChild.tagName === 'INPUT') {
+          var _error2 = document.createElement('p');
+
+          _error2.classList.add('text-danger', 'm-0');
+
+          _error2.innerHTML = "Il nome deve contenere pi\xF9 di 3 caratteri";
+          document.getElementById(input.parentNode.id).appendChild(_error2);
           errorToggle(input);
-          preventDefaultRegister = true;
         }
       } else if (input.value.length > 20) {
-        if (input.parentNode.lastChild.tagName === 'INPUT') {
+        preventDefaultRegister = true;
+
+        if (input.parentNode.lastElementChild.tagName === 'INPUT') {
           error.innerHTML = "Il nome deve contenere meno di 20 caratteri";
           document.getElementById(input.parentNode.id).appendChild(error);
           errorToggle(input);
-          preventDefaultRegister = true;
         }
       } else if (!isNaN(input.value)) {
-        error.innerHTML = "Il cognome non pu\xF2 essere un numero";
+        preventDefaultRegister = true;
 
-        if (input.parentNode.lastChild.tagName === 'INPUT') {
+        if (input.parentNode.lastElementChild.tagName === 'INPUT') {
+          error.innerHTML = "Il cognome non pu\xF2 essere un numero";
           document.getElementById(input.parentNode.id).appendChild(error);
           errorToggle(input);
-          preventDefaultRegister = true;
         }
-      } else {
-        preventDefaultRegister = false;
       }
     }
 
     function emailValidation(input) {
       var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-      var error = document.createElement('p');
-      error.classList.add('text-danger', 'm-0');
 
       if (!input.value.match(mailformat)) {
-        if (input.parentNode.lastChild.tagName === 'INPUT') {
-          error.innerHTML = "Inserire un'email corretta";
-          document.getElementById(input.parentNode.id).appendChild(error);
+        preventDefaultRegister = true;
+
+        if (input.parentNode.lastElementChild.tagName === 'INPUT') {
+          var _error3 = document.createElement('p');
+
+          _error3.classList.add('text-danger', 'm-0');
+
+          _error3.innerHTML = "Inserire un'email corretta";
+          document.getElementById(input.parentNode.id).appendChild(_error3);
           errorToggle(input);
-          preventDefaultRegister = true;
         }
-      } else {
-        preventDefaultRegister = false;
       }
     }
 
     function passwordValidation(input) {
-      var error = document.createElement('p');
-      error.classList.add('text-danger', 'm-0');
-
       if (input.value.length < 8) {
-        if (input.parentNode.lastChild.tagName === 'INPUT') {
-          error.innerHTML = "Inserire una password con almeno 8 caratteri";
-          document.getElementById(input.parentNode.id).appendChild(error);
+        preventDefaultRegister = true;
+
+        if (input.parentNode.lastElementChild.tagName === 'INPUT') {
+          var _error4 = document.createElement('p');
+
+          _error4.classList.add('text-danger', 'm-0');
+
+          _error4.innerHTML = "Inserire una password con almeno 8 caratteri";
+          document.getElementById(input.parentNode.id).appendChild(_error4);
           errorToggle(input);
-          preventDefaultRegister = true;
         }
-      } else {
-        preventDefaultRegister = false;
       }
     }
 
@@ -37450,18 +37443,18 @@ function registerValidation() {
       var error = document.createElement('p');
       error.classList.add('text-danger', 'm-0');
       var passwordToCheck = document.getElementById('password');
+      console.log(input.value, passwordToCheck.value, input.value === passwordToCheck.value);
 
       if (input.value != passwordToCheck.value) {
-        if (input.parentNode.lastChild.tagName === 'INPUT') {
+        preventDefaultRegister = true;
+
+        if (input.parentNode.lastElementChild.tagName === 'INPUT') {
           error.innerHTML = "Il campo e la password devono combaciare";
           document.getElementById(input.parentNode.id).appendChild(error);
           errorToggle(input);
-          preventDefaultRegister = true;
         }
 
         ;
-      } else {
-        preventDefaultRegister = false;
       }
     }
 
@@ -37469,19 +37462,18 @@ function registerValidation() {
       var correctLabel = label.slice(0, label.length - 2);
       return correctLabel;
     }
+
+    if (preventDefaultRegister) {
+      event.preventDefault();
+    }
   });
   /* END REGISTER VALIDATION */
 }
 
 function loginValidation() {
-  var preventDefaultLogin = false;
-  btnLogin.addEventListener('click', function () {
-    if (preventDefaultLogin) {
-      event.preventDefault();
-    }
-
+  btnLogin.addEventListener('click', function (event) {
+    var preventDefaultLogin = false;
     var inputCollection = document.getElementsByClassName('login-data');
-    console.log(inputCollection);
     var labelsCollection = document.getElementsByTagName('label');
 
     for (i = 0; i < inputCollection.length; i++) {
@@ -37498,7 +37490,7 @@ function loginValidation() {
       error.classList.add('text-danger', 'm-0');
       error.innerHTML = "Attenzione! Il campo ".concat(correctLabel, " \xE8 obbligatorio");
 
-      if (input.parentNode.lastChild.tagName === 'INPUT') {
+      if (input.parentNode.lastElementChild.tagName === 'INPUT') {
         document.getElementById(input.parentNode.id).appendChild(error);
         errorToggle(input);
       } else {
@@ -37516,40 +37508,49 @@ function loginValidation() {
 
     function emailValidation(input) {
       var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-      var error = document.createElement('p');
-      error.classList.add('text-danger', 'm-0');
 
       if (!input.value.match(mailformat)) {
-        if (input.parentNode.lastChild.tagName === 'INPUT') {
-          error.innerHTML = "Inserire un'email corretta";
-          document.getElementById(input.parentNode.id).appendChild(error);
+        preventDefaultLogin = true;
+
+        if (input.parentNode.lastElementChild.tagName === 'INPUT') {
+          var _error5 = document.createElement('p');
+
+          _error5.classList.add('text-danger', 'm-0');
+
+          _error5.innerHTML = "Inserire un'email corretta";
+          document.getElementById(input.parentNode.id).appendChild(_error5);
           errorToggle(input);
           preventDefaultLogin = true;
         }
-      } else {
-        preventDefaultLogin = false;
       }
     }
 
     function passwordValidation(input) {
-      var error = document.createElement('p');
-      error.classList.add('text-danger', 'm-0');
-
       if (input.value.length < 8) {
-        if (input.parentNode.lastChild.tagName === 'INPUT') {
-          error.innerHTML = "Inserire una password con almeno 8 caratteri";
-          document.getElementById(input.parentNode.id).appendChild(error);
+        preventDefaultLogin = true;
+
+        if (input.parentNode.lastElementChild.tagName === 'INPUT') {
+          var _error6 = document.createElement('p');
+
+          _error6.classList.add('text-danger', 'm-0');
+
+          _error6.innerHTML = "Inserire una password con almeno 8 caratteri";
+          document.getElementById(input.parentNode.id).appendChild(_error6);
           errorToggle(input);
           preventDefaultLogin = true;
         }
-      } else {
-        preventDefaultLogin = false;
       }
     }
 
     function getCorrectedLabel(label) {
       var correctLabel = label.slice(0, label.length);
       return correctLabel;
+    }
+
+    console.log(preventDefaultLogin);
+
+    if (preventDefaultLogin) {
+      event.preventDefault();
     }
   });
 }
@@ -37627,6 +37628,45 @@ function getAddEvent(button) {
         event.preventDefault();
       }
     }
+
+    var c = 0;
+    servicesCollection.forEach(function (service) {
+      if (service.checked) {
+        c = c + 1;
+      }
+    });
+
+    if (c < 1) {
+      var servicesDiv = document.querySelector('.row.g-3').children[9];
+
+      var _error7 = document.createElement('p');
+
+      _error7.classList.add('text-danger', 'm-0');
+
+      if (servicesDiv.lastChild.tagName != 'P') {
+        _error7.innerHTML = "Attenzione! Inserire almeno un servizio!";
+        servicesDiv.appendChild(_error7);
+        errorsAny = true;
+      } else {
+        _error7.remove();
+      }
+    }
+
+    var descriptionDiv = document.querySelector('.row.g-3').children[10];
+
+    if (descriptionDiv.children[1].value.length < 1) {
+      var _error8 = document.createElement('p');
+
+      _error8.classList.add('text-danger', 'm-0');
+
+      if (descriptionDiv.lastChild.tagName != 'P') {
+        _error8.innerHTML = "Attenzione! Inserire almeno un servizio!";
+        descriptionDiv.insertBefore(_error8, descriptionDiv.lastElementChild);
+        errorsAny = true;
+      } else {
+        _error8.remove();
+      }
+    }
   });
 }
 
@@ -37634,10 +37674,7 @@ function tagPrinter(input, message) {
   var errorTag = document.createElement('p');
   errorTag.classList.add('text-danger', 'mb-0'); //questo verifica che nn ci sia gia un p appeso
 
-  console.log(input.parentNode);
-
-  if (input.parentNode.lastChild.tagName === 'INPUT') {
-    console.log('eccomi qui');
+  if (input.parentNode.lastElementChild.tagName === 'INPUT') {
     var parentDiv = input.parentNode;
     errorTag.innerHTML = message;
     parentDiv.appendChild(errorTag);
@@ -37654,8 +37691,8 @@ function tagPrinter(input, message) {
 
 function errorToggle(input) {
   input.addEventListener('click', function () {
-    if (input.parentNode.lastChild.tagName != 'INPUT') {
-      input.parentNode.lastChild.remove();
+    if (input.parentNode.lastElementChild.tagName != 'INPUT') {
+      input.parentNode.lastElementChild.remove();
     }
   });
 }
@@ -37686,20 +37723,21 @@ var inputSearchBox = ttSearchBox._container.firstChild.children[2];
 inputSearchBox.name = 'address';
 inputSearchBox.id = 'address';
 inputSearchBox.placeholder = 'Inserire l\'indirizzo';
+inputSearchBox.classList.add('js-data');
 btnCreate.addEventListener('click', function () {
   if (inputSearchBox.value === '') {
-    // console.log(inputSearchBox.parentNode.childNodes[2].tagName === 'INPUT');
-    var error = document.createElement('p');
-    error.classList.add('text-danger', 'm-0');
+    var divToAppend = document.querySelector('.col-12.address');
 
-    if (inputSearchBox.parentNode.childNodes[2].tagName === 'INPUT') {
-      error.innerHTML = "Attenzione! Il campo indirizzo \xE8 obbligatorio";
-      document.querySelector('.tt-search-box').appendChild(error);
-      console.log(inputSearchBox);
+    if (divToAppend.lastChild.tagName === 'DIV') {
+      var _error9 = document.createElement('p');
+
+      _error9.classList.add('text-danger', 'm-0');
+
+      _error9.innerHTML = "Attenzione! Il campo indirizzo \xE8 obbligatorio";
+      divToAppend.appendChild(_error9);
       inputSearchBox.addEventListener('click', function () {
-        error.remove();
+        _error9.remove();
       });
-      preventDefaultLogin = true;
     }
   }
 });
@@ -37781,9 +37819,9 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\silvi\Documents\BOOLEAN\LARAVEL\bool-bnb\resources\js\admin.js */"./resources/js/admin.js");
-__webpack_require__(/*! C:\Users\silvi\Documents\BOOLEAN\LARAVEL\bool-bnb\resources\sass\admin\style.scss */"./resources/sass/admin/style.scss");
-module.exports = __webpack_require__(/*! C:\Users\silvi\Documents\BOOLEAN\LARAVEL\bool-bnb\resources\sass\front\style.scss */"./resources/sass/front/style.scss");
+__webpack_require__(/*! C:\Users\emanu\OneDrive\Desktop\BOOLEAN\LARAVEL\laravel-bnb\bool-bnb\resources\js\admin.js */"./resources/js/admin.js");
+__webpack_require__(/*! C:\Users\emanu\OneDrive\Desktop\BOOLEAN\LARAVEL\laravel-bnb\bool-bnb\resources\sass\admin\style.scss */"./resources/sass/admin/style.scss");
+module.exports = __webpack_require__(/*! C:\Users\emanu\OneDrive\Desktop\BOOLEAN\LARAVEL\laravel-bnb\bool-bnb\resources\sass\front\style.scss */"./resources/sass/front/style.scss");
 
 
 /***/ })

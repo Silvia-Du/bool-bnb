@@ -14,6 +14,8 @@ class AnnouncementsTableSeeder extends Seeder
      */
     public function run(Faker $faker)
     {
+        $house_types = ['baite', 'campagna', 'wow', 'minicase', 'camper', 'design', 'b&b', 'luxe', 'ville', 'spazi creativi', 'co-working', 'co-leaving'];
+
        for($i=0; $i<20; $i++){
         $new_announcement = new Announcement();
         $new_announcement->title = $faker->words(4, true);
@@ -27,7 +29,8 @@ class AnnouncementsTableSeeder extends Seeder
         $new_announcement->latitude = $faker->latitude($min = -90, $max = 90);
         $new_announcement->longitude = $faker->longitude($min = -180, $max = 180);
         $new_announcement->is_visible = $faker->numberBetween(0, 1);
-        $new_announcement->house_type = 'Villa';
+        $new_announcement->house_type = $house_types[rand(0, 11)];
+        $new_announcement->price = rand(50, 1000) . '€';
         $new_announcement->room_type = 'Stanza singola';
 
         $user_id = User::inRandomOrder()->first()->id;

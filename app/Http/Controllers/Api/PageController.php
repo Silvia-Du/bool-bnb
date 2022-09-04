@@ -11,7 +11,7 @@ use Illuminate\Http\Request;
 class PageController extends Controller
 {
     public function index(){
-        $announcement = Announcement::with('services')->with('sponsorizations')->paginate(10);
+        $announcement = Announcement::with('services')->with('sponsorizations')->paginate(20);
 
         return response()->json($announcement);
     }
@@ -19,6 +19,22 @@ class PageController extends Controller
         $services = Service::all();
 
         return response()->json($services);
+    }
+    public function getSelectedCategory($category){
+        $announcement = Announcement::where('house_type', $category)->get();
+        return response()->json($announcement);
+    }
+    public function getAdvancedFilter($bathrooms, $beds, $houseType, $roomType, $rooms, $services){
+        $announcement = Announcement::where([
+            ['bathrooms', $bathrooms],
+            ['beds', $beds],
+            ['house_type', $houseType],
+            ['room_type', $roomType],
+            ['rooms', $rooms],
+            ['services', $services],
+
+        ]);
+        return response()->json($announcement);
     }
 
 
