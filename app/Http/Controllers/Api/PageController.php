@@ -24,17 +24,11 @@ class PageController extends Controller
         $announcement = Announcement::where('house_type', $category)->get();
         return response()->json($announcement);
     }
-    public function getAdvancedFilter($bathrooms, $beds, $houseType, $roomType, $rooms, $services){
-        $announcement = Announcement::where([
-            ['bathrooms', $bathrooms],
-            ['beds', $beds],
-            ['house_type', $houseType],
-            ['room_type', $roomType],
-            ['rooms', $rooms],
-            ['services', $services],
+    public function getAdvancedFilter($data){
+        $announcement = Announcement::where('beds', $data['beds']);
+        return response()->json($data['beds']);
+        // return response()->json($announcement);
 
-        ]);
-        return response()->json($announcement);
     }
 
 

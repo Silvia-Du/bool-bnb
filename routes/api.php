@@ -25,7 +25,9 @@ Route::namespace('Api')
         Route::get('/', 'PageController@index');
         Route::get('/get-services', 'PageController@getServices');
         Route::get('/category/{category}', 'PageController@getSelectedCategory');
-        Route::get('/advanced/{bathrooms}/{beds}/{houseType}/{roomType}/{rooms}/{services}', 'PageController@getAdvancedFilter');
+        Route::get('/advanced/{data}', 'PageController@getAdvancedFilter');
+        
+        /* Route::get('/advanced/{bathrooms}/{beds}/{houseType}/{roomType}/{rooms}/{services}', 'PageController@getAdvancedFilter'); */
     });
 
 

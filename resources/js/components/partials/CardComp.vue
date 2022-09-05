@@ -5,7 +5,7 @@
             <!-- <i class="fa-solid fa-heart"></i> -->
         </div>
         <div class="text">
-            <p class="mb-0 type">{{ announcementItem.house_type }} - {{ announcementItem.beds }} letti</p>
+            <p class="mb-0 type">{{ announcementItem.house_type }} - {{ announcementItem.beds }} letti - {{ announcementItem.bathrooms }} bagni</p>
             <p class="mb-0 title">{{ announcementItem.title }}</p>
             <p class="mb-0 street">{{ announcementItem.address }}</p>
             <p class="mb-0 price">{{ announcementItem.price }} &euro;/ notte</p>

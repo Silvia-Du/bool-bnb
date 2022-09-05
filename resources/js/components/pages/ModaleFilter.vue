@@ -199,7 +199,7 @@ export default {
             this.indexSelectedRoom = -1;
         },
         getFilteredAnnounce(){
-             this.data = [
+             this.data = 
                 {
                     rooms: this.selectedRooms,
                     beds: this.selectedBeds,
@@ -208,7 +208,7 @@ export default {
                     services: this.checkedServices,
                     houseType: this.checkedCategory
                 },
-            ],
+            
             this.$emit('filterData', this.data);
             // console.log(this.data);
 

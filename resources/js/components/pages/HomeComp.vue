@@ -88,19 +88,15 @@ export default {
         },
 
         getFilteredAnnounce(data){
-            this.announcementFilteredModal = data[0];
-            axios.get(this.announcApiUrl 
-            + '/advanced/' 
-            + this.announcementFilteredModal.bathrooms 
-            + this.announcementFilteredModal.beds 
-            + this.announcementFilteredModal.houseType 
-            + this.announcementFilteredModal.roomType 
-            + this.announcementFilteredModal.rooms 
-            + this.announcementFilteredModal.services)
-            .then(response => {
-                this.announcementFilteredModal = response.data;
-                console.log(this.announcementFilteredModal);
+            this.showDropD = false;
+            axios.get(this.announcApiUrl + '/advanced/', {
+                params: {
+                    beds: data.beds,
+                }
             })
+            .then(response => {
+                this.announcments = response.data
+            })       
         }
     },
 

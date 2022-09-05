@@ -1995,10 +1995,13 @@ __webpack_require__.r(__webpack_exports__);
     getFilteredAnnounce: function getFilteredAnnounce(data) {
       var _this3 = this;
 
-      this.announcementFilteredModal = data[0];
-      axios.get(this.announcApiUrl + '/advanced/' + this.announcementFilteredModal.bathrooms + this.announcementFilteredModal.beds + this.announcementFilteredModal.houseType + this.announcementFilteredModal.roomType + this.announcementFilteredModal.rooms + this.announcementFilteredModal.services).then(function (response) {
-        _this3.announcementFilteredModal = response.data;
-        console.log(_this3.announcementFilteredModal);
+      this.showDropD = false;
+      axios.get(this.announcApiUrl + '/advanced/', {
+        params: {
+          beds: data.beds
+        }
+      }).then(function (response) {
+        _this3.announcments = response.data;
       });
     }
   },
@@ -2109,14 +2112,14 @@ __webpack_require__.r(__webpack_exports__);
       this.indexSelectedRoom = -1;
     },
     getFilteredAnnounce: function getFilteredAnnounce() {
-      this.data = [{
+      this.data = {
         rooms: this.selectedRooms,
         beds: this.selectedBeds,
         bathrooms: this.selectedBathroms,
         roomType: this.selectedRoomType,
         services: this.checkedServices,
         houseType: this.checkedCategory
-      }], this.$emit('filterData', this.data); // console.log(this.data);
+      }, this.$emit('filterData', this.data); // console.log(this.data);
     }
   },
   mounted: function mounted() {
@@ -2625,7 +2628,7 @@ var render = function render() {
     staticClass: "text"
   }, [_c("p", {
     staticClass: "mb-0 type"
-  }, [_vm._v(_vm._s(_vm.announcementItem.house_type) + " - " + _vm._s(_vm.announcementItem.beds) + " letti")]), _vm._v(" "), _c("p", {
+  }, [_vm._v(_vm._s(_vm.announcementItem.house_type) + " - " + _vm._s(_vm.announcementItem.beds) + " letti - " + _vm._s(_vm.announcementItem.bathrooms) + " bagni")]), _vm._v(" "), _c("p", {
     staticClass: "mb-0 title"
   }, [_vm._v(_vm._s(_vm.announcementItem.title))]), _vm._v(" "), _c("p", {
     staticClass: "mb-0 street"
