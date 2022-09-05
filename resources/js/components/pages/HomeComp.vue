@@ -24,17 +24,23 @@
                 <i class="fa-solid fa-sliders mr-5"></i>
                 <span class="ml-4">Filtri</span>
             </div>
-                <ModaleFilter v-if ="showDropD" @isHide ="hideModal" :catCollection ="categories" @filterData ="getFilteredAnnounce" />
+
         </div>
     </div>
 
     <!-- in evidence row -->
     <div class="debug sponsorized-row px-lg-5 container-fluid pt-md-5">
         <div class="row debug d-flex mx-lg-5 flex-wrap justify-content-around pt-5 px-sm-2">
+
             <CardComp
             class=""
             v-for="(announcement, i) in announcments" :key="`ann${i}`" :announcementItem = "announcement" />
             <h2 class="d-none d-md-block">Selezionati per te</h2>
+        </div>
+    </div>
+    <div class="no-results container-fluid py-md-5 debug">
+        <div class="debug row d-flex justify-content-center align-items-center py-3">
+            <h2>Non ci sono risultati per questa ricerca</h2>
         </div>
     </div>
 
@@ -43,13 +49,11 @@
 </template>
 
 <script>
-import ModaleFilter from '../pages/ModaleFilter.vue';
 import CardComp from '../partials/CardComp.vue';
 export default {
     name: 'HomeComp',
     components:{
         CardComp,
-        ModaleFilter
     },
 
 
@@ -60,9 +64,6 @@ export default {
 
             announcApiUrl: 'api/announcements',
             announcments: null,
-            announcementFilteredCategory : null,
-            announcementFilteredModal: null,
-            showDropD: false,
             isActive: -1,
             selectedCat: '',
         }
@@ -85,23 +86,9 @@ export default {
             })
         },
 
-        hideModal(isShow){
-            this.showDropD = isShow;
-        },
-
-        getFilteredAnnounce(data){
-            this.showDropD = false;
-            axios.get(this.announcApiUrl + '/advanced/', {
-                beds: data.beds,
-                
-            })
-            .then(response => {
-                this.announcments = response.data
-            })       
-        }
     },
 
-    
+
 
 
 

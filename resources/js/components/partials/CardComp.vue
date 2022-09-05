@@ -1,5 +1,5 @@
 <template>
-    <div class="col-12 col-sm-6 col-lg-4 col-xl-2 card debug mx-xl-1 mb-4 p-2">
+    <div class="col-12 col-sm-6 col-md-4 col-xl-2 card debug mx-xl-1 mb-4 p-2">
         <div class="img debug mb-1">
             <i class="fa-regular fa-heart"></i>
             <!-- <i class="fa-solid fa-heart"></i> -->

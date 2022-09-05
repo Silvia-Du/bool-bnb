@@ -1,13 +1,13 @@
 <template>
-  <div class="modal-container debug">
-    <div class="m-modal h-100 debug pt-5">
+  <div class="modal-container">
+    <div class="m-modal h-100 pt-5">
         <!-- x -->
         <i @click=" hideModal() " class="fa-solid fa-x"></i>
-        <div class="filter debug container-fluid pt-2">
+        <div class="filter container-fluid pt-2">
 
             <h5 class="my-3">Tipologia di alloggio</h5>
             <!-- tipo di stanza -->
-            <div class="row debug d-flex justify-content-around py-3 px-lg-5 mb-3">
+            <div class="row d-flex justify-content-around py-3 px-lg-5 mb-3">
                 <div @click="getRoomType(roomT, i)"
                 v-for="(roomT, i) in roomTypeCollection" :key="`room${i}`"
                 class="col-3 room-cad debug mx-xl-4 d-flex justify-content-between align-items-center">
@@ -20,39 +20,39 @@
             </div>
             <!-- stanze e letti -->
             <h5>Stanze e letti</h5>
-            <div class="row buttton-row debug d-flex p-3">
+            <div class="row buttton-row d-flex p-3">
                 <!-- camere -->
                 <p class=" my-2">Camere</p>
-                <div class="col-12 debug d-flex justify-content-lg-start align-items-center">
+                <div class="col-12 d-flex justify-content-lg-start align-items-center">
                     <div @click="getSheetNumber(room, i, 'rooms')"
                     v-for="(room, i) in numberOfSheet" :key="`room${i}`"
-                    class="_btn rounded-pill p-3 debug" :class="{'black': i === roomIndex}" >{{room}}</div>
+                    class="_btn rounded-pill p-3" :class="{'black': i === roomIndex}" >{{room}}</div>
 
                 </div>
                 <!-- letti -->
                 <p class="mt-4 mb-2">Letti</p>
-                <div class="col-12 debug d-flex justify-content-lg-start align-items-center">
+                <div class="col-12 d-flex justify-content-lg-start align-items-center">
                     <div @click="getSheetNumber(bed, i, 'beds')"
                     v-for="(bed, i) in numberOfSheet" :key="`bed${i}`"
-                    class="_btn rounded-pill p-3 debug" :class="{'black': i === bedsIndex}">{{bed}}</div>
+                    class="_btn rounded-pill p-3" :class="{'black': i === bedsIndex}">{{bed}}</div>
                 </div>
                 <!-- bagni -->
                 <p class="mt-4 mb-2">Bagni</p>
-                <div class="col-12 debug d-flex justify-content-lg-start align-items-center mb-3">
+                <div class="col-12 d-flex justify-content-lg-start align-items-center mb-3">
                     <div @click="getSheetNumber(bathrom, i, 'bathroms')"
                     v-for="(bathrom, i) in numberOfSheet" :key="`bath${i}`"
-                    class="_btn rounded-pill p-3 debug" :class="{'black': i === bathromsIndex}">{{bathrom}}</div>
+                    class="_btn rounded-pill p-3" :class="{'black': i === bathromsIndex}">{{bathrom}}</div>
 
                 </div>
             </div>
             <!-- categoria alloggio -->
-            <div class="row cat-service-row debug d-flex justify-content-around py-3 mb-3">
+            <div class="row cat-service-row d-flex justify-content-around py-3 mb-3 px-2">
                 <!-- servizi -->
-                <div class="col-12 col-md-6 debug">
+                <div class="col-12 col-md-6 services-col">
                     <h5 class="my-3 ml-3">Servizi</h5>
                     <div class="container-fluid">
                         <div v-for="(service, i) in services" :key="`s${i}`"
-                        class="d-flex justify-content-between debug py-2 px-3">
+                        class="d-flex justify-content-between py-2 px-3">
                             <p class="mb-0">{{ service.name }}</p>
                             <div @click="getCheckedService(service.name)"
                             class="check-b d-flex align-items-center justify-content-center">
@@ -64,15 +64,15 @@
                     </div>
                 </div>
                 <!-- categorie -->
-                <div class="col-12 col-md-6 category-col debug d-flex flex-column justify-content-between">
+                <div class="col-12 col-md-6 category-col d-flex flex-column justify-content-between">
                     <h5 class="my-3 ml-3">Tipologia di alloggio</h5>
-                    <div class="container-fluid debug py-4">
-                        <div class="row debug">
+                    <div class="container-fluid py-4 category-container h-100">
+                        <div class="row px-1">
 
                             <div  v-for="(category, i) in catCollection" :key="`cat-${i}`"
                              class="col-4 col-md-3 mb-3 cat-card p-2 position-relative">
                                 <div @click="checkedCat(category)"
-                                 class="cat-box debug h-100 d-flex flex-column align-items-center justify-content-center">
+                                 class="cat-box h-100 d-flex flex-column align-items-center justify-content-center">
                                     <i class="fa-brands fa-fort-awesome mb-1 p-1"></i>
                                     <p class="mb-0">{{ category }}</p>
                                 </div>
@@ -85,7 +85,7 @@
                 </div>
             </div>
             <!-- button row -->
-            <div class="row action-row  debug d-flex justify-content-between py-3 px-5 align-items-center">
+            <div class="row action-row  d-flex justify-content-between py-3 px-5 align-items-center">
                 <p @click="deleteAll()"
                 class="delete-all mb-0 mx-lg-2">Cancella tutto</p>
                 <div @click="getFilteredAnnounce()"
@@ -102,8 +102,6 @@
 <script>
 export default {
     name:'ModaleFilter',
-
-
     props:{
         showFilters: Boolean,
         catCollection: Array
@@ -199,7 +197,7 @@ export default {
             this.indexSelectedRoom = -1;
         },
         getFilteredAnnounce(){
-             this.data = 
+             this.data =
                 {
                     rooms: this.selectedRooms,
                     beds: this.selectedBeds,
@@ -208,7 +206,7 @@ export default {
                     services: this.checkedServices,
                     houseType: this.checkedCategory
                 },
-            
+
             this.$emit('filterData', this.data);
             // console.log(this.data);
 
@@ -225,12 +223,14 @@ export default {
 
 
 .modal-container{
+    background-color: #ede6e3;
+    box-shadow: 0px 0px 10px 1px rgb(172, 172, 172) ;
     position: absolute;
     z-index: 999;
     border-radius: 10px;
     width: 60%;
     //@keyframe da fare
-    top: 500px;
+    top: 100px;
     left: 50%;
     transform: translate(-50%);
     p{
@@ -263,6 +263,8 @@ export default {
         }
         .buttton-row{
             ._btn{
+                border: 1px solid #36382e;
+                background-color: #f0f0f0;
                 width: 120px;
                 text-align: center;
                 margin: 0 20px 0 0;
@@ -274,12 +276,21 @@ export default {
             }
         }
         .cat-service-row{
+            .container-fluid{
+                box-shadow: 0px 0px 10px 1px rgb(204, 202, 202) ;
+                border-radius: 5px;
+            }
             .cat-card{
                 height: 91px;
                 border-radius: 15px;
                 flex-shrink: 0;
                 .cat-box{
                     border-radius: 15px;
+                    background-color: #ede6e3;
+                    border: 1px solid #f06449;
+                    &:hover{
+                        background-color: #d6cac8;
+                    }
                     cursor: pointer;
                     p{
                         text-transform: capitalize;
@@ -290,13 +301,25 @@ export default {
                 font-size: 1rem;
             }
             i{
-                font-size: 1.3rem;
+                font-size: 1.4rem;
+                color: #36382e;
             }
 
             .category-col{
+                border-top: 1px solid  rgb(172, 172, 172);
                 .fa-circle-check{
                     top: 8px;
                     right: 7px;
+                    color: #ef6351;
+                }
+
+            }
+            .services-col{
+                border-top: 1px solid  rgb(172, 172, 172);
+                border-radius: 5px;
+                .fa-square-check{
+                    color: #ef6351;
+                    font-size: 1.4rem;
                 }
             }
         }
