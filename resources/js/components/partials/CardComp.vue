@@ -7,7 +7,7 @@
         <div class="text">
             <p class="mb-0 type">{{ announcementItem.house_type }} - {{ announcementItem.beds }} letti - {{ announcementItem.bathrooms }} bagni</p>
             <p class="mb-0 title">{{ announcementItem.title }}</p>
-            <p class="mb-0 street">{{ announcementItem.address }}</p>
+            <p class="mb-0 street">{{ shortifyContent(announcementItem.address) }}</p>
             <p class="mb-0 price">{{ announcementItem.price }} &euro;/ notte</p>
             <i class="fa-solid fa-star"></i>
         </div>
@@ -26,6 +26,12 @@ export default {
     props:{
         announcementItem:Object,
     },
+
+    methods:{
+        shortifyContent(text){
+            return text.substring(1, 30)+ '...';
+        }
+    }
 }
 </script>
 

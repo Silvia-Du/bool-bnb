@@ -30,8 +30,10 @@
 
     <!-- in evidence row -->
     <div class="debug sponsorized-row px-lg-5 container-fluid pt-md-5">
-        <div class="row debug d-flex mx-lg-5 flex-wrap justify-content-around align-items-baseline pt-5 px-sm-2">
-            <CardComp v-for="(announcement, i) in announcments" :key="`ann${i}`" :announcementItem = "announcement" />
+        <div class="row debug d-flex mx-lg-5 flex-wrap justify-content-around pt-5 px-sm-2">
+            <CardComp
+            class=""
+            v-for="(announcement, i) in announcments" :key="`ann${i}`" :announcementItem = "announcement" />
             <h2 class="d-none d-md-block">Selezionati per te</h2>
         </div>
     </div>
@@ -90,15 +92,17 @@ export default {
         getFilteredAnnounce(data){
             this.showDropD = false;
             axios.get(this.announcApiUrl + '/advanced/', {
-                params: {
-                    beds: data.beds,
-                }
+                beds: data.beds,
+                
             })
             .then(response => {
                 this.announcments = response.data
             })       
         }
     },
+
+    
+
 
 
     mounted(){
@@ -122,7 +126,7 @@ export default {
             font-size: 1.7rem;
         }
         .categories{
-            width: 85px;
+            width: 95px;
             min-height: 50px;
             font-size: 0.8rem;
             font-weight: 600;

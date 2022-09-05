@@ -1997,9 +1997,7 @@ __webpack_require__.r(__webpack_exports__);
 
       this.showDropD = false;
       axios.get(this.announcApiUrl + '/advanced/', {
-        params: {
-          beds: data.beds
-        }
+        beds: data.beds
       }).then(function (response) {
         _this3.announcments = response.data;
       });
@@ -2145,6 +2143,11 @@ __webpack_require__.r(__webpack_exports__);
   },
   props: {
     announcementItem: Object
+  },
+  methods: {
+    shortifyContent: function shortifyContent(text) {
+      return text.substring(1, 30) + '...';
+    }
   }
 });
 
@@ -2401,7 +2404,7 @@ var render = function render() {
   }) : _vm._e()], 1)]), _vm._v(" "), _c("div", {
     staticClass: "debug sponsorized-row px-lg-5 container-fluid pt-md-5"
   }, [_c("div", {
-    staticClass: "row debug d-flex mx-lg-5 flex-wrap justify-content-around align-items-baseline pt-5 px-sm-2"
+    staticClass: "row debug d-flex mx-lg-5 flex-wrap justify-content-around pt-5 px-sm-2"
   }, [_vm._l(_vm.announcments, function (announcement, i) {
     return _c("CardComp", {
       key: "ann".concat(i),
@@ -2632,7 +2635,7 @@ var render = function render() {
     staticClass: "mb-0 title"
   }, [_vm._v(_vm._s(_vm.announcementItem.title))]), _vm._v(" "), _c("p", {
     staticClass: "mb-0 street"
-  }, [_vm._v(_vm._s(_vm.announcementItem.address))]), _vm._v(" "), _c("p", {
+  }, [_vm._v(_vm._s(_vm.shortifyContent(_vm.announcementItem.address)))]), _vm._v(" "), _c("p", {
     staticClass: "mb-0 price"
   }, [_vm._v(_vm._s(_vm.announcementItem.price) + " €/ notte")]), _vm._v(" "), _c("i", {
     staticClass: "fa-solid fa-star"
@@ -2790,7 +2793,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, ".home .jumbotron[data-v-4b10c5b8] {\n  height: 500px;\n}\n.home .filter-row[data-v-4b10c5b8] {\n  overflow-x: auto;\n}\n.home .filter-row i[data-v-4b10c5b8] {\n  font-size: 1.7rem;\n}\n.home .filter-row .categories[data-v-4b10c5b8] {\n  width: 85px;\n  min-height: 50px;\n  font-size: 0.8rem;\n  font-weight: 600;\n  flex-shrink: 0;\n  border-bottom: 3px solid white;\n}\n.home .filter-row .categories[data-v-4b10c5b8]:hover {\n  border-bottom: 3px solid black;\n}\n.home .filter-row .categories.active[data-v-4b10c5b8] {\n  border-bottom: 3px solid black;\n}\n.home .filter-row .filter[data-v-4b10c5b8] {\n  border-radius: 15px;\n  font-weight: bold;\n  font-size: 1rem;\n  flex-shrink: 0;\n}\n.home .filter-row .filter i[data-v-4b10c5b8] {\n  font-size: 1.4rem;\n}\n.home .sponsorized-row[data-v-4b10c5b8] {\n  position: relative;\n}\n.home .sponsorized-row h2[data-v-4b10c5b8] {\n  z-index: 2;\n  position: absolute;\n  top: 30px;\n  left: 50%;\n  transform: translate(-50%);\n  font-size: 4rem;\n  opacity: 80%;\n}", ""]);
+exports.push([module.i, ".home .jumbotron[data-v-4b10c5b8] {\n  height: 500px;\n}\n.home .filter-row[data-v-4b10c5b8] {\n  overflow-x: auto;\n}\n.home .filter-row i[data-v-4b10c5b8] {\n  font-size: 1.7rem;\n}\n.home .filter-row .categories[data-v-4b10c5b8] {\n  width: 95px;\n  min-height: 50px;\n  font-size: 0.8rem;\n  font-weight: 600;\n  flex-shrink: 0;\n  border-bottom: 3px solid white;\n}\n.home .filter-row .categories[data-v-4b10c5b8]:hover {\n  border-bottom: 3px solid black;\n}\n.home .filter-row .categories.active[data-v-4b10c5b8] {\n  border-bottom: 3px solid black;\n}\n.home .filter-row .filter[data-v-4b10c5b8] {\n  border-radius: 15px;\n  font-weight: bold;\n  font-size: 1rem;\n  flex-shrink: 0;\n}\n.home .filter-row .filter i[data-v-4b10c5b8] {\n  font-size: 1.4rem;\n}\n.home .sponsorized-row[data-v-4b10c5b8] {\n  position: relative;\n}\n.home .sponsorized-row h2[data-v-4b10c5b8] {\n  z-index: 2;\n  position: absolute;\n  top: 30px;\n  left: 50%;\n  transform: translate(-50%);\n  font-size: 4rem;\n  opacity: 80%;\n}", ""]);
 
 // exports
 
