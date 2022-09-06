@@ -34,8 +34,9 @@
                     <i class="fa-solid fa-circle-user ml-1"></i>
                     <div v-if="showNavDropD"
                     class="drop-d position-absolute">
-                    <div class="dd-row py-3 pl-3">
-                        <p class="mb-0">Login</p>
+                    <div @click="getLoginRoute()"
+                    class="dd-row py-3 pl-3">
+                            <p class="mb-0">Login</p>
                     </div>
                     <div class="dd-row py-3 pl-3">
                         <p class="mb-0">Registrati</p>
@@ -63,6 +64,12 @@ export default {
  data() {
     return {
         showNavDropD: false,
+    }
+ },
+
+ methods: {
+    getLoginRoute(){
+        window.location.href = '/login';
     }
  },
 }

@@ -45,8 +45,25 @@
 //MESSAGE PAGE
 
 .message-page{
-
+    //COL NAV MEX
+    .message, .account{
+        border-bottom: 1px solid gray;
+        h4, h5{
+            font-weight: bold;
+        }
+    }
+    .account{
+        .img{
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+        }
+    }
+    //JUMBOTRON COL
     .jumbo{
+        background-image: url(../../../public/img/message-jumbo2.png);
+        background-position: center;
+        background-size: cover;
         height: 610px;
         overflow: hidden;
         img{
@@ -75,6 +92,7 @@
                 right: -40px;
             }
         }
+
 
 
     }

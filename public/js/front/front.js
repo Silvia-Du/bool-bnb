@@ -2227,6 +2227,11 @@ __webpack_require__.r(__webpack_exports__);
     return {
       showNavDropD: false
     };
+  },
+  methods: {
+    getLoginRoute: function getLoginRoute() {
+      window.location.href = '/login';
+    }
   }
 });
 
@@ -2823,7 +2828,16 @@ var render = function render() {
     staticClass: "fa-solid fa-circle-user ml-1"
   }), _vm._v(" "), _vm.showNavDropD ? _c("div", {
     staticClass: "drop-d position-absolute"
-  }, [_vm._m(2), _vm._v(" "), _vm._m(3), _vm._v(" "), _vm._m(4)]) : _vm._e()])], 1)])])]);
+  }, [_c("div", {
+    staticClass: "dd-row py-3 pl-3",
+    on: {
+      click: function click($event) {
+        return _vm.getLoginRoute();
+      }
+    }
+  }, [_c("p", {
+    staticClass: "mb-0"
+  }, [_vm._v("Login")])]), _vm._v(" "), _vm._m(2), _vm._v(" "), _vm._m(3)]) : _vm._e()])], 1)])])]);
 };
 
 var staticRenderFns = [function () {
@@ -2858,15 +2872,6 @@ var staticRenderFns = [function () {
   }, [_c("p", {
     staticClass: "mb-0"
   }, [_vm._v("GO!")])])])]);
-}, function () {
-  var _vm = this,
-      _c = _vm._self._c;
-
-  return _c("div", {
-    staticClass: "dd-row py-3 pl-3"
-  }, [_c("p", {
-    staticClass: "mb-0"
-  }, [_vm._v("Login")])]);
 }, function () {
   var _vm = this,
       _c = _vm._self._c;

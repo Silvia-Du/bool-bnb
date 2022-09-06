@@ -17,5 +17,6 @@ const mix = require('laravel-mix');
     .sass('resources/sass/admin/style.scss', 'public/css/admin')
     .sass('resources/sass/front/style.scss', 'public/css/front')
     .options({
-        processCssUrls:false
+        processCssUrl:false
         });
+
