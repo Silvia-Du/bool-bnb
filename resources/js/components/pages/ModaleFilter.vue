@@ -111,13 +111,14 @@ export default {
         return{
             isShow: true,
             servicesApi: 'api/announcements/get-services',
+            advancedResearchApi: 'api/announcements/advanced-research/',
             services: 'all',
             checkedServices: [],
             checkedCategory: [],
             selectedRoomType: 'all',
             indexSelectedRoom: -1,
             roomTypeCollection: ['stanza singola', 'stanza condivisa', 'intero alloggio'],
-            numberOfSheet: [ 'Qualsiasi', '1', '2', '3+'],
+            numberOfSheet: [ 'Qualsiasi', 1, 2, 3],
             selectedRooms:'all',
             roomIndex:0,
             selectedBeds: 'all',
@@ -207,10 +208,17 @@ export default {
                     houseType: this.checkedCategory
                 },
 
-            this.$emit('filterData', this.data);
+            // this.$emit('filterData', this.data);
             // console.log(this.data);
 
+            axios.get(this.advancedResearchApi + this.selectedRooms +'/'+ this.selectedBeds)
+            .then(response=>{
+                console.log(response);
+            })
+
         }
+
+
     },
 
     mounted() {

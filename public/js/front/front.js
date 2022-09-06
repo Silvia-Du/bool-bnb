@@ -2052,13 +2052,14 @@ __webpack_require__.r(__webpack_exports__);
     return {
       isShow: true,
       servicesApi: 'api/announcements/get-services',
+      advancedResearchApi: 'api/announcements/advanced-research/',
       services: 'all',
       checkedServices: [],
       checkedCategory: [],
       selectedRoomType: 'all',
       indexSelectedRoom: -1,
       roomTypeCollection: ['stanza singola', 'stanza condivisa', 'intero alloggio'],
-      numberOfSheet: ['Qualsiasi', '1', '2', '3+'],
+      numberOfSheet: ['Qualsiasi', 1, 2, 3],
       selectedRooms: 'all',
       roomIndex: 0,
       selectedBeds: 'all',
@@ -2140,7 +2141,11 @@ __webpack_require__.r(__webpack_exports__);
         roomType: this.selectedRoomType,
         services: this.checkedServices,
         houseType: this.checkedCategory
-      }, this.$emit('filterData', this.data); // console.log(this.data);
+      }, // this.$emit('filterData', this.data);
+      // console.log(this.data);
+      axios.get(this.advancedResearchApi + this.selectedRooms + '/' + this.selectedBeds).then(function (response) {
+        console.log(response);
+      });
     }
   },
   mounted: function mounted() {
@@ -2383,12 +2388,12 @@ var render = function render() {
   return _c("div", {
     staticClass: "home"
   }, [_vm._m(0), _vm._v(" "), _c("div", {
-    staticClass: "filter-row debug px-lg-5 py-4"
+    staticClass: "debug py-4 px-lg-5 container-fluid"
   }, [_c("div", {
-    staticClass: "row mx-lg-5"
-  }, [_c("div", {
-    staticClass: "col-10 debug d-flex justify-content-around align-items-center"
-  }, [_vm._l(_vm.categories, function (category, i) {
+    staticClass: "row debug mx-lg-5 new-row-filter"
+  }, [_vm._m(1), _vm._v(" "), _c("div", {
+    staticClass: "col-12 col-lg-10 offset-lg-2 debug d-flex justify-content-around align-items-center"
+  }, _vm._l(_vm.categories, function (category, i) {
     return _c("div", {
       key: "category".concat(i),
       staticClass: "categories debug d-flex flex-column pt-1 justify-content-center align-items-center",
@@ -2405,20 +2410,30 @@ var render = function render() {
     }), _vm._v(" "), _c("p", {
       staticClass: "mb-0 category"
     }, [_vm._v(_vm._s(category))])]);
-  }), _vm._v(" "), _c("i", {
-    staticClass: "fa-solid fa-circle-chevron-right"
-  })], 2), _vm._v(" "), _c("div", {
-    staticClass: "col-2 debug filter align-items-center px-4 d-none d-md-flex",
-    on: {
-      click: function click($event) {
-        _vm.showDropD = !_vm.showDropD;
+  }), 0)])]), _vm._v(" "), _c("div", {
+    staticClass: "d-none d-md-block filter-row debug px-lg-5 py-4"
+  }, [_c("div", {
+    staticClass: "row mx-lg-5"
+  }, [_vm._m(2), _vm._v(" "), _c("div", {
+    staticClass: "col-11 debug d-flex justify-content-around align-items-center"
+  }, _vm._l(_vm.categories, function (category, i) {
+    return _c("div", {
+      key: "category".concat(i),
+      staticClass: "categories debug d-flex flex-column pt-1 justify-content-center align-items-center",
+      "class": {
+        active: i === _vm.isActive
+      },
+      on: {
+        click: function click($event) {
+          return _vm.getCategory(i, category);
+        }
       }
-    }
-  }, [_c("i", {
-    staticClass: "fa-solid fa-sliders mr-5"
-  }), _vm._v(" "), _c("span", {
-    staticClass: "ml-4"
-  }, [_vm._v("Filtri")])])])]), _vm._v(" "), _c("div", {
+    }, [_c("i", {
+      staticClass: "fa-brands fa-fort-awesome debug mb-1"
+    }), _vm._v(" "), _c("p", {
+      staticClass: "mb-0 category"
+    }, [_vm._v(_vm._s(category))])]);
+  }), 0)])]), _vm._v(" "), _c("div", {
     staticClass: "debug sponsorized-row px-lg-5 container-fluid pt-md-5"
   }, [_c("div", {
     staticClass: "row debug d-flex mx-lg-5 flex-wrap justify-content-around pt-5 px-sm-2"
@@ -2431,7 +2446,7 @@ var render = function render() {
     });
   }), _vm._v(" "), _c("h2", {
     staticClass: "d-none d-md-block"
-  }, [_vm._v("Selezionati per te")])], 2)]), _vm._v(" "), _vm._m(1)]);
+  }, [_vm._v("Selezionati per te")])], 2)]), _vm._v(" "), _vm._m(3)]);
 };
 
 var staticRenderFns = [function () {
@@ -2443,6 +2458,22 @@ var staticRenderFns = [function () {
   }, [_c("div", {
     staticClass: "debug h-100 mx-5"
   })]);
+}, function () {
+  var _vm = this,
+      _c = _vm._self._c;
+
+  return _c("div", {
+    staticClass: "d-none d-lg-flex col-2 debug"
+  }, [_c("p", [_vm._v("cosa cerchi?")])]);
+}, function () {
+  var _vm = this,
+      _c = _vm._self._c;
+
+  return _c("div", {
+    staticClass: "col-1 debug filter align-items-center px-4 d-none d-md-flex"
+  }, [_c("span", {
+    staticClass: "ml-4"
+  }, [_vm._v("Cosa stai cercando?")])]);
 }, function () {
   var _vm = this,
       _c = _vm._self._c;
@@ -2881,7 +2912,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, ".home .jumbotron[data-v-4b10c5b8] {\n  height: 500px;\n}\n.home .filter-row[data-v-4b10c5b8] {\n  overflow-x: auto;\n}\n.home .filter-row i[data-v-4b10c5b8] {\n  font-size: 1.7rem;\n}\n.home .filter-row .categories[data-v-4b10c5b8] {\n  width: 95px;\n  min-height: 50px;\n  font-size: 0.8rem;\n  font-weight: 600;\n  flex-shrink: 0;\n  border-bottom: 3px solid white;\n}\n.home .filter-row .categories[data-v-4b10c5b8]:hover {\n  border-bottom: 3px solid black;\n}\n.home .filter-row .categories.active[data-v-4b10c5b8] {\n  border-bottom: 3px solid black;\n}\n.home .filter-row .filter[data-v-4b10c5b8] {\n  border-radius: 15px;\n  font-weight: bold;\n  font-size: 1rem;\n  flex-shrink: 0;\n}\n.home .filter-row .filter i[data-v-4b10c5b8] {\n  font-size: 1.4rem;\n}\n.home .sponsorized-row[data-v-4b10c5b8] {\n  position: relative;\n}\n.home .sponsorized-row h2[data-v-4b10c5b8] {\n  z-index: 2;\n  position: absolute;\n  top: 30px;\n  left: 50%;\n  transform: translate(-50%);\n  font-size: 4rem;\n  opacity: 80%;\n}", ""]);
+exports.push([module.i, ".new-row-filter .col-12[data-v-4b10c5b8] {\n  overflow-x: auto;\n}\n.new-row-filter .col-12 .categories[data-v-4b10c5b8] {\n  width: 95px;\n  min-height: 50px;\n  font-size: 0.8rem;\n  font-weight: 600;\n  flex-shrink: 0;\n  border-bottom: 3px solid white;\n}\n.new-row-filter .col-12 .categories[data-v-4b10c5b8]:hover {\n  border-bottom: 3px solid black;\n}\n.new-row-filter .col-12 .categories.active[data-v-4b10c5b8] {\n  border-bottom: 3px solid black;\n}\n.home .jumbotron[data-v-4b10c5b8] {\n  height: 500px;\n}\n.home .filter-row[data-v-4b10c5b8] {\n  overflow-x: auto;\n}\n.home .filter-row i[data-v-4b10c5b8] {\n  font-size: 1.7rem;\n}\n.home .filter-row .categories[data-v-4b10c5b8] {\n  width: 95px;\n  min-height: 50px;\n  font-size: 0.8rem;\n  font-weight: 600;\n  flex-shrink: 0;\n  border-bottom: 3px solid white;\n}\n.home .filter-row .categories[data-v-4b10c5b8]:hover {\n  border-bottom: 3px solid black;\n}\n.home .filter-row .categories.active[data-v-4b10c5b8] {\n  border-bottom: 3px solid black;\n}\n.home .filter-row .filter[data-v-4b10c5b8] {\n  border-radius: 15px;\n  font-weight: bold;\n  font-size: 1rem;\n  flex-shrink: 0;\n}\n.home .filter-row .filter i[data-v-4b10c5b8] {\n  font-size: 1.4rem;\n}\n.home .sponsorized-row[data-v-4b10c5b8] {\n  position: relative;\n}\n.home .sponsorized-row h2[data-v-4b10c5b8] {\n  z-index: 2;\n  position: absolute;\n  top: 30px;\n  left: 50%;\n  transform: translate(-50%);\n  font-size: 4rem;\n  opacity: 80%;\n}\n\n/* width */", ""]);
 
 // exports
 
@@ -19554,15 +19585,10 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
     name: 'home',
     component: _components_pages_HomeComp__WEBPACK_IMPORTED_MODULE_2__["default"]
   }, {
-    path: '/advanced-resource',
+    path: '/advanced-research',
     name: 'advanced',
     component: _components_pages_AdvancedComp__WEBPACK_IMPORTED_MODULE_3__["default"]
-  } // {
-  //     path: '/test',
-  //     name: 'test',
-  //     component: TestComp,
-  // }
-  ]
+  }]
 }); //lo esporto
 
 /* harmony default export */ __webpack_exports__["default"] = (router);

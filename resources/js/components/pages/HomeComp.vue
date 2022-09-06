@@ -4,12 +4,13 @@
     <div class="jumbotron debug py-0 px-lg-5 mb-0 d-none d-md-block">
       <div class="debug h-100 mx-5"></div>
     </div>
-
-    <!-- row filter -->
-    <div class="filter-row debug px-lg-5 py-4">
-        <div class="row mx-lg-5 ">
-
-            <div class="col-10 debug d-flex justify-content-around align-items-center">
+    <!-- new-row -->
+    <div class=" debug py-4 px-lg-5 container-fluid">
+        <div class="row debug mx-lg-5 new-row-filter">
+            <div class="d-none d-lg-flex col-2 debug">
+                <p>cosa cerchi?</p>
+            </div>
+            <div class="col-12 col-lg-10 offset-lg-2 debug d-flex justify-content-around align-items-center">
 
                 <div @click="getCategory(i, category)"
                 v-for="(category, i) in categories" :key="`category${i}`"
@@ -17,12 +18,26 @@
                     <i class="fa-brands fa-fort-awesome debug mb-1"></i>
                     <p class="mb-0 category">{{ category }}</p>
                 </div>
-
-                <i class="fa-solid fa-circle-chevron-right"></i>
             </div>
-            <div @click="showDropD =! showDropD" class=" col-2 debug filter align-items-center px-4 d-none d-md-flex ">
-                <i class="fa-solid fa-sliders mr-5"></i>
-                <span class="ml-4">Filtri</span>
+        </div>
+    </div>
+
+    <!-- row filter -->
+    <div class="d-none d-md-block filter-row debug px-lg-5 py-4">
+        <div class="row mx-lg-5 ">
+
+            <div class=" col-1 debug filter align-items-center px-4 d-none d-md-flex ">
+
+                <span class="ml-4">Cosa stai cercando?</span>
+            </div>
+            <div class="col-11 debug d-flex justify-content-around align-items-center">
+
+                <div @click="getCategory(i, category)"
+                v-for="(category, i) in categories" :key="`category${i}`"
+                class="categories debug d-flex flex-column pt-1 justify-content-center align-items-center" :class="{'active': i === isActive}">
+                    <i class="fa-brands fa-fort-awesome debug mb-1"></i>
+                    <p class="mb-0 category">{{ category }}</p>
+                </div>
             </div>
 
         </div>
@@ -102,6 +117,29 @@ export default {
 
 <style lang="scss" scoped>
 
+    .new-row-filter{
+        .col-12{
+
+            overflow-x: auto;
+            .categories{
+            width: 95px;
+            min-height: 50px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            flex-shrink: 0;
+            border-bottom: 3px solid white;
+            &:hover{
+                border-bottom: 3px solid black;
+            }
+            &.active{
+                border-bottom: 3px solid black;
+            }
+
+
+        }
+        }
+    }
+
 .home{
     .jumbotron{
         height: 500px;
@@ -153,6 +191,30 @@ export default {
         }
     }
 }
+
+// per scroll
+/* width */
+// ::-webkit-scrollbar {
+//   width: 5px;
+//   height: 7px;
+// }
+
+// /* Track */
+// ::-webkit-scrollbar-track {
+//   box-shadow: inset 0 0 5px grey;
+//   border-radius: 10px;
+// }
+
+// /* Handle */
+// ::-webkit-scrollbar-thumb {
+//   background: $redColor;
+//   border-radius: 10px;
+// }
+
+// /* Handle on hover */
+// ::-webkit-scrollbar-thumb:hover {
+//   background: $redColor;
+// }
 
 
 </style>

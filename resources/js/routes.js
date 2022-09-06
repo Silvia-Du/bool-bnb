@@ -12,6 +12,7 @@ import HomeComp from './components/pages/HomeComp';
 import AdvancedComp from './components/pages/AdvancedComp';
 import TestComp from './components/pages/TestComp';
 
+
 //creo il router
 const router = new VueRouter({
     mode: 'history',
@@ -24,15 +25,11 @@ const router = new VueRouter({
             component: HomeComp,
         },
         {
-            path: '/advanced-resource',
+            path: '/advanced-research',
             name: 'advanced',
             component: AdvancedComp,
         },
-        // {
-        //     path: '/test',
-        //     name: 'test',
-        //     component: TestComp,
-        // }
+
     ]
 });
 
