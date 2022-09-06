@@ -1,7 +1,7 @@
 <template>
   <div>
-    <HeaderComp />
-    <main>
+    <HeaderComp :bgHeader="true" />
+    <main @scroll="bgHeader()">
 
         <router-view></router-view>
 

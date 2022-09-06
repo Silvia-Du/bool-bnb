@@ -26,7 +26,6 @@ class PageController extends Controller
     }
     public function getAdvancedFilter($rooms, $beds){
 
-
         $announcements = Announcement::where([
             ['beds', '>=', $beds],
             ['rooms', '>=', $rooms]

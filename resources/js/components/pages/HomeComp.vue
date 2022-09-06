@@ -1,13 +1,20 @@
 <template>
-<div class="home">
+<div
+class="home ">
     <!-- jumbotron -->
-    <div class="jumbotron debug py-0 px-lg-5 mb-0 d-none d-md-block">
-      <div class="debug h-100 mx-5"></div>
+    <div class="jumbotron container-fluid px-0 mx-0 py-0 mb-0 d-none d-md-block">
+      <div class="row img h-100 d-flex align-items-center">
+        <div class="col-4 text debug offset-lg-1 d-flex flex-column mt-5">
+            <h1>Il posto migliore dove sentirsi a casa!</h1>
+
+            <h2>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores ad nobis soluta nulla, eius voluptas error sapiente cumque totam consectetur?</h2>
+        </div>
+      </div>
     </div>
 
     <!-- row filter -->
-    <!-- <div class="d-none d-md-block filter-row debug px-lg-5 py-4 container-fluid">
-        <div class="row mx-lg-5 ">
+    <div class="d-none d-md-block filter-row debug px-lg-5 py-4 container-fluid">
+        <div class="row mx-lg-5 debug">
 
             <div class="col-categories col-12 px-5 debug d-flex justify-content-around align-items-center">
                 <div @click="getCategory(i, category)"
@@ -18,19 +25,20 @@
                 </div>
             </div>
         </div>
-    </div> -->
+    </div>
 
     <!-- in evidence row -->
-    <div class="debug sponsorized-row px-lg-5 container-fluid pt-md-5 text-center">
+    <div class="sponsorized-row px-lg-5 container-fluid pt-md-5 text-center">
         <h2 class="d-none d-md-block">Selezionati per te</h2>
-        <div class="row debug d-flex mx-lg-5 flex-wrap justify-content-center pt-5 px-sm-2">
+        <div class="row d-flex mx-lg-5 flex-wrap justify-content-center pt-5 px-sm-2">
 
             <CardComp
             class=""
-            v-for="(announcement, i) in announcments" :key="`ann${i}`" :announcementItem = "announcement" />
+            v-for="(announcement, i) in announcements" :key="`ann${i}`" :announcementItem = "announcement" />
         </div>
     </div>
-    <div class="no-results container-fluid py-md-5 debug">
+    <div v-if="announcements ===[]"
+    class="no-results container-fluid py-md-5">
         <div class="debug row d-flex justify-content-center align-items-center py-3">
             <h2>Non ci sono risultati per questa ricerca</h2>
         </div>
@@ -55,7 +63,7 @@ export default {
             categories : ['baite', 'campagna', 'wow', 'minicase', 'camper', 'design', 'b&b', 'luxe', 'ville', 'spazi creativi', 'co-working', 'co-leaving' ],
 
             announcApiUrl: 'api/announcements',
-            announcments: null,
+            announcements: null,
             isActive: -1,
             selectedCat: '',
         }
@@ -65,7 +73,7 @@ export default {
         getAnnouncement(){
             axios.get(this.announcApiUrl)
             .then(response =>{
-                this.announcments = response.data.data;
+                this.announcements = response.data.data;
             })
         },
 
@@ -74,9 +82,11 @@ export default {
             this.selectedCat = category;
             axios.get(this.announcApiUrl + '/category/' + this.selectedCat)
             .then(response => {
-                this.announcments = response.data;
+                this.announcements = response.data;
             })
         },
+
+
 
     },
 
@@ -96,7 +106,16 @@ export default {
 
 .home{
     .jumbotron{
-        height: 500px;
+        height: 650px;
+        h1{
+            font-size: 3rem;
+            font-weight: bold;
+        }
+        .img{
+            background-image: url(../../../../public/img/12.png);
+            background-size: cover;
+            background-position: center;
+        }
     }
     .filter-row{
         i{
@@ -135,6 +154,7 @@ export default {
 
 
     .sponsorized-row{
+        background-color: #f0f0f0;
         h2{
             font-size: 4rem;
         }
