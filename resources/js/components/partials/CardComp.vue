@@ -1,5 +1,5 @@
 <template>
-    <div class="col-12 col-sm-6 col-md-4 col-xl-2 card debug mx-xl-1 mb-4 p-2">
+    <div class="col-12 col-sm-6 col-lg-4 col-xl-2 mx-sm-0 mx-xl-2 card debug mb-4 p-2">
         <div class="img debug mb-1">
             <i class="fa-regular fa-heart"></i>
             <!-- <i class="fa-solid fa-heart"></i> -->
@@ -7,11 +7,12 @@
         <div class="text">
             <p class="mb-0 type">{{ announcementItem.house_type }} - {{ announcementItem.beds }} letti - {{ announcementItem.bathrooms }} bagni</p>
             <p class="mb-0 title">{{ announcementItem.title }}</p>
-            <p class="mb-0 street">{{ shortifyContent(announcementItem.address) }}</p>
+            <p class="mb-1 street">{{ shortifyContent(announcementItem.address) }}</p>
             <p class="mb-0 price">{{ announcementItem.price }} &euro;/ notte</p>
             <i class="fa-solid fa-star"></i>
         </div>
     </div>
+
 </template>
 
 <script>
@@ -53,6 +54,7 @@ export default {
         }
     }
     .text{
+        text-align: left;
         position: relative;
         .type,
         .title{
@@ -72,6 +74,7 @@ export default {
             right: 5px;
             top: 1px;
         }
+
     }
 }
 

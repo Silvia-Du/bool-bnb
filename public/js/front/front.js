@@ -2219,7 +2219,12 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ({
-  name: 'HeaderComp'
+  name: 'HeaderComp',
+  data: function data() {
+    return {
+      showNavDropD: false
+    };
+  }
 });
 
 /***/ }),
@@ -2388,65 +2393,19 @@ var render = function render() {
   return _c("div", {
     staticClass: "home"
   }, [_vm._m(0), _vm._v(" "), _c("div", {
-    staticClass: "debug py-4 px-lg-5 container-fluid"
-  }, [_c("div", {
-    staticClass: "row debug mx-lg-5 new-row-filter"
-  }, [_vm._m(1), _vm._v(" "), _c("div", {
-    staticClass: "col-12 col-lg-10 offset-lg-2 debug d-flex justify-content-around align-items-center"
-  }, _vm._l(_vm.categories, function (category, i) {
-    return _c("div", {
-      key: "category".concat(i),
-      staticClass: "categories debug d-flex flex-column pt-1 justify-content-center align-items-center",
-      "class": {
-        active: i === _vm.isActive
-      },
-      on: {
-        click: function click($event) {
-          return _vm.getCategory(i, category);
-        }
-      }
-    }, [_c("i", {
-      staticClass: "fa-brands fa-fort-awesome debug mb-1"
-    }), _vm._v(" "), _c("p", {
-      staticClass: "mb-0 category"
-    }, [_vm._v(_vm._s(category))])]);
-  }), 0)])]), _vm._v(" "), _c("div", {
-    staticClass: "d-none d-md-block filter-row debug px-lg-5 py-4"
-  }, [_c("div", {
-    staticClass: "row mx-lg-5"
-  }, [_vm._m(2), _vm._v(" "), _c("div", {
-    staticClass: "col-11 debug d-flex justify-content-around align-items-center"
-  }, _vm._l(_vm.categories, function (category, i) {
-    return _c("div", {
-      key: "category".concat(i),
-      staticClass: "categories debug d-flex flex-column pt-1 justify-content-center align-items-center",
-      "class": {
-        active: i === _vm.isActive
-      },
-      on: {
-        click: function click($event) {
-          return _vm.getCategory(i, category);
-        }
-      }
-    }, [_c("i", {
-      staticClass: "fa-brands fa-fort-awesome debug mb-1"
-    }), _vm._v(" "), _c("p", {
-      staticClass: "mb-0 category"
-    }, [_vm._v(_vm._s(category))])]);
-  }), 0)])]), _vm._v(" "), _c("div", {
-    staticClass: "debug sponsorized-row px-lg-5 container-fluid pt-md-5"
-  }, [_c("div", {
-    staticClass: "row debug d-flex mx-lg-5 flex-wrap justify-content-around pt-5 px-sm-2"
-  }, [_vm._l(_vm.announcments, function (announcement, i) {
+    staticClass: "debug sponsorized-row px-lg-5 container-fluid pt-md-5 text-center"
+  }, [_c("h2", {
+    staticClass: "d-none d-md-block"
+  }, [_vm._v("Selezionati per te")]), _vm._v(" "), _c("div", {
+    staticClass: "row debug d-flex mx-lg-5 flex-wrap justify-content-center pt-5 px-sm-2"
+  }, _vm._l(_vm.announcments, function (announcement, i) {
     return _c("CardComp", {
       key: "ann".concat(i),
       attrs: {
         announcementItem: announcement
       }
     });
-  }), _vm._v(" "), _c("h2", {
-    staticClass: "d-none d-md-block"
-  }, [_vm._v("Selezionati per te")])], 2)]), _vm._v(" "), _vm._m(3)]);
+  }), 1)]), _vm._v(" "), _vm._m(1)]);
 };
 
 var staticRenderFns = [function () {
@@ -2458,22 +2417,6 @@ var staticRenderFns = [function () {
   }, [_c("div", {
     staticClass: "debug h-100 mx-5"
   })]);
-}, function () {
-  var _vm = this,
-      _c = _vm._self._c;
-
-  return _c("div", {
-    staticClass: "d-none d-lg-flex col-2 debug"
-  }, [_c("p", [_vm._v("cosa cerchi?")])]);
-}, function () {
-  var _vm = this,
-      _c = _vm._self._c;
-
-  return _c("div", {
-    staticClass: "col-1 debug filter align-items-center px-4 d-none d-md-flex"
-  }, [_c("span", {
-    staticClass: "ml-4"
-  }, [_vm._v("Cosa stai cercando?")])]);
 }, function () {
   var _vm = this,
       _c = _vm._self._c;
@@ -2745,7 +2688,7 @@ var render = function render() {
       _c = _vm._self._c;
 
   return _c("div", {
-    staticClass: "col-12 col-sm-6 col-md-4 col-xl-2 card debug mx-xl-1 mb-4 p-2"
+    staticClass: "col-12 col-sm-6 col-lg-4 col-xl-2 mx-sm-0 mx-xl-2 card debug mb-4 p-2"
   }, [_vm._m(0), _vm._v(" "), _c("div", {
     staticClass: "text"
   }, [_c("p", {
@@ -2753,7 +2696,7 @@ var render = function render() {
   }, [_vm._v(_vm._s(_vm.announcementItem.house_type) + " - " + _vm._s(_vm.announcementItem.beds) + " letti - " + _vm._s(_vm.announcementItem.bathrooms) + " bagni")]), _vm._v(" "), _c("p", {
     staticClass: "mb-0 title"
   }, [_vm._v(_vm._s(_vm.announcementItem.title))]), _vm._v(" "), _c("p", {
-    staticClass: "mb-0 street"
+    staticClass: "mb-1 street"
   }, [_vm._v(_vm._s(_vm.shortifyContent(_vm.announcementItem.address)))]), _vm._v(" "), _c("p", {
     staticClass: "mb-0 price"
   }, [_vm._v(_vm._s(_vm.announcementItem.price) + " €/ notte")]), _vm._v(" "), _c("i", {
@@ -2829,7 +2772,20 @@ var render = function render() {
     }
   }, [_vm._v("Diventa un host")]), _vm._v(" "), _c("i", {
     staticClass: "fa-solid fa-igloo mx-3"
-  }), _vm._v(" "), _vm._m(2)], 1)])])]);
+  }), _vm._v(" "), _c("div", {
+    staticClass: "user-box debug rounded-pill px-3 align-items-center d-flex",
+    on: {
+      click: function click($event) {
+        _vm.showNavDropD = !_vm.showNavDropD;
+      }
+    }
+  }, [_c("i", {
+    staticClass: "fa-solid fa-bars mr-4 debug"
+  }), _vm._v(" "), _c("i", {
+    staticClass: "fa-solid fa-circle-user ml-1"
+  }), _vm._v(" "), _vm.showNavDropD ? _c("div", {
+    staticClass: "drop-d position-absolute"
+  }, [_vm._m(2), _vm._v(" "), _vm._m(3), _vm._v(" "), _vm._m(4)]) : _vm._e()])], 1)])])]);
 };
 
 var staticRenderFns = [function () {
@@ -2869,12 +2825,28 @@ var staticRenderFns = [function () {
       _c = _vm._self._c;
 
   return _c("div", {
-    staticClass: "user-box debug rounded-pill px-3 align-items-center d-flex"
-  }, [_c("i", {
-    staticClass: "fa-solid fa-bars mr-4 debug"
-  }), _vm._v(" "), _c("i", {
-    staticClass: "fa-solid fa-circle-user ml-1"
-  })]);
+    staticClass: "dd-row py-3 pl-3"
+  }, [_c("p", {
+    staticClass: "mb-0"
+  }, [_vm._v("Login")])]);
+}, function () {
+  var _vm = this,
+      _c = _vm._self._c;
+
+  return _c("div", {
+    staticClass: "dd-row py-3 pl-3"
+  }, [_c("p", {
+    staticClass: "mb-0"
+  }, [_vm._v("Registrati")])]);
+}, function () {
+  var _vm = this,
+      _c = _vm._self._c;
+
+  return _c("div", {
+    staticClass: "dd-row py-3 pl-3"
+  }, [_c("p", {
+    staticClass: "mb-0"
+  }, [_vm._v("Log out")])]);
 }];
 render._withStripped = true;
 
@@ -2912,7 +2884,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, ".new-row-filter .col-12[data-v-4b10c5b8] {\n  overflow-x: auto;\n}\n.new-row-filter .col-12 .categories[data-v-4b10c5b8] {\n  width: 95px;\n  min-height: 50px;\n  font-size: 0.8rem;\n  font-weight: 600;\n  flex-shrink: 0;\n  border-bottom: 3px solid white;\n}\n.new-row-filter .col-12 .categories[data-v-4b10c5b8]:hover {\n  border-bottom: 3px solid black;\n}\n.new-row-filter .col-12 .categories.active[data-v-4b10c5b8] {\n  border-bottom: 3px solid black;\n}\n.home .jumbotron[data-v-4b10c5b8] {\n  height: 500px;\n}\n.home .filter-row[data-v-4b10c5b8] {\n  overflow-x: auto;\n}\n.home .filter-row i[data-v-4b10c5b8] {\n  font-size: 1.7rem;\n}\n.home .filter-row .categories[data-v-4b10c5b8] {\n  width: 95px;\n  min-height: 50px;\n  font-size: 0.8rem;\n  font-weight: 600;\n  flex-shrink: 0;\n  border-bottom: 3px solid white;\n}\n.home .filter-row .categories[data-v-4b10c5b8]:hover {\n  border-bottom: 3px solid black;\n}\n.home .filter-row .categories.active[data-v-4b10c5b8] {\n  border-bottom: 3px solid black;\n}\n.home .filter-row .filter[data-v-4b10c5b8] {\n  border-radius: 15px;\n  font-weight: bold;\n  font-size: 1rem;\n  flex-shrink: 0;\n}\n.home .filter-row .filter i[data-v-4b10c5b8] {\n  font-size: 1.4rem;\n}\n.home .sponsorized-row[data-v-4b10c5b8] {\n  position: relative;\n}\n.home .sponsorized-row h2[data-v-4b10c5b8] {\n  z-index: 2;\n  position: absolute;\n  top: 30px;\n  left: 50%;\n  transform: translate(-50%);\n  font-size: 4rem;\n  opacity: 80%;\n}\n\n/* width */", ""]);
+exports.push([module.i, ".home .jumbotron[data-v-4b10c5b8] {\n  height: 500px;\n}\n.home .filter-row i[data-v-4b10c5b8] {\n  font-size: 1.7rem;\n}\n.home .filter-row .col-categories .categories[data-v-4b10c5b8] {\n  width: 95px;\n  min-height: 50px;\n  font-size: 0.8rem;\n  font-weight: 600;\n  flex-shrink: 0;\n  border-bottom: 3px solid white;\n}\n.home .filter-row .col-categories .categories[data-v-4b10c5b8]:hover {\n  border-bottom: 3px solid black;\n}\n.home .filter-row .col-categories .categories.active[data-v-4b10c5b8] {\n  border-bottom: 3px solid black;\n}\n.home .filter-row .filter[data-v-4b10c5b8] {\n  border-radius: 15px;\n  font-weight: bold;\n  font-size: 1rem;\n  flex-shrink: 0;\n}\n.home .filter-row .filter i[data-v-4b10c5b8] {\n  font-size: 1.4rem;\n}\n.home .sponsorized-row h2[data-v-4b10c5b8] {\n  font-size: 4rem;\n}\n\n/* width */", ""]);
 
 // exports
 
@@ -2969,7 +2941,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, ".card[data-v-1eb78801] {\n  z-index: 56;\n  flex-shrink: 0;\n  position: relative;\n  overflow: hidden;\n  border-radius: 10px;\n}\n.card .img[data-v-1eb78801] {\n  height: 240px;\n  border-radius: 10px;\n}\n.card .img .fa-regular[data-v-1eb78801] {\n  position: absolute;\n  font-size: 1.1rem;\n  right: 18px;\n  top: 18px;\n}\n.card .text[data-v-1eb78801] {\n  position: relative;\n}\n.card .text .type[data-v-1eb78801],\n.card .text .title[data-v-1eb78801] {\n  font-size: 0.85rem;\n  font-weight: bold;\n}\n.card .text .street[data-v-1eb78801] {\n  font-size: 0.7rem;\n  color: rgb(65, 64, 64);\n}\n.card .text .price[data-v-1eb78801] {\n  font-size: 0.95rem;\n  font-weight: bold;\n}\n.card .text .fa-star[data-v-1eb78801] {\n  position: absolute;\n  right: 5px;\n  top: 1px;\n}", ""]);
+exports.push([module.i, ".card[data-v-1eb78801] {\n  z-index: 56;\n  flex-shrink: 0;\n  position: relative;\n  overflow: hidden;\n  border-radius: 10px;\n}\n.card .img[data-v-1eb78801] {\n  height: 240px;\n  border-radius: 10px;\n}\n.card .img .fa-regular[data-v-1eb78801] {\n  position: absolute;\n  font-size: 1.1rem;\n  right: 18px;\n  top: 18px;\n}\n.card .text[data-v-1eb78801] {\n  text-align: left;\n  position: relative;\n}\n.card .text .type[data-v-1eb78801],\n.card .text .title[data-v-1eb78801] {\n  font-size: 0.85rem;\n  font-weight: bold;\n}\n.card .text .street[data-v-1eb78801] {\n  font-size: 0.7rem;\n  color: rgb(65, 64, 64);\n}\n.card .text .price[data-v-1eb78801] {\n  font-size: 0.95rem;\n  font-weight: bold;\n}\n.card .text .fa-star[data-v-1eb78801] {\n  position: absolute;\n  right: 5px;\n  top: 1px;\n}", ""]);
 
 // exports
 
@@ -3007,7 +2979,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "header .logo[data-v-494e1ffe] {\n  height: 50px;\n  width: 90px;\n}\nheader .nav-map[data-v-494e1ffe] {\n  width: 80%;\n  height: 45px;\n}\nheader .nav-map .search-i[data-v-494e1ffe] {\n  font-size: 1.2rem;\n}\nheader .nav-map .nav-text .question[data-v-494e1ffe] {\n  font-size: 0.7rem;\n  font-weight: bolder;\n}\nheader .nav-map .nav-text .answer[data-v-494e1ffe] {\n  font-size: 0.6rem;\n}\nheader .nav-map .slider-box[data-v-494e1ffe] {\n  border-radius: 50%;\n  height: 27px;\n  width: 27px;\n}\nheader .link-col a[data-v-494e1ffe] {\n  color: rgba(0, 0, 0, 0.884);\n  font-size: 0.8rem;\n  font-weight: bold;\n}\nheader .link-col i[data-v-494e1ffe] {\n  font-size: 1.2rem;\n}\nheader .link-col .user-box[data-v-494e1ffe] {\n  height: 45px;\n}\nheader .link-col .user-box i[data-v-494e1ffe] {\n  font-size: 1rem;\n}\nheader .link-col .user-box .fa-circle-user[data-v-494e1ffe] {\n  font-size: 1.5rem;\n}", ""]);
+exports.push([module.i, "header[data-v-494e1ffe] {\n  color: rgba(36, 36, 36, 0.884);\n}\nheader .logo[data-v-494e1ffe] {\n  height: 50px;\n  width: 90px;\n}\nheader .nav-map[data-v-494e1ffe] {\n  width: 80%;\n  height: 45px;\n}\nheader .nav-map .search-i[data-v-494e1ffe] {\n  font-size: 1.2rem;\n}\nheader .nav-map .nav-text .question[data-v-494e1ffe] {\n  font-size: 0.7rem;\n  font-weight: bolder;\n}\nheader .nav-map .nav-text .answer[data-v-494e1ffe] {\n  font-size: 0.6rem;\n}\nheader .nav-map .slider-box[data-v-494e1ffe] {\n  border-radius: 50%;\n  height: 27px;\n  width: 27px;\n}\nheader .link-col a[data-v-494e1ffe] {\n  color: rgba(0, 0, 0, 0.884);\n  font-size: 0.8rem;\n  font-weight: bold;\n}\nheader .link-col i[data-v-494e1ffe] {\n  font-size: 1.2rem;\n}\nheader .link-col .user-box[data-v-494e1ffe] {\n  position: relative;\n  height: 45px;\n}\nheader .link-col .user-box i[data-v-494e1ffe] {\n  font-size: 1rem;\n}\nheader .link-col .user-box .fa-circle-user[data-v-494e1ffe] {\n  font-size: 1.5rem;\n}\nheader .link-col .user-box .drop-d[data-v-494e1ffe] {\n  top: 46px;\n  left: 50%;\n  border: 1px solid rgb(138, 135, 135);\n  background-color: #ffe3e0;\n  border-radius: 5px;\n  transform: translate(-50%);\n  width: 200%;\n  min-height: 100px;\n}\nheader .link-col .user-box .drop-d .dd-row[data-v-494e1ffe] {\n  border-bottom: 1px solid rgb(138, 135, 135);\n}", ""]);
 
 // exports
 

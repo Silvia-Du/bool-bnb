@@ -27,9 +27,23 @@
             <div class="col-3 d-none d-sm-flex debug link-col align-items-center justify-content-end pr-lg-5">
                 <router-link to="">Diventa un host</router-link>
                     <i class="fa-solid fa-igloo mx-3"></i>
-                <div class="user-box debug rounded-pill px-3 align-items-center d-flex">
+                <!-- user button -->
+                <div @click="showNavDropD = ! showNavDropD"
+                class="user-box debug rounded-pill px-3 align-items-center d-flex">
                     <i class="fa-solid fa-bars mr-4 debug"></i>
                     <i class="fa-solid fa-circle-user ml-1"></i>
+                    <div v-if="showNavDropD"
+                    class="drop-d position-absolute">
+                    <div class="dd-row py-3 pl-3">
+                        <p class="mb-0">Login</p>
+                    </div>
+                    <div class="dd-row py-3 pl-3">
+                        <p class="mb-0">Registrati</p>
+                    </div>
+                    <div class="dd-row py-3 pl-3">
+                        <p class="mb-0">Log out</p>
+                    </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -41,12 +55,19 @@
 <script>
 export default {
  name: 'HeaderComp',
+
+ data() {
+    return {
+        showNavDropD: false,
+    }
+ },
 }
 </script>
 
 <style lang="scss" scoped>
 
 header{
+    color: rgba(36, 36, 36, 0.884);
     .logo{
         height: 50px;
         width: 90px;
@@ -85,12 +106,26 @@ header{
             font-size: 1.2rem;
         }
         .user-box{
+            position: relative;
             height: 45px;
             i{
                 font-size: 1rem;
             }
             .fa-circle-user{
                 font-size: 1.5rem;
+            }
+            .drop-d{
+                top: 46px;
+                left: 50%;
+                border: 1px solid rgb(138, 135, 135);
+                background-color: #ffe3e0;
+                border-radius: 5px;
+                transform: translate(-50%);
+                width: 200%;
+                min-height: 100px;
+                .dd-row{
+                    border-bottom: 1px solid rgb(138, 135, 135);
+                }
             }
         }
     }
