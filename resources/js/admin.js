@@ -1,3 +1,4 @@
+const { event } = require('jquery');
 
 
 require('./bootstrap');
@@ -184,7 +185,7 @@ function registerValidation() {
             return correctLabel;
         }
 
-        if (preventDefaultRegister) {
+        if(preventDefaultRegister){
             event.preventDefault();
         }
 
@@ -353,12 +354,12 @@ function getAddEvent(button) {
 
         let c = 0;
         servicesCollection.forEach(service => {
-            if (service.checked) {
+            if(service.checked){
                 c = c + 1;
             }
         });
 
-        if (c < 1) {
+        if(c < 1){
             const servicesDiv = document.querySelector('.row.g-3').children[9];
             const error = document.createElement('p');
             error.classList.add('text-danger', 'm-0');
@@ -366,7 +367,7 @@ function getAddEvent(button) {
                 error.innerHTML = `Attenzione! Inserire almeno un servizio!`;
                 servicesDiv.appendChild(error);
                 errorsAny = true;
-            } else {
+            }else{
                 error.remove();
             }
         }
@@ -379,7 +380,7 @@ function getAddEvent(button) {
                 error.innerHTML = `Attenzione! Inserire almeno un servizio!`;
                 descriptionDiv.insertBefore(error, descriptionDiv.lastElementChild);
                 errorsAny = true;
-            } else {
+            }else{
                 error.remove();
             }
         }
@@ -460,3 +461,4 @@ btnCreate.addEventListener('click', function () {
     }
 })
   /* TOMTOM SEARCHBOX */
+

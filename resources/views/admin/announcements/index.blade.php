@@ -21,7 +21,7 @@
                 {{-- Nessun Annuncio --}}
                 @if (count($announcements) === 0)
                     <div class="text-center">
-                        <h3>Sembra che non ci sono annunci, perché non ne creiamo qualcuno?</h3>
+                        <h3>Sembra che tu non abbia </h3>
                         <p>Altro testo molto convincente per motivarti a scrivere un'annuncio daje daje</p>
                         <a class="btn btn-rounded-plus mb-3 ml-5 text-center"
                             href="{{ route('admin.announcements.create') }}">
