@@ -47,6 +47,18 @@
     }
 }
 
+.logged-admin-page{
+    .posta{
+        width: 60px;
+    }
+    .house{
+        width: 55px;
+    }
+    a:hover{
+        text-decoration: none;
+    }
+}
+
 @media screen and (max-width: 1000px) {
     .box-house{
         border-bottom: 1px solid gray;

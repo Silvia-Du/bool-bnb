@@ -9305,6 +9305,16 @@ h3 {
   width: 100%;
 }
 
+.logged-admin-page .posta {
+  width: 60px;
+}
+.logged-admin-page .house {
+  width: 55px;
+}
+.logged-admin-page a:hover {
+  text-decoration: none;
+}
+
 @media screen and (max-width: 1000px) {
   .box-house {
     border-bottom: 1px solid gray;
