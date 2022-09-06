@@ -82,7 +82,7 @@
                     <div class="container-fluid bg-light mt-5 ">
                         <div class="row">
                             <div class="col-12 col-md-12 col-lg-6 p-0 m-0">
-                                 <img class="d-block w-100" src="https://im4.ezgif.com/tmp/ezgif-4-f0d9de57cd.gif" alt="Third slide">
+                                 <img class="d-block w-100" src="{{ asset('images/ezgif.com-gif-maker (2).gif') }}" alt="Third slide">
 
                             </div>
                             <div class="col-12 col-md-12 col-lg-6 bg-dark p-0 m-0 d-flex justify-content-center align-items-center">
