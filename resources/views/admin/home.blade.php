@@ -9,8 +9,8 @@
             </div>
         @endif
 
+        {{-- Dashboard Host --}}
         @if (count($user->announcements)> 0)
-            {{-- Dashboard Host --}}
 
             <div class="row align-items-md-stretch">
                 <div class="col-md-6">
@@ -23,10 +23,15 @@
 
                         {{-- <a class="font-weight-bolder text-white" href="#">Aggiorna foto</a> --}}
 
-                        <div class="my-3 p-3 flex-column">
-                            <div class="my-3"><a class="btn btn-outline-light" href="#">Aggiungi nuovo appartamento</a></div>
-                            <div class="my-3"><a class="btn btn-outline-light" href="#">I tuoi appartamenti</a></div>
-                            <div class="my-3"><a class="btn btn-outline-light" href="#">Le tue sponsorshipsattive</a></div>
+                        <div class="border border-white my-3 p-3 info-user w-100 mx-lg-3 m-1">
+                            <h2 class="mb-3">Il tuo profilo</h2>
+                            <p>NOME UTENTE: {{$user->name }} {{ $user->surname }}</p>
+                            <p>DATA DI REGISTAZIONE: {{$user->created_at }}</p>
+                            <p>E-MAIL DI ACCESSO: {{$user->email }}</p>
+                            <button class="btn btn-outline-light mt-2" type="button">
+                                Modifica dati
+                                <img class="gear ml-1" src="{{ asset('img/admin-icon3.png') }}" alt="gear">
+                            </button>
                         </div>
 
                     </div>
@@ -37,16 +42,22 @@
                         <h1 class="text-capitalize">Ciao <b>{{ Auth::user()->name }}!</b></h1>
                         {{-- IF NUOVI MESSAGGI --}}
                         <div class="my-3">
-                            <a href="#">
+                            <a href="{{ route('admin.message') }}">
                                 <div class="card p-3 my-3">
                                     <img class="posta mb-2" src="{{ asset('img/admin-icon1.png') }}" alt="posta">
-                                    <h3 class="mb-0">Vai ai tuoi messaggi</h3>
+                                    <h3 class="mb-0">Vai al centro messaggi</h3>
                                 </div>
                             </a>
-                            <a href="#">
-                                <div class="card p-3">
+                            <a href="{{ route('admin.announcements.index') }}">
+                                <div class="card p-3 mb-3">
                                     <img class="house ml-1 mb-2" src="{{ asset('img/admin-icon2.png') }}" alt="house">
-                                    <h3 class="mb-0">Controlla i tuoi annunci</h3>
+                                    <h3 class="mb-0">Vedi i tuoi annunci</h3>
+                                </div>
+                            </a>
+                            <a href="{{ route('admin.announcements.index') }}">
+                                <div class="card p-3">
+                                    <img class="house-plus ml-1 mb-2" src="{{ asset('img/admin-icon4.png') }}" alt="house2">
+                                    <h3 class="mb-0">Aggiungi un nuovo appartamento</h3>
                                 </div>
                             </a>
                         </div>
@@ -62,7 +73,6 @@
             </div>
         @else
             {{-- Dashboard Guest --}}
-
             <div class="row align-items-md-stretch">
                 <div class="col-md-6">
                     <div class="h-100 p-5 text-white bg-dark rounded text-center d-flex flex-column align-items-center">
@@ -72,9 +82,15 @@
 
                         {{-- <a class="font-weight-bolder text-white" href="#">Aggiorna foto</a> --}}
 
-                        <div class="border border-white my-3 p-3 rounded-pill">
-                            <h2>Diventa Host</h2>
-                            <button class="btn btn-outline-light" type="button">Sponsorship</button>
+                        <div class="border border-white my-3 p-3 info-user w-100 mx-lg-3 m-1">
+                            <h2 class="mb-3">Il tuo profilo</h2>
+                            <p>NOME UTENTE: {{$user->name }} {{ $user->surname }}</p>
+                            <p>DATA DI REGISTAZIONE: {{$user->created_at }}</p>
+                            <p>E-MAIL DI ACCESSO: {{$user->email }}</p>
+                            <button class="btn btn-outline-light" type="button">
+                                Modifica dati
+                                <img class="gear ml-1" src="{{ asset('img/admin-icon3.png') }}" alt="gear">
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -83,7 +99,8 @@
                         <h1 class="text-capitalize">Ciao <b>{{ Auth::user()->name }}</b>!</h1>
 
                         <div class="my-3">
-                            <a href="#">
+
+                            <a href="{{ route('admin.message') }}">
                                 <div class="card p-3 my-3">
                                     <img class="posta mb-2" src="{{ asset('img/admin-icon1.png') }}" alt="posta">
                                     <h3 class="mb-0">Visita il centro messaggi</h3>
@@ -92,7 +109,7 @@
                             <a href="#">
                                 <div class="card p-3">
                                     <img class="house ml-1 mb-2" src="{{ asset('img/admin-icon2.png') }}" alt="house">
-                                    <h3 class="mb-0">Controlla i tuoi annunci</h3>
+                                    <h3 class="mb-0">Crea il tuo primo annuncio</h3>
                                 </div>
                             </a>
                         </div>

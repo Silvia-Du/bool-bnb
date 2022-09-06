@@ -9281,14 +9281,56 @@ h3 {
   color: rgb(34, 34, 34);
 }
 
+.debug {
+  background-color: rgba(95, 158, 160, 0.808);
+  border: 1px solid rgb(32, 32, 32);
+}
+
 .logged-admin-page .posta {
   width: 60px;
 }
 .logged-admin-page .house {
   width: 55px;
 }
+.logged-admin-page .house-plus {
+  width: 55px;
+}
+.logged-admin-page .gear {
+  width: 25px;
+}
 .logged-admin-page a:hover {
   text-decoration: none;
+}
+.logged-admin-page .info-user {
+  border-radius: 5px;
+}
+
+.message-page .jumbo {
+  height: 610px;
+  overflow: hidden;
+}
+.message-page .jumbo img {
+  width: 100%;
+}
+.message-page .jumbo .text h1 {
+  font-weight: bold;
+}
+.message-page .jumbo .text.host {
+  top: 260px;
+  left: -40px;
+}
+.message-page .jumbo .text.host .col-6 {
+  border-radius: 5px;
+  background-color: rgba(235, 217, 217, 0.3843137255);
+}
+.message-page .jumbo .text.user {
+  color: whitesmoke;
+  top: 260px;
+  right: -40px;
+}
+.message-page .jumbo .text.user .col-6 {
+  border-radius: 5px;
+  background-color: rgba(80, 80, 80, 0.4509803922);
 }
 
 .box-house {

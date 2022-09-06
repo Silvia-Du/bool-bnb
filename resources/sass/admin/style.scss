@@ -15,9 +15,12 @@
     color: rgb(34, 34, 34);
 }
 
+.debug{
+    background-color: rgba(95, 158, 160, 0.808);
+    border: 1px solid rgb(32, 32, 32);
+}
 
-
-
+//ADMIN HOME PAGE
 .logged-admin-page{
     .posta{
         width: 60px;
@@ -25,8 +28,55 @@
     .house{
         width: 55px;
     }
+    .house-plus{
+        width: 55px;
+    }
+    .gear{
+        width: 25px;
+    }
     a:hover{
         text-decoration: none;
+    }
+    .info-user{
+        border-radius: 5px;
+    }
+}
+
+//MESSAGE PAGE
+
+.message-page{
+
+    .jumbo{
+        height: 610px;
+        overflow: hidden;
+        img{
+            width: 100%;
+        }
+
+        .text{
+            h1{
+                font-weight: bold;
+            }
+            &.host{
+                .col-6{
+                    border-radius: 5px;
+                    background-color: #ebd9d962;
+                }
+                top: 260px;
+                left: -40px
+            }
+            &.user{
+                .col-6{
+                    border-radius: 5px;
+                    background-color: #50505073;
+                }
+                color: whitesmoke;
+                top: 260px;
+                right: -40px;
+            }
+        }
+
+
     }
 }
 
@@ -55,7 +105,6 @@
     .house-action{
         .btn{
             display: block;
-
             width: 100%;
         }
     }
