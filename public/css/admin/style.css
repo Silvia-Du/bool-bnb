@@ -9281,6 +9281,16 @@ h3 {
   color: rgb(34, 34, 34);
 }
 
+.logged-admin-page .posta {
+  width: 60px;
+}
+.logged-admin-page .house {
+  width: 55px;
+}
+.logged-admin-page a:hover {
+  text-decoration: none;
+}
+
 .box-house {
   border-bottom: 1px solid gray;
 }
@@ -9305,16 +9315,6 @@ h3 {
   width: 100%;
 }
 
-.logged-admin-page .posta {
-  width: 60px;
-}
-.logged-admin-page .house {
-  width: 55px;
-}
-.logged-admin-page a:hover {
-  text-decoration: none;
-}
-
 @media screen and (max-width: 1000px) {
   .box-house {
     border-bottom: 1px solid gray;
@@ -9325,6 +9325,8 @@ h3 {
   }
   .box-house img {
     width: 100%;
+    -o-object-fit: contain;
+       object-fit: contain;
     margin-bottom: 20px;
   }
   .box-house h6 {
@@ -9334,5 +9336,100 @@ h3 {
   .box-house .house-action .btn {
     display: block;
     width: 100%;
+  }
+}
+.stat {
+  border-radius: 15px;
+  width: calc(33.3333333333% - 20px);
+  margin: 0 20px;
+  box-shadow: 5px 5px 10px 0px #bbb9b9;
+  background-color: #f7f7f7;
+  padding: 20px;
+}
+.stat span {
+  font-size: 30px;
+}
+
+.text-cont h2 {
+  font-size: 60px;
+  color: white;
+  margin-bottom: 40px;
+}
+.text-cont h4 {
+  color: white;
+  font-size: 30px;
+}
+.text-cont .btn-create {
+  border-radius: 15px;
+  padding: 15px;
+  font-size: 25px;
+  background-color: red;
+  display: block;
+  width: 50%;
+  margin: auto;
+  color: white;
+  margin-top: 25px;
+}
+
+.box h1 {
+  font-size: 60px;
+  text-transform: uppercase;
+}
+.box img {
+  filter: contrast(0.75);
+  height: 100%;
+}
+
+@media screen and (max-width: 800px) {
+  .box h1 {
+    font-size: 1.5rem;
+    text-align: justify;
+  }
+  .stat-container {
+    flex-direction: column;
+  }
+  .stat {
+    border-radius: 15px;
+    display: block;
+    width: 100%;
+    box-shadow: 5px 5px 10px 0px #bbb9b9;
+    background-color: #f7f7f7;
+    margin: 20px 0;
+    text-align: center;
+    padding: 40px;
+  }
+  .stat span {
+    font-size: 20px;
+  }
+  .text-cont {
+    padding: 20px;
+  }
+  .text-cont h2 {
+    font-size: 30px;
+    color: white;
+    margin-bottom: 40px;
+  }
+  .text-cont h4 {
+    color: white;
+    font-size: 20px;
+    text-align: center;
+  }
+  .text-cont .btn-create {
+    border-radius: 15px;
+    padding: 15px;
+    font-size: 15px;
+    background-color: red;
+    display: block;
+    width: 50%;
+    margin: auto;
+    color: white;
+    margin-top: 25px;
+  }
+  .box h1 {
+    font-size: 60px;
+    text-transform: uppercase;
+  }
+  .box img {
+    filter: contrast(0.75);
   }
 }
