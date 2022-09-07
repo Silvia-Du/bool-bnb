@@ -3,7 +3,8 @@
     <div class="container w-75 my-5 edit">
         <div class="row">
             <div class="box">
-                <h1 class="text-center">Modifica di {{ $announcement->title }}</h1>
+                <h1 class="text-center mt-3 mb-5">Modifica il tuo annuncio</h1>
+
                 <form action="{{ route('admin.announcements.update', $announcement) }}" method="POST"
                     enctype="multipart/form-data" class="comp_form">
                     @csrf
