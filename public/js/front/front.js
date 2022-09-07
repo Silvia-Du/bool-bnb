@@ -2759,7 +2759,7 @@ var staticRenderFns = [function () {
       _c = _vm._self._c;
 
   return _c("div", {
-    staticClass: "img debug mb-1"
+    staticClass: "card-img mb-1"
   }, [_c("i", {
     staticClass: "fa-regular fa-heart"
   })]);
@@ -3046,7 +3046,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, ".card[data-v-1eb78801] {\n  background-color: #ede6e3;\n  flex-shrink: 0;\n  position: relative;\n  overflow: hidden;\n  border-radius: 10px;\n}\n.card .img[data-v-1eb78801] {\n  height: 240px;\n  border-radius: 10px;\n}\n.card .img .fa-regular[data-v-1eb78801] {\n  position: absolute;\n  font-size: 1.1rem;\n  right: 18px;\n  top: 18px;\n}\n.card .text[data-v-1eb78801] {\n  text-align: left;\n  position: relative;\n}\n.card .text .type[data-v-1eb78801],\n.card .text .title[data-v-1eb78801] {\n  font-size: 0.85rem;\n  font-weight: bold;\n}\n.card .text .street[data-v-1eb78801] {\n  font-size: 0.7rem;\n  color: rgb(65, 64, 64);\n}\n.card .text .price[data-v-1eb78801] {\n  font-size: 0.95rem;\n  font-weight: bold;\n}\n.card .text .fa-star[data-v-1eb78801] {\n  position: absolute;\n  right: 5px;\n  top: 1px;\n}", ""]);
+exports.push([module.i, ".card[data-v-1eb78801] {\n  background-color: #ede6e3;\n  width: 350px;\n  margin: 20px;\n  flex-shrink: 0;\n  position: relative;\n  overflow: hidden;\n  border-radius: 10px;\n}\n.card .card-img[data-v-1eb78801] {\n  height: 250px;\n  width: 318px;\n  margin: 15px;\n  border-radius: 10px;\n  background-image: url(http://sun-surfer.com/photos/2012/03/Glass-house-Vilnius-Lithuania-400x400.jpg);\n}\n.card .card-img .fa-regular[data-v-1eb78801] {\n  position: absolute;\n  font-size: 1.1rem;\n  right: 25px;\n  top: 25px;\n}\n.card .text[data-v-1eb78801] {\n  text-align: left;\n  position: relative;\n  margin: 15px;\n}\n.card .text .type[data-v-1eb78801],\n.card .text .title[data-v-1eb78801] {\n  font-size: 0.85rem;\n  font-weight: bold;\n}\n.card .text .street[data-v-1eb78801] {\n  font-size: 0.7rem;\n  color: rgb(65, 64, 64);\n}\n.card .text .price[data-v-1eb78801] {\n  font-size: 0.95rem;\n  font-weight: bold;\n}\n.card .text .fa-star[data-v-1eb78801] {\n  position: absolute;\n  right: 5px;\n  top: 1px;\n}", ""]);
 
 // exports
 

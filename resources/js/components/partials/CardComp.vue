@@ -1,6 +1,7 @@
 <template>
     <div class="col-12 col-sm-6 col-lg-4 col-xl-2 mx-sm-0 mx-xl-3 card mb-4 p-2">
-        <div class="img debug mb-1">
+
+        <div class="card-img mb-1">
             <i class="fa-regular fa-heart"></i>
             <!-- <i class="fa-solid fa-heart"></i> -->
         </div>
@@ -37,25 +38,32 @@ export default {
 </script>
 
 <style lang="scss" scoped >
+
 .card{
     background-color: #ede6e3;
+    width: 350px;
+    margin: 20px;
     flex-shrink: 0;
     position: relative;
     overflow: hidden;
     border-radius: 10px;
-    .img{
-        height: 240px;
+    .card-img{
+        height: 250px;
+        width: 318px;
+        margin: 15px;
         border-radius: 10px;
+        background-image: url(http://sun-surfer.com/photos/2012/03/Glass-house-Vilnius-Lithuania-400x400.jpg);
         .fa-regular{
             position: absolute;
             font-size: 1.1rem;
-            right: 18px;
-            top: 18px;
+            right: 25px;
+            top: 25px;
         }
     }
     .text{
         text-align: left;
         position: relative;
+        margin: 15px;
         .type,
         .title{
             font-size: 0.85rem;
@@ -77,5 +85,7 @@ export default {
 
     }
 }
+
+
 
 </style>
