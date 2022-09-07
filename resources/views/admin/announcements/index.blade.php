@@ -53,14 +53,14 @@
                                 </div>
                               </div>
                               <div class="carousel-item">
-                                <img class="d-block w-100 h-25" src="https://jeve.it/wp-content/uploads/2021/03/PAS.05.21.Brunello_Cucinelli-featured-2240x1493.jpg" alt="Second slide">
+                                <img class="d-block w-100 " src="https://jeve.it/wp-content/uploads/2021/03/PAS.05.21.Brunello_Cucinelli-featured-2240x1493.jpg" alt="Second slide">
                                 <div class="carousel-caption ">
                                     <h3>Affittare la mia casa mi ha permesso di intraprendere un'attività imprenditoriale, aprendomi la strada verso la libertà finanziaria.</h3>
                                     <p>- Mario Rossi</p>
                                 </div>
                               </div>
                               <div class="carousel-item">
-                                <img class="d-block w-100 h-25" src="https://www.inattraction.com/wp-content/uploads/2021/03/Come-far-impazzire-una-ragazza-o-una-donna.jpg" alt="Third slide">
+                                <img class="d-block w-100 " src="https://www.inattraction.com/wp-content/uploads/2021/03/Come-far-impazzire-una-ragazza-o-una-donna.jpg" alt="Third slide">
                                 <div class="carousel-caption ">
                                     <h3>Affittare il mio monolocale mi ha cambiato la vita e mi ha regalato esperienze memorabili con persone fantastiche.</h3>
                                     <p>- Claudia Rossi</p>
