@@ -2765,12 +2765,29 @@ var render = function render() {
   var _vm = this,
       _c = _vm._self._c;
 
-  return _c("footer", {
-    staticClass: "debug"
-  }, [_vm._v("Footer")]);
+  return _vm._m(0);
 };
 
-var staticRenderFns = [];
+var staticRenderFns = [function () {
+  var _vm = this,
+      _c = _vm._self._c;
+
+  return _c("footer", {
+    staticClass: "d-flex px-lg-5"
+  }, [_c("div", {
+    staticClass: "foot-left px-lg-5 col-6"
+  }, [_c("p", [_c("i", {
+    staticClass: "fa-regular fa-copyright"
+  }), _vm._v(" 2022 BoolBnB, by Team-6.")])]), _vm._v(" "), _c("div", {
+    staticClass: "foot-right px-lg-5 col-6"
+  }, [_c("p", {
+    staticClass: "eur"
+  }, [_c("i", {
+    staticClass: "fa-solid fa-earth-europe"
+  }), _vm._v("\n              Italiano(IT)\n              "), _c("span", [_c("i", {
+    staticClass: "fa-solid fa-euro-sign"
+  }), _vm._v("\n              EUR ")])])])]);
+}];
 render._withStripped = true;
 
 
@@ -2992,7 +3009,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "footer[data-v-de99f5e8] {\n  height: 80px;\n}", ""]);
+exports.push([module.i, "footer[data-v-de99f5e8] {\n  justify-content: space-between;\n  align-content: center;\n  margin-top: 25px;\n  overflow: hidden;\n  color: gray;\n}\nfooter .foot-right[data-v-de99f5e8] {\n  display: flex;\n  flex-direction: row-reverse;\n}\nfooter .foot-right p[data-v-de99f5e8] {\n  font-size: 0.8em;\n}\nfooter .foot-right p span[data-v-de99f5e8] {\n  margin-left: 20px;\n}\nfooter .foot-left p[data-v-de99f5e8] {\n  font-size: 0.8em;\n}", ""]);
 
 // exports
 
