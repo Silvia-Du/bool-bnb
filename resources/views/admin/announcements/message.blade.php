@@ -50,7 +50,7 @@
                <p class="mex-title my-3">Messaggi Ricevuti</p>
             @endif
             {{-- USER-CONTAINER --}}
-            <div id="user-box" class="user-container debug py-4 ">
+            {{-- <div id="user-box" class="user-container debug py-4 ">
                 <div class="scroll-section">
                     @foreach ($announcements as $announcement)
                     @foreach ($announcement->messages as $message)
@@ -64,17 +64,17 @@
                     @endforeach
                     @endforeach
                 </div>
-            </div>
+            </div> --}}
             {{-- /USER-CONTAINER --}}
             {{-- /HOME CONTAINER --}}
-            <div id="appartament-box" class="appartament-container debug py-4 d-none">
+            <div id="appartament-box" class="appartament-container debug py-4 ">
                 <div class="scroll-section">
                     @foreach ($announcements as $announcement)
 
                     <div class="appart-item debug py-3 d-flex justify-content-between align-items-center">
                         <div class="d-flex align-items-center">
                             <div class="mx-2 img debug"></div>
-                            <p class="mb-0">Nome appartamento</p>
+                            <p class="mb-0">ANNUNCIO {{ $announcement->title }}</p>
                         </div>
 
                         @if (count($announcement->messages) != 0)

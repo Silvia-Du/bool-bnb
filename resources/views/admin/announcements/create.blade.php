@@ -1,9 +1,9 @@
 @extends('layouts.app')
 @section('content')
-    <div class="container w-75 my-5">
+    <div class="container w-75 my-5 create">
         <div class="row ">
             <div class=" box">
-                <h1 class="text-center">Inserisci un nuovo Annuncio</h1>
+                <h1 class="text-center my-4">Crea il tuo annuncio!</h1>
                  @if ($errors->any())
                         <div class="col-8 offset-2 alert alert-danger">
                             <ul>
@@ -17,9 +17,9 @@
                     class="comp_form">
                     @csrf
                     <form class="needs-validation">
-                        <div class="row g-3">
+                        <div class="row">
                             {{-- title --}}
-                            <div class="col-12">
+                            <div class="col-12 mb-3">
                                 <label for="title" class="form-label">
                                     <i class="fa-solid fa-pencil"></i>
                                     Titolo annuncio
@@ -33,7 +33,7 @@
                             </div>
 
                             {{-- image --}}
-                            <div class="col-12">
+                            <div class="col-12 mb-3">
                                 <label for="image" class="form-label">
                                     <i class="fa-solid fa-image"></i>
                                     Immagine
@@ -46,7 +46,7 @@
                             </div>
 
                             {{-- address --}}
-                            <div class="col-12 address">
+                            <div class="col-12 mb-3 address">
                                 <label for="address" class="form-label">
                                     <i class="fa-solid fa-map-location-dot"></i>
                                     Indirizzo
@@ -62,7 +62,7 @@
                             </div>
 
                             {{-- mq --}}
-                            <div class="col-sm-6">
+                            <div class="col-sm-6 mb-4">
                                 <label for="mq" class="form-label">
                                     <i class="fa-solid fa-maximize"></i>
                                     Metri Quadri
@@ -78,7 +78,7 @@
                             </div>
 
                             {{-- rooms --}}
-                            <div class="col-sm-6">
+                            <div class="col-sm-6 mb-4">
                                 <label for="rooms" class="form-label">
                                     <i class="fa-solid fa-house"></i>
                                     Numero Stanze
@@ -94,7 +94,7 @@
                             </div>
 
                             {{-- beds --}}
-                            <div class="col-sm-6">
+                            <div class="col-sm-6 mb-4">
                                 <label for="beds" class="form-label">
                                     <i class="fa-solid fa-bed"></i>
                                     Numero Letti
@@ -110,7 +110,7 @@
                             </div>
 
                             {{-- bathrooms --}}
-                            <div class="col-sm-6">
+                            <div class="col-sm-6 mb-4">
                                 <label for="bathrooms" class="form-label">
                                     <i class="fa-solid fa-sink"></i>
                                     Numero Bagni
@@ -126,7 +126,7 @@
                             </div>
 
                             {{-- house_type --}}
-                            <div class="col-sm-6">
+                            <div class="col-sm-6 mb-4">
                                 <label for="house_type" class="form-label">
                                     <i class="fa-solid fa-igloo"></i>
                                     Tipo di Casa
@@ -142,7 +142,7 @@
                             </div>
 
                             {{-- room_type --}}
-                            <div class="col-sm-6">
+                            <div class="col-sm-6 mb-4">
                                 <label for="room_type" class="form-label">
                                     <i class="fa-solid fa-door-open"></i>
                                     Tipo di
@@ -158,31 +158,38 @@
                                 @enderror
                             </div>
                             {{-- Services --}}
-                            <div class="col-12 mt-1">
+                            <div class="col-12 mb-3 mt-1">
 
 
-                                <form >
+                                <form class="">
                                     <label for="room_type" class="form-label d-block">
                                         <i class="fa-solid fa-door-open"></i>
                                         Servizi
                                     </label>
+                                    <div class="container-fluid my-3 services">
+                                        <div class="row">
 
-                                    @foreach ($services as $service)
+                                            @foreach ($services as $service)
+                                            <div class="col-12 col-md-6 d-flex align-items-center py-3 service-line">
 
-                                    <input type="checkbox"
-                                    id="service-{{ $loop->iteration }}"
-                                    name="services[]"
-                                    value="{{ $service->id }}"
-                                    @if (in_array($service->id, old("services",[]))) checked @endif>
+                                                <input
+                                                type="checkbox"
+                                                id="service-{{ $loop->iteration }}"
+                                                name="services[]"
+                                                value="{{ $service->id }}"
+                                                @if (in_array($service->id, old("services",[]))) checked @endif>
 
-                                    <label for="">{{ $service->name }}</label><br>
-                                    @endforeach
+                                                <label class="mb-0 ml-2" for="">{{ $service->name }}</label><br>
+                                            </div>
+                                            @endforeach
+                                        </div>
+                                    </div>
 
                                 </form>
                             </div>
 
                             {{-- content --}}
-                            <div class="col-12">
+                            <div class="col-12 mb-3">
                                 <label for="description" class="form-label">
                                     <i class="fa-solid fa-pen-nib"></i>
                                     Descrizione

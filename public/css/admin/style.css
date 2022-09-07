@@ -10980,6 +10980,26 @@ a.text-dark:focus {
   border: 1px solid rgb(32, 32, 32);
 }
 
+.create i {
+  color: #2596be;
+  font-size: 1rem;
+  margin-right: 8px;
+}
+
+.create .service-line {
+  border-bottom: 1px solid rgb(214, 207, 207);
+}
+
+.edit i {
+  color: #2596be;
+  font-size: 1rem;
+  margin-right: 8px;
+}
+
+.edit .service-line {
+  border-bottom: 1px solid rgb(214, 207, 207);
+}
+
 .logged-admin-page .posta {
   width: 60px;
 }
