@@ -1,4 +1,10 @@
 <template>
+<<<<<<< HEAD
+=======
+  <div >
+    <HeaderComp />
+    <main >
+>>>>>>> b8362f7a32add5c34c9845b076d536f4d7763840
 
   <div>
     

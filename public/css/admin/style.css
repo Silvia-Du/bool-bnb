@@ -11004,34 +11004,71 @@ a.text-dark:focus {
   border-radius: 5px;
 }
 
-.message-page .message,
-.message-page .account {
+.message-page .nav-mex {
+  height: 100vh;
+}
+
+.message-page .nav-mex .message,
+.message-page .nav-mex .account,
+.message-page .nav-mex .message-appart,
+.message-page .nav-mex .message-user {
   border-bottom: 1px solid gray;
 }
 
-.message-page .message h4,
-.message-page .message h5,
-.message-page .account h4,
-.message-page .account h5 {
+.message-page .nav-mex .message h4,
+.message-page .nav-mex .message h5,
+.message-page .nav-mex .message h6,
+.message-page .nav-mex .account h4,
+.message-page .nav-mex .account h5,
+.message-page .nav-mex .account h6,
+.message-page .nav-mex .message-appart h4,
+.message-page .nav-mex .message-appart h5,
+.message-page .nav-mex .message-appart h6,
+.message-page .nav-mex .message-user h4,
+.message-page .nav-mex .message-user h5,
+.message-page .nav-mex .message-user h6 {
   font-weight: bold;
 }
 
-.message-page .account .img {
+.message-page .nav-mex .message img {
+  width: 55px;
+}
+
+.message-page .nav-mex .message-appart img,
+.message-page .nav-mex .message-user img {
+  width: 30px;
+}
+
+.message-page .nav-mex .message-appart .insights,
+.message-page .nav-mex .message-user .insights {
+  width: 45px;
+}
+
+.message-page .nav-mex .account .img {
   width: 50px;
   height: 50px;
   border-radius: 50%;
 }
 
 .message-page .jumbo {
-  background-image: url(/images/message-jumbo2.png?9ba31ea73c9f3d7be1ffaaaefb8145d4);
   background-position: center;
   background-size: cover;
   height: 610px;
   overflow: hidden;
 }
 
-.message-page .jumbo img {
-  width: 100%;
+.message-page .jumbo .jubo-user,
+.message-page .jumbo .jumbo-host {
+  background-position: center;
+  background-size: cover;
+}
+
+.message-page .jumbo .jubo-user {
+  background-image: url(/images/message-jumbo2.png?9ba31ea73c9f3d7be1ffaaaefb8145d4);
+}
+
+.message-page .jumbo .jumbo-host {
+  background-image: url(/images/message-jumbo.png?4b85e35882b6b67a72d15edd1adacc57);
 }
 
 .message-page .jumbo .text h1 {
@@ -11039,24 +11076,14 @@ a.text-dark:focus {
 }
 
 .message-page .jumbo .text.host {
-  top: 260px;
-  left: -40px;
-}
-
-.message-page .jumbo .text.host .col-6 {
   border-radius: 5px;
   background-color: rgba(235, 217, 217, 0.3843137255);
 }
 
 .message-page .jumbo .text.user {
-  color: whitesmoke;
-  top: 260px;
-  right: -40px;
-}
-
-.message-page .jumbo .text.user .col-6 {
   border-radius: 5px;
-  background-color: rgba(80, 80, 80, 0.4509803922);
+  background-color: rgba(68, 68, 68, 0.4509803922);
+  color: whitesmoke;
 }
 
 .box-house {
