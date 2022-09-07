@@ -11220,7 +11220,6 @@ a.text-dark:focus {
 
 .box img {
   filter: contrast(0.75);
-  height: 100%;
 }
 
 @media screen and (max-width: 800px) {
