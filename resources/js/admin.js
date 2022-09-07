@@ -463,10 +463,3 @@ btnCreate.addEventListener('click', function () {
 })
   /* TOMTOM SEARCHBOX */
 
-//MESSAGES.BLADE JS
-const boxAppartament = document.getElementById('appartament-box');
-console.log(boxAppartament);
-const btnAppartament = document.getElementById('view-for-appartament');
-console.log(btnAppartament);
-const boxUsers = document.getElementById('user-box');
-const btnUsers = document.getElementById('view-for-user');

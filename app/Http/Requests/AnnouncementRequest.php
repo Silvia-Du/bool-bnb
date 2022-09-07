@@ -29,11 +29,47 @@ class AnnouncementRequest extends FormRequest
             'rooms'=>'required | min:1 | numeric',
             'beds'=>'required | min:1 | numeric',
             'bathrooms'=>'required | min:1 | numeric',
-            'mq'=>'required | min:30 | numeric',
+            'mq'=>'required | numeric',
             'address'=>'required | min:7 | max:200',
             'image'=>'nullable|image|max:32000',
             'house_type'=>'required | min:3 | max:200',
             'room_type'=>'required | min:3 | max:200',
+        ];
+
+    }
+
+    public function messages()
+    {
+        // 'name.required'=>'Il nome è obbligatorio',
+       return[
+        'required'=> 'Il campo :attribute è obbligatorio',
+        'min'=> [
+            'numeric'=> 'il valore di :attribute non può essere inferiore a :min',
+            'string'=> 'il campo :attribute non può avere meno di :min caratteri'
+        ],
+
+        'max'=> [
+            'string'=> 'il campo :attribute non può avere meno di :max caratteri'
+        ],
+
+        'numeric'=> 'Il campo :attribute deve essere un numero'
+       ];
+
+    }
+
+    public function attributes()
+    {
+        return [
+
+            'title'=>'titolo',
+            'description'=>'descrizione',
+            'rooms'=>'stanze',
+            'beds'=>'letti',
+            'bathrooms'=>'bagni',
+            'mq'=>'metri quadri',
+            'address'=>'indirizzo',
+            'house_type'=>'tipologia appartamento',
+            'room_type'=>'tipologia alloggio',
         ];
     }
 }

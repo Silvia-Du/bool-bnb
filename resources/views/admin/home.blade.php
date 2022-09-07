@@ -106,7 +106,7 @@
                                     <h3 class="mb-0">Vedi i tuoi messaggi</h3>
                                 </div>
                             </a>
-                            <a href="#">
+                            <a href="{{ route('admin.announcements.create') }}">
                                 <div class="card p-3">
                                     <img class="house ml-1 mb-2" src="{{ asset('img/admin-icon2.png') }}" alt="house">
                                     <h3 class="mb-0">Crea il tuo primo annuncio</h3>

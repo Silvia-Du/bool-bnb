@@ -17,7 +17,6 @@
 
             <div class="box">
 
-
                 {{-- Nessun Annuncio --}}
                 @if (count($announcements) === 0)
                     <h1 class="text-center ">Scopri quanto potresti guadagnare come host</h1>

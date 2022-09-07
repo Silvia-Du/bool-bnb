@@ -41,11 +41,11 @@
                             </div>
 
                             {{-- address --}}
-                            <div class="col-12">
+                            <div class="col-12 address">
                                 <label for="address" class="form-label"><i class="fa-solid fa-map-location-dot"></i>
                                     Indirizzo</label>
-                                <input type="text" class="edit-data form-control @error('address') is-invalid @enderror"
-                                    name="address" id="address" value="{{ old('address', $announcement->address) }}">
+                                {{-- <input type="text" class="edit-data form-control @error('address') is-invalid @enderror"
+                                    name="address" id="address" value="{{ old('address', $announcement->address) }}"> --}}
                                 @error('address')
                                     <p class="text-danger">{{ $message }}</p>
                                 @enderror

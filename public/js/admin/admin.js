@@ -37745,14 +37745,6 @@ btnCreate.addEventListener('click', function () {
   }
 });
 /* TOMTOM SEARCHBOX */
-//MESSAGES.BLADE JS
-
-var boxAppartament = document.getElementById('appartament-box');
-console.log(boxAppartament);
-var btnAppartament = document.getElementById('view-for-appartament');
-console.log(btnAppartament);
-var boxUsers = document.getElementById('user-box');
-var btnUsers = document.getElementById('view-for-user');
 
 /***/ }),
 

@@ -3,7 +3,7 @@
         <!-- jumbotron -->
         <div class="jumbo container-fluid px-0 mx-0 py-0 mb-0 d-none d-md-block mb-1">
             <div class="row img h-100 d-flex align-items-center pl-4 lp-lg-0">
-                <div class="col-8 col-xl-4 text mex offset-lg-1 d-flex flex-column mt-5">
+                <div class="col-8 col-xl-4 text mex offset-lg-1 d-flex flex-column mt-5 py-2">
                     <h1>Il posto migliore dove sentirsi a casa!</h1>
                     <h2>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores ad nobis soluta nulla, eius voluptas error sapiente cumque totam consectetur?</h2>
                 </div>
@@ -24,7 +24,7 @@
             </div>
         </div>
            <!-- in evidence row -->
-        <div class="sponsorized-row px-lg-5 container-fluid pt-md-5 text-center">
+        <div class="sponsorized-row px-lg-5 container-fluid pt-md-5 text-center pt-5 pt-md-0">
             <!-- <h2 class="d-none d-md-block">Selezionati per te</h2> -->
             <div class="row d-flex mx-lg-5 flex-wrap justify-content-center pt-5 px-sm-2">
                 <CardComp
@@ -97,7 +97,7 @@
                 color: white;
                 border-radius: 5px;
             //     background-color: rgba(50, 50, 50, 0.5);
-            //     backdrop-filter: blur(10px);
+                backdrop-filter: blur(10px);
             //     border-radius: 20px;
             //     padding: 20px;
             //     background-image: url(https://wallpaperaccess.com/full/3150981.jpg);
