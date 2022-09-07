@@ -323,8 +323,9 @@
           border-radius: 50%;
           width: 28px;
           height: 28px;
-          background-color: rgb(182, 86, 51);
-          color: white;
+          background-color: whitesmoke;
+        //   background-color: rgb(182, 86, 51);
+        //   color: white;
           font-size: 0.8rem;
         }
       }

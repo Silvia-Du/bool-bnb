@@ -13,7 +13,7 @@
                     <div class="d-flex justify-content-between align-items-center">
                         <i class="fa-solid fa-magnifying-glass  search-i"></i>
                         <div class="nav-text ml-3 d-none d-md-block">
-                            <p class="question mb-0 ">Dove si va?</p>
+                            <p class="question mb-0">Dove si va?</p>
                         </div>
                     </div>
                     <div class="bar text-center">
@@ -94,19 +94,20 @@ export default {
 <style lang="scss" scoped>
 
 header{
-    background-color: rgba(50, 50, 50, 0.3);
+    background-color: rgba(50, 50, 50, 0.432);
     width: 100%;
     position: fixed;
     z-index: 999;
     color: rgba(36, 36, 36,0.8);
     // backdrop-filter: blur(10px);
-    .logo img{
+    .logo{
         width: 70px;
+        height: 50px;
     }
 
     .nav-map{
         cursor: pointer;
-        width: 80%;
+        width: 82%;
         height: 45px;
         background-color: #ede6e3;
         border: 1px solid rgb(138, 135, 135);

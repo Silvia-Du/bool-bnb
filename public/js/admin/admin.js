@@ -37745,6 +37745,14 @@ btnCreate.addEventListener('click', function () {
   }
 });
 /* TOMTOM SEARCHBOX */
+//MESSAGES.BLADE JS
+
+var boxAppartament = document.getElementById('appartament-box');
+console.log(boxAppartament);
+var btnAppartament = document.getElementById('view-for-appartament');
+console.log(btnAppartament);
+var boxUsers = document.getElementById('user-box');
+var btnUsers = document.getElementById('view-for-user');
 
 /***/ }),
 
@@ -37822,9 +37830,9 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\giova\Desktop\BOOLEAN\Esercizi\progetto finale\bool-bnb\resources\js\admin.js */"./resources/js/admin.js");
-__webpack_require__(/*! C:\Users\giova\Desktop\BOOLEAN\Esercizi\progetto finale\bool-bnb\resources\sass\admin\style.scss */"./resources/sass/admin/style.scss");
-module.exports = __webpack_require__(/*! C:\Users\giova\Desktop\BOOLEAN\Esercizi\progetto finale\bool-bnb\resources\sass\front\style.scss */"./resources/sass/front/style.scss");
+__webpack_require__(/*! C:\Users\silvi\Documents\BOOLEAN\LARAVEL\bool-bnb\resources\js\admin.js */"./resources/js/admin.js");
+__webpack_require__(/*! C:\Users\silvi\Documents\BOOLEAN\LARAVEL\bool-bnb\resources\sass\admin\style.scss */"./resources/sass/admin/style.scss");
+module.exports = __webpack_require__(/*! C:\Users\silvi\Documents\BOOLEAN\LARAVEL\bool-bnb\resources\sass\front\style.scss */"./resources/sass/front/style.scss");
 
 
 /***/ })

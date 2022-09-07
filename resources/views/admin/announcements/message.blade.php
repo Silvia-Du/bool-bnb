@@ -22,7 +22,7 @@
                     <h4 class="mb-0 text-capitalize">Le tue conversazioni</h4>
                 </div>
 
-                <div class="message-appart debug py-4 d-flex align-items-center">
+                <div id="view-for-appartament" class="message-appart debug py-4 d-flex align-items-center">
                     <img src="{{ asset('img/icon-message2.png') }}" alt="home">
                     <h6 class="mb-0 ml-3">Vedi per Appartamento</h6>
                 </div>
@@ -50,7 +50,7 @@
                <p class="mex-title my-3">Messaggi Ricevuti</p>
             @endif
             {{-- USER-CONTAINER --}}
-            <div id="user-box" class="user-container debug py-4 d-none">
+            <div id="user-box" class="user-container debug py-4 ">
                 <div class="scroll-section">
                     @foreach ($announcements as $announcement)
                     @foreach ($announcement->messages as $message)
@@ -67,7 +67,7 @@
             </div>
             {{-- /USER-CONTAINER --}}
             {{-- /HOME CONTAINER --}}
-            <div id="appartament-box" class="appartament-container debug py-4">
+            <div id="appartament-box" class="appartament-container debug py-4 d-none">
                 <div class="scroll-section">
                     @foreach ($announcements as $announcement)
 
@@ -129,10 +129,14 @@
 </div>
 
 @endsection
-
 <script>
-    const boxAppartament = document.getElementById('appartament-box');
-    const btnAppartament = document.getElementById('view-for-user');
-    const boxUsers = document.getElementById('user-box');
-    const btnUsers = document.getElementById('view-for-user');
+
+
+    // btnAppartament.addEventListener('click', function (event) {
+    // }
+    // btnUsers.addEventListener('click', function (event) {
+    //     console.log('user');
+    // }
+
 </script>
+
