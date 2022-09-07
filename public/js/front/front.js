@@ -2010,7 +2010,7 @@ __webpack_require__.r(__webpack_exports__);
       // devono avere l'icona (stringe) e l'active (true/false)
       categories: ['baite', 'campagna', 'wow', 'minicase', 'camper', 'design', 'b&b', 'luxe', 'ville', 'spazi creativi', 'co-working', 'co-leaving'],
       announcApiUrl: 'api/announcements',
-      announcments: null,
+      announcements: null,
       isActive: -1,
       selectedCat: ''
     };
@@ -2020,7 +2020,7 @@ __webpack_require__.r(__webpack_exports__);
       var _this = this;
 
       axios.get(this.announcApiUrl).then(function (response) {
-        _this.announcments = response.data.data;
+        _this.announcements = response.data.data;
       });
     },
     getCategory: function getCategory(index, category) {
@@ -2029,7 +2029,7 @@ __webpack_require__.r(__webpack_exports__);
       this.isActive = index;
       this.selectedCat = category;
       axios.get(this.announcApiUrl + '/category/' + this.selectedCat).then(function (response) {
-        _this2.announcments = response.data;
+        _this2.announcements = response.data;
       });
     }
   },
@@ -2416,8 +2416,10 @@ var render = function render() {
       _c = _vm._self._c;
 
   return _c("div", {
-    staticClass: "home"
-  }, [_vm._m(0), _vm._v(" "), _c("div", {
+    staticClass: "home text-center"
+  }, [_vm._m(0), _vm._v(" "), _c("h2", {
+    staticClass: "d-none d-md-block selected mt-5 mb-0"
+  }, [_vm._v("Selezionati per te")]), _vm._v(" "), _c("div", {
     staticClass: "d-none d-md-block filter-row px-lg-5 py-4 container-fluid"
   }, [_c("div", {
     staticClass: "row mx-lg-5"
@@ -2442,9 +2444,7 @@ var render = function render() {
     }, [_vm._v(_vm._s(category))])]);
   }), 0)])]), _vm._v(" "), _c("div", {
     staticClass: "sponsorized-row px-lg-5 container-fluid pt-md-5 text-center"
-  }, [_c("h2", {
-    staticClass: "d-none d-md-block"
-  }, [_vm._v("Selezionati per te")]), _vm._v(" "), _c("div", {
+  }, [_c("div", {
     staticClass: "row d-flex mx-lg-5 flex-wrap justify-content-center pt-5 px-sm-2"
   }, _vm._l(_vm.announcements, function (announcement, i) {
     return _c("CardComp", {
@@ -2463,11 +2463,11 @@ var staticRenderFns = [function () {
       _c = _vm._self._c;
 
   return _c("div", {
-    staticClass: "jumbo container-fluid px-0 mx-0 py-0 mb-0 d-none d-md-block"
+    staticClass: "jumbo container-fluid px-0 mx-0 py-0 mb-0 d-none d-md-block mb-1"
   }, [_c("div", {
-    staticClass: "row img h-100 d-flex align-items-center"
+    staticClass: "row img h-100 d-flex align-items-center pl-4 lp-lg-0"
   }, [_c("div", {
-    staticClass: "col-4 text mex offset-lg-1 d-flex flex-column mt-5"
+    staticClass: "col-8 col-xl-4 text mex offset-lg-1 d-flex flex-column mt-5"
   }, [_c("h1", [_vm._v("Il posto migliore dove sentirsi a casa!")]), _vm._v(" "), _c("h2", [_vm._v("Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores ad nobis soluta nulla, eius voluptas error sapiente cumque totam consectetur?")])])])]);
 }, function () {
   var _vm = this,
@@ -2984,12 +2984,13 @@ exports.push([module.i, ".research-adv[data-v-5d876e67] {\n  background-color: #
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
+var escape = __webpack_require__(/*! ../../../../node_modules/css-loader/lib/url/escape.js */ "./node_modules/css-loader/lib/url/escape.js");
 exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
 // imports
 
 
 // module
-exports.push([module.i, ".home .jumbo[data-v-4b10c5b8] {\n  height: 100vh;\n  position: relative;\n  overflow-x: hidden;\n  background-image: url(https://wallpaperaccess.com/full/3150981.jpg);\n  background-size: cover;\n  background-position: center center;\n  background-attachment: fixed;\n}\n.home .jumbo .mex[data-v-4b10c5b8] {\n  background-color: rgba(50, 50, 50, 0.5);\n  -webkit-backdrop-filter: blur(10px);\n          backdrop-filter: blur(10px);\n  border-radius: 20px;\n  padding: 20px;\n  background-image: url(https://wallpaperaccess.com/full/3150981.jpg);\n  color: transparent;\n  background-position: top;\n  background-clip: text;\n  -webkit-background-clip: text;\n  -webkit-text-fill-color: transparent;\n}\n.home .jumbo h1[data-v-4b10c5b8] {\n  font-size: 3rem;\n  font-weight: bold;\n}\n.home .filter-row i[data-v-4b10c5b8] {\n  font-size: 1.7rem;\n}\n.home .filter-row .col-categories[data-v-4b10c5b8] {\n  max-width: 1500px;\n  margin: auto;\n  overflow-x: scroll;\n  padding: 25px 0px 35px 0;\n}\n.home .filter-row .col-categories[data-v-4b10c5b8]::-webkit-scrollbar {\n  z-index: 2;\n  height: 5px;\n}\n.home .filter-row .col-categories[data-v-4b10c5b8]::-webkit-scrollbar-track {\n  border-radius: 5px;\n}\n.home .filter-row .col-categories[data-v-4b10c5b8]::-webkit-scrollbar-thumb {\n  background: linear-gradient(to top, #EF6351, #F38375, #F7A399);\n  border-radius: 50%;\n}\n.home .filter-row .col-categories .categories[data-v-4b10c5b8] {\n  width: 100px;\n  height: 100px;\n  border-radius: 10px;\n  min-height: 50px;\n  font-size: 0.8rem;\n  font-weight: 600;\n  flex-shrink: 0;\n  transition: 0.5s;\n}\n.home .filter-row .col-categories .categories[data-v-4b10c5b8]:hover {\n  background-color: rgba(0, 124, 207, 0.3);\n  -webkit-backdrop-filter: blur(10px);\n          backdrop-filter: blur(10px);\n  box-shadow: 0 10px 15px black;\n  transform: translateY(15px);\n  flex-shrink: 0;\n  transition: ease-out 0.5s;\n  outline: none;\n  color: #ffffff;\n  cursor: pointer;\n}\n.home .filter-row .col-categories .categories.active[data-v-4b10c5b8] {\n  box-shadow: 0 10px 15px gray;\n  transform: translateY(-15px);\n  background-color: rgba(255, 255, 255, 0.3);\n  -webkit-backdrop-filter: blur(10px);\n          backdrop-filter: blur(10px);\n  color: black;\n}\n.home .filter-row .filter[data-v-4b10c5b8] {\n  border-radius: 15px;\n  font-weight: bold;\n  font-size: 1rem;\n  flex-shrink: 0;\n}\n.home .filter-row .filter i[data-v-4b10c5b8] {\n  font-size: 1.4rem;\n}\n.home .sponsorized-row[data-v-4b10c5b8] {\n  background-color: #f0f0f0;\n}\n.home .sponsorized-row h2[data-v-4b10c5b8] {\n  font-size: 4rem;\n}", ""]);
+exports.push([module.i, ".home h2.selected[data-v-4b10c5b8] {\n  font-size: 4rem;\n}\n.home .jumbo[data-v-4b10c5b8] {\n  height: 75vh;\n  position: relative;\n  overflow-x: hidden;\n  background-image: url(" + escape(__webpack_require__(/*! ../../../../public/img/4.png */ "./public/img/4.png")) + ");\n  background-size: cover;\n  background-position: center center;\n  background-attachment: fixed;\n}\n.home .jumbo .mex[data-v-4b10c5b8] {\n  background-color: rgba(44, 78, 78, 0.3);\n  color: white;\n  border-radius: 5px;\n}\n.home .jumbo h1[data-v-4b10c5b8] {\n  font-size: 3rem;\n  font-weight: bold;\n}\n.home .filter-row i[data-v-4b10c5b8] {\n  font-size: 1.7rem;\n}\n.home .filter-row .col-categories[data-v-4b10c5b8] {\n  max-width: 1500px;\n  margin: auto;\n  overflow-x: scroll;\n  padding: 25px 0px 35px 0;\n}\n.home .filter-row .col-categories[data-v-4b10c5b8]::-webkit-scrollbar {\n  z-index: 2;\n  height: 5px;\n}\n.home .filter-row .col-categories[data-v-4b10c5b8]::-webkit-scrollbar-track {\n  border-radius: 5px;\n}\n.home .filter-row .col-categories[data-v-4b10c5b8]::-webkit-scrollbar-thumb {\n  background: linear-gradient(to top, #EF6351, #F38375, #F7A399);\n  border-radius: 50%;\n}\n.home .filter-row .col-categories .categories[data-v-4b10c5b8] {\n  width: 100px;\n  height: 100px;\n  border-radius: 10px;\n  min-height: 50px;\n  font-size: 0.8rem;\n  font-weight: 600;\n  flex-shrink: 0;\n  transition: 0.5s;\n}\n.home .filter-row .col-categories .categories[data-v-4b10c5b8]:hover {\n  -webkit-backdrop-filter: blur(10px);\n          backdrop-filter: blur(10px);\n  box-shadow: 0px 0px 50px 1px rgb(201, 200, 200);\n  transform: translateY(1px);\n  flex-shrink: 0;\n  transition: ease-out 0.5s;\n  outline: none;\n  color: #d8673a;\n  cursor: pointer;\n}\n.home .filter-row .col-categories .categories.active[data-v-4b10c5b8] {\n  box-shadow: 0 10px 15px gray;\n  transform: translateY(-15px);\n  background-color: rgba(255, 255, 255, 0.3);\n  -webkit-backdrop-filter: blur(10px);\n          backdrop-filter: blur(10px);\n  color: black;\n}\n.home .filter-row .filter[data-v-4b10c5b8] {\n  border-radius: 15px;\n  font-weight: bold;\n  font-size: 1rem;\n  flex-shrink: 0;\n}\n.home .filter-row .filter i[data-v-4b10c5b8] {\n  font-size: 1.4rem;\n}\n.home .sponsorized-row[data-v-4b10c5b8] {\n  background-color: #f0f0f0;\n}", ""]);
 
 // exports
 
@@ -3084,7 +3085,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "header[data-v-494e1ffe] {\n  background-color: rgba(50, 50, 50, 0.3);\n  width: 100%;\n  position: fixed;\n  z-index: 999;\n  color: rgba(36, 36, 36, 0.8);\n  -webkit-backdrop-filter: blur(10px);\n          backdrop-filter: blur(10px);\n}\nheader .logo img[data-v-494e1ffe] {\n  width: 70px;\n}\nheader .nav-map[data-v-494e1ffe] {\n  cursor: pointer;\n  width: 80%;\n  height: 45px;\n  background-color: #ede6e3;\n  border: 1px solid rgb(138, 135, 135);\n}\nheader .nav-map .bar[data-v-494e1ffe] {\n  width: 80%;\n  height: 40px;\n}\nheader .nav-map .bar input[data-v-494e1ffe] {\n  width: 100%;\n  height: 35px;\n  margin-top: 3px;\n  background-color: #ffffff;\n  border: none;\n}\nheader .nav-map .search-i[data-v-494e1ffe] {\n  font-size: 1.2rem;\n  color: #2596be;\n}\nheader .nav-map .nav-text[data-v-494e1ffe] {\n  color: rgba(36, 36, 36, 0.884);\n}\nheader .nav-map .nav-text .question[data-v-494e1ffe] {\n  font-size: 0.7rem;\n  font-weight: bolder;\n}\nheader .nav-map .nav-text .answer[data-v-494e1ffe] {\n  font-size: 0.6rem;\n}\nheader .nav-map .slider-box[data-v-494e1ffe] {\n  border-radius: 50%;\n  height: 30px;\n  width: 30px;\n  font-size: 0.8rem;\n  background-color: #2596be;\n  color: #ede6e3;\n}\nheader .box-host[data-v-494e1ffe] {\n  text-align: center;\n  color: #2596be;\n}\nheader .link-host[data-v-494e1ffe] {\n  color: #2596be;\n  transition: 0.5s;\n  text-decoration: none;\n  font-size: 1.2rem;\n}\nheader .link-host[data-v-494e1ffe]:hover {\n  color: #ede6e3;\n}\nheader .user-box[data-v-494e1ffe] {\n  background-color: #ede6e3;\n  border: 1px solid rgb(138, 135, 135);\n  position: relative;\n  height: 45px;\n}\nheader .user-box i[data-v-494e1ffe] {\n  font-size: 1rem;\n  color: #2596be;\n}\nheader .user-box .fa-circle-user[data-v-494e1ffe] {\n  font-size: 1.5rem;\n  color: rgba(0, 0, 0, 0.884);\n}\nheader .user-box .drop-d[data-v-494e1ffe] {\n  top: 46px;\n  left: 50%;\n  border: 1px solid rgb(138, 135, 135);\n  background-color: #ffe3e0;\n  border-radius: 5px;\n  transform: translate(-50%);\n  width: 200%;\n  min-height: 100px;\n}\nheader .user-box .drop-d .dd-row[data-v-494e1ffe] {\n  border-bottom: 1px solid rgb(138, 135, 135);\n}", ""]);
+exports.push([module.i, "header[data-v-494e1ffe] {\n  background-color: rgba(50, 50, 50, 0.3);\n  width: 100%;\n  position: fixed;\n  z-index: 999;\n  color: rgba(36, 36, 36, 0.8);\n}\nheader .logo img[data-v-494e1ffe] {\n  width: 70px;\n}\nheader .nav-map[data-v-494e1ffe] {\n  cursor: pointer;\n  width: 80%;\n  height: 45px;\n  background-color: #ede6e3;\n  border: 1px solid rgb(138, 135, 135);\n}\nheader .nav-map .bar[data-v-494e1ffe] {\n  width: 80%;\n  height: 40px;\n}\nheader .nav-map .bar input[data-v-494e1ffe] {\n  width: 100%;\n  height: 35px;\n  margin-top: 3px;\n  background-color: #ffffff;\n  border: none;\n}\nheader .nav-map .search-i[data-v-494e1ffe] {\n  font-size: 1.2rem;\n  color: #2596be;\n}\nheader .nav-map .nav-text[data-v-494e1ffe] {\n  color: rgba(36, 36, 36, 0.884);\n}\nheader .nav-map .nav-text .question[data-v-494e1ffe] {\n  font-size: 0.7rem;\n  font-weight: bolder;\n}\nheader .nav-map .nav-text .answer[data-v-494e1ffe] {\n  font-size: 0.6rem;\n}\nheader .nav-map .slider-box[data-v-494e1ffe] {\n  border-radius: 50%;\n  height: 30px;\n  width: 30px;\n  font-size: 0.8rem;\n  background-color: #2596be;\n}\nheader .nav-map .slider-box a[data-v-494e1ffe] {\n  color: #ede6e3;\n  margin-bottom: 0;\n}\nheader .box-host[data-v-494e1ffe] {\n  text-align: center;\n  color: #2596be;\n}\nheader .link-host[data-v-494e1ffe] {\n  color: #2596be;\n  transition: 0.5s;\n  text-decoration: none;\n  font-size: 1.2rem;\n}\nheader .link-host[data-v-494e1ffe]:hover {\n  color: #ede6e3;\n}\nheader .user-box[data-v-494e1ffe] {\n  background-color: #ede6e3;\n  border: 1px solid rgb(138, 135, 135);\n  position: relative;\n  height: 45px;\n}\nheader .user-box i[data-v-494e1ffe] {\n  font-size: 1rem;\n  color: #2596be;\n}\nheader .user-box .fa-circle-user[data-v-494e1ffe] {\n  font-size: 1.5rem;\n  color: rgba(0, 0, 0, 0.884);\n}\nheader .user-box .drop-d[data-v-494e1ffe] {\n  top: 46px;\n  left: 50%;\n  border: 1px solid rgb(138, 135, 135);\n  background-color: #ffe3e0;\n  border-radius: 5px;\n  transform: translate(-50%);\n  width: 200%;\n  min-height: 100px;\n}\nheader .user-box .drop-d .dd-row[data-v-494e1ffe] {\n  border-bottom: 1px solid rgb(138, 135, 135);\n}\nheader .link-col .fa-igloo[data-v-494e1ffe] {\n  font-size: 1rem;\n  color: white;\n}\nheader .link-col a[data-v-494e1ffe] {\n  color: white;\n}\nheader .link-col a[data-v-494e1ffe]:hover {\n  text-decoration: none;\n  color: #2596be;\n  font-weight: bold;\n}", ""]);
 
 // exports
 
@@ -3173,6 +3174,33 @@ function toComment(sourceMap) {
 	var data = 'sourceMappingURL=data:application/json;charset=utf-8;base64,' + base64;
 
 	return '/*# ' + data + ' */';
+}
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/lib/url/escape.js":
+/*!***************************************************!*\
+  !*** ./node_modules/css-loader/lib/url/escape.js ***!
+  \***************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = function escape(url) {
+    if (typeof url !== 'string') {
+        return url
+    }
+    // If url is already wrapped in quotes, remove them
+    if (/^['"].*['"]$/.test(url)) {
+        url = url.slice(1, -1);
+    }
+    // Should url be wrapped?
+    // See https://drafts.csswg.org/css-values-3/#urls
+    if (/["'() \t\n]/.test(url)) {
+        return '"' + url.replace(/"/g, '\\"').replace(/\n/g, '\\n') + '"'
+    }
+
+    return url
 }
 
 
@@ -18921,6 +18949,17 @@ try {
 
 module.exports = g;
 
+
+/***/ }),
+
+/***/ "./public/img/4.png":
+/*!**************************!*\
+  !*** ./public/img/4.png ***!
+  \**************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "/images/4.png?5c3560341fc1f63e9db030ba451caf14";
 
 /***/ }),
 

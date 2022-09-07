@@ -19,9 +19,9 @@
                     <div class="bar text-center">
                         <input
                         @keyup.enter="sendInput"
-                        v-model="whereInput" 
-                        type="text" 
-                        id="title" 
+                        v-model="whereInput"
+                        type="text"
+                        id="title"
                         name="title"
                         class="bar-head text-center">
                     </div>
@@ -99,7 +99,7 @@ header{
     position: fixed;
     z-index: 999;
     color: rgba(36, 36, 36,0.8);
-    backdrop-filter: blur(10px);
+    // backdrop-filter: blur(10px);
     .logo img{
         width: 70px;
     }
@@ -146,7 +146,10 @@ header{
             width: 30px;
             font-size: 0.8rem;
             background-color: #2596be;
-            color: #ede6e3;
+            a{
+                color: #ede6e3;
+                margin-bottom: 0;
+            }
         }
     }
 
@@ -189,6 +192,20 @@ header{
             min-height: 100px;
             .dd-row{
                 border-bottom: 1px solid rgb(138, 135, 135);
+            }
+        }
+    }
+    .link-col{
+        .fa-igloo{
+            font-size: 1rem;
+            color: white;
+        }
+        a{
+            color: white;
+            &:hover{
+                text-decoration: none;
+                color: #2596be;
+                font-weight: bold;
             }
         }
     }
