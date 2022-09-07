@@ -146,27 +146,47 @@
                                 <a class="btn btn-success my-3"
                                     href="{{ route('admin.announcements.edit', $announcement) }}">MODIFICA</a>
 
-                                <form action="{{ route('admin.announcements.destroy', $announcement) }}" method="POST"
+                                {{-- <form action="{{ route('admin.announcements.destroy', $announcement) }}" method="POST"
                                     onsubmit="return confirm('Stai per cancellare questo annuncio, confermi?')">
                                     @csrf
                                     @method('DELETE')
                                     <button class="btn btn-danger" type="submit">DELETE</button>
-                                </form>
+                                </form> --}}
+                                {{-- sostituito con questo bottone qui sotto --}}
+                                <a href="#" data-id={{ $announcement->id }} class="btn btn-danger delete my-3"
+                                    data-toggle="modal" data-target="#deleteModal">DELETE</a>
                             </div>
 
-                            {{-- Modale avviso eliminazione
-                            <div class="modal-content rounded-4 shadow">
-                            <div class="modal-body p-4 text-center">
-                                <h5 class="mb-0">Confermi l'eliminazione dell'annuncio?</h5>
+                            {{-- modale eliminazione --}}
+                            <div class="modal modal-danger fade" id="deleteModal" tabindex="-1" role="dialog"
+                            aria-labelledby="Delete" aria-hidden="true">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLabel">Elimazione annuncio</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            {{-- occhio qui al tag form --}}
+                                            <form action="{{ route('admin.announcements.destroy', $announcement) }}"
+                                                method="post">
+                                                @csrf
+                                                @method('DELETE')
+                                                <h5 class="text-center">Eliminare l'annuncio?</h5>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary"
+                                                data-dismiss="modal">Annula</button>
+                                            <button type="submit" class="btn btn-danger">Conferma</button>
+                                        </div>
+                                        </form>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="modal-footer flex-nowrap p-0">
-                                <button type="button"
-                                    class="btn btn-lg btn-link fs-6 text-decoration-none col-6 m-0 rounded-0 border-right"><strong>Si</strong></button>
-                                <button type="button"
-                                    class="btn btn-lg btn-link fs-6 text-decoration-none col-6 m-0 rounded-0"
-                                    data-bs-dismiss="modal">No</button>
-                            </div>
-                            </div> --}}
+
+
 
                         </div>
                     @endforeach
@@ -176,3 +196,10 @@
         @endif
     </div>
 @endsection
+
+<script>
+     $(document).on('click', '.delete', function() {
+            let id = $(this).attr('data-id');
+            $('#id').val(id);
+        });
+</script>
