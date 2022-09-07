@@ -2247,17 +2247,16 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'HeaderComp',
-<<<<<<< HEAD
-=======
   props: {},
->>>>>>> b8362f7a32add5c34c9845b076d536f4d7763840
   data: function data() {
     return {
-      whereInput: null
+      showNavDropD: false
     };
   },
   methods: {
-<<<<<<< HEAD
+    getRoute: function getRoute(page) {
+      window.location.href = '/' + page; //ROTTA PER LOG OUT????
+    },
     sendInput: function sendInput() {
       this.$emit('mandoInput', this.whereInput);
     }
@@ -2330,10 +2329,6 @@ __webpack_require__.r(__webpack_exports__);
       if (newData) {
         this.getMap(this.announcements);
       }
-=======
-    getRoute: function getRoute(page) {
-      window.location.href = '/' + page; //ROTTA PER LOG OUT????
->>>>>>> b8362f7a32add5c34c9845b076d536f4d7763840
     }
   }
 });
@@ -2355,7 +2350,6 @@ var render = function render() {
   var _vm = this,
       _c = _vm._self._c;
 
-<<<<<<< HEAD
   return _c("div", [_c("HeaderComp", {
     on: {
       mandoInput: _vm.mandoInput
@@ -2365,9 +2359,6 @@ var render = function render() {
       input: _vm.input
     }
   })], 1), _vm._v(" "), _c("FooterComp")], 1);
-=======
-  return _c("div", [_c("HeaderComp"), _vm._v(" "), _c("main", [_c("router-view")], 1), _vm._v(" "), _c("FooterComp")], 1);
->>>>>>> b8362f7a32add5c34c9845b076d536f4d7763840
 };
 
 var staticRenderFns = [];
@@ -2999,9 +2990,8 @@ var render = function render() {
       click: _vm.sendInput
     }
   }, [_vm._v("GO!")])])], 1)])]), _vm._v(" "), _c("div", {
-    staticClass: "col-3 d-none d-sm-flex link-col align-items-center justify-content-end pr-lg-5 box-host"
+    staticClass: "col-3 d-none d-sm-flex link-col align-items-center justify-content-end pr-lg-5"
   }, [_c("router-link", {
-    staticClass: "link-host",
     attrs: {
       to: ""
     }
@@ -3020,9 +3010,6 @@ var render = function render() {
     staticClass: "fa-solid fa-circle-user ml-1"
   }), _vm._v(" "), _vm.showNavDropD ? _c("div", {
     staticClass: "drop-d position-absolute"
-<<<<<<< HEAD
-  }, [_vm._m(2), _vm._v(" "), _vm._m(3), _vm._v(" "), _vm._m(4)]) : _vm._e()])], 1)])])]);
-=======
   }, [_c("div", {
     staticClass: "dd-row py-3 pl-3",
     on: {
@@ -3051,7 +3038,6 @@ var render = function render() {
   }, [_c("p", {
     staticClass: "mb-0"
   }, [_vm._v("Log out")])])]) : _vm._e()])], 1)])])]);
->>>>>>> b8362f7a32add5c34c9845b076d536f4d7763840
 };
 
 var staticRenderFns = [function () {
@@ -3061,17 +3047,8 @@ var staticRenderFns = [function () {
   return _c("div", {
     staticClass: "col-3 d-none d-sm-block pl-lg-5"
   }, [_c("div", {
-    staticClass: "logo"
-  }, [_c("a", {
-    attrs: {
-      href: "http://127.0.0.1:8000/"
-    }
-  }, [_c("img", {
-    attrs: {
-      src: "https://it.freelogodesign.org/assets/img/categories/36/logo-img-02.svg",
-      alt: "logo"
-    }
-  })])])]);
+    staticClass: "logo debug"
+  })]);
 }, function () {
   var _vm = this,
       _c = _vm._self._c;
@@ -3085,37 +3062,6 @@ var staticRenderFns = [function () {
   }, [_c("p", {
     staticClass: "question mb-0"
   }, [_vm._v("Dove si va?")])])]);
-}, function () {
-  var _vm = this,
-      _c = _vm._self._c;
-
-  return _c("div", {
-    staticClass: "dd-row py-3 pl-3"
-  }, [_c("p", {
-    staticClass: "mb-0"
-<<<<<<< HEAD
-  }, [_vm._v("Login")])]);
-}, function () {
-  var _vm = this,
-      _c = _vm._self._c;
-
-  return _c("div", {
-    staticClass: "dd-row py-3 pl-3"
-  }, [_c("p", {
-    staticClass: "mb-0"
-  }, [_vm._v("Registrati")])]);
-}, function () {
-  var _vm = this,
-      _c = _vm._self._c;
-
-  return _c("div", {
-    staticClass: "dd-row py-3 pl-3"
-  }, [_c("p", {
-    staticClass: "mb-0"
-  }, [_vm._v("Log out")])]);
-=======
-  }, [_vm._v("GO!")])])])]);
->>>>>>> b8362f7a32add5c34c9845b076d536f4d7763840
 }];
 render._withStripped = true;
 
@@ -3278,7 +3224,6 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-<<<<<<< HEAD
 exports.push([module.i, "header[data-v-494e1ffe] {\n  background-color: rgba(50, 50, 50, 0.3);\n  width: 100%;\n  position: fixed;\n  z-index: 999;\n  color: rgba(36, 36, 36, 0.8);\n  -webkit-backdrop-filter: blur(10px);\n          backdrop-filter: blur(10px);\n}\nheader .logo img[data-v-494e1ffe] {\n  width: 70px;\n}\nheader .nav-map[data-v-494e1ffe] {\n  cursor: pointer;\n  width: 80%;\n  height: 45px;\n  background-color: #ede6e3;\n  border: 1px solid rgb(138, 135, 135);\n}\nheader .nav-map .bar[data-v-494e1ffe] {\n  width: 80%;\n  height: 40px;\n}\nheader .nav-map .bar input[data-v-494e1ffe] {\n  width: 100%;\n  height: 35px;\n  margin-top: 3px;\n  background-color: #ffffff;\n  border: none;\n}\nheader .nav-map .search-i[data-v-494e1ffe] {\n  font-size: 1.2rem;\n  color: #2596be;\n}\nheader .nav-map .nav-text[data-v-494e1ffe] {\n  color: rgba(36, 36, 36, 0.884);\n}\nheader .nav-map .nav-text .question[data-v-494e1ffe] {\n  font-size: 0.7rem;\n  font-weight: bolder;\n}\nheader .nav-map .nav-text .answer[data-v-494e1ffe] {\n  font-size: 0.6rem;\n}\nheader .nav-map .slider-box[data-v-494e1ffe] {\n  border-radius: 50%;\n  height: 30px;\n  width: 30px;\n  font-size: 0.8rem;\n  background-color: #2596be;\n  color: #ede6e3;\n}\nheader .box-host[data-v-494e1ffe] {\n  text-align: center;\n  color: #2596be;\n}\nheader .link-host[data-v-494e1ffe] {\n  color: #2596be;\n  transition: 0.5s;\n  text-decoration: none;\n  font-size: 1.2rem;\n}\nheader .link-host[data-v-494e1ffe]:hover {\n  color: #ede6e3;\n}\nheader .user-box[data-v-494e1ffe] {\n  background-color: #ede6e3;\n  border: 1px solid rgb(138, 135, 135);\n  position: relative;\n  height: 45px;\n}\nheader .user-box i[data-v-494e1ffe] {\n  font-size: 1rem;\n  color: #2596be;\n}\nheader .user-box .fa-circle-user[data-v-494e1ffe] {\n  font-size: 1.5rem;\n  color: rgba(0, 0, 0, 0.884);\n}\nheader .user-box .drop-d[data-v-494e1ffe] {\n  top: 46px;\n  left: 50%;\n  border: 1px solid rgb(138, 135, 135);\n  background-color: #ffe3e0;\n  border-radius: 5px;\n  transform: translate(-50%);\n  width: 200%;\n  min-height: 100px;\n}\nheader .user-box .drop-d .dd-row[data-v-494e1ffe] {\n  border-bottom: 1px solid rgb(138, 135, 135);\n}", ""]);
 
 // exports
@@ -3299,9 +3244,6 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 // module
 exports.push([module.i, "\n#map {\r\n  min-height: 100%;\r\n  min-width: 100%;\n}\r\n", ""]);
-=======
-exports.push([module.i, "header[data-v-494e1ffe] {\n  z-index: 999;\n  background-color: rgba(0, 0, 0, 0.575);\n  position: fixed;\n  width: 100%;\n  color: rgba(36, 36, 36, 0.884);\n}\nheader .logo[data-v-494e1ffe] {\n  height: 50px;\n  width: 90px;\n}\nheader .nav-map[data-v-494e1ffe] {\n  cursor: pointer;\n  width: 80%;\n  height: 45px;\n  background-color: #ede6e3;\n  border: 1px solid rgb(138, 135, 135);\n}\nheader .nav-map .search-i[data-v-494e1ffe] {\n  font-size: 1.2rem;\n  color: #2596be;\n}\nheader .nav-map .nav-text[data-v-494e1ffe] {\n  color: rgba(36, 36, 36, 0.884);\n}\nheader .nav-map .nav-text .question[data-v-494e1ffe] {\n  font-size: 0.7rem;\n  font-weight: bolder;\n}\nheader .nav-map .nav-text .answer[data-v-494e1ffe] {\n  font-size: 0.6rem;\n}\nheader .nav-map .slider-box[data-v-494e1ffe] {\n  border-radius: 50%;\n  height: 30px;\n  width: 30px;\n  font-size: 0.8rem;\n  background-color: #2596be;\n  color: #ede6e3;\n}\nheader .link-col a[data-v-494e1ffe] {\n  color: #ede6e3;\n  font-size: 0.8rem;\n  font-weight: bold;\n}\nheader .link-col i[data-v-494e1ffe] {\n  font-size: 1.2rem;\n  color: #2596be;\n}\nheader .link-col .user-box[data-v-494e1ffe] {\n  background-color: #ede6e3;\n  border: 1px solid rgb(138, 135, 135);\n  position: relative;\n  height: 45px;\n}\nheader .link-col .user-box i[data-v-494e1ffe] {\n  font-size: 1rem;\n  color: #2596be;\n}\nheader .link-col .user-box .fa-circle-user[data-v-494e1ffe] {\n  font-size: 1.5rem;\n  color: rgba(0, 0, 0, 0.884);\n}\nheader .link-col .user-box .drop-d[data-v-494e1ffe] {\n  top: 46px;\n  left: 50%;\n  border: 1px solid rgb(138, 135, 135);\n  background-color: #f0f0f0;\n  border-radius: 5px;\n  transform: translate(-50%);\n  width: 200%;\n  min-height: 100px;\n}\nheader .link-col .user-box .drop-d .dd-row[data-v-494e1ffe] {\n  border-bottom: 1px solid rgb(138, 135, 135);\n}\nheader .link-col .user-box .drop-d a[data-v-494e1ffe] {\n  cursor: pointer;\n}", ""]);
->>>>>>> b8362f7a32add5c34c9845b076d536f4d7763840
 
 // exports
 
