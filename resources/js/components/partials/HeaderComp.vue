@@ -34,14 +34,16 @@
                     <i class="fa-solid fa-circle-user ml-1"></i>
                     <div v-if="showNavDropD"
                     class="drop-d position-absolute">
-                    <div @click="getLoginRoute()"
+                    <div @click="getRoute('login')"
                     class="dd-row py-3 pl-3">
                             <p class="mb-0">Login</p>
                     </div>
-                    <div class="dd-row py-3 pl-3">
+                    <div @click="getRoute('register')"
+                    class="dd-row py-3 pl-3">
                         <p class="mb-0">Registrati</p>
                     </div>
-                    <div class="dd-row py-3 pl-3">
+                    <div @click="getRoute('logout')"
+                    class="dd-row py-3 pl-3">
                         <p class="mb-0">Log out</p>
                     </div>
                     </div>
@@ -58,7 +60,7 @@ export default {
  name: 'HeaderComp',
 
  props:{
-    bgHeader: Boolean
+
  },
 
  data() {
@@ -68,8 +70,9 @@ export default {
  },
 
  methods: {
-    getLoginRoute(){
-        window.location.href = '/login';
+    getRoute(page){
+        window.location.href = '/'+page;
+        //ROTTA PER LOG OUT????
     }
  },
 }
@@ -149,13 +152,16 @@ header{
                 top: 46px;
                 left: 50%;
                 border: 1px solid rgb(138, 135, 135);
-                background-color: #ffe3e0;
+                background-color: #f0f0f0;
                 border-radius: 5px;
                 transform: translate(-50%);
                 width: 200%;
                 min-height: 100px;
                 .dd-row{
                     border-bottom: 1px solid rgb(138, 135, 135);
+                }
+                a{
+                    cursor: pointer;
                 }
             }
         }

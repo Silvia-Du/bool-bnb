@@ -45,7 +45,7 @@
                             <a href="{{ route('admin.message') }}">
                                 <div class="card p-3 my-3">
                                     <img class="posta mb-2" src="{{ asset('img/admin-icon1.png') }}" alt="posta">
-                                    <h3 class="mb-0">Vai al centro messaggi</h3>
+                                    <h3 class="mb-0">Vedi i tuoi messaggi</h3>
                                 </div>
                             </a>
                             <a href="{{ route('admin.announcements.index') }}">
@@ -103,7 +103,7 @@
                             <a href="{{ route('admin.message') }}">
                                 <div class="card p-3 my-3">
                                     <img class="posta mb-2" src="{{ asset('img/admin-icon1.png') }}" alt="posta">
-                                    <h3 class="mb-0">Visita il centro messaggi</h3>
+                                    <h3 class="mb-0">Vedi i tuoi messaggi</h3>
                                 </div>
                             </a>
                             <a href="#">

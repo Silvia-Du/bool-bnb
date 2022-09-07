@@ -2220,17 +2220,15 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'HeaderComp',
-  props: {
-    bgHeader: Boolean
-  },
+  props: {},
   data: function data() {
     return {
       showNavDropD: false
     };
   },
   methods: {
-    getLoginRoute: function getLoginRoute() {
-      window.location.href = '/login';
+    getRoute: function getRoute(page) {
+      window.location.href = '/' + page; //ROTTA PER LOG OUT????
     }
   }
 });
@@ -2252,17 +2250,7 @@ var render = function render() {
   var _vm = this,
       _c = _vm._self._c;
 
-  return _c("div", [_c("HeaderComp", {
-    attrs: {
-      bgHeader: true
-    }
-  }), _vm._v(" "), _c("main", {
-    on: {
-      scroll: function scroll($event) {
-        return _vm.bgHeader();
-      }
-    }
-  }, [_c("router-view")], 1), _vm._v(" "), _c("FooterComp")], 1);
+  return _c("div", [_c("HeaderComp"), _vm._v(" "), _c("main", [_c("router-view")], 1), _vm._v(" "), _c("FooterComp")], 1);
 };
 
 var staticRenderFns = [];
@@ -2832,12 +2820,30 @@ var render = function render() {
     staticClass: "dd-row py-3 pl-3",
     on: {
       click: function click($event) {
-        return _vm.getLoginRoute();
+        return _vm.getRoute("login");
       }
     }
   }, [_c("p", {
     staticClass: "mb-0"
-  }, [_vm._v("Login")])]), _vm._v(" "), _vm._m(2), _vm._v(" "), _vm._m(3)]) : _vm._e()])], 1)])])]);
+  }, [_vm._v("Login")])]), _vm._v(" "), _c("div", {
+    staticClass: "dd-row py-3 pl-3",
+    on: {
+      click: function click($event) {
+        return _vm.getRoute("register");
+      }
+    }
+  }, [_c("p", {
+    staticClass: "mb-0"
+  }, [_vm._v("Registrati")])]), _vm._v(" "), _c("div", {
+    staticClass: "dd-row py-3 pl-3",
+    on: {
+      click: function click($event) {
+        return _vm.getRoute("logout");
+      }
+    }
+  }, [_c("p", {
+    staticClass: "mb-0"
+  }, [_vm._v("Log out")])])]) : _vm._e()])], 1)])])]);
 };
 
 var staticRenderFns = [function () {
@@ -2872,24 +2878,6 @@ var staticRenderFns = [function () {
   }, [_c("p", {
     staticClass: "mb-0"
   }, [_vm._v("GO!")])])])]);
-}, function () {
-  var _vm = this,
-      _c = _vm._self._c;
-
-  return _c("div", {
-    staticClass: "dd-row py-3 pl-3"
-  }, [_c("p", {
-    staticClass: "mb-0"
-  }, [_vm._v("Registrati")])]);
-}, function () {
-  var _vm = this,
-      _c = _vm._self._c;
-
-  return _c("div", {
-    staticClass: "dd-row py-3 pl-3"
-  }, [_c("p", {
-    staticClass: "mb-0"
-  }, [_vm._v("Log out")])]);
 }];
 render._withStripped = true;
 
@@ -3023,7 +3011,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "header[data-v-494e1ffe] {\n  z-index: 999;\n  background-color: rgba(0, 0, 0, 0.575);\n  position: fixed;\n  width: 100%;\n  color: rgba(36, 36, 36, 0.884);\n}\nheader .logo[data-v-494e1ffe] {\n  height: 50px;\n  width: 90px;\n}\nheader .nav-map[data-v-494e1ffe] {\n  cursor: pointer;\n  width: 80%;\n  height: 45px;\n  background-color: #ede6e3;\n  border: 1px solid rgb(138, 135, 135);\n}\nheader .nav-map .search-i[data-v-494e1ffe] {\n  font-size: 1.2rem;\n  color: #2596be;\n}\nheader .nav-map .nav-text[data-v-494e1ffe] {\n  color: rgba(36, 36, 36, 0.884);\n}\nheader .nav-map .nav-text .question[data-v-494e1ffe] {\n  font-size: 0.7rem;\n  font-weight: bolder;\n}\nheader .nav-map .nav-text .answer[data-v-494e1ffe] {\n  font-size: 0.6rem;\n}\nheader .nav-map .slider-box[data-v-494e1ffe] {\n  border-radius: 50%;\n  height: 30px;\n  width: 30px;\n  font-size: 0.8rem;\n  background-color: #2596be;\n  color: #ede6e3;\n}\nheader .link-col a[data-v-494e1ffe] {\n  color: #ede6e3;\n  font-size: 0.8rem;\n  font-weight: bold;\n}\nheader .link-col i[data-v-494e1ffe] {\n  font-size: 1.2rem;\n  color: #2596be;\n}\nheader .link-col .user-box[data-v-494e1ffe] {\n  background-color: #ede6e3;\n  border: 1px solid rgb(138, 135, 135);\n  position: relative;\n  height: 45px;\n}\nheader .link-col .user-box i[data-v-494e1ffe] {\n  font-size: 1rem;\n  color: #2596be;\n}\nheader .link-col .user-box .fa-circle-user[data-v-494e1ffe] {\n  font-size: 1.5rem;\n  color: rgba(0, 0, 0, 0.884);\n}\nheader .link-col .user-box .drop-d[data-v-494e1ffe] {\n  top: 46px;\n  left: 50%;\n  border: 1px solid rgb(138, 135, 135);\n  background-color: #ffe3e0;\n  border-radius: 5px;\n  transform: translate(-50%);\n  width: 200%;\n  min-height: 100px;\n}\nheader .link-col .user-box .drop-d .dd-row[data-v-494e1ffe] {\n  border-bottom: 1px solid rgb(138, 135, 135);\n}", ""]);
+exports.push([module.i, "header[data-v-494e1ffe] {\n  z-index: 999;\n  background-color: rgba(0, 0, 0, 0.575);\n  position: fixed;\n  width: 100%;\n  color: rgba(36, 36, 36, 0.884);\n}\nheader .logo[data-v-494e1ffe] {\n  height: 50px;\n  width: 90px;\n}\nheader .nav-map[data-v-494e1ffe] {\n  cursor: pointer;\n  width: 80%;\n  height: 45px;\n  background-color: #ede6e3;\n  border: 1px solid rgb(138, 135, 135);\n}\nheader .nav-map .search-i[data-v-494e1ffe] {\n  font-size: 1.2rem;\n  color: #2596be;\n}\nheader .nav-map .nav-text[data-v-494e1ffe] {\n  color: rgba(36, 36, 36, 0.884);\n}\nheader .nav-map .nav-text .question[data-v-494e1ffe] {\n  font-size: 0.7rem;\n  font-weight: bolder;\n}\nheader .nav-map .nav-text .answer[data-v-494e1ffe] {\n  font-size: 0.6rem;\n}\nheader .nav-map .slider-box[data-v-494e1ffe] {\n  border-radius: 50%;\n  height: 30px;\n  width: 30px;\n  font-size: 0.8rem;\n  background-color: #2596be;\n  color: #ede6e3;\n}\nheader .link-col a[data-v-494e1ffe] {\n  color: #ede6e3;\n  font-size: 0.8rem;\n  font-weight: bold;\n}\nheader .link-col i[data-v-494e1ffe] {\n  font-size: 1.2rem;\n  color: #2596be;\n}\nheader .link-col .user-box[data-v-494e1ffe] {\n  background-color: #ede6e3;\n  border: 1px solid rgb(138, 135, 135);\n  position: relative;\n  height: 45px;\n}\nheader .link-col .user-box i[data-v-494e1ffe] {\n  font-size: 1rem;\n  color: #2596be;\n}\nheader .link-col .user-box .fa-circle-user[data-v-494e1ffe] {\n  font-size: 1.5rem;\n  color: rgba(0, 0, 0, 0.884);\n}\nheader .link-col .user-box .drop-d[data-v-494e1ffe] {\n  top: 46px;\n  left: 50%;\n  border: 1px solid rgb(138, 135, 135);\n  background-color: #f0f0f0;\n  border-radius: 5px;\n  transform: translate(-50%);\n  width: 200%;\n  min-height: 100px;\n}\nheader .link-col .user-box .drop-d .dd-row[data-v-494e1ffe] {\n  border-bottom: 1px solid rgb(138, 135, 135);\n}\nheader .link-col .user-box .drop-d a[data-v-494e1ffe] {\n  cursor: pointer;\n}", ""]);
 
 // exports
 

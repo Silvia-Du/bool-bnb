@@ -46,28 +46,53 @@
 
 .message-page{
     //COL NAV MEX
-    .message, .account{
-        border-bottom: 1px solid gray;
-        h4, h5{
-            font-weight: bold;
+    .nav-mex{
+        height: 100vh;
+        .message, .account, .message-appart, .message-user{
+            border-bottom: 1px solid gray;
+            h4, h5, h6{
+                font-weight: bold;
+
+            }
         }
-    }
-    .account{
-        .img{
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
+        .message{
+            img{
+                width: 55px;
+            }
+        }
+        .message-appart, .message-user{
+
+            img{
+                width: 30px;
+            }
+            .insights{
+                width: 45px;
+            }
+
+        }
+        .account{
+            .img{
+                width: 50px;
+                height: 50px;
+                border-radius: 50%;
+            }
         }
     }
     //JUMBOTRON COL
     .jumbo{
-        background-image: url(../../../public/img/message-jumbo2.png);
         background-position: center;
         background-size: cover;
         height: 610px;
         overflow: hidden;
-        img{
-            width: 100%;
+        .jubo-user, .jumbo-host{
+            background-position: center;
+            background-size: cover;
+        }
+        .jubo-user{
+            background-image: url(../../../public/img/message-jumbo2.png);
+        }
+        .jumbo-host{
+            background-image: url(../../../public/img/message-jumbo.png);
         }
 
         .text{
@@ -75,28 +100,19 @@
                 font-weight: bold;
             }
             &.host{
-                .col-6{
-                    border-radius: 5px;
-                    background-color: #ebd9d962;
-                }
-                top: 260px;
-                left: -40px
+                border-radius: 5px;
+                background-color: #ebd9d962;
             }
             &.user{
-                .col-6{
-                    border-radius: 5px;
-                    background-color: #50505073;
-                }
+                border-radius: 5px;
+                background-color: #44444473;
                 color: whitesmoke;
-                top: 260px;
-                right: -40px;
             }
         }
-
-
-
     }
 }
+
+// END/MESSAGE PAGE
 
 .box-house{
     border-bottom: 1px solid gray;
