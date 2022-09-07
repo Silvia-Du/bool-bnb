@@ -273,6 +273,7 @@ function loginValidation() {
 }
 
 /* END LOGIN VALIDATION */
+
 function getAddEvent(button) {
     button.addEventListener('click', function (event) {
         let errorsAny = false;

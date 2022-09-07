@@ -1,9 +1,11 @@
 <template>
-  <div>
-    <HeaderComp :bgHeader="true" />
-    <main @scroll="bgHeader()">
 
-        <router-view></router-view>
+  <div>
+    
+    <HeaderComp @mandoInput="mandoInput" />
+    <main>
+
+        <router-view :input="input"></router-view>
 
     </main>
     <FooterComp />
@@ -24,9 +26,14 @@ export default {
 
     data() {
         return {
-
+          input: null
         }
     },
+    methods:{
+      mandoInput(data){
+        this.input = data
+      }
+    }
 
 }
 </script>
