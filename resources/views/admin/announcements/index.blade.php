@@ -46,21 +46,21 @@
                             </ol>
                             <div class="carousel-inner">
                               <div class="carousel-item active">
-                                <img class="d-block w-100 " src="https://www.smilingischic.com/wp-content/uploads/2017/01/smilingischic-travel-homeaway-francia-altasavoia-9439.jpg" alt="First slide">
+                                <img class="d-block  " src="https://www.smilingischic.com/wp-content/uploads/2017/01/smilingischic-travel-homeaway-francia-altasavoia-9439.jpg" alt="First slide">
                                 <div class="carousel-caption ">
                                     <h3>Airbnb mi ha permesso di fare il lavoro che amo: prendermi cura degli ospiti nella nostra casa.</h3>
                                     <p>Michela Mai</p>
                                 </div>
                               </div>
                               <div class="carousel-item">
-                                <img class="d-block w-100 h-25" src="https://jeve.it/wp-content/uploads/2021/03/PAS.05.21.Brunello_Cucinelli-featured-2240x1493.jpg" alt="Second slide">
+                                <img class="d-block  " src="https://jeve.it/wp-content/uploads/2021/03/PAS.05.21.Brunello_Cucinelli-featured-2240x1493.jpg" alt="Second slide">
                                 <div class="carousel-caption ">
                                     <h3>Affittare la mia casa mi ha permesso di intraprendere un'attività imprenditoriale, aprendomi la strada verso la libertà finanziaria.</h3>
                                     <p>- Mario Rossi</p>
                                 </div>
                               </div>
                               <div class="carousel-item">
-                                <img class="d-block w-100 h-25" src="https://www.inattraction.com/wp-content/uploads/2021/03/Come-far-impazzire-una-ragazza-o-una-donna.jpg" alt="Third slide">
+                                <img class="d-block  " src="https://www.inattraction.com/wp-content/uploads/2021/03/Come-far-impazzire-una-ragazza-o-una-donna.jpg" alt="Third slide">
                                 <div class="carousel-caption ">
                                     <h3>Affittare il mio monolocale mi ha cambiato la vita e mi ha regalato esperienze memorabili con persone fantastiche.</h3>
                                     <p>- Claudia Rossi</p>

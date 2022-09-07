@@ -144,6 +144,10 @@ class AnnouncementController extends Controller
 
         }
 
+        if(Auth::id() != $announcement->user_id){
+            abort(403);
+        }
+
         return view('admin.announcements.show', compact('announcement','visualizations'));
     }
 
