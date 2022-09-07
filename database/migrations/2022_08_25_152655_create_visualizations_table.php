@@ -16,6 +16,7 @@ class CreateVisualizationsTable extends Migration
         Schema::create('visualizations', function (Blueprint $table) {
             $table->id();
             $table->string('ip_address');
+            $table->date('create_date');
             $table->timestamps();
         });
     }

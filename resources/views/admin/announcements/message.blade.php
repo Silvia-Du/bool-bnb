@@ -29,14 +29,14 @@
 
                 {{-- GUSET --}}
                 @if (!$user->announcements)
-                <div class="message-user debug py-4 d-flex align-items-center">
+                <div id="view-for-user" class="message-user debug py-4 d-flex align-items-center">
                     <img src="{{ asset('img/icon-message3.png') }}" alt="users">
                     <h6 class="mb-0 ml-3">Vedi tutti</h6>
                 </div>
 
                  @else
                 {{-- HOST --}}
-                <div class="message-host debug py-4 d-flex align-items-center">
+                <div id="view-for-user" class="message-host debug py-4 d-flex align-items-center">
                     <img src="{{ asset('img/icon-message3.png') }}" alt="users">
                     <h6 class="mb-0 ml-3">Vedi tutti</h6>
                 </div>
@@ -50,7 +50,7 @@
                <p class="mex-title my-3">Messaggi Ricevuti</p>
             @endif
             {{-- USER-CONTAINER --}}
-            <div class="user-container debug py-4 d-none">
+            <div id="user-box" class="user-container debug py-4 d-none">
                 <div class="scroll-section">
                     @foreach ($announcements as $announcement)
                     @foreach ($announcement->messages as $message)
@@ -67,7 +67,7 @@
             </div>
             {{-- /USER-CONTAINER --}}
             {{-- /HOME CONTAINER --}}
-            <div class="user-container debug py-4">
+            <div id="appartament-box" class="appartament-container debug py-4">
                 <div class="scroll-section">
                     @foreach ($announcements as $announcement)
 
@@ -76,9 +76,18 @@
                             <div class="mx-2 img debug"></div>
                             <p class="mb-0">Nome appartamento</p>
                         </div>
+
+                        @if (count($announcement->messages) != 0)
                         <div class="mex-count debug d-flex justify-content-center align-items-center mr-2">
                             <p class="mb-0 ">{{ count($announcement->messages) }}</p>
                         </div>
+                        @else
+                        <div class="no-mex p-2 d-flex">
+                            <p class="mb-0 ">Nessun</p>
+                            <img src="{{ asset('img/admin-icon1.png') }}" alt="">
+                        </div>
+                        @endif
+
                     </div>
 
                     @endforeach
@@ -120,3 +129,10 @@
 </div>
 
 @endsection
+
+<script>
+    const boxAppartament = document.getElementById('appartament-box');
+    const btnAppartament = document.getElementById('view-for-user');
+    const boxUsers = document.getElementById('user-box');
+    const btnUsers = document.getElementById('view-for-user');
+</script>

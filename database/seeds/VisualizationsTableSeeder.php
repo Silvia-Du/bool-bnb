@@ -15,10 +15,11 @@ class VisualizationsTableSeeder extends Seeder
      */
     public function run(Faker $faker)
     {
-        for ($i=0; $i <100; $i++)
+        for ($i=0; $i <800; $i++)
         {
             $new_visualization = new Visualization();
             $new_visualization->ip_address = $faker->ipv4();
+            $new_visualization->create_date = $faker->dateTimeBetween('-30 week ');
             $announcement_id = Announcement::inRandomOrder()->first()->id;
             $new_visualization->announcement_id = $announcement_id;
             $new_visualization->save();

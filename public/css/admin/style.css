@@ -11081,6 +11081,10 @@ a.text-dark:focus {
   border-radius: 50%;
 }
 
+.message-page .nav-mex .appart-item .no-mex img {
+  width: 30px;
+}
+
 .message-page .jumbo {
   height: 100vh;
   overflow: hidden;
