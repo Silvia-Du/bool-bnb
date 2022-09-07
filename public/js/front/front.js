@@ -2084,14 +2084,13 @@ __webpack_require__.r(__webpack_exports__);
     return {
       isShow: true,
       servicesApi: 'api/announcements/get-services',
-      advancedResearchApi: 'api/announcements/advanced-research/',
       services: 'all',
       checkedServices: [],
       checkedCategory: [],
       selectedRoomType: 'all',
       indexSelectedRoom: -1,
       roomTypeCollection: ['stanza singola', 'stanza condivisa', 'intero alloggio'],
-      numberOfSheet: ['Qualsiasi', 1, 2, 3],
+      numberOfSheet: ['Qualsiasi', '1', '2', '3+'],
       selectedRooms: 'all',
       roomIndex: 0,
       selectedBeds: 'all',
@@ -2173,11 +2172,7 @@ __webpack_require__.r(__webpack_exports__);
         roomType: this.selectedRoomType,
         services: this.checkedServices,
         houseType: this.checkedCategory
-      }, // this.$emit('filterData', this.data);
-      // console.log(this.data);
-      axios.get(this.advancedResearchApi + this.selectedRooms + '/' + this.selectedBeds).then(function (response) {
-        console.log(response);
-      });
+      }, this.$emit('filterData', this.data); // console.log(this.data);
     }
   },
   mounted: function mounted() {
@@ -2637,11 +2632,11 @@ var render = function render() {
   }, [_c("h5", {
     staticClass: "my-3"
   }, [_vm._v("Tipologia di alloggio")]), _vm._v(" "), _c("div", {
-    staticClass: "row d-flex justify-content-around py-3 px-lg-5 mb-3"
+    staticClass: "row d-flex py-3 px-lg-5 mb-3"
   }, _vm._l(_vm.roomTypeCollection, function (roomT, i) {
     return _c("div", {
       key: "room".concat(i),
-      staticClass: "col-3 room-cad debug mx-xl-4 d-flex justify-content-between align-items-center",
+      staticClass: "col-3 room-cad mx-xl-4 d-flex justify-content-between align-items-center",
       on: {
         click: function click($event) {
           return _vm.getRoomType(roomT, i);
@@ -2659,7 +2654,7 @@ var render = function render() {
   }, [_c("p", {
     staticClass: "my-2"
   }, [_vm._v("Camere")]), _vm._v(" "), _c("div", {
-    staticClass: "col-12 d-flex justify-content-lg-start align-items-center"
+    staticClass: "col-12 d-flex justify-content-lg-start align-items-center info"
   }, _vm._l(_vm.numberOfSheet, function (room, i) {
     return _c("div", {
       key: "room".concat(i),
@@ -2676,7 +2671,7 @@ var render = function render() {
   }), 0), _vm._v(" "), _c("p", {
     staticClass: "mt-4 mb-2"
   }, [_vm._v("Letti")]), _vm._v(" "), _c("div", {
-    staticClass: "col-12 d-flex justify-content-lg-start align-items-center"
+    staticClass: "col-12 d-flex justify-content-lg-start align-items-center info"
   }, _vm._l(_vm.numberOfSheet, function (bed, i) {
     return _c("div", {
       key: "bed".concat(i),
@@ -2693,7 +2688,7 @@ var render = function render() {
   }), 0), _vm._v(" "), _c("p", {
     staticClass: "mt-4 mb-2"
   }, [_vm._v("Bagni")]), _vm._v(" "), _c("div", {
-    staticClass: "col-12 d-flex justify-content-lg-start align-items-center mb-3"
+    staticClass: "col-12 d-flex justify-content-lg-start align-items-center mb-3 info"
   }, _vm._l(_vm.numberOfSheet, function (bathrom, i) {
     return _c("div", {
       key: "bath".concat(i),
@@ -3207,7 +3202,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, ".modal-container[data-v-17e0e4f4] {\n  background-color: #ede6e3;\n  box-shadow: 0px 0px 10px 1px rgb(172, 172, 172);\n  position: absolute;\n  z-index: 999;\n  border-radius: 10px;\n  width: 60%;\n  top: 100px;\n  left: 50%;\n  transform: translate(-50%);\n}\n.modal-container p[data-v-17e0e4f4] {\n  font-weight: bold;\n}\n.modal-container .check-b[data-v-17e0e4f4] {\n  border: 1px solid rgb(51, 51, 51);\n  border-radius: 5px;\n  width: 20px;\n  height: 20px;\n  font-size: 1.5rem;\n  cursor: pointer;\n}\n.modal-container .m-modal[data-v-17e0e4f4] {\n  position: relative;\n  border-radius: 10px;\n}\n.modal-container .fa-x[data-v-17e0e4f4] {\n  position: absolute;\n  font-size: 1.2rem;\n  right: 18px;\n  top: 13px;\n}\n.modal-container .filter[data-v-17e0e4f4] {\n  border-top: 1px solid gray;\n}\n.modal-container .filter .room-cad[data-v-17e0e4f4] {\n  height: 50px;\n  border-radius: 5px;\n}\n.modal-container .filter .buttton-row ._btn[data-v-17e0e4f4] {\n  border: 1px solid #36382e;\n  background-color: #f0f0f0;\n  width: 120px;\n  text-align: center;\n  margin: 0 20px 0 0;\n  cursor: pointer;\n}\n.modal-container .filter .buttton-row ._btn.black[data-v-17e0e4f4] {\n  background-color: rgb(31, 30, 30);\n  color: rgb(219, 219, 219);\n}\n.modal-container .filter .cat-service-row .container-fluid[data-v-17e0e4f4] {\n  box-shadow: 0px 0px 10px 1px rgb(204, 202, 202);\n  border-radius: 5px;\n}\n.modal-container .filter .cat-service-row .cat-card[data-v-17e0e4f4] {\n  height: 91px;\n  border-radius: 15px;\n  flex-shrink: 0;\n}\n.modal-container .filter .cat-service-row .cat-card .cat-box[data-v-17e0e4f4] {\n  border-radius: 15px;\n  background-color: #ede6e3;\n  border: 1px solid #f06449;\n  cursor: pointer;\n}\n.modal-container .filter .cat-service-row .cat-card .cat-box[data-v-17e0e4f4]:hover {\n  background-color: #d6cac8;\n}\n.modal-container .filter .cat-service-row .cat-card .cat-box p[data-v-17e0e4f4] {\n  text-transform: capitalize;\n}\n.modal-container .filter .cat-service-row label[data-v-17e0e4f4] {\n  font-size: 1rem;\n}\n.modal-container .filter .cat-service-row i[data-v-17e0e4f4] {\n  font-size: 1.4rem;\n  color: #36382e;\n}\n.modal-container .filter .cat-service-row .category-col[data-v-17e0e4f4] {\n  border-top: 1px solid rgb(172, 172, 172);\n}\n.modal-container .filter .cat-service-row .category-col .fa-circle-check[data-v-17e0e4f4] {\n  top: 8px;\n  right: 7px;\n  color: #ef6351;\n}\n.modal-container .filter .cat-service-row .services-col[data-v-17e0e4f4] {\n  border-top: 1px solid rgb(172, 172, 172);\n  border-radius: 5px;\n}\n.modal-container .filter .cat-service-row .services-col .fa-square-check[data-v-17e0e4f4] {\n  color: #ef6351;\n  font-size: 1.4rem;\n}\n.modal-container .filter .action-row[data-v-17e0e4f4] {\n  border-top: 1px solid gray;\n}\n.modal-container .filter .action-row .delete-all[data-v-17e0e4f4] {\n  text-decoration: underline;\n  font-weight: bold;\n  font-size: 1rem;\n  cursor: pointer;\n}\n.modal-container .filter .action-row .show-location[data-v-17e0e4f4] {\n  background-color: rgb(36, 36, 36);\n  color: white;\n  width: 172px;\n  flex-shrink: 0;\n  cursor: pointer;\n}", ""]);
+exports.push([module.i, ".modal-container[data-v-17e0e4f4] {\n  background-color: #ede6e3;\n  box-shadow: 0px 0px 10px 1px rgb(172, 172, 172);\n  position: absolute;\n  z-index: 999;\n  border-radius: 10px;\n  width: 60%;\n  top: 100px;\n  left: 50%;\n  transform: translate(-50%);\n}\n.modal-container p[data-v-17e0e4f4] {\n  font-weight: bold;\n}\n.modal-container .info[data-v-17e0e4f4] {\n  display: flex;\n  flex-wrap: wrap;\n  margin-bottom: 10px;\n}\n.modal-container .check-b[data-v-17e0e4f4] {\n  border: 1px solid rgb(51, 51, 51);\n  border-radius: 5px;\n  width: 20px;\n  height: 20px;\n  font-size: 1.5rem;\n  cursor: pointer;\n}\n.modal-container .m-modal[data-v-17e0e4f4] {\n  position: relative;\n  border-radius: 10px;\n}\n.modal-container .fa-x[data-v-17e0e4f4] {\n  position: absolute;\n  font-size: 1.2rem;\n  right: 18px;\n  top: 13px;\n}\n.modal-container .filter[data-v-17e0e4f4] {\n  border-top: 1px solid gray;\n  overflow-y: scroll;\n  height: calc(100vh - 250px);\n}\n.modal-container .filter[data-v-17e0e4f4]::-webkit-scrollbar {\n  width: 5px;\n}\n.modal-container .filter[data-v-17e0e4f4]::-webkit-scrollbar-track {\n  box-shadow: inset 0 0 5px grey;\n  border-radius: 10px;\n}\n.modal-container .filter[data-v-17e0e4f4]::-webkit-scrollbar-thumb {\n  background: linear-gradient(to top, #EF6351, #F38375, #F7A399);\n  border-radius: 10px;\n}\n.modal-container .filter .room-cad[data-v-17e0e4f4] {\n  height: 50px;\n  display: flex;\n  flex-wrap: wrap;\n}\n.modal-container .filter .buttton-row ._btn[data-v-17e0e4f4] {\n  border: 1px solid #36382e;\n  background-color: #f0f0f0;\n  width: 120px;\n  text-align: center;\n  margin: 20px 20px 10px 0;\n  cursor: pointer;\n}\n.modal-container .filter .buttton-row ._btn.black[data-v-17e0e4f4] {\n  background: linear-gradient(to right, #EF6351, #F38375, #F7A399);\n  color: rgb(219, 219, 219);\n}\n.modal-container .filter .cat-service-row .container-fluid[data-v-17e0e4f4] {\n  box-shadow: 0px 0px 10px 1px rgb(204, 202, 202);\n  border-radius: 5px;\n}\n.modal-container .filter .cat-service-row .cat-card[data-v-17e0e4f4] {\n  height: 100px;\n  border-radius: 15px;\n  flex-shrink: 0;\n  text-align: center;\n}\n.modal-container .filter .cat-service-row .cat-card .cat-box[data-v-17e0e4f4] {\n  border-radius: 15px;\n  background-color: #ede6e3;\n  border: 1px solid #f06449;\n  transition: ease-out 0.5s;\n  outline: none;\n}\n.modal-container .filter .cat-service-row .cat-card .cat-box[data-v-17e0e4f4]:hover {\n  cursor: pointer;\n  box-shadow: inset 0 172px 0 0 #EF6351;\n  color: white;\n}\n.modal-container .filter .cat-service-row .cat-card .cat-box p[data-v-17e0e4f4] {\n  text-transform: capitalize;\n}\n.modal-container .filter .cat-service-row label[data-v-17e0e4f4] {\n  font-size: 1rem;\n}\n.modal-container .filter .cat-service-row i[data-v-17e0e4f4] {\n  font-size: 1.4rem;\n  color: #36382e;\n}\n.modal-container .filter .cat-service-row .category-col[data-v-17e0e4f4] {\n  border-top: 1px solid rgb(172, 172, 172);\n}\n.modal-container .filter .cat-service-row .category-col .fa-circle-check[data-v-17e0e4f4] {\n  top: 8px;\n  right: 7px;\n  color: #ef6351;\n}\n.modal-container .filter .cat-service-row .services-col[data-v-17e0e4f4] {\n  border-top: 1px solid rgb(172, 172, 172);\n  border-radius: 5px;\n}\n.modal-container .filter .cat-service-row .services-col .fa-square-check[data-v-17e0e4f4] {\n  color: #ef6351;\n  font-size: 1.4rem;\n}\n.modal-container .filter .action-row[data-v-17e0e4f4] {\n  border-top: 1px solid gray;\n  overflow: hidden;\n}\n.modal-container .filter .action-row .delete-all[data-v-17e0e4f4] {\n  text-decoration: underline;\n  font-weight: bold;\n  font-size: 1rem;\n  transition: 0.5s;\n  cursor: pointer;\n}\n.modal-container .filter .action-row .delete-all[data-v-17e0e4f4]:hover {\n  color: #EF6351;\n}\n.modal-container .filter .action-row .show-location[data-v-17e0e4f4] {\n  background: linear-gradient(to right, #EF6351, #F38375, #F7A399);\n  color: white;\n  width: 172px;\n  flex-shrink: 0;\n  transition: ease-out 0.5s;\n  outline: none;\n  cursor: pointer;\n}\n.modal-container .filter .action-row .show-location[data-v-17e0e4f4]:hover {\n  box-shadow: inset 172px 0 0 0 #EF6351;\n}", ""]);
 
 // exports
 
