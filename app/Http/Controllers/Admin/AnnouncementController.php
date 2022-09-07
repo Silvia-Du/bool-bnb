@@ -5,6 +5,7 @@ use App\http\Requests\AnnouncementRequest;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Service;
+use App\Visualization;
 use App\Announcement;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Auth;
@@ -86,8 +87,64 @@ class AnnouncementController extends Controller
      */
     public function show($id)
     {
+        $limit = 0;
+        $tot_month = 6;
+        $visualizations=[
+            [
+                'mese'=>'Gennaio',
+                'visualizzazioni'=> 0
+            ],
+            [
+                'mese'=>'Febbraio',
+                'visualizzazioni'=> 0
+            ],
+            [
+                'mese'=>'Marzo',
+                'visualizzazioni'=> 0
+            ],
+            [
+                'mese'=>'Aprile',
+                'visualizzazioni'=> 0
+            ],
+            [
+                'mese'=>'Maggio',
+                'visualizzazioni'=> 0
+            ],
+            [
+                'mese'=>'Giugno',
+                'visualizzazioni'=> 0
+            ]
+        ];
+
         $announcement = Announcement::find($id);
-        return view('admin.announcements.show', compact('announcement'));
+        for ($i=0; $i < $tot_month ; $i++) {
+            $month = Visualization::where('announcement_id',$id)->whereMonth('create_date', $limit)->count();
+
+
+                $visualizations[0]['visualizzazioni'] = $month;
+
+            $limit++;
+
+            if($limit == 1){
+                $visualizations[1]['visualizzazioni'] = $month;
+            }
+            elseif($limit == 2){
+                $visualizations[2]['visualizzazioni'] = $month;
+            }
+            elseif($limit == 3){
+                $visualizations[3]['visualizzazioni'] = $month;
+            }
+            elseif($limit == 4){
+                $visualizations[4]['visualizzazioni'] = $month;
+            }
+            elseif($limit == 5){
+                $visualizations[5]['visualizzazioni'] = $month;
+            }
+
+
+        }
+
+        return view('admin.announcements.show', compact('announcement','visualizations'));
     }
 
     /**

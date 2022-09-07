@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+
     <div class="container my-5">
         <div class="text-center">
             <h1>{{ $announcement->title }}</h1>
@@ -58,8 +59,59 @@
                 <div class="card-body">
                     <p class="lead">Statistiche annuncio</p>
 
-                    <img src="https://api.backlinko.com/app/uploads/2021/06/airbnb-revenue.png"
-                        class="img-fluid d-block mx-lg-auto rounded" alt="chart example" width="700" height="250">
+                    <div>
+                        <canvas id="myChart"></canvas>
+                    </div>
+
+
+                    <script>
+                        const labels = [
+
+
+                            '<?php echo $visualizations[0]['mese']?>',
+                            '<?php echo $visualizations[1]['mese']?>',
+                            '<?php echo $visualizations[2]['mese']?>',
+                            '<?php echo $visualizations[3]['mese']?>',
+                            '<?php echo $visualizations[4]['mese']?>',
+                            '<?php echo $visualizations[5]['mese']?>'
+
+
+
+                        ];
+
+                        const data = {
+                          labels: labels,
+                          datasets: [{
+                            label: 'Visualizzazioni',
+                            backgroundColor: '#d7e3fc',
+                            borderColor: '#d7e3fc',
+                            data:
+                            [
+                                <?php echo $visualizations[0]['visualizzazioni']?>,
+                                <?php echo $visualizations[1]['visualizzazioni']?>,
+                                <?php echo $visualizations[2]['visualizzazioni']?>,
+                                <?php echo $visualizations[3]['visualizzazioni']?>,
+                                <?php echo $visualizations[4]['visualizzazioni']?>,
+                                <?php echo $visualizations[5]['visualizzazioni']?>
+                            ] ,
+                        }]
+                        };
+
+                        const config = {
+                          type: 'bar',
+                          data: data,
+                          options: {
+
+                          }
+                        };
+                      </script>
+
+                        <script>
+                            const myChart = new Chart(
+                            document.getElementById('myChart'),
+                            config
+                            );
+                        </script>
 
                 </div>
             </div>
