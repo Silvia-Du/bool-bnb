@@ -1,18 +1,8 @@
 <template>
-<<<<<<< HEAD
-=======
-  <div >
-    <HeaderComp />
-    <main >
->>>>>>> b8362f7a32add5c34c9845b076d536f4d7763840
-
   <div>
-    
     <HeaderComp @mandoInput="mandoInput" />
     <main>
-
-        <router-view :input="input"></router-view>
-
+      <router-view :input="input"></router-view>
     </main>
     <FooterComp />
   </div>
