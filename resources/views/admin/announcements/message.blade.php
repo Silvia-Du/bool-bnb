@@ -29,26 +29,20 @@
 
                 {{-- GUSET --}}
                 @if (!$user->announcements)
-
                 <div class="message-user debug py-4 d-flex align-items-center">
                     <img src="{{ asset('img/icon-message3.png') }}" alt="users">
                     <h6 class="mb-0 ml-3">Vedi per host</h6>
                 </div>
 
                  @else
-
                 {{-- HOST --}}
                 <div class="message-user debug py-4 d-flex align-items-center">
                     <img src="{{ asset('img/icon-message3.png') }}" alt="users">
                     <h6 class="mb-0 ml-3">Vedi per utenti</h6>
                 </div>
-
-                <div class="message-user debug py-4 d-flex align-items-center">
-                    <img class="insights" src="{{ asset('img/icon-message4.png') }}" alt="users">
-                    <h5 class="mb-0 ml-3 mt-1">Vai alle performance</h5>
-                </div>
                 @endif
                 {{-- /HOST --}}
+
             </div>
             {{-- NAV-SM --}}
             <div class="small-nav" ></div>
