@@ -11008,6 +11008,10 @@ a.text-dark:focus {
   height: 100vh;
 }
 
+.message-page .nav-mex .mex-title {
+  font-weight: bold;
+}
+
 .message-page .nav-mex .message,
 .message-page .nav-mex .account,
 .message-page .nav-mex .message-appart,
@@ -11035,39 +11039,66 @@ a.text-dark:focus {
 }
 
 .message-page .nav-mex .message-appart img,
-.message-page .nav-mex .message-user img {
-  width: 30px;
+.message-page .nav-mex .message-user img,
+.message-page .nav-mex .message-host img {
+  width: 35px;
 }
 
 .message-page .nav-mex .message-appart .insights,
-.message-page .nav-mex .message-user .insights {
+.message-page .nav-mex .message-user .insights,
+.message-page .nav-mex .message-host .insights {
   width: 45px;
 }
 
-.message-page .nav-mex .account .img {
+.message-page .nav-mex .account .img,
+.message-page .nav-mex .user-container .img {
   width: 50px;
   height: 50px;
   border-radius: 50%;
 }
 
+.message-page .nav-mex .user-container {
+  overflow-y: auto;
+}
+
+.message-page .nav-mex .user-container .user-item {
+  border-bottom: 1px solid rgb(32, 32, 32);
+}
+
+.message-page .nav-mex .user-container .user-item .date {
+  color: rgb(88, 86, 86);
+}
+
+.message-page .nav-mex .appart-item .img {
+  width: 90px;
+  height: 60px;
+  border-radius: 5px;
+}
+
+.message-page .nav-mex .appart-item .mex-count {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+}
+
 .message-page .jumbo {
-  background-position: center;
-  background-size: cover;
-  height: 610px;
+  height: 100vh;
   overflow: hidden;
 }
 
-.message-page .jumbo .jubo-user,
+.message-page .jumbo .jumbo-user,
 .message-page .jumbo .jumbo-host {
-  background-position: center;
   background-size: cover;
+  height: 500px;
 }
 
-.message-page .jumbo .jubo-user {
+.message-page .jumbo .jumbo-user {
+  background-position: center;
   background-image: url(/images/message-jumbo2.png?9ba31ea73c9f3d7be1ffaaaefb8145d4);
 }
 
 .message-page .jumbo .jumbo-host {
+  background-position: bottom;
   background-image: url(/images/message-jumbo.png?4b85e35882b6b67a72d15edd1adacc57);
 }
 

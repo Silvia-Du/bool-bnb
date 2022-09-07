@@ -23,7 +23,7 @@
                 </div>
 
                 <div class="message-appart debug py-4 d-flex align-items-center">
-                    <img class="mb-1" src="{{ asset('img/icon-message2.png') }}" alt="home">
+                    <img src="{{ asset('img/icon-message2.png') }}" alt="home">
                     <h6 class="mb-0 ml-3">Vedi per Appartamento</h6>
                 </div>
 
@@ -31,28 +31,71 @@
                 @if (!$user->announcements)
                 <div class="message-user debug py-4 d-flex align-items-center">
                     <img src="{{ asset('img/icon-message3.png') }}" alt="users">
-                    <h6 class="mb-0 ml-3">Vedi per host</h6>
+                    <h6 class="mb-0 ml-3">Vedi tutti</h6>
                 </div>
 
                  @else
                 {{-- HOST --}}
-                <div class="message-user debug py-4 d-flex align-items-center">
+                <div class="message-host debug py-4 d-flex align-items-center">
                     <img src="{{ asset('img/icon-message3.png') }}" alt="users">
-                    <h6 class="mb-0 ml-3">Vedi per utenti</h6>
+                    <h6 class="mb-0 ml-3">Vedi tutti</h6>
                 </div>
                 @endif
                 {{-- /HOST --}}
-
             </div>
-            {{-- NAV-SM --}}
+            {{-- LISTA --}}
+            @if (!$user->announcements)
+               <p class="mex-title my-3">Messaggi Inviati</p>
+               @else
+               <p class="mex-title my-3">Messaggi Ricevuti</p>
+            @endif
+            {{-- USER-CONTAINER --}}
+            <div class="user-container debug py-4 d-none">
+                <div class="scroll-section">
+                    @foreach ($announcements as $announcement)
+                    @foreach ($announcement->messages as $message)
+                    <div class="user-item debug d-flex align-items-center justify-content-between py-2 mb-1">
+                        <div class="d-flex align-items-center">
+                            <div class="img debug ml-2"></div>
+                            <h6 class="mb-0 ml-3">Nome Mittente</h6>
+                        </div>
+                        <p class="mb-0 mr-2 date">Data messaggio</p>
+                    </div>
+                    @endforeach
+                    @endforeach
+                </div>
+            </div>
+            {{-- /USER-CONTAINER --}}
+            {{-- /HOME CONTAINER --}}
+            <div class="user-container debug py-4">
+                <div class="scroll-section">
+                    @foreach ($announcements as $announcement)
+
+                    <div class="appart-item debug py-3 d-flex justify-content-between align-items-center">
+                        <div class="d-flex align-items-center">
+                            <div class="mx-2 img debug"></div>
+                            <p class="mb-0">Nome appartamento</p>
+                        </div>
+                        <div class="mex-count debug d-flex justify-content-center align-items-center mr-2">
+                            <p class="mb-0 ">{{ count($announcement->messages) }}</p>
+                        </div>
+                    </div>
+
+                    @endforeach
+                </div>
+            </div>
+            {{-- /HOME-CONTAINER --}}
+
+
+            {{-- NAV-SM ----------}}
             <div class="small-nav" ></div>
 
         </div>
         {{-- MAIN COL JUMBO --}}
         <div class="col-11 col-md-9 jumbo debug">
             {{-- GUEST --}}
-            @if (!$user->announcements)
-            <div class="jumbo-user h-100 container-fluid  d-flex align-items-center justify-content-center pl-5">
+            @if ($user->announcements)
+            <div class="jumbo-user container-fluid  d-flex align-items-center justify-content-center pl-5">
                 <div class="row">
                     <div class="col-6 offset-6 text user p-3 mt-5">
                         <h1>I nostri Host forniscono servizi digitali di alto livello, entra in contatto con loro e viaggia!</h1>
@@ -62,7 +105,7 @@
 
             @else
             {{-- HOST --}}
-            <div class="jumbo-host container-fluid  h-100 d-flex align-items-center justify-content-center pl-5">
+            <div class="jumbo-host container-fluid d-flex align-items-center justify-content-center pl-5">
                 <div class="row">
                     <div class=" col-6 offset-6 text user p-3 mt-5">
                         <h1>Entra in contatto con potenziali clienti, fagli sapere come puoi aiutarli!</h1>

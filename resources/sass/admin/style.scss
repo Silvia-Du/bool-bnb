@@ -48,6 +48,9 @@
     //COL NAV MEX
     .nav-mex{
         height: 100vh;
+        .mex-title{
+            font-weight: bold;
+        }
         .message, .account, .message-appart, .message-user{
             border-bottom: 1px solid gray;
             h4, h5, h6{
@@ -60,38 +63,63 @@
                 width: 55px;
             }
         }
-        .message-appart, .message-user{
-            width: 50%;
+        .message-appart, .message-user, .message-host{
             img{
-                width: 30px;
+                width: 35px;
             }
             .insights{
                 width: 45px;
             }
 
         }
-        .account{
+        .account, .user-container{
             .img{
                 width: 50px;
                 height: 50px;
                 border-radius: 50%;
             }
         }
+        //USER CONTAINER
+        .user-container{
+            overflow-y: auto;
+
+            .user-item{
+                border-bottom: 1px solid rgb(32, 32, 32);
+                .date{
+                    color: rgb(88, 86, 86);
+                }
+
+            }
+        }
+        // HOUSE CONTAINER
+        .appart-item{
+            .img{
+                width: 90px;
+                height: 60px;
+                border-radius: 5px;
+            }
+            .mex-count{
+                width: 35px;
+                height: 35px;
+                border-radius: 50%;
+            }
+        }
+
     }
     //JUMBOTRON COL
     .jumbo{
-        background-position: center;
-        background-size: cover;
-        height: 610px;
+        height: 100vh;
         overflow: hidden;
-        .jubo-user, .jumbo-host{
-            background-position: center;
+        .jumbo-user, .jumbo-host{
             background-size: cover;
+            height: 500px;
         }
-        .jubo-user{
+        .jumbo-user{
+            background-position: center;
             background-image: url(../../../public/img/message-jumbo2.png);
         }
         .jumbo-host{
+            background-position: bottom;
             background-image: url(../../../public/img/message-jumbo.png);
         }
 
