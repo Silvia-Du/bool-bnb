@@ -1,5 +1,8 @@
 <template>
-    <div class="col-12 col-sm-6 col-lg-4 col-xl-2 mx-sm-0 mx-xl-3 card mb-4 p-2">
+    
+    <div 
+    @click="goDetails"
+    class="col-12 col-sm-6 col-lg-4 col-xl-2 mx-sm-0 mx-xl-3 card mb-4 p-2">
 
         <div class="card-img mb-1 debug">
             <i class="fa-regular fa-heart"></i>
@@ -30,6 +33,9 @@ export default {
     },
 
     methods:{
+        goDetails(){
+            window.location.href = '/appartament-details'
+        },
         shortifyContent(text){
             return text.substring(1, 30)+ '...';
         }
