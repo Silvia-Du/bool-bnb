@@ -11029,6 +11029,44 @@ a.text-dark:focus {
   border-radius: 5px;
 }
 
+.show-col-message .mex-box {
+  min-height: 250px;
+  border-radius: 5px;
+}
+
+.show-col-message .mex-box .box {
+  border-radius: 5px;
+}
+
+.show-col-message .mex-box .box.text {
+  overflow-y: auto;
+  max-height: 200px;
+}
+
+.show-col-message .appartament .img-appartament {
+  height: 100px;
+  width: 130px;
+  border-radius: 5px;
+}
+
+.show-col-message .user-container {
+  overflow-y: auto;
+}
+
+.show-col-message .user-container .img {
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+}
+
+.show-col-message .user-container .user-item {
+  border-bottom: 1px solid rgb(32, 32, 32);
+}
+
+.show-col-message .user-container .user-item .date {
+  color: rgb(88, 86, 86);
+}
+
 .message-page .nav-mex {
   height: 100vh;
 }
@@ -11080,18 +11118,6 @@ a.text-dark:focus {
   width: 50px;
   height: 50px;
   border-radius: 50%;
-}
-
-.message-page .nav-mex .user-container {
-  overflow-y: auto;
-}
-
-.message-page .nav-mex .user-container .user-item {
-  border-bottom: 1px solid rgb(32, 32, 32);
-}
-
-.message-page .nav-mex .user-container .user-item .date {
-  color: rgb(88, 86, 86);
 }
 
 .message-page .nav-mex .appart-item .img {

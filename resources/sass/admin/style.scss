@@ -72,6 +72,41 @@
         border-radius: 5px;
     }
 }
+.show-col-message{
+    .mex-box{
+        min-height: 250px;
+        border-radius: 5px;
+        .box{
+            border-radius: 5px;
+            &.text{
+                overflow-y: auto;
+                max-height: 200px;
+            }
+        }
+    }
+    .appartament{
+        .img-appartament{
+            height: 100px;
+            width: 130px;
+            border-radius: 5px;
+        }
+    }
+    .user-container{
+        overflow-y: auto;
+        .img{
+            height: 30px;
+            width: 30px;
+            border-radius: 50%;
+        }
+        .user-item{
+            border-bottom: 1px solid rgb(32, 32, 32);
+            .date{
+                color: rgb(88, 86, 86);
+            }
+
+        }
+    }
+}
 
 //MESSAGE PAGE
 
@@ -111,17 +146,7 @@
             }
         }
         //USER CONTAINER
-        .user-container{
-            overflow-y: auto;
 
-            .user-item{
-                border-bottom: 1px solid rgb(32, 32, 32);
-                .date{
-                    color: rgb(88, 86, 86);
-                }
-
-            }
-        }
         // HOUSE CONTAINER
         .appart-item{
             .img{
@@ -357,4 +382,3 @@
         }
       }
   }
-
