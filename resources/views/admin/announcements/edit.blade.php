@@ -42,7 +42,7 @@
                             </div>
 
                             {{-- address --}}
-                            <div class="col-12 mb-3 address">
+                            <div id="address" class="col-12 mb-3 address">
                                 <label for="address" class="form-label"><i class="fa-solid fa-map-location-dot"></i>
                                     Indirizzo</label>
                                 {{-- <input type="text" class="edit-data form-control @error('address') is-invalid @enderror"
