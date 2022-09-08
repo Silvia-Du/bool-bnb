@@ -11043,12 +11043,6 @@ a.text-dark:focus {
   max-height: 200px;
 }
 
-.show-col-message .appartament .img-appartament {
-  height: 100px;
-  width: 130px;
-  border-radius: 5px;
-}
-
 .show-col-message .user-container {
   overflow-y: auto;
 }
@@ -11063,12 +11057,12 @@ a.text-dark:focus {
   border-bottom: 1px solid rgb(32, 32, 32);
 }
 
-.show-col-message .user-container .user-item .date {
-  color: rgb(88, 86, 86);
+.show-col-message .user-container a {
+  color: rgb(39, 38, 38);
 }
 
 .message-page .nav-mex {
-  height: 100vh;
+  min-height: 100vh;
 }
 
 .message-page .nav-mex .mex-title {
@@ -11137,7 +11131,7 @@ a.text-dark:focus {
 }
 
 .message-page .jumbo {
-  height: 100vh;
+  min-height: 100vh;
   overflow: hidden;
 }
 

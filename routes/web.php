@@ -20,8 +20,9 @@ Route::middleware('auth')
         ->namespace('Admin')
         ->group( function(){
             Route::get('/', 'HomeController@index')->name('index');
-            Route::get('/messages', 'HomeController@message')->name('message');
+
             Route::resource('/announcements', 'AnnouncementController');
+            Route::resource('/messages', 'MessageController');
         });
 
 Route::get('{any?}', function(){

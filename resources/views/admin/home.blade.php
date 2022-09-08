@@ -42,7 +42,7 @@
                         <h1 class="text-capitalize">Ciao <b>{{ Auth::user()->name }}!</b></h1>
                         {{-- IF NUOVI MESSAGGI --}}
                         <div class="my-3">
-                            <a href="{{ route('admin.message') }}">
+                            <a href="{{ route('admin.messages.index') }}">
                                 <div class="card p-3 my-3">
                                     <img class="posta mb-2" src="{{ asset('img/admin-icon1.png') }}" alt="posta">
                                     <h3 class="mb-0">Vedi i tuoi messaggi</h3>
@@ -100,7 +100,7 @@
 
                         <div class="my-3">
 
-                            <a href="{{ route('admin.message') }}">
+                            <a href="{{ route('admin.messages.index') }}">
                                 <div class="card p-3 my-3">
                                     <img class="posta mb-2" src="{{ asset('img/admin-icon1.png') }}" alt="posta">
                                     <h3 class="mb-0">Vedi i tuoi messaggi</h3>

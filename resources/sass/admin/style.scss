@@ -84,13 +84,7 @@
             }
         }
     }
-    .appartament{
-        .img-appartament{
-            height: 100px;
-            width: 130px;
-            border-radius: 5px;
-        }
-    }
+
     .user-container{
         overflow-y: auto;
         .img{
@@ -100,10 +94,11 @@
         }
         .user-item{
             border-bottom: 1px solid rgb(32, 32, 32);
-            .date{
-                color: rgb(88, 86, 86);
-            }
 
+
+        }
+        a{
+            color: rgb(39, 38, 38);
         }
     }
 }
@@ -113,7 +108,7 @@
 .message-page{
     //COL NAV MEX
     .nav-mex{
-        height: 100vh;
+        min-height: 100vh;
         .mex-title{
             font-weight: bold;
         }
@@ -169,7 +164,7 @@
     }
     //JUMBOTRON COL
     .jumbo{
-        height: 100vh;
+        min-height: 100vh;
         overflow: hidden;
         .jumbo-user, .jumbo-host{
             background-size: cover;

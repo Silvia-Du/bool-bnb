@@ -22,65 +22,61 @@
                     <h4 class="mb-0 text-capitalize">Le tue conversazioni</h4>
                 </div>
 
-                <div id="view-for-appartament" class="message-appart debug py-4 d-flex align-items-center">
-                    <img src="{{ asset('img/icon-message2.png') }}" alt="home">
-                    <h6 class="mb-0 ml-3">Vedi per Appartamento</h6>
-                </div>
+                <a href="{{ route('admin.messages.index') }}">
+
+                    <div id="view-for-appartament" class="message-appart debug py-4 d-flex align-items-center">
+                        <img src="{{ asset('img/icon-message2.png') }}" alt="home">
+                        <h6 class="mb-0 ml-3">Vedi tutti per appartamento</h6>
+                    </div>
+                </a>
 
                 {{-- GUSET --}}
-                @if (!$user->announcements)
-                <a href="{{ route('admin.index') }}">
+                {{-- @if (!$user->announcements)
+                <div id="view-for-user" class="message-user debug py-4 d-flex align-items-center">
+                    <img src="{{ asset('img/icon-message3.png') }}" alt="users">
+                    <h6 class="mb-0 ml-3">Vedi tutti</h6>
+                </div>
 
-                    <div id="view-for-user" class="message-user debug py-4 d-flex align-items-center">
-                        <img src="{{ asset('img/icon-message3.png') }}" alt="users">
-                        <h6 class="mb-0 ml-3">Torna alla Dashboard</h6>
-                    </div>
-                </a>
-
-                 @else
+                 @else --}}
                 {{-- HOST --}}
-                <a href="{{ route('admin.index') }}">
-
-                    <div id="view-for-user" class="message-host debug py-4 d-flex align-items-center">
-                        <img src="{{ asset('img/icon-message3.png') }}" alt="users">
-                        <h6 class="mb-0 ml-3">Torna alla Dashboard</h6>
-                    </div>
-                </a>
-                @endif
+                {{-- <div id="view-for-user" class="message-host debug py-4 d-flex align-items-center">
+                    <img src="{{ asset('img/icon-message3.png') }}" alt="users">
+                    <h6 class="mb-0 ml-3">Vedi tutti</h6>
+                </div>
+                @endif --}}
                 {{-- /HOST --}}
             </div>
             {{-- LISTA --}}
             <div class="d-none d-md-block">
-                @if ($user->announcements)
-                   <p class="mex-title my-3">I tuoi appartamenti</p>
+                @if (!$user->announcements)
+                   <p class="mex-title my-3">Messaggi Inviati</p>
                    @else
-                   <p class="mex-title my-3">Appartamenti contattai</p>
+                   <p class="mex-title my-3">Messaggi Ricevuti</p>
                 @endif
 
             </div>
+
             {{-- /HOME CONTAINER --}}
             <div  class="appartament-container debug py-4 d-none d-md-block">
                 <div class="scroll-section ">
-                    @foreach ($announcements as $announcement)
+
                     <div
                     {{-- lui ha il click --}}
                     class="appart-item debug py-3 d-flex justify-content-between align-items-center">
-                    <a href="{{ route('admin.messages.edit', $announcement->id ) }}">
 
                         <div
                         class="d-flex align-items-center container-btn">
                             <div class="mx-2 img debug"></div>
                             <p
-                             class="mb-0 d-none d-lg-block">ANNUNCIO {{ $announcement->title }}</p>
-                             <p class="d-none loop-p">{{ $loop->iteration }}</p>
-                             <p class="d-none id-p">{{ $announcement->id }}</p>
+                             class="mb-0 d-none d-lg-block">ANNUNCIO {{ $announcement[0]->title }}</p>
+                             <p class="d-none loop-p"></p>
+                             <p class="d-none id-p"></p>
                         </div>
-                    </a>
 
 
-                        @if (count($announcement->messages) != 0)
+                        @if (count($announcement[0]->messages) != 0)
                         <div class="mex-count debug d-flex justify-content-center align-items-center mr-2">
-                            <p class="mb-0 ">{{ count($announcement->messages) }}</p>
+                            <p class="mb-0 ">{{ count($messages) }}</p>
                         </div>
                         @else
                         <div class="no-mex p-2 d-flex">
@@ -90,8 +86,7 @@
                         @endif
 
                     </div>
-
-                    @endforeach
+                    {{-- annuncio --}}
                 </div>
             </div>
             {{-- /HOME-CONTAINER --}}
@@ -123,7 +118,38 @@
                 </div>
             </div>
             @endif
+            {{-- /HOST --}}
+            {{-- SHOW MESSAGE --}}
+            <div class="container-fluid debug show-col-message mt-3">
+                @foreach ($messages as $message)
+                <div class="row debug user-container px-lg-5">
 
+                    <div class="col-12 col-lg-5 debug py-3">
+                        <div >
+                            {{-- mex-item --}}
+                            <a href="{{ route('admin.messages.show', $message) }}">
+                                <div class="user-item debug d-flex align-items-center justify-content-between py-2 mb-1">
+                                <div class="d-flex align-items-center">
+                                    <div class="img debug ml-2"></div>
+                                    <h6 class="mb-0 ml-3">Nome mittente: {{ $message->name }}</h6>
+                                </div>
+
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="col-12 col-lg-7 debug py-3 px-2 px-lg-5 d-flex">
+                        <div class="container-fluid">
+                            {{-- inclusione area messaggi --}}
+                            @include('admin.announcements.partials.mex-col')
+
+                        </div>
+                    </div>
+                </div>
+                @endforeach
+
+            </div>
         </div>
     </div>
 
@@ -143,8 +169,7 @@
     //         console.log(eLastChildLoop);
     //         console.log(eLastChildId);
     //         $idLoop = eLastChildLoop;
-    //         // console.log(eLastChild -1);
-    //         // $firstId = eLastChild.textContent;
+
 
     //     })
     // });
