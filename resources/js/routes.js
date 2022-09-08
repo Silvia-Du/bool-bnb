@@ -10,7 +10,6 @@ Vue.use(VueRouter);
 //importo i componenti di cui voglio le rotte
 import HomeComp from './components/pages/HomeComp';
 import AdvancedComp from './components/pages/AdvancedComp';
-import TestComp from './components/pages/TestComp';
 import AppartamentComp from './components/pages/AppartamentComp.vue'
 
 
@@ -35,6 +34,7 @@ const router = new VueRouter({
             name: 'app-details',
             component: AppartamentComp,
         },
+
 
     ]
 });

@@ -1,93 +1,88 @@
 <template>
-    
-    <div 
-    @click="goDetails"
-    class="col-12 col-sm-6 col-lg-4 col-xl-2 mx-sm-0 mx-xl-3 card mb-4 p-2">
-
-        <div class="card-img mb-1 debug">
-            <i class="fa-regular fa-heart"></i>
-            <!-- <i class="fa-solid fa-heart"></i> -->
-        </div>
-        <div class="text">
-            <p class="mb-0 type">{{ announcementItem.house_type }} - {{ announcementItem.beds }} letti - {{ announcementItem.bathrooms }} bagni</p>
-            <p class="mb-0 title">{{ announcementItem.title }}</p>
-            <p class="mb-1 street">{{ shortifyContent(announcementItem.address) }}</p>
-            <p class="mb-0 price">{{ announcementItem.price }} &euro;/ notte</p>
-            <i class="fa-solid fa-star"></i>
+    <div class="box">
+        <div class="card mb-4 p-1">
+            <div class="card-img mb-1">
+                <img src="http://sun-surfer.com/photos/2012/03/Glass-house-Vilnius-Lithuania-400x400.jpg" alt="casa">
+                <i class="fa-regular fa-heart"></i>
+                <!-- <i class="fa-solid fa-heart"></i> -->
+            </div>
+            <div class="text">
+                <p class="mb-0 type">{{ announcementItem.house_type }} - {{ announcementItem.beds }} letti - {{ announcementItem.bathrooms }} bagni</p>
+                <p class="mb-0 title">{{ announcementItem.title }}</p>
+                <p class="mb-1 street">{{ shortifyContent(announcementItem.address) }}</p>
+                <p class="mb-0 price">{{ announcementItem.price }} &euro;/ notte</p>
+                <i class="fa-solid fa-star"></i>
+            </div>
         </div>
     </div>
-
 </template>
-
 <script>
 export default {
     name: 'CardComp',
     data(){
         return{
-
         }
     },
-
     props:{
         announcementItem:Object,
     },
-
     methods:{
-        goDetails(){
-            window.location.href = '/appartament-details'
-        },
         shortifyContent(text){
             return text.substring(1, 30)+ '...';
         }
     }
 }
 </script>
-
 <style lang="scss" scoped >
-
-.card{
-    // background-color: #ede6e3;
-
-    flex-shrink: 0;
-    position: relative;
-    overflow: hidden;
-    border-radius: 10px;
-    .card-img{
-
-        height: 250px;
-        border-radius: 10px;
-        // background-image: url(http://sun-surfer.com/photos/2012/03/Glass-house-Vilnius-Lithuania-400x400.jpg);
-        .fa-regular{
-            position: absolute;
-            font-size: 1.1rem;
-            right: 25px;
-            top: 25px;
-        }
-    }
-    .text{
-        text-align: left;
+.box{
+    display: flex;
+    flex-wrap: wrap;
+    width: 320px;
+    .card{
+        background-color: #ede6e3;
+        flex-shrink: 0;
+        margin: 10px;
         position: relative;
-        margin: 15px;
-        .type,
-        .title{
-            font-size: 0.85rem;
-            font-weight: bold;
+        overflow: hidden;
+        border-radius: 10px;
+        .card-img{
+            padding: 15px 15px 0px 15px;
+            img{
+                height: 250px;
+                max-width: 100% ;
+                border-radius: 10px;
+            }
+            .fa-regular{
+                position: absolute;
+                font-size: 1.1rem;
+                right: 25px;
+                top: 25px;
+            }
         }
-        .street{
-            font-size: 0.7rem;
-            color: rgb(65, 64, 64);
+        .text{
+            text-align: left;
+            position: relative;
+            margin: 15px;
+            .type,
+            .title{
+                font-size: 0.85rem;
+                font-weight: bold;
+            }
+            .street{
+                font-size: 0.7rem;
+                color: rgb(65, 64, 64);
+            }
+            .price{
+                font-size: 0.95rem;
+                font-weight: bold;
+            }
+            .fa-star{
+                position: absolute;
+                right: 5px;
+                top: 1px;
+                color: rgb(255, 187, 0)
+            }
         }
-        .price{
-            font-size: 0.95rem;
-            font-weight: bold;
-        }
-        .fa-star{
-            position: absolute;
-            right: 5px;
-            top: 1px;
-        }
-
     }
 }
-
 </style>

@@ -263,13 +263,16 @@
                 </div>
             </div>
 
+            <ModaleMessage />
     </div>
 
 </template>
 
 <script>
+import ModaleMessage from '../partials/ModaleMessage.vue';
 export default {
-  name: "HouseComp",
+    name: "HouseComp",
+    components: { ModaleMessage }
 };
 </script>
 
