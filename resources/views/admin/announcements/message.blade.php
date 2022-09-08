@@ -17,7 +17,7 @@
                     </div>
                 </div>
                 {{-- MESSAGE SECTION --}}
-                <div class="message debug py-3 d-flex align-items-center">
+                <div class="d-flex message debug py-3 align-items-center">
                     <img class="mr-2" src="{{ asset('img/icon.message1.png') }}" alt="plane">
                     <h4 class="mb-0 text-capitalize">Le tue conversazioni</h4>
                 </div>
@@ -44,11 +44,14 @@
                 {{-- /HOST --}}
             </div>
             {{-- LISTA --}}
-            @if (!$user->announcements)
-               <p class="mex-title my-3">Messaggi Inviati</p>
-               @else
-               <p class="mex-title my-3">Messaggi Ricevuti</p>
-            @endif
+            <div class="d-none d-md-block">
+                @if (!$user->announcements)
+                   <p class="mex-title my-3">Messaggi Inviati</p>
+                   @else
+                   <p class="mex-title my-3">Messaggi Ricevuti</p>
+                @endif
+
+            </div>
             {{-- USER-CONTAINER --}}
             {{-- <div id="user-box" class="user-container debug py-4 ">
                 <div class="scroll-section">
@@ -67,14 +70,17 @@
             </div> --}}
             {{-- /USER-CONTAINER --}}
             {{-- /HOME CONTAINER --}}
-            <div id="appartament-box" class="appartament-container debug py-4 ">
-                <div class="scroll-section">
+            <div id="appartament-box" class="appartament-container debug py-4 d-none d-md-block">
+                <div class="scroll-section ">
                     @foreach ($announcements as $announcement)
 
-                    <div class="appart-item debug py-3 d-flex justify-content-between align-items-center">
+                    <div
+                    {{-- lui ha il click --}}
+                    class="appart-item debug py-3 d-flex justify-content-between align-items-center">
+
                         <div class="d-flex align-items-center">
                             <div class="mx-2 img debug"></div>
-                            <p class="mb-0">ANNUNCIO {{ $announcement->title }}</p>
+                            <p class="mb-0 d-none d-lg-block">ANNUNCIO {{ $announcement->title }}</p>
                         </div>
 
                         @if (count($announcement->messages) != 0)
@@ -123,20 +129,67 @@
             </div>
             @endif
             {{-- /HOST --}}
+            {{-- SHOW MESSAGE --}}
+            <div class="container-fluid debug show-col-message mt-3">
+                <div class="row debug user-container">
+                    <div class="col-12 col-lg-3 debug py-3">
+                        <div class="scroll-section">
+                            @foreach ($announcements as $announcement)
+                            @foreach ($announcement->messages as $message)
+                            <div class="user-item debug d-flex align-items-center justify-content-between py-2 mb-1">
+                            <div class="d-flex align-items-center">
+                                <div class="img debug ml-2"></div>
+                                <h6 class="mb-0 ml-3">Nome Mittente</h6>
+                            </div>
+                            <p class="d-none d-md-block mb-0 mr-2 date">Data messaggio</p>
+                            </div>
+                            @endforeach
+                            @endforeach
+                        </div>
+                    </div>
+
+                    <div class="col-12 col-lg-9 debug py-3 px-2 px-lg-5 d-flex">
+                        <div class="container-fluid">
+                            @include('admin.announcements.partials.mex-col')
+                            {{-- <div class="row flex-wrap-reverse">
+
+                                <div class="mex-box debug col-12 col-lg-8 d-flex flex-column justify-content-around py-3">
+                                    <h6 class="mb-0">Messaggio:</h6>
+                                    <div class="text box debug py-3 px-lg-3 mb-2">
+                                        <p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis, harum pariatur! Enim dolor exercitationem nulla soluta, neque recusandae ipsum cumque. Lorem ipsum dolor sit amet consectetur, adipisicing elit. </p>
+                                    </div>
+                                    <h6 class="mb-0">E-mail mittente:</h6>
+                                    <div class="email box debug py-2 px-lg-3">
+                                        <p class="mb-0">Email@email.com</p>
+                                    </div>
+                                </div>
+                                <div class="appartament box debug d-none d-lg-block col-lg-4 py-3">
+                                    <div class="debug d-flex py-1 px-1 align-items-center mb-3 justify-content-center">
+
+                                        <div class="img-appartament debug mr-2"></div>
+                                        <h5 class="mb-0 d-none  d-xl-block">Appartamento</h5>
+                                    </div>
+                                    <h5>Nome Appartamento</h5>
+                                </div>
+                            </div> --}}
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 
 </div>
+<script>
+    const btnMessageBox = document.getElementById('appartament-box');
+
+    btnMessageBox.addEventListener('click', function(){
+        console.log(btnMessageBox.value);
+    })
+</script>
 
 @endsection
-<script>
 
 
-    // btnAppartament.addEventListener('click', function (event) {
-    // }
-    // btnUsers.addEventListener('click', function (event) {
-    //     console.log('user');
-    // }
 
-</script>
 
