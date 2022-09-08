@@ -11,6 +11,7 @@ Vue.use(VueRouter);
 import HomeComp from './components/pages/HomeComp';
 import AdvancedComp from './components/pages/AdvancedComp';
 import TestComp from './components/pages/TestComp';
+import AppartamentComp from './components/pages/AppartamentComp.vue'
 
 
 //creo il router
@@ -28,6 +29,11 @@ const router = new VueRouter({
             path: '/advanced-research',
             name: 'advanced',
             component: AdvancedComp,
+        },
+        {
+            path: '/appartament-details',
+            name: 'app-details',
+            component: AppartamentComp,
         },
 
     ]
