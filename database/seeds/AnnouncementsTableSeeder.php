@@ -12,26 +12,28 @@ class AnnouncementsTableSeeder extends Seeder
      *
      * @return void
      */
-    public function run(Faker $faker)
+    public function run()
     {
-        $house_types = ['baite', 'campagna', 'wow', 'minicase', 'camper', 'design', 'b&b', 'luxe', 'ville', 'spazi creativi', 'co-working', 'co-leaving'];
+        $house_types = ['baite', 'campagna', 'wow', 'minicase', 'C.Galleggiante', 'design', 'b&b', 'luxe', 'ville', 'spazi creativi', 'co-working', 'co-leaving'];
+        $announcements = config('announcements');
 
-       for($i=0; $i<20; $i++){
+        foreach($announcements as $announcement){
+
         $new_announcement = new Announcement();
-        $new_announcement->title = $faker->words(4, true);
+        $new_announcement->title = $announcement['title'];
         $new_announcement->slug = Announcement::slugGenerator($new_announcement->title);
-        $new_announcement->description = $faker->text(400);
-        $new_announcement->rooms = $faker->numberBetween(1, 10);
-        $new_announcement->beds = $faker->numberBetween(1, 5);
-        $new_announcement->bathrooms = $faker->numberBetween(1, 5);
-        $new_announcement->mq = $faker->numberBetween(50, 250);
-        $new_announcement->address = $faker->address();
-        $new_announcement->latitude = $faker->latitude($min = -90, $max = 90);
-        $new_announcement->longitude = $faker->longitude($min = -180, $max = 180);
-        $new_announcement->is_visible = $faker->numberBetween(0, 1);
-        $new_announcement->house_type = $house_types[rand(0, 11)];
-        $new_announcement->price = rand(50, 1000) . '€';
-        $new_announcement->room_type = 'Stanza singola';
+        $new_announcement->description = $announcement['description'];
+        $new_announcement->rooms = $announcement['rooms'];
+        $new_announcement->beds = $announcement['beds'];
+        $new_announcement->bathrooms = $announcement['bathrooms'];
+        $new_announcement->mq = $announcement['mq'];
+        $new_announcement->address = $announcement['address'];
+        $new_announcement->latitude = $announcement['latitude'];
+        $new_announcement->longitude =$announcement['longitude'];
+        $new_announcement->is_visible = $announcement['is_visible'];
+        $new_announcement->house_type = $announcement['house_type'];
+        $new_announcement->price = $announcement['price'] . '€';
+        $new_announcement->room_type = $announcement['room_type'];
 
         $user_id = User::inRandomOrder()->first()->id;
         $new_announcement->user_id = $user_id;

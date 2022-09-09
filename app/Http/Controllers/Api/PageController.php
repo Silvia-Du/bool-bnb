@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Announcement;
 use App\Http\Controllers\Controller;
+use App\Message;
 use App\Service;
 use App\Sponsorization;
 use Illuminate\Http\Request;
@@ -27,6 +28,25 @@ class PageController extends Controller
     public function getAnnouncementFromLocation($location){
         $announcement = Announcement::where('address', 'LIKE', '%' . $location . '%')->with('services')->with('sponsorizations')->get();
         return response()->json($announcement);
+    }
+
+    public function postMessag(Request $request){
+        $data = $request->all();
+
+        $success= true;
+        $new_message = new Message();
+        $new_message->name = $data['message']['name'];
+        $new_message->text = $data['message']['text'];
+        $new_message->email = $data['message']['email'];
+        $new_message->announcement_id = $data['message']['announcement'];
+        $new_message->save();
+        if(!$new_message->save()){
+            return response()->json([
+                'success' => false,
+            ]);
+        }
+        return response()->json(['success'=>true]);
+
     }
     /* public function getAdvancedFilter(Request $request){
         return response()->json($request->beds);

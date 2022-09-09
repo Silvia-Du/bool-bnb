@@ -2004,6 +2004,20 @@ __webpack_require__.r(__webpack_exports__);
   name: "HouseComp",
   components: {
     ModaleMessage: _partials_ModaleMessage_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
+  },
+  data: function data() {
+    return {
+      showModal: false,
+      announcmentId: null
+    };
+  },
+  methods: {
+    getModal: function getModal() {
+      this.showModal = !this.showModal;
+    },
+    toggleModal: function toggleModal() {
+      this.showModal = false;
+    }
   }
 });
 
@@ -2258,7 +2272,57 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ({
-  name: 'ModaleMessage'
+  name: 'ModaleMessage',
+  props: {
+    annId: Number
+  },
+  data: function data() {
+    return {
+      name: '',
+      eMail: '',
+      eMailVerify: '',
+      text: 'Il tuo messaggio',
+      apiUrl: 'http://127.0.0.1:8000/api/announcements/message',
+      showAlert: false,
+      sending: false,
+      success: false
+    };
+  },
+  methods: {
+    sendMessage: function sendMessage() {
+      var _this = this;
+
+      if (this.eMailVerify != this.eMail) {
+        console.log(this.eMailVerify, this.eMail);
+        this.showAlert = true;
+        console.log('errore');
+      } else {
+        this.showAlert = false; //chiamata axios
+
+        axios.post(this.apiUrl, {
+          message: {
+            'email': this.eMail,
+            'text': this.text,
+            'name': this.name,
+            'announcement': 6
+          }
+        }).then(function (response) {
+          _this.sending = true;
+          console.log(response.data);
+
+          if (!response.data.success) {
+            console.log('errore', _this.success);
+          } else {
+            _this.success = true;
+            _this.eMailVerify = '';
+            _this.name = '';
+            _this.eMail = '';
+            _this.text = 'Il tuo messaggio';
+          }
+        });
+      }
+    }
+  }
 });
 
 /***/ }),
@@ -2442,7 +2506,31 @@ var render = function render() {
 
   return _c("div", {
     staticClass: "container"
-  }, [_vm._m(0), _vm._v(" "), _vm._m(1), _vm._v(" "), _vm._m(2), _vm._v(" "), _vm._m(3), _vm._v(" "), _c("ModaleMessage")], 1);
+  }, [_vm._m(0), _vm._v(" "), _vm._m(1), _vm._v(" "), _c("div", {
+    staticClass: "row align-items-md-stretch"
+  }, [_vm._m(2), _vm._v(" "), _c("div", {
+    staticClass: "col-md-4"
+  }, [_vm._m(3), _vm._v(" "), _c("div", {
+    staticClass: "h-100"
+  }, [_c("div", {
+    staticClass: "d-flex align-content-center"
+  }, [_c("button", {
+    staticClass: "btn btn-outline-secondary my-3",
+    on: {
+      click: function click($event) {
+        return _vm.getModal();
+      }
+    }
+  }, [_vm._v("\n                    Contatta l'host\n                    ")])]), _vm._v(" "), _c("span", {
+    staticClass: "fs-6 gray-text"
+  }, [_vm._v("\n                    Per proteggere i tuoi pagamenti, non trasferire mai del denaro e non comunicare fuori dal sito web o dall'app di BoolBnb.\n                ")])])])]), _vm._v(" "), _vm._m(4), _vm._v(" "), _vm.showModal ? _c("ModaleMessage", {
+    attrs: {
+      annId: _vm.announcmentId
+    },
+    on: {
+      isShow: _vm.toggleModal
+    }
+  }) : _vm._e()], 1);
 };
 
 var staticRenderFns = [function () {
@@ -2581,8 +2669,6 @@ var staticRenderFns = [function () {
       _c = _vm._self._c;
 
   return _c("div", {
-    staticClass: "row align-items-md-stretch"
-  }, [_c("div", {
     staticClass: "col-md-8"
   }, [_c("div", [_c("div", {
     staticClass: "d-flex align-items-center"
@@ -2637,10 +2723,14 @@ var staticRenderFns = [function () {
     staticClass: "fa-li"
   }, [_c("i", {
     staticClass: "fa-solid fa-briefcase fa-xl"
-  })]), _vm._v(" "), _c("h5", [_vm._v("Caratteristica")]), _vm._v(" "), _c("p", [_vm._v("Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quibusdam aperiam fugit nobis doloribus! Quod dignissimos reiciendis aut, deleniti ut non! Mollitia, corrupti veniam. Quam temporibus a incidunt quaerat cum eaque?")])])])])])])]), _vm._v(" "), _c("div", {
-    staticClass: "col-md-4"
-  }, [_c("ul", {
+  })]), _vm._v(" "), _c("h5", [_vm._v("Caratteristica")]), _vm._v(" "), _c("p", [_vm._v("Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quibusdam aperiam fugit nobis doloribus! Quod dignissimos reiciendis aut, deleniti ut non! Mollitia, corrupti veniam. Quam temporibus a incidunt quaerat cum eaque?")])])])])])])]);
+}, function () {
+  var _vm = this,
+      _c = _vm._self._c;
+
+  return _c("ul", {
     staticClass: "list-group list-group-flush"
+
   }, [_c("li", [_vm._v("Lingue: English, Français, Italiano")]), _vm._v(" "), _c("li", [_vm._v("Tasso di risposta: 98%")]), _vm._v(" "), _c("li", [_vm._v("Tempo di risposta: entro un'ora")])]), _vm._v(" "), _c("div", {
     staticClass: "h-100"
   }, [_c("div", {
@@ -2650,6 +2740,7 @@ var staticRenderFns = [function () {
   }, [_vm._v("\n                    Contatta l'host\n                    ")])]), _vm._v(" "), _c("span", {
     staticClass: "fs-6 gray-text"
   }, [_vm._v("\n                    Per proteggere i tuoi pagamenti, non trasferire mai del denaro e non comunicare fuori dal sito web o dall'app di BoolBnb.\n                ")])])])]);
+
 }, function () {
   var _vm = this,
       _c = _vm._self._c;
@@ -3261,13 +3352,6 @@ var render = function render() {
   var _vm = this,
       _c = _vm._self._c;
 
-  return _vm._m(0);
-};
-
-var staticRenderFns = [function () {
-  var _vm = this,
-      _c = _vm._self._c;
-
   return _c("div", {
     staticClass: "modal-content rounded-5 shadow"
   }, [_c("div", {
@@ -3279,30 +3363,132 @@ var staticRenderFns = [function () {
     attrs: {
       type: "button",
       "data-bs-dismiss": "modal"
+    },
+    on: {
+      click: function click($event) {
+        return _vm.$emit("isShow", false);
+      }
     }
   }, [_c("i", {
     staticClass: "fa-solid fa-xmark"
   })])]), _vm._v(" "), _c("div", {
     staticClass: "modal-body p-5 pt-0"
-  }, [_c("form", {}, [_c("label", {
+  }, [_c("form", {
+    on: {
+      submit: function submit($event) {
+        $event.preventDefault();
+        return _vm.sendMessage.apply(null, arguments);
+      }
+    }
+  }, [_c("label", {
     attrs: {
       "for": "floatingInput"
     }
-  }, [_vm._v("Indirizzo Email")]), _vm._v(" "), _c("input", {
+  }, [_vm._v("Indirizzo eMail")]), _vm._v(" "), _c("input", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.eMail,
+      expression: "eMail"
+    }],
+    staticClass: "form-control rounded-4 mb-1",
+    attrs: {
+      type: "eMail",
+      id: "floatingInput",
+      placeholder: "personabellissima@eMail.it"
+    },
+    domProps: {
+      value: _vm.eMail
+    },
+    on: {
+      input: function input($event) {
+        if ($event.target.composing) return;
+        _vm.eMail = $event.target.value;
+      }
+    }
+  }), _vm._v(" "), _vm.showAlert ? _c("p", {
+    staticClass: "error"
+  }, [_vm._v("Errore")]) : _vm._e(), _vm._v(" "), _c("label", {
+    staticClass: "mt-2",
+    attrs: {
+      "for": "floatingInput"
+    }
+  }, [_vm._v("Verifica indirizzo eMail")]), _vm._v(" "), _c("input", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.eMailVerify,
+      expression: "eMailVerify"
+    }],
+    staticClass: "form-control rounded-4 mb-1",
+    attrs: {
+      type: "eMail",
+      id: "floatingInput",
+      placeholder: "personabellissima@eMail.it"
+    },
+    domProps: {
+      value: _vm.eMailVerify
+    },
+    on: {
+      input: function input($event) {
+        if ($event.target.composing) return;
+        _vm.eMailVerify = $event.target.value;
+      }
+    }
+  }), _vm._v(" "), _vm.showAlert ? _c("p", {
+    staticClass: "error"
+  }, [_vm._v("L'indirizzo e-mail è diverso dalla verifica")]) : _vm._e(), _vm._v(" "), _c("hr", {
+    staticClass: "my-4"
+  }), _vm._v(" "), _c("label", {
+    attrs: {
+      "for": "floatingInput"
+    }
+  }, [_vm._v("Nome")]), _vm._v(" "), _c("input", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.name,
+      expression: "name"
+    }],
     staticClass: "form-control rounded-4",
     attrs: {
-      type: "email",
+      type: "text",
       id: "floatingInput",
-      placeholder: "personabellissima@email.it"
+      placeholder: "il tuo nome"
+    },
+    domProps: {
+      value: _vm.name
+    },
+    on: {
+      input: function input($event) {
+        if ($event.target.composing) return;
+        _vm.name = $event.target.value;
+      }
     }
   }), _vm._v(" "), _c("hr", {
     staticClass: "my-4"
   }), _vm._v(" "), _c("div", {
     staticClass: "form-floating"
   }, [_c("textarea", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.text,
+      expression: "text"
+    }],
     staticClass: "form-control",
     attrs: {
+      rows: "5",
       id: "floatingTextarea"
+    },
+    domProps: {
+      value: _vm.text
+    },
+    on: {
+      input: function input($event) {
+        if ($event.target.composing) return;
+        _vm.text = $event.target.value;
+      }
     }
   }), _vm._v(" "), _c("button", {
     staticClass: "cat-box btn rounded-pill my-3",
@@ -3310,7 +3496,9 @@ var staticRenderFns = [function () {
       type: "submit"
     }
   }, [_vm._v("\n                    Invia messaggio\n                ")])])])])]);
-}];
+};
+
+var staticRenderFns = [];
 render._withStripped = true;
 
 
@@ -3463,6 +3651,25 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 // module
 exports.push([module.i, ".cat-box[data-v-24b67f86] {\n  border-radius: 15px;\n  background-color: #ffffff;\n  border: 1px solid #f06449;\n  transition: ease-out 0.5s;\n  outline: none;\n}\n.cat-box[data-v-24b67f86]:hover {\n  cursor: pointer;\n  box-shadow: inset 0 172px 0 0 #EF6351;\n  color: white;\n}", ""]);
+
+// exports
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/partials/ModaleMessage.vue?vue&type=style&index=0&id=24b67f86&lang=scss&scoped=true&":
+/*!********************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--8-2!./node_modules/sass-loader/dist/cjs.js??ref--8-3!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/partials/ModaleMessage.vue?vue&type=style&index=0&id=24b67f86&lang=scss&scoped=true& ***!
+  \********************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, ".modal-content[data-v-24b67f86] {\n  position: absolute;\n  z-index: 999;\n  top: 85%;\n  left: 50%;\n  transform: translate(-50%, 0);\n  width: 50%;\n}\n.modal-content .error[data-v-24b67f86] {\n  color: red;\n  font-size: 0.7rem;\n}", ""]);
 
 // exports
 

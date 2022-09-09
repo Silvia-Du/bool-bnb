@@ -185,7 +185,10 @@
                 <div class="h-100">
                     <!-- Tasto Messaggio -->
                     <div class="d-flex align-content-center">
-                        <button class="btn cat-box rounded-pill my-3">
+
+                        <button @click="getModal()"
+                        class="btn cat-box rounded-pill my-3">
+
                         Contatta l'host
                         </button>
                     </div>
@@ -263,7 +266,7 @@
                 </div>
             </div>
 
-            <ModaleMessage />
+            <ModaleMessage v-if="showModal" @isShow="toggleModal" :annId="announcmentId"/>
     </div>
 
 </template>
@@ -272,7 +275,22 @@
 import ModaleMessage from '../partials/ModaleMessage.vue';
 export default {
     name: "HouseComp",
-    components: { ModaleMessage }
+    components: { ModaleMessage },
+    data() {
+        return {
+            showModal: false,
+            announcmentId: null
+        }
+    },
+    methods: {
+
+        getModal(){
+            this.showModal = !this.showModal
+        },
+        toggleModal(){
+            this.showModal = false;
+        }
+    },
 };
 </script>
 
