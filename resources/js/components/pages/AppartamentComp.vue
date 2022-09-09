@@ -1,15 +1,15 @@
 <template>
-    <div class="container">
+    <div class="container pt-5">
          <!-- Header Annuncio -->
             <header class="mb-2 my-5">
                 <div class="text-dark">
                     <div>
                         <!-- Titolo -->
                         <h2 class="d-flex align-items-center coral-text">
-                            Titolo annuncio casa
+                            {{ apartamentDetails.title }} 
                         </h2>
-                        <span><a href="#" class="gray-text">Indirizzo casa dell'annuncio</a></span>
-
+                        <span><a href="#" class="gray-text"></a></span>
+                            {{ apartamentDetails.address }}
                         <div class="row flex-row-reverse mx-1 my-3">
                             <button class="btn btn-sm rounded-pill">
                             <i class="fa-regular fa-heart"></i>
@@ -31,8 +31,9 @@
 
                             <!-- Tom Tom -->
                             <div class="col-md-4">
-                                <div class="h-100 shadow-lg image-house overflow-hidden" style="background-image: url('https://i.stack.imgur.com/WHCGy.png');">
-                                </div>
+                                    <MapAnnDetails :announcmentsCollection="apartamentDetails"/>
+                                <!-- <div class="h-100 shadow-lg image-house overflow-hidden" style="background-image: url('https://i.stack.imgur.com/WHCGy.png');">
+                                </div> -->
                             </div>
                         </div>
 
@@ -46,11 +47,11 @@
                 <div>
                     <div class="d-flex align-items-center">
                         <div class="w-100">
-                            <h3 class="coral-text">Tipo di alloggio - Nome Host</h3>
-                            <span>Numero ospiti</span>
-                            <span>Camere da letto</span>
-                            <span>Numero letti</span>
-                            <span>Numero bagni</span>
+                            <h3 class="coral-text">{{ userDetails.name }} {{ userDetails.surname }} - Nome Host</h3>
+                            <span>{{ apartamentDetails.rooms }} ospiti - </span>
+                            <span>{{ apartamentDetails.beds }} Camere da letto - </span>
+                            <span>{{ apartamentDetails.beds }} letti - </span>
+                            <span>{{ apartamentDetails.bathrooms }} bagni</span>
                         </div>
 
                         <div class="flex-shrink-0">
@@ -75,10 +76,7 @@
 
                     <!-- Descrizione Annuncio -->
                     <div class="d-flex align-items-center spacebar">
-                        <span class="my-3">Descrizione Annuncio: Lorem, ipsum dolor sit amet consectetur
-                        adipisicing elit. Fugiat illum vel nesciunt animi soluta. At
-                        sint, fugit molestias natus temporibus reiciendis, ullam cum,
-                        unde voluptate quibusdam minus eos aliquid libero!</span>
+                        <span class="my-3">{{ apartamentDetails.description }}</span>
                     </div>
 
                 </div>
@@ -98,9 +96,13 @@
                         <h5 class="my-3">Cosa offre questa proprietà:</h5>
                         <div class="d-flex align-items-center my-1">
                             <ul class="fa-ul">
-                                <li class="gray-text my-1"><span class="fa-li"><i class="fa-brands fa-pagelines fa-lg"></i></span>Giardino</li>
+                                <li 
+                                v-for="(apartament_services, index) in apartamentDetails.services" 
+                                :key="`service:${index}`" 
+                                class="gray-text my-1"><span class="fa-li"></span>{{ apartament_services.name }}</li>
+                                <!-- <li class="gray-text my-1"><span class="fa-li"><i class="fa-brands fa-pagelines fa-lg"></i></span>Giardino</li>
                                 <li class="gray-text my-1"><span class="fa-li"><i class="fa-solid fa-wifi fa-lg"></i></span>Wifi</li>
-                                <li class="gray-text"><span class="fa-li"><i class="fa-solid fa-utensils fa-lg"></i></span>Cucina</li>
+                                <li class="gray-text"><span class="fa-li"><i class="fa-solid fa-utensils fa-lg"></i></span>Cucina</li> -->
                             </ul>
                         </div>
 
@@ -133,8 +135,8 @@
                         </div>
 
                         <div class="mx-3">
-                            <h3 class="coral-text">Host: Nome Host</h3>
-                            <span class="gray-text">Membro da: data anno</span>
+                            <h3 class="coral-text">Host: {{ userDetails.name }} {{ userDetails.surname }}</h3>
+                            <span class="gray-text">Membro da: {{ userDetails.created_at }}</span>
                         </div>
 
                     </div>
@@ -272,18 +274,32 @@
 </template>
 
 <script>
-import ModaleMessage from '../partials/ModaleMessage.vue';
+import ModaleMessage from '../partials/ModaleMessage.vue'
+import MapAnnDetails from '../partials/MapAnnDetails.vue'
 export default {
     name: "HouseComp",
-    components: { ModaleMessage },
+    components: { ModaleMessage, MapAnnDetails },
     data() {
         return {
             showModal: false,
-            announcmentId: null
+            announcmentId: null,
+            apiUrl: '/api/announcements/appartament-details/',
+            apartamentDetails: {},
+            userDetails: {}
         }
     },
     methods: {
-
+        getApi(){
+            // console.log(this.$route.params.ann);
+            axios.get(this.apiUrl + this.$route.params.ann)
+            .then(response => {
+                this.apartamentDetails = response.data.announcement[0];
+                this.userDetails = response.data.user[0];
+                this.announcmentId = response.data.announcement[0].id;
+                console.log(this.apartamentDetails);
+                console.log(this.userDetails);
+            })
+        },
         getModal(){
             this.showModal = !this.showModal
         },
@@ -291,6 +307,9 @@ export default {
             this.showModal = false;
         }
     },
+    mounted(){
+        this.getApi();
+    }
 };
 </script>
 

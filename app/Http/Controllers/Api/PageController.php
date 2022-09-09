@@ -1,12 +1,13 @@
 <?php
 
 namespace App\Http\Controllers\Api;
-
+use Illuminate\Support\Facades\DB;
 use App\Announcement;
 use App\Http\Controllers\Controller;
 use App\Message;
 use App\Service;
 use App\Sponsorization;
+use App\User;
 use Illuminate\Http\Request;
 
 class PageController extends Controller
@@ -28,6 +29,14 @@ class PageController extends Controller
     public function getAnnouncementFromLocation($location){
         $announcement = Announcement::where('address', 'LIKE', '%' . $location . '%')->with('services')->with('sponsorizations')->get();
         return response()->json($announcement);
+    }
+    public function getAnnouncementDetails($id){
+        $announcement = Announcement::where('id', $id)->with('services')->with('sponsorizations')->get();
+        $user = DB::table('users')
+        ->join('announcements', 'announcements.user_id', '=', 'users.id')
+        ->where('announcements.id', $id)            
+        ->get();
+        return response()->json(compact('announcement', 'user'));
     }
 
     public function postMessag(Request $request){

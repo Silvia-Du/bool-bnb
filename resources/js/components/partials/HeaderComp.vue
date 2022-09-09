@@ -12,13 +12,13 @@
             <div class="col col-sm-6 d-flex justify-content-center align-items-center">
                 <div class="nav-map mx-5 rounded-pill d-flex align-items-center justify-content-between px-2 py-1">
 
-                    <div class="d-flex justify-content-between align-items-center">
+                    <div class="d-flex justify-content-between align-items-center input-div">
                         <i class="fa-solid fa-magnifying-glass  search-i"></i>
                         <div class="nav-text ml-3 d-none d-md-block">
                             <p class="question mb-0">Dove si va?</p>
                         </div>
                     </div>
-                    <div class="bar text-center">
+                    <!-- <div class="bar text-center">
                         <input
                         @keyup.enter="sendInput"
                         v-model="whereInput"
@@ -26,9 +26,9 @@
                         id="title"
                         name="title"
                         class="bar-head rounded-pill text-center">
-                    </div>
+                    </div> -->
                     <div class="slider-box d-flex justify-content-center align-items-center">
-                        <router-link :to="{name: 'advanced', params: {location: whereInput} }">
+                        <router-link :to="{name: 'advanced', params: {location: whereInput} }" @click.native.capture="clicked" >
                             <p @click="sendInput" class="mb-0">
                                 <i class="fa-solid fa-location-dot"></i>
                             </p>
@@ -70,6 +70,8 @@
 </template>
 
 <script>
+import { services } from '@tomtom-international/web-sdk-services';
+import SearchBox from '@tomtom-international/web-sdk-plugin-searchbox'
 export default {
  name: 'HeaderComp',
 
@@ -80,19 +82,69 @@ export default {
  data() {
     return {
         showNavDropD: false,
-        whereInput: ''
+        whereInput: '',
+        inputFlag: false
     }
  },
 
  methods: {
+    clicked(e){
+        const input = document.querySelector('.tt-search-box-input');
+        if(input.value.length > 2){
+            this.inputFlag = false
+        }else if(input.value.length < 3){
+            input.placeholder = 'Inserire almeno 3 caratteri'
+            e.preventDefault();
+        }
+    },
     getRoute(page){
         window.location.href = '/'+page;
         //ROTTA PER LOG OUT????
     },
     sendInput(){
-        this.$emit('mandoInput', this.whereInput);
-    }
+        const input = document.querySelector('.tt-search-box-input');
+        
+        this.whereInput = input.value;
+        this.$emit("mandoInput", this.whereInput);
+        
+    },
+    getSearchBox() {
+        /* import { services } from '@tomtom-international/web-sdk-services';
+        import SearchBox from '@tomtom-international/web-sdk-plugin-searchbox'; */
+        let options = {
+            searchOptions: {
+                key: "ieE6bIkIjKCULYNaPIeiocY8WifbHuDb",
+                language: "it-IT",
+                limit: 10,
+            },
+            autocompleteOptions: {
+                key: "ieE6bIkIjKCULYNaPIeiocY8WifbHuDb",
+                language: "it-IT",
+            },
+        };
+
+        const ttSearchBox = new SearchBox(services, options);
+        const searchBoxHTML = ttSearchBox.getSearchBoxHTML();
+        searchBoxHTML.style.margin = 0;
+        searchBoxHTML.firstChild.style.padding = 0;
+        const inputDiv = document.querySelector(".input-div");
+        inputDiv.style.width = '100%';
+        inputDiv.append(searchBoxHTML);
+        const ttSearchBoxDiv = document.querySelector('.tt-search-box');
+        ttSearchBoxDiv.style.width = '100%';
+        const ttSearchBoxInputContainer = document.querySelector('.tt-search-box-input-container');
+        ttSearchBoxInputContainer.firstChild.remove();
+        ttSearchBoxInputContainer.lastChild.remove();
+        const input = document.querySelector('.tt-search-box-input');
+        input.style.width = '100%';
+        const ttSearchBoxList = document.querySelector('.tt-search-box-result-list-container');
+        ttSearchBoxList.style.height = '0px';
+        
+    },
  },
+ mounted(){
+    this.getSearchBox();
+ }
 }
 </script>
 

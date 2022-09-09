@@ -6,11 +6,11 @@
 export default {
   name: "Map",
   props:{
-    announcmentsCollection: Array
+    announcmentsCollection: Object
   },
   data(){
     return{
-      announcements: [],
+      announcements: null,
     }
   },
   methods:{
@@ -18,13 +18,13 @@ export default {
       var map = tt.map({
       key: 'ieE6bIkIjKCULYNaPIeiocY8WifbHuDb',
       container: 'map',
-      center: [ann[0].longitude, ann[0].latitude],
-      zoom: 10,
+      zoom: 8,
+      center: [this.announcements.longitude, this.announcements.latitude]
       });
       map.addControl(new tt.FullscreenControl());
       map.addControl(new tt.NavigationControl());
 
-      ann.forEach(element => {
+      
         var markerHeight = 50, markerRadius = 10, linearOffset = 25;
         var popupOffsets = {
         'top': [0, 0],
@@ -37,16 +37,16 @@ export default {
           'right': [-markerRadius, (markerHeight - markerRadius) * -1]
           };
         var popup = new tt.Popup({offset: popupOffsets, className: 'my-class'})
-        .setLngLat({lon: element.longitude, lat: element.latitude})
-        .setHTML(`<p>${element.address}</p>`)
+        .setLngLat({lon: this.announcements.longitude, lat: this.announcements.latitude})
+        .setHTML(`<p>${this.announcements.address}</p>`)
         .addTo(map);
 
 
 
         var marker = new tt.Marker()
-        .setLngLat([element.longitude, element.latitude])
+        .setLngLat([this.announcements.longitude, this.announcements.latitude])
         .addTo(map);
-      });
+
     }
   },
 
