@@ -8,6 +8,10 @@
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
 
+.debug{
+    background-color: #ef635157;
+    border: 1px solid black;
+}
 
 .logo {
     width: 130px;
@@ -169,7 +173,6 @@
                 border-radius: 50%;
             }
         }
-        //USER CONTAINER
 
         // HOUSE CONTAINER
         .appart-item{
@@ -203,6 +206,8 @@
         .jumbo-user, .jumbo-host{
             background-size: cover;
             height: 500px;
+            border-radius: 5px;
+            overflow: hidden;
         }
         .jumbo-user{
             background-position: center;
@@ -225,6 +230,52 @@
                 border-radius: 5px;
                 background-color: #44444473;
                 color: whitesmoke;
+            }
+        }
+        .under-jumbo{
+            img{
+                width: 260px;
+            }
+            .text{
+                background-color: #eeecec;
+                border-radius: 5px;
+            }
+        }
+    }
+    .show-col-message{
+        .mex-box{
+            background-color: #313131;
+            min-height: 250px;
+            border-radius: 5px;
+            border-bottom: 1px solid black;
+            h6{
+                color: white;
+            }
+            .box{
+                background-color:#eeecec;
+                border-radius: 5px;
+                &.text{
+                    overflow-y: auto;
+                    max-height: 200px;
+                }
+            }
+        }
+        .user-container{
+            border-bottom: 1px solid black;
+            overflow-y: auto;
+            .img{
+                height: 30px;
+                width: 30px;
+                border-radius: 50%;
+            }
+            .user-item{
+                border-bottom: 1px solid rgb(32, 32, 32);
+                h6{
+                    font-size: 20px;
+                }
+            }
+            a{
+                color: rgb(39, 38, 38);
             }
         }
     }

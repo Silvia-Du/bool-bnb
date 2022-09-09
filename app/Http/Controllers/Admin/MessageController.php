@@ -19,26 +19,26 @@ class MessageController extends Controller
      */
     public function index()
     {
-        $ann_id_collection = [];
-        $announcements = null;
+        // $ann_id_collection = [];
+        // $announcements = null;
         $user_id = Auth::id();
         $user = User::find($user_id);
         if(!count($user->announcements)>0){
             $messages = Message::where('email', $user->email)->with('announcement')->get();
             // foreach($messages as $message){
-            //     if(!in_array($message->announcement_id,$ann_id_collection )){
+            //     if(!in_array( $message->announcement_id, $ann_id_collection )){
             //         array_push($ann_id_collection, $message->announcement_id );
             //     }
             // }
             // dd($ann_id_collection);
 
-            // return view('admin.announcements.message', compact('announcements', 'user'));
+            return view('admin.announcements.message', compact('messages', 'user'));
+            echo('non ne ha');
         }else{
             echo('ce li ha');
+            $announcements = Announcement::where('user_id', $user_id)->with('messages')->get();
+            return view('admin.announcements.message', compact('announcements', 'user'));
         }
-        $announcements = Announcement::where('user_id', $user_id)->with('messages')->get();
-        return view('admin.announcements.message', compact('announcements', 'user'));
-        // dd($announcements[0]['id']);
 
     }
 
@@ -71,7 +71,11 @@ class MessageController extends Controller
      */
     public function show($id)
     {
-
+        $user_id = Auth::id();
+        $user = User::find($user_id);
+        $message = Message::where('id', $id)->with('announcement')->get();
+        // dd($message[0]['created_at']);
+        return view('admin.announcements.message-view', compact('user', 'message'));
 
     }
 

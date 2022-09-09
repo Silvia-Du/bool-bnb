@@ -10973,6 +10973,11 @@ a.text-dark:focus {
   }
 }
 
+.debug {
+  background-color: rgba(239, 99, 81, 0.3411764706);
+  border: 1px solid black;
+}
+
 .logo {
   width: 130px;
   height: 50px;
@@ -11169,6 +11174,8 @@ a.text-dark:focus {
 .message-page .jumbo .jumbo-host {
   background-size: cover;
   height: 500px;
+  border-radius: 5px;
+  overflow: hidden;
 }
 
 .message-page .jumbo .jumbo-user {
@@ -11194,6 +11201,59 @@ a.text-dark:focus {
   border-radius: 5px;
   background-color: rgba(68, 68, 68, 0.4509803922);
   color: whitesmoke;
+}
+
+.message-page .jumbo .under-jumbo img {
+  width: 260px;
+}
+
+.message-page .jumbo .under-jumbo .text {
+  background-color: #eeecec;
+  border-radius: 5px;
+}
+
+.message-page .show-col-message .mex-box {
+  background-color: #313131;
+  min-height: 250px;
+  border-radius: 5px;
+  border-bottom: 1px solid black;
+}
+
+.message-page .show-col-message .mex-box h6 {
+  color: white;
+}
+
+.message-page .show-col-message .mex-box .box {
+  background-color: #eeecec;
+  border-radius: 5px;
+}
+
+.message-page .show-col-message .mex-box .box.text {
+  overflow-y: auto;
+  max-height: 200px;
+}
+
+.message-page .show-col-message .user-container {
+  border-bottom: 1px solid black;
+  overflow-y: auto;
+}
+
+.message-page .show-col-message .user-container .img {
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+}
+
+.message-page .show-col-message .user-container .user-item {
+  border-bottom: 1px solid rgb(32, 32, 32);
+}
+
+.message-page .show-col-message .user-container .user-item h6 {
+  font-size: 20px;
+}
+
+.message-page .show-col-message .user-container a {
+  color: rgb(39, 38, 38);
 }
 
 .box-house {
