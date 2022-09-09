@@ -11,11 +11,11 @@
                         <span><a href="#" class="gray-text">Indirizzo casa dell'annuncio</a></span>
 
                         <div class="row flex-row-reverse mx-1 my-3">
-                            <button class="btn btn-sm">
+                            <button class="btn btn-sm rounded-pill">
                             <i class="fa-regular fa-heart"></i>
                             Salva
                             </button>
-                            <button class="btn btn-sm mx-2">
+                            <button class="btn btn-sm rounded-pill mx-2">
                             <i class="fa-solid fa-share-from-square"></i>
                             Condividi
                             </button>
@@ -91,7 +91,7 @@
                     <!-- Servizi -->
                     <div class="mb-5">
                         <!-- Tasto prenota -->
-                        <button class="btn btn-lg w-100 mx-0 mb-2 bg-coral1 text-white">
+                        <button class="show-location rounded-pill btn btn-lg w-100 mx-0 mb-2 bg-coral1 text-white">
                             Prenota
                         </button>
 
@@ -104,7 +104,7 @@
                             </ul>
                         </div>
 
-                        <button class="btn btn-outline-secondary" type="button">
+                        <button class="btn cat-box rounded-pill" type="button">
                             Mostra tutti i servizi
                         </button>
 
@@ -185,7 +185,7 @@
                 <div class="h-100">
                     <!-- Tasto Messaggio -->
                     <div class="d-flex align-content-center">
-                        <button class="btn btn-outline-secondary my-3">
+                        <button class="btn cat-box rounded-pill my-3">
                         Contatta l'host
                         </button>
                     </div>
@@ -330,6 +330,36 @@ i {
     max-width:100%;
     max-height:100%;
     border-radius: 15px;
+    box-shadow: 0px 5px 15px rgb(66, 66, 66);
+
+}
+
+.show-location {
+    background: linear-gradient(to right, #EF6351, #F38375, #F7A399);
+    color: white;
+    width: 172px;
+    flex-shrink: 0;
+    transition: ease-out 0.5s;
+    outline: none;
+    cursor: pointer;
+
+    &:hover {
+        box-shadow: inset 172px 0 0 0 #EF6351;
+    }
+}
+
+.cat-box {
+    border-radius: 15px;
+    background-color: #ffffff;
+    border: 1px solid #f06449;
+    transition: ease-out 0.5s;
+    outline: none;
+
+    &:hover {
+        cursor: pointer;
+        color: white;
+
+    }
 }
 
 </style>

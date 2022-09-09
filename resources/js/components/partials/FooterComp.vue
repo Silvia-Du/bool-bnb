@@ -1,7 +1,7 @@
 <template>
   <footer class="d-flex px-lg-5">
         <div class="foot-left  px-lg-5 col-6">
-            <p><i class="fa-regular fa-copyright"></i> 2022 BoolBnB, by Team-6.</p>
+            <p><i class="fa-regular fa-copyright"></i> 2022 BoolBnB made with <i class="fa-solid fa-heart"></i> (and a bit of pain) by Team-6.</p>
         </div>
         <div class="foot-right px-lg-5 col-6">
             <p class="eur">

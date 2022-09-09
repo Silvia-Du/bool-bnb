@@ -139,11 +139,13 @@
                             </div>
 
                             <div class="house-action  justify-content-center py-4">
-                                <a class="btn btn-warning my-3"
-                                    href="{{ route('admin.announcements.show', $announcement) }}">VEDI</a>
+                                <a class="btn btn-dark rounded-pill p-4 my-3"
+                                    href="{{ route('admin.announcements.show', $announcement) }}">
+                                <i class="fa-solid fa-eye fa-lg"></i></a>
 
-                                <a class="btn btn-success my-3"
-                                    href="{{ route('admin.announcements.edit', $announcement) }}">MODIFICA</a>
+                                <a class="btn btn-dark rounded-pill p-4 my-3"
+                                    href="{{ route('admin.announcements.edit', $announcement) }}">
+                                <i class="fa-solid fa-pen-to-square fa-lg"></i></a>
 
                                 {{-- <form action="{{ route('admin.announcements.destroy', $announcement) }}" method="POST"
                                     onsubmit="return confirm('Stai per cancellare questo annuncio, confermi?')">
@@ -152,8 +154,10 @@
                                     <button class="btn btn-danger" type="submit">DELETE</button>
                                 </form> --}}
                                 {{-- sostituito con questo bottone qui sotto --}}
-                                <a href="#" data-id={{ $announcement->id }} class="btn btn-danger delete my-3"
-                                    data-toggle="modal" data-target="#deleteModal">DELETE</a>
+                                <a href="#" data-id={{ $announcement->id }} class="btn btn-dark rounded-pill p-4 my-3"
+                                    data-toggle="modal" data-target="#deleteModal">
+                                    <i class="fa-solid fa-trash-can fa-lg"></i>
+                                </a>
                             </div>
 
                             {{-- modale eliminazione --}}

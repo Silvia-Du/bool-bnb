@@ -168,7 +168,7 @@
                                 @error('description')
                                     <p class="text-danger">{{ $message }}</p>
                                 @enderror
-                                <button id="btn-edit" class="w-100 btn btn-dark btn-lg my-3" type="submit">Invia</button>
+                                <button id="btn-edit" class="btn-rounded-plus rounded-pill sm w-100 btn btn-lg my-3" type="submit">Invia</button>
                             </div>
                         </div>
                     </form>

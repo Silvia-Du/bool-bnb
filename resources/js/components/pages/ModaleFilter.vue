@@ -68,7 +68,7 @@
                                 class="col-4 col-md-3 mb-3 cat-card p-2 position-relative">
                                     <div @click="checkedCat(category)"
                                     class="cat-box h-100 d-flex flex-column align-items-center justify-content-center">
-                                        <i class="fa-brands fa-fort-awesome mb-1 p-1"></i>
+                                        <i class="fa-solid fa-house mb-1 p-1"></i>
                                         <p class="mb-0">{{ category }}</p>
                                     </div>
                                     <i v-if="checkedCategory.includes(category)"

@@ -2,18 +2,21 @@
 $body-bg: #f8fafc;
 
 // Typography
-$font-family-sans-serif: 'Nunito', sans-serif;
+$font-family: 'Lexend Deca', sans-serif;
 $font-size-base: 0.9rem;
 $line-height-base: 1.6;
 
+// Font
+@import url('https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@200;300;800&display=swap');
+
+* {
+    font-family: 'Lexend Deca', sans-serif;
+}
+
+
 // Colors
-$blue: #3490dc;
-$indigo: #6574cd;
-$purple: #9561e2;
-$pink: #f66d9b;
-$red: #e3342f;
-$orange: #f6993f;
-$yellow: #ffed4a;
-$green: #38c172;
-$teal: #4dc0b5;
-$cyan: #6cb2eb;
+$coral1: #EF6351;
+$coral2: #F38375;
+$coral3: #F7A399;
+$coral4: #FBC3BC;
+$coral5: #FFE3E0;

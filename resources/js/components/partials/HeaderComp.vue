@@ -1,10 +1,12 @@
 <template>
-  <header class="">
+  <header>
     <div class="container-fluid  px-lg-5 py-3">
         <div class="row px-xl-5">
             <!-- logo col -->
             <div class="col-3 d-none d-sm-block pl-lg-5">
-                <div class="logo debug"></div>
+                <div class="logo">
+                    <a href="/"><img src="images\logo.png" class="logo" /></a>
+                </div>
             </div>
             <!-- nav-map col -->
             <div class="col col-sm-6 d-flex justify-content-center align-items-center">
@@ -23,11 +25,13 @@
                         type="text"
                         id="title"
                         name="title"
-                        class="bar-head text-center">
+                        class="bar-head rounded-pill text-center">
                     </div>
                     <div class="slider-box d-flex justify-content-center align-items-center">
                         <router-link :to="{name: 'advanced', params: {location: whereInput} }">
-                            <p @click="sendInput" class="mb-0">GO!</p>
+                            <p @click="sendInput" class="mb-0">
+                                <i class="fa-solid fa-location-dot"></i>
+                            </p>
                         </router-link>
                     </div>
 
@@ -36,7 +40,7 @@
             <!-- link col -->
             <div class="col-3 d-none d-sm-flex link-col align-items-center justify-content-end pr-lg-5">
                 <router-link to="">Diventa un host</router-link>
-                    <i class="fa-solid fa-igloo mx-3"></i>
+                    <i class="fa-solid fa-globe mx-3"></i>
                 <!-- user button -->
                 <div @click="showNavDropD = ! showNavDropD"
                 class="user-box rounded-pill px-3 align-items-center d-flex">
@@ -103,7 +107,7 @@ header{
     color: rgba(36, 36, 36,0.8);
     // backdrop-filter: blur(10px);
     .logo{
-        width: 70px;
+        width: 130px;
         height: 50px;
     }
 
@@ -128,7 +132,7 @@ header{
 
         .search-i{
             font-size: 1.2rem;
-            color: #2596be;
+            color: #EF6351;
         }
 
         .nav-text{
@@ -148,7 +152,7 @@ header{
             height: 30px;
             width: 30px;
             font-size: 0.8rem;
-            background-color: #2596be;
+            background-color: #EF6351;
             a{
                 color: #ede6e3;
                 margin-bottom: 0;
@@ -158,10 +162,10 @@ header{
 
     .box-host{
         text-align: center;
-        color: #2596be;
+        color: #EF6351;
     }
     .link-host{
-        color: #2596be;
+        color: #EF6351;
         transition: 0.5s;
         text-decoration: none;
         font-size: 1.2rem;
@@ -171,13 +175,14 @@ header{
     }
 
    .user-box{
+        cursor: pointer;
         background-color: #ede6e3;
         border: 1px solid rgb(138, 135, 135);
         position: relative;
         height: 45px;
         i{
             font-size: 1rem;
-            color: #2596be;
+            color: #EF6351;
          }
         .fa-circle-user{
             font-size: 1.5rem;
@@ -188,7 +193,7 @@ header{
             top: 46px;
             left: 50%;
             border: 1px solid rgb(138, 135, 135);
-            background-color: #ffe3e0;
+            background-color: #ede6e3;
             border-radius: 5px;
             transform: translate(-50%);
             width: 200%;
@@ -199,7 +204,7 @@ header{
         }
     }
     .link-col{
-        .fa-igloo{
+        .fa-globe{
             font-size: 1rem;
             color: white;
         }
@@ -207,8 +212,7 @@ header{
             color: white;
             &:hover{
                 text-decoration: none;
-                color: #2596be;
-                font-weight: bold;
+                color: #FFE3E0;
             }
         }
     }

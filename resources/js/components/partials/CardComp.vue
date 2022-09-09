@@ -1,6 +1,6 @@
 <template>
     <div class="box">
-        <div class="card mb-4 p-1">
+        <div class="card mb-4 p-1 border-0">
             <div class="card-img mb-1">
                 <img src="http://sun-surfer.com/photos/2012/03/Glass-house-Vilnius-Lithuania-400x400.jpg" alt="casa">
                 <i class="fa-regular fa-heart"></i>
@@ -39,18 +39,21 @@ export default {
     flex-wrap: wrap;
     width: 320px;
     .card{
-        background-color: #ede6e3;
+        background-color: whitesmoke;
         flex-shrink: 0;
         margin: 10px;
         position: relative;
         overflow: hidden;
         border-radius: 10px;
+        cursor: pointer;
         .card-img{
             padding: 15px 15px 0px 15px;
             img{
                 height: 250px;
                 max-width: 100% ;
                 border-radius: 10px;
+                box-shadow: 0px 5px 15px rgb(66, 66, 66);
+
             }
             .fa-regular{
                 position: absolute;
