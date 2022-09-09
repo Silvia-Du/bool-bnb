@@ -2668,7 +2668,25 @@ var render = function render() {
     return _c("div", {
       key: "announcement:".concat(index),
       staticClass: "col-12 d-flex py-md-33 mb-3 p-3 card-col"
-    }, [_vm._m(1, true), _vm._v(" "), _c("div", {
+    }, [_c("div", {
+      staticClass: "box-img"
+    }, [_c("div", {
+      staticClass: "image mr-3"
+    }, [_c("router-link", {
+      attrs: {
+        to: {
+          name: "app-details",
+          params: {
+            ann: announcement.id
+          }
+        }
+      }
+    }, [_c("img", {
+      attrs: {
+        src: "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/space-of-mind-studio-puisto-architects-archmospheres-14-1605277273.jpg?resize=480:*",
+        alt: "#"
+      }
+    })])], 1)]), _vm._v(" "), _c("div", {
       staticClass: "d-none d-sm-block box-text w-100 pl-2"
     }, [_c("p", [_vm._v(_vm._s(announcement.address))]), _vm._v(" "), _c("h2", [_vm._v(_vm._s(announcement.title))]), _vm._v(" "), _c("div", {
       staticClass: "riga"
@@ -2680,7 +2698,7 @@ var render = function render() {
       staticClass: "riga"
     }), _vm._v(" "), _c("i", {
       staticClass: "fa-solid fa-star"
-    })]), _vm._v(" "), _vm._m(2, true), _vm._v(" "), _c("p", {
+    })]), _vm._v(" "), _vm._m(1, true), _vm._v(" "), _c("p", {
       staticClass: "price d-none d-sm-block position-absolute mb-0"
     }, [_vm._v("\n              360€/notte\n            ")])]);
   }), 0)])]), _vm._v(" "), _c("div", {
@@ -2700,7 +2718,7 @@ var render = function render() {
     }
   }, [_c("p", {
     staticClass: "mb-0"
-  }, [_vm._v("Filtri")]), _vm._v(" "), _vm._m(3)])])]), _vm._v(" "), _c("div", {
+  }, [_vm._v("Filtri")]), _vm._v(" "), _vm._m(2)])])]), _vm._v(" "), _c("div", {
     staticClass: "map debug d-flex justify-content-center align-items-center"
   }, [_c("Map", {
     attrs: {
@@ -2726,20 +2744,6 @@ var staticRenderFns = [function () {
   }, [_c("i", {
     staticClass: "fa-solid fa-sliders coral-text"
   })]);
-}, function () {
-  var _vm = this,
-      _c = _vm._self._c;
-
-  return _c("div", {
-    staticClass: "box-img"
-  }, [_c("div", {
-    staticClass: "image mr-3"
-  }, [_c("img", {
-    attrs: {
-      src: "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/space-of-mind-studio-puisto-architects-archmospheres-14-1605277273.jpg?resize=480:*",
-      alt: "#"
-    }
-  })])]);
 }, function () {
   var _vm = this,
       _c = _vm._self._c;

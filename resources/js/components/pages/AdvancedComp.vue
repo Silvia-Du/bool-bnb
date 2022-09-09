@@ -55,10 +55,16 @@
                 <!-- img -->
                 <div class="box-img">
                   <div class="image mr-3">
+                    <router-link
+                    :to="{
+                      name: 'app-details',
+                      params: { ann: announcement.id } }">
+                      
                       <img
                       src="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/space-of-mind-studio-puisto-architects-archmospheres-14-1605277273.jpg?resize=480:*"
                       alt="#"
                       />
+                    </router-link>
                   </div>
                   
                 </div>
