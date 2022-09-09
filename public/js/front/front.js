@@ -2515,13 +2515,13 @@ var render = function render() {
   }, [_c("div", {
     staticClass: "d-flex align-content-center"
   }, [_c("button", {
-    staticClass: "btn btn-outline-secondary my-3",
+    staticClass: "btn cat-box rounded-pill my-3",
     on: {
       click: function click($event) {
         return _vm.getModal();
       }
     }
-  }, [_vm._v("\n                    Contatta l'host\n                    ")])]), _vm._v(" "), _c("span", {
+  }, [_vm._v("\n\n                    Contatta l'host\n                    ")])]), _vm._v(" "), _c("span", {
     staticClass: "fs-6 gray-text"
   }, [_vm._v("\n                    Per proteggere i tuoi pagamenti, non trasferire mai del denaro e non comunicare fuori dal sito web o dall'app di BoolBnb.\n                ")])])])]), _vm._v(" "), _vm._m(4), _vm._v(" "), _vm.showModal ? _c("ModaleMessage", {
     attrs: {
@@ -2730,17 +2730,7 @@ var staticRenderFns = [function () {
 
   return _c("ul", {
     staticClass: "list-group list-group-flush"
-
-  }, [_c("li", [_vm._v("Lingue: English, Français, Italiano")]), _vm._v(" "), _c("li", [_vm._v("Tasso di risposta: 98%")]), _vm._v(" "), _c("li", [_vm._v("Tempo di risposta: entro un'ora")])]), _vm._v(" "), _c("div", {
-    staticClass: "h-100"
-  }, [_c("div", {
-    staticClass: "d-flex align-content-center"
-  }, [_c("button", {
-    staticClass: "btn cat-box rounded-pill my-3"
-  }, [_vm._v("\n                    Contatta l'host\n                    ")])]), _vm._v(" "), _c("span", {
-    staticClass: "fs-6 gray-text"
-  }, [_vm._v("\n                    Per proteggere i tuoi pagamenti, non trasferire mai del denaro e non comunicare fuori dal sito web o dall'app di BoolBnb.\n                ")])])])]);
-
+  }, [_c("li", [_vm._v("Lingue: English, Français, Italiano")]), _vm._v(" "), _c("li", [_vm._v("Tasso di risposta: 98%")]), _vm._v(" "), _c("li", [_vm._v("Tempo di risposta: entro un'ora")])]);
 }, function () {
   var _vm = this,
       _c = _vm._self._c;
@@ -3495,7 +3485,7 @@ var render = function render() {
     attrs: {
       type: "submit"
     }
-  }, [_vm._v("\n                    Invia messaggio\n                ")])])])])]);
+  }, [_vm._v("\n\n                    Invia messaggio\n                ")])])])])]);
 };
 
 var staticRenderFns = [];
@@ -3650,26 +3640,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, ".cat-box[data-v-24b67f86] {\n  border-radius: 15px;\n  background-color: #ffffff;\n  border: 1px solid #f06449;\n  transition: ease-out 0.5s;\n  outline: none;\n}\n.cat-box[data-v-24b67f86]:hover {\n  cursor: pointer;\n  box-shadow: inset 0 172px 0 0 #EF6351;\n  color: white;\n}", ""]);
-
-// exports
-
-
-/***/ }),
-
-/***/ "./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/partials/ModaleMessage.vue?vue&type=style&index=0&id=24b67f86&lang=scss&scoped=true&":
-/*!********************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/css-loader!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--8-2!./node_modules/sass-loader/dist/cjs.js??ref--8-3!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/partials/ModaleMessage.vue?vue&type=style&index=0&id=24b67f86&lang=scss&scoped=true& ***!
-  \********************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
-// imports
-
-
-// module
-exports.push([module.i, ".modal-content[data-v-24b67f86] {\n  position: absolute;\n  z-index: 999;\n  top: 85%;\n  left: 50%;\n  transform: translate(-50%, 0);\n  width: 50%;\n}\n.modal-content .error[data-v-24b67f86] {\n  color: red;\n  font-size: 0.7rem;\n}", ""]);
+exports.push([module.i, ".modal-content[data-v-24b67f86] {\n  position: absolute;\n  z-index: 999;\n  top: 85%;\n  left: 50%;\n  transform: translate(-50%, 0);\n  width: 50%;\n}\n.modal-content .error[data-v-24b67f86] {\n  color: red;\n  font-size: 0.7rem;\n}\n.cat-box[data-v-24b67f86] {\n  border-radius: 15px;\n  background-color: #ffffff;\n  border: 1px solid #f06449;\n  transition: ease-out 0.5s;\n  outline: none;\n}\n.cat-box[data-v-24b67f86]:hover {\n  cursor: pointer;\n  box-shadow: inset 0 172px 0 0 #EF6351;\n  color: white;\n}", ""]);
 
 // exports
 
@@ -20423,7 +20394,7 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! F:\Boolean\Progetto Finale\Codice\bool-bnb\resources\js\front.js */"./resources/js/front.js");
+module.exports = __webpack_require__(/*! C:\Users\silvi\Documents\BOOLEAN\LARAVEL\bool-bnb\resources\js\front.js */"./resources/js/front.js");
 
 
 /***/ })
