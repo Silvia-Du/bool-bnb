@@ -2007,7 +2007,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   data: function data() {
     return {
-      showModal: false
+      showModal: true
     };
   },
   methods: {
@@ -2275,34 +2275,48 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       name: '',
-      email: '',
-      text: '',
-      apiUrl: 'http://127.0.0.1:8000/api/announcements/message'
+      eMail: '',
+      eMailVerify: '',
+      text: 'Il tuo messaggio',
+      apiUrl: 'http://127.0.0.1:8000/api/announcements/message',
+      showAlert: false,
+      sending: false,
+      success: false
     };
   },
   methods: {
     sendMessage: function sendMessage() {
-      //chiamata axios
-      axios.post(this.apiUrl, {
-        message: {
-          'email': this.email,
-          'text': this.text,
-          'name': this.name
-        }
-      }).then(function (response) {
-        console.log(response); // if(!response.data.success){
-        //     this.errors = response.data.errors;
-        //     console.log(this.errors);
-        // }else{
-        //     this.success = true;
-        //     this.errors = {};
-        //     this.name= '';
-        //     this.surname= '';
-        //     this.title='';
-        //     this.eMail= '';
-        //     this.content= '';
-        // }
-      });
+      var _this = this;
+
+      if (this.eMailVerify != this.eMail) {
+        console.log(this.eMailVerify, this.eMail);
+        this.showAlert = true;
+        console.log('errore');
+      } else {
+        this.showAlert = false; //chiamata axios
+
+        axios.post(this.apiUrl, {
+          message: {
+            'email': this.eMail,
+            'text': this.text,
+            'name': this.name,
+            'announcement': 6
+          }
+        }).then(function (response) {
+          _this.sending = true;
+          console.log(response.data);
+
+          if (!response.data.success) {
+            console.log('errore', _this.success);
+          } else {
+            _this.success = true;
+            _this.eMailVerify = '';
+            _this.name = '';
+            _this.eMail = '';
+            _this.text = '';
+          }
+        });
+      }
     }
   }
 });
@@ -3337,29 +3351,60 @@ var render = function render() {
     attrs: {
       "for": "floatingInput"
     }
-  }, [_vm._v("Indirizzo Email")]), _vm._v(" "), _c("input", {
+  }, [_vm._v("Indirizzo eMail")]), _vm._v(" "), _c("input", {
     directives: [{
       name: "model",
       rawName: "v-model",
-      value: _vm.email,
-      expression: "email"
+      value: _vm.eMail,
+      expression: "eMail"
     }],
-    staticClass: "form-control rounded-4",
+    staticClass: "form-control rounded-4 mb-1",
     attrs: {
-      type: "email",
+      type: "eMail",
       id: "floatingInput",
-      placeholder: "personabellissima@email.it"
+      placeholder: "personabellissima@eMail.it"
     },
     domProps: {
-      value: _vm.email
+      value: _vm.eMail
     },
     on: {
       input: function input($event) {
         if ($event.target.composing) return;
-        _vm.email = $event.target.value;
+        _vm.eMail = $event.target.value;
       }
     }
-  }), _vm._v(" "), _c("hr", {
+  }), _vm._v(" "), _vm.showAlert ? _c("p", {
+    staticClass: "error"
+  }, [_vm._v("Errore")]) : _vm._e(), _vm._v(" "), _c("label", {
+    staticClass: "mt-2",
+    attrs: {
+      "for": "floatingInput"
+    }
+  }, [_vm._v("Verifica indirizzo eMail")]), _vm._v(" "), _c("input", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.eMailVerify,
+      expression: "eMailVerify"
+    }],
+    staticClass: "form-control rounded-4 mb-1",
+    attrs: {
+      type: "eMail",
+      id: "floatingInput",
+      placeholder: "personabellissima@eMail.it"
+    },
+    domProps: {
+      value: _vm.eMailVerify
+    },
+    on: {
+      input: function input($event) {
+        if ($event.target.composing) return;
+        _vm.eMailVerify = $event.target.value;
+      }
+    }
+  }), _vm._v(" "), _vm.showAlert ? _c("p", {
+    staticClass: "error"
+  }, [_vm._v("L'indirizzo e-mail è diverso dalla verifica")]) : _vm._e(), _vm._v(" "), _c("hr", {
     staticClass: "my-4"
   }), _vm._v(" "), _c("label", {
     attrs: {
@@ -3400,6 +3445,7 @@ var render = function render() {
     }],
     staticClass: "form-control",
     attrs: {
+      rows: "5",
       id: "floatingTextarea"
     },
     domProps: {
@@ -3571,7 +3617,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, ".modal-content[data-v-24b67f86] {\n  position: absolute;\n  z-index: 999;\n  top: 85%;\n  left: 50%;\n  transform: translate(-50%, 0);\n  width: 50%;\n}", ""]);
+exports.push([module.i, ".modal-content[data-v-24b67f86] {\n  position: absolute;\n  z-index: 999;\n  top: 85%;\n  left: 50%;\n  transform: translate(-50%, 0);\n  width: 50%;\n}\n.modal-content .error[data-v-24b67f86] {\n  color: red;\n  font-size: 0.7rem;\n}", ""]);
 
 // exports
 

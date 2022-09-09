@@ -276,7 +276,7 @@ export default {
     components: { ModaleMessage },
     data() {
         return {
-            showModal: false,
+            showModal: true,
         }
     },
     methods: {

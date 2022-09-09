@@ -1,5 +1,5 @@
 <template>
-    <!-- Modale Email -->
+    <!-- Modale eMail -->
     <div class="modal-content rounded-5 shadow">
         <div class="modal-header p-5 pb-4 border-bottom-0">
             <h2 class="fw-bold mb-0">Contatta l'host</h2>
@@ -12,21 +12,29 @@
         <div class="modal-body p-5 pt-0">
             <form @submit.prevent="sendMessage"
             class="">
-                <label for="floatingInput">Indirizzo Email</label>
-                    <!-- Indirizzo email -->
-                    <input v-model="email"
-                    type="email" class="form-control rounded-4" id="floatingInput" placeholder="personabellissima@email.it">
+                <label for="floatingInput">Indirizzo eMail</label>
+                    <!-- Indirizzo eMail -->
+                    <input v-model="eMail"
+                    type="eMail" class="form-control rounded-4 mb-1" id="floatingInput" placeholder="personabellissima@eMail.it">
+                    <p v-if="showAlert" class="error">Errore</p>
+                    <!-- <hr class="mt-4 mb-2"> -->
+                    <label class="mt-2" for="floatingInput">Verifica indirizzo eMail</label>
+
+                    <!-- Verifica Indirizzo eMail -->
+                    <input v-model="eMailVerify"
+                    type="eMail" class="form-control rounded-4 mb-1" id="floatingInput" placeholder="personabellissima@eMail.it">
+                    <p v-if="showAlert" class="error">L'indirizzo e-mail è diverso dalla verifica</p>
                 <hr class="my-4">
 
                 <label for="floatingInput">Nome</label>
-                    <!-- Indirizzo email -->
+                    <!-- Nome mittente -->
                     <input v-model="name"
                     type="text" class="form-control rounded-4" id="floatingInput" placeholder="il tuo nome">
                 <hr class="my-4">
 
                 <div class="form-floating">
                     <!-- Text area messaggio -->
-                    <textarea v-model="text"
+                    <textarea v-model="text" rows="5"
                     class="form-control" id="floatingTextarea"></textarea>
                     <button
                     class="btn btn-outline-secondary my-3" type="submit">
@@ -35,6 +43,7 @@
                 </div>
             </form>
         </div>
+
     </div>
 </template>
 
@@ -44,38 +53,54 @@ export default {
     data() {
         return {
             name: '',
-            email: '',
-            text: '',
+            eMail: '',
+            eMailVerify: '',
+            text: 'Il tuo messaggio',
             apiUrl: 'http://127.0.0.1:8000/api/announcements/message',
+
+            showAlert: false,
+            sending: false,
+            success:false
 
         }
     },
     methods: {
-        sendMessage(){
-            //chiamata axios
-            axios.post(this.apiUrl,{
-                message:{
-                    'email': this.email,
-                    'text': this.text,
-                    'name': this.name
-                }
-            })
-            .then(response =>{
 
-                console.log(response);
-                // if(!response.data.success){
-                //     this.errors = response.data.errors;
-                //     console.log(this.errors);
-                // }else{
-                //     this.success = true;
-                //     this.errors = {};
-                //     this.name= '';
-                //     this.surname= '';
-                //     this.title='';
-                //     this.eMail= '';
-                //     this.content= '';
-                // }
-            })
+        sendMessage(){
+
+            if(this.eMailVerify != this.eMail){
+                console.log(this.eMailVerify, this.eMail);
+                this.showAlert = true;
+                console.log('errore');
+            }else{
+                this.showAlert= false;
+                //chiamata axios
+                axios.post(this.apiUrl,{
+                    message:{
+                        'email': this.eMail,
+                        'text': this.text,
+                        'name': this.name,
+                        'announcement': 6
+                    }
+                })
+                .then(response =>{
+                    this.sending = true;
+                    console.log(response.data);
+                    if(!response.data.success){
+
+                        console.log('errore',this.success);
+
+                    }
+                    else{
+                        this.success = true;
+                        this.eMailVerify = '';
+                        this.name='';
+                        this.eMail= '';
+                        this.text= '';
+                    }
+                })
+            }
+
         }
     },
 }
@@ -89,6 +114,10 @@ export default {
         left: 50%;
         transform: translate(-50%, 0);
         width: 50%;
+        .error{
+            color: red;
+            font-size: 0.7rem;
+        }
     }
 
 

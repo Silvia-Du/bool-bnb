@@ -37,7 +37,14 @@ class PageController extends Controller
         $new_message = new Message();
         $new_message->name = $data['message']['name'];
         $new_message->text = $data['message']['text'];
-        $new_message->text = $data['message']['email'];
+        $new_message->email = $data['message']['email'];
+        $new_message->announcement_id = $data['message']['announcement'];
+        $new_message->save();
+        if(!$new_message->save()){
+            return response()->json([
+                'success' => false,
+            ]);
+        }
         return response()->json(['success'=>true]);
 
     }
