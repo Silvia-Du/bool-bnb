@@ -11081,11 +11081,14 @@ a.text-dark:focus {
 }
 
 .message-page .nav-mex {
+  background-color: rgb(49, 49, 49);
   min-height: 100vh;
+  color: white;
 }
 
 .message-page .nav-mex .mex-title {
   font-weight: bold;
+  font-size: 25px;
 }
 
 .message-page .nav-mex .message,
@@ -11133,10 +11136,18 @@ a.text-dark:focus {
   border-radius: 50%;
 }
 
+.message-page .nav-mex .appart-item {
+  background-color: #eeecec;
+  border-radius: 10px;
+  color: black;
+  margin-bottom: 10px;
+}
+
 .message-page .nav-mex .appart-item .img {
   width: 90px;
   height: 60px;
   border-radius: 5px;
+  border: 1px solid black;
 }
 
 .message-page .nav-mex .appart-item .mex-count {

@@ -129,22 +129,29 @@
 .message-page{
     //COL NAV MEX
     .nav-mex{
+        background-color: rgb(49, 49, 49);
         min-height: 100vh;
+        color: white;
         .mex-title{
             font-weight: bold;
+            font-size: 25px;
         }
         .message, .account, .message-appart, .message-user{
             border-bottom: 1px solid gray;
             h4, h5, h6{
+
+
                 font-weight: bold;
 
             }
         }
         .message{
+
             img{
                 width: 55px;
             }
         }
+
         .message-appart, .message-user, .message-host{
             img{
                 width: 35px;
@@ -158,6 +165,7 @@
             .img{
                 width: 50px;
                 height: 50px;
+
                 border-radius: 50%;
             }
         }
@@ -165,10 +173,15 @@
 
         // HOUSE CONTAINER
         .appart-item{
+            background-color: #eeecec;
+            border-radius: 10px;
+            color: black;
+            margin-bottom: 10px;
             .img{
                 width: 90px;
                 height: 60px;
                 border-radius: 5px;
+                border: 1px solid black;
             }
             .mex-count{
                 width: 35px;

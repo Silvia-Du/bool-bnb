@@ -2,36 +2,33 @@
 
 @section('content')
 
-<div class="container-fluid message-page debug">
+<div class="container-fluid message-page ">
     <div class="row">
         {{-- NAV-MEX-COL --}}
-        <div class="col-1 nav-mex col-md-3 debug ">
+        <div class="col-12 nav-mex col-md-3  ">
             {{-- NAV-MD --}}
-            <div class="d-none d-md-block">
-                <div class="account py-3 debug">
+            <div class=" d-md-block">
+                <div class="account py-3 ">
                     <h4 class="mb-3 text-capitalize"> Gestione contatti</h4>
-                    <div class="user d-flex debug align-items-center">
-                        <div class="img debug mr-3"></div>
+                    <div class="user d-flex  align-items-center">
+                        <div class="img  mr-3"></div>
                         <h5 class="mb-0 text-capitalize">{{ $user->name }} {{ $user->surname }}</h5>
-                        {{-- <img class="debug mr-3" src="#" alt=""> --}}
+                         <img class=" mr-3" src="#" alt="">
                     </div>
                 </div>
                 {{-- MESSAGE SECTION --}}
-                <div class="d-flex message debug py-3 align-items-center">
-                    <img class="mr-2" src="{{ asset('img/icon.message1.png') }}" alt="plane">
-                    <h4 class="mb-0 text-capitalize">Le tue conversazioni</h4>
-                </div>
 
-                <div id="view-for-appartament" class="message-appart debug py-4 d-flex align-items-center">
+
+                {{--  <div id="view-for-appartament" class="message-appart  py-4 d-flex align-items-center">
                     <img src="{{ asset('img/icon-message2.png') }}" alt="home">
                     <h6 class="mb-0 ml-3">Vedi per Appartamento</h6>
-                </div>
+                </div>--}}
 
                 {{-- GUSET --}}
                 @if (!$user->announcements)
                 <a href="{{ route('admin.index') }}">
 
-                    <div id="view-for-user" class="message-user debug py-4 d-flex align-items-center">
+                    <div id="view-for-user" class="message-user  py-4 d-flex align-items-center">
                         <img src="{{ asset('img/icon-message3.png') }}" alt="users">
                         <h6 class="mb-0 ml-3">Torna alla Dashboard</h6>
                     </div>
@@ -41,8 +38,8 @@
                 {{-- HOST --}}
                 <a href="{{ route('admin.index') }}">
 
-                    <div id="view-for-user" class="message-host debug py-4 d-flex align-items-center">
-                        <img src="{{ asset('img/icon-message3.png') }}" alt="users">
+                    <div id="view-for-user" class="message-host  py-4 d-flex align-items-center">
+                        <i class="fa-solid fa-circle-arrow-left"></i>
                         <h6 class="mb-0 ml-3">Torna alla Dashboard</h6>
                     </div>
                 </a>
@@ -50,28 +47,28 @@
                 {{-- /HOST --}}
             </div>
             {{-- LISTA --}}
-            <div class="d-none d-md-block">
+            <div class="">
                 @if ($user->announcements)
-                   <p class="mex-title my-3">I tuoi appartamenti</p>
+                   <p class="mex-title my-3">Messaggi Ricevuti</p>
                    @else
                    <p class="mex-title my-3">Appartamenti contattai</p>
                 @endif
 
             </div>
             {{-- /HOME CONTAINER --}}
-            <div  class="appartament-container debug py-4 d-none d-md-block">
+            <div  class="appartament-container  py-4 ">
                 <div class="scroll-section ">
                     @foreach ($announcements as $announcement)
                     <div
                     {{-- lui ha il click --}}
-                    class="appart-item debug py-3 d-flex justify-content-between align-items-center">
+                    class="appart-item  py-3 d-flex justify-content-between align-items-center">
                     <a href="{{ route('admin.messages.edit', $announcement->id ) }}">
 
                         <div
                         class="d-flex align-items-center container-btn">
-                            <div class="mx-2 img debug"></div>
+                            <div class="mx-2 img "></div>
                             <p
-                             class="mb-0 d-none d-lg-block">ANNUNCIO {{ $announcement->title }}</p>
+                             class="mb-0">{{ $announcement->title }}</p>
                              <p class="d-none loop-p">{{ $loop->iteration }}</p>
                              <p class="d-none id-p">{{ $announcement->id }}</p>
                         </div>
@@ -79,7 +76,7 @@
 
 
                         @if (count($announcement->messages) != 0)
-                        <div class="mex-count debug d-flex justify-content-center align-items-center mr-2">
+                        <div class="mex-count  d-flex justify-content-center align-items-center mr-2">
                             <p class="mb-0 ">{{ count($announcement->messages) }}</p>
                         </div>
                         @else
@@ -102,7 +99,7 @@
 
         </div>
         {{-- MAIN COL JUMBO --}}
-        <div class="col-11 col-md-9 jumbo debug">
+        <div class=" d-none d-md-block col-11 col-md-9 jumbo ">
             {{-- GUEST --}}
             @if (!$user->announcements)
             <div class="jumbo-user container-fluid  d-flex align-items-center justify-content-center pl-5">
@@ -128,29 +125,11 @@
     </div>
 
 </div>
-<script>
-    // const btnMessageBox = document.querySelectorAll('.container-btn');
-    // // console.log(btnMessageBox);
 
-    // btnMessageBox.forEach(element => {
 
-    //     element.addEventListener('click', function(){
-
-    //         const eLastChild = element.children;
-    //         console.log(eLastChild);
-    //         const eLastChildLoop = eLastChild[2].textContent -1;
-    //         const eLastChildId = eLastChild[3].textContent;
-    //         console.log(eLastChildLoop);
-    //         console.log(eLastChildId);
-    //         $idLoop = eLastChildLoop;
-    //         // console.log(eLastChild -1);
-    //         // $firstId = eLastChild.textContent;
-
-    //     })
-    // });
-</script>
 
 @endsection
+
 
 
 

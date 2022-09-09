@@ -2,44 +2,41 @@
 
 @section('content')
 
-<div class="container-fluid message-page debug">
+<div class="container-fluid message-page ">
     <div class="row">
         {{-- NAV-MEX-COL --}}
-        <div class="col-1 nav-mex col-md-3 debug ">
+        <div class="d-none d-md-block col-1 nav-mex col-md-3  ">
             {{-- NAV-MD --}}
             <div class="d-none d-md-block">
-                <div class="account py-3 debug">
+                <div class="account py-3 ">
                     <h4 class="mb-3 text-capitalize"> Gestione contatti</h4>
-                    <div class="user d-flex debug align-items-center">
-                        <div class="img debug mr-3"></div>
+                    <div class="user d-flex  align-items-center">
+                        <div class="img  mr-3"></div>
                         <h5 class="mb-0 text-capitalize">{{ $user->name }} {{ $user->surname }}</h5>
-                        {{-- <img class="debug mr-3" src="#" alt=""> --}}
+                        {{-- <img class=" mr-3" src="#" alt=""> --}}
                     </div>
                 </div>
                 {{-- MESSAGE SECTION --}}
-                <div class="d-flex message debug py-3 align-items-center">
-                    <img class="mr-2" src="{{ asset('img/icon.message1.png') }}" alt="plane">
-                    <h4 class="mb-0 text-capitalize">Le tue conversazioni</h4>
-                </div>
+
 
                 <a href="{{ route('admin.messages.index') }}">
 
-                    <div id="view-for-appartament" class="message-appart debug py-4 d-flex align-items-center">
-                        <img src="{{ asset('img/icon-message2.png') }}" alt="home">
-                        <h6 class="mb-0 ml-3">Vedi tutti per appartamento</h6>
+                    <div id="view-for-appartament" class="message-appart  py-4 d-flex align-items-center">
+                        <i class="fa-solid fa-circle-arrow-left"></i>
+                        <h6 class="mb-0 ml-3">  Torna alla lista messaggi</h6>
                     </div>
                 </a>
 
                 {{-- GUSET --}}
                 {{-- @if (!$user->announcements)
-                <div id="view-for-user" class="message-user debug py-4 d-flex align-items-center">
+                <div id="view-for-user" class="message-user  py-4 d-flex align-items-center">
                     <img src="{{ asset('img/icon-message3.png') }}" alt="users">
                     <h6 class="mb-0 ml-3">Vedi tutti</h6>
                 </div>
 
                  @else --}}
                 {{-- HOST --}}
-                {{-- <div id="view-for-user" class="message-host debug py-4 d-flex align-items-center">
+                {{-- <div id="view-for-user" class="message-host  py-4 d-flex align-items-center">
                     <img src="{{ asset('img/icon-message3.png') }}" alt="users">
                     <h6 class="mb-0 ml-3">Vedi tutti</h6>
                 </div>
@@ -57,25 +54,25 @@
             </div>
 
             {{-- /HOME CONTAINER --}}
-            <div  class="appartament-container debug py-4 d-none d-md-block">
+            <div  class="appartament-container  py-4 d-none d-md-block">
                 <div class="scroll-section ">
 
                     <div
                     {{-- lui ha il click --}}
-                    class="appart-item debug py-3 d-flex justify-content-between align-items-center">
+                    class="appart-item  py-3 d-flex justify-content-between align-items-center">
 
                         <div
                         class="d-flex align-items-center container-btn">
-                            <div class="mx-2 img debug"></div>
+                            <div class="mx-2 img "></div>
                             <p
-                             class="mb-0 d-none d-lg-block">ANNUNCIO {{ $announcement[0]->title }}</p>
+                             class="mb-0 d-none d-lg-block">{{ $announcement[0]->title }}</p>
                              <p class="d-none loop-p"></p>
                              <p class="d-none id-p"></p>
                         </div>
 
 
                         @if (count($announcement[0]->messages) != 0)
-                        <div class="mex-count debug d-flex justify-content-center align-items-center mr-2">
+                        <div class="mex-count  d-flex justify-content-center align-items-center mr-2">
                             <p class="mb-0 ">{{ count($messages) }}</p>
                         </div>
                         @else
@@ -97,41 +94,50 @@
 
         </div>
         {{-- MAIN COL JUMBO --}}
-        <div class="col-11 col-md-9 jumbo debug">
+        <div class="  col-11 col-md-9 jumbo ">
             {{-- GUEST --}}
-            @if (!$user->announcements)
-            <div class="jumbo-user container-fluid  d-flex align-items-center justify-content-center pl-5">
-                <div class="row">
-                    <div class="col-6 offset-6 text user p-3 mt-5">
-                        <h1>I nostri Host forniscono servizi digitali di alto livello, entra in contatto con loro e viaggia!</h1>
+            <div class="d-none d-md-block">
+                @if (!$user->announcements)
+                <div class="   jumbo-user container-fluid  d-flex align-items-center justify-content-center pl-5">
+                    <div class="row">
+                        <div class="  col-6 offset-6 text user p-3 mt-5">
+                            <h1>I nostri Host forniscono servizi digitali di alto livello, entra in contatto con loro e viaggia!</h1>
+                        </div>
                     </div>
                 </div>
-            </div>
 
-            @else
-            {{-- HOST --}}
-            <div class="jumbo-host container-fluid d-flex align-items-center justify-content-center pl-5">
-                <div class="row">
-                    <div class=" col-6 offset-6 text user p-3 mt-5">
-                        <h1>Entra in contatto con potenziali clienti, fagli sapere come puoi aiutarli!</h1>
+                @else
+                {{-- HOST --}}
+                <div class="  jumbo-host container-fluid d-flex align-items-center justify-content-center pl-5">
+                    <div class="row">
+                        <div class=" col-6 offset-6 text user p-3 mt-5">
+                            <h1>Entra in contatto con potenziali clienti, fagli sapere come puoi aiutarli!</h1>
+                        </div>
                     </div>
                 </div>
-            </div>
-            @endif
+                @endif
+        </div>
             {{-- /HOST --}}
             {{-- SHOW MESSAGE --}}
-            <div class="container-fluid debug show-col-message mt-3">
-                @foreach ($messages as $message)
-                <div class="row debug user-container px-lg-5">
+            <div class="container-fluid  show-col-message mt-3">
+                <a href="{{ route('admin.messages.index') }}">
 
-                    <div class="col-12 col-lg-5 debug py-3">
+                    <div id="view-for-appartament" class=" d-block d-md-none message-appart  py-4 d-flex align-items-center">
+                        <i class="fa-solid fa-circle-arrow-left"></i>
+                        <h6 class="mb-0 ml-3">  Torna alla lista messaggi</h6>
+                    </div>
+                </a>
+                @foreach ($messages as $message)
+                <div class="row  user-container px-lg-5">
+
+                    <div class="col-12 col-lg-5  py-3">
                         <div >
                             {{-- mex-item --}}
                             <a href="{{ route('admin.messages.show', $message) }}">
-                                <div class="user-item debug d-flex align-items-center justify-content-between py-2 mb-1">
+                                <div class="user-item  d-flex align-items-center justify-content-between py-2 mb-1">
                                 <div class="d-flex align-items-center">
-                                    <div class="img debug ml-2"></div>
-                                    <h6 class="mb-0 ml-3">Nome mittente: {{ $message->name }}</h6>
+                                    <div class="img  ml-2"></div>
+                                    <h6 class="mb-0 ml-3">Data Messaggio : {{ $message->created_at }}</h6>
                                 </div>
 
                                 </div>
@@ -139,13 +145,30 @@
                         </div>
                     </div>
 
-                    <div class="col-12 col-lg-7 debug py-3 px-2 px-lg-5 d-flex">
+                    {{-- AREA MESSAGGI--}}
+                    <div class="col-12 col-lg-7  py-3 px-2 px-lg-5 d-flex">
                         <div class="container-fluid">
-                            {{-- inclusione area messaggi --}}
-                            @include('admin.announcements.partials.mex-col')
+                            <div class="row flex-wrap-reverse">
 
+                                <div class="mex-box  col-12 d-flex flex-column justify-content-around py-3">
+                                    <h6 class="mb-0">Messaggio:</h6>
+                                    <div class="text box debug py-3 px-lg-3 mb-2">
+                                        <p class="mb-0">{{ $message->text }}</p>
+                                    </div>
+                                    <h6 class="mb-0">E-mail mittente:</h6>
+                                    <div class="email box debug py-2 px-lg-3">
+                                        <p class="mb-1">{{ $message->email }}</p>
+                                    </div>
+                                    <h6 class="my-1">Nome Emittente:</h6>
+                                    <div class="email box debug py-2 px-lg-3">
+                                        <p class="mb-0">{{ $message->name }}</p>
+                                    </div>
+                                </div>
+
+                            </div>
                         </div>
                     </div>
+                    {{-- /AREA MESSAGGI--}}
                 </div>
                 @endforeach
 
@@ -154,28 +177,10 @@
     </div>
 
 </div>
-<script>
-    // const btnMessageBox = document.querySelectorAll('.container-btn');
-    // // console.log(btnMessageBox);
 
-    // btnMessageBox.forEach(element => {
-
-    //     element.addEventListener('click', function(){
-
-    //         const eLastChild = element.children;
-    //         console.log(eLastChild);
-    //         const eLastChildLoop = eLastChild[2].textContent -1;
-    //         const eLastChildId = eLastChild[3].textContent;
-    //         console.log(eLastChildLoop);
-    //         console.log(eLastChildId);
-    //         $idLoop = eLastChildLoop;
-
-
-    //     })
-    // });
-</script>
 
 @endsection
+
 
 
 
