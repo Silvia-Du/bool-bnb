@@ -30,6 +30,7 @@
             <div class="row d-flex mx-lg-5 flex-wrap justify-content-center pt-5 px-sm-2">
                 <CardComp
                 class=""
+
                 v-for="(announcement, i) in announcements" :key="`ann${i}`" :announcementItem = "announcement" />
             </div>
         </div>
@@ -73,9 +74,18 @@
                     this.announcements = response.data;
                 })
             },
+
+
+
+
+
         },
         mounted(){
             this.getAnnouncement();
+
+
+
+
         }
     }
     </script>

@@ -1,5 +1,5 @@
 <template>
-    <div class="box">
+    <div @click="getClick(announcementItem.id)" class="box">
         <div class="card mb-4 p-1 border-0">
             <div class="card-img mb-1">
                 <img src="http://sun-surfer.com/photos/2012/03/Glass-house-Vilnius-Lithuania-400x400.jpg" alt="casa">
@@ -21,6 +21,9 @@ export default {
     name: 'CardComp',
     data(){
         return{
+            ipUser : null,
+            apiUrl: 'http://127.0.0.1:8000/api/announcements/visualization',
+
         }
     },
     props:{
@@ -29,7 +32,41 @@ export default {
     methods:{
         shortifyContent(text){
             return text.substring(1, 30)+ '...';
-        }
+        },
+        getClick(data){
+            this.getIp();
+            console.log(this.ipUser);
+            console.log('ip preso');
+
+            axios.post(this.apiUrl,{
+                    click:{
+                        'ip_address': this.ipUser,
+                        'ann_id': this.announcementItem.id,
+
+                    }
+                })
+                .then(response =>{
+
+                    console.log(response);
+
+                })
+        },
+        getIp(){
+            axios.get('https://ipgeolocation.abstractapi.com/v1/?api_key=e30e687407b64f74a8fa7d83dfa28bc4')
+                .then(res=>{
+                    //console.log(res.data);
+
+
+                this.ipUser =res.data.ip_address;
+            })
+
+        },
+
+
+
+
+
+
     }
 }
 </script>

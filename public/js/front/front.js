@@ -2203,7 +2203,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'CardComp',
   data: function data() {
-    return {};
+    return {
+      ipUser: null,
+      apiUrl: 'http://127.0.0.1:8000/api/announcements/visualization'
+    };
   },
   props: {
     announcementItem: Object
@@ -2211,6 +2214,27 @@ __webpack_require__.r(__webpack_exports__);
   methods: {
     shortifyContent: function shortifyContent(text) {
       return text.substring(1, 30) + '...';
+    },
+    getClick: function getClick(data) {
+      this.getIp();
+      console.log(this.ipUser);
+      console.log('ip preso');
+      axios.post(this.apiUrl, {
+        click: {
+          'ip_address': this.ipUser,
+          'ann_id': this.announcementItem.id
+        }
+      }).then(function (response) {
+        console.log(response);
+      });
+    },
+    getIp: function getIp() {
+      var _this = this;
+
+      axios.get('https://ipgeolocation.abstractapi.com/v1/?api_key=e30e687407b64f74a8fa7d83dfa28bc4').then(function (res) {
+        //console.log(res.data);
+        _this.ipUser = res.data.ip_address;
+      });
     }
   }
 });
@@ -3087,7 +3111,12 @@ var render = function render() {
       _c = _vm._self._c;
 
   return _c("div", {
-    staticClass: "box"
+    staticClass: "box",
+    on: {
+      click: function click($event) {
+        return _vm.getClick(_vm.announcementItem.id);
+      }
+    }
   }, [_c("div", {
     staticClass: "card mb-4 p-1 border-0"
   }, [_vm._m(0), _vm._v(" "), _c("div", {
@@ -20394,7 +20423,7 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\silvi\Documents\BOOLEAN\LARAVEL\bool-bnb\resources\js\front.js */"./resources/js/front.js");
+module.exports = __webpack_require__(/*! C:\Users\giova\Desktop\BOOLEAN\Esercizi\progetto finale\bool-bnb\resources\js\front.js */"./resources/js/front.js");
 
 
 /***/ })
