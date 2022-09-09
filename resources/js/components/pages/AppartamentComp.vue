@@ -264,7 +264,7 @@
                 </div>
             </div>
 
-            <ModaleMessage v-if="showModal" @isShow="toggleModal"/>
+            <ModaleMessage v-if="showModal" @isShow="toggleModal" :annId="announcmentId"/>
     </div>
 
 </template>
@@ -276,7 +276,8 @@ export default {
     components: { ModaleMessage },
     data() {
         return {
-            showModal: true,
+            showModal: false,
+            announcmentId: null
         }
     },
     methods: {

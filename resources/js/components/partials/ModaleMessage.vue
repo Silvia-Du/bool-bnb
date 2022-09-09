@@ -50,6 +50,9 @@
 <script>
 export default {
     name: 'ModaleMessage',
+    props:{
+        annId:Number
+    },
     data() {
         return {
             name: '',
@@ -89,14 +92,13 @@ export default {
                     if(!response.data.success){
 
                         console.log('errore',this.success);
-
                     }
                     else{
                         this.success = true;
                         this.eMailVerify = '';
                         this.name='';
                         this.eMail= '';
-                        this.text= '';
+                        this.text= 'Il tuo messaggio';
                     }
                 })
             }

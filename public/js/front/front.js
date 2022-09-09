@@ -2007,7 +2007,8 @@ __webpack_require__.r(__webpack_exports__);
   },
   data: function data() {
     return {
-      showModal: true
+      showModal: false,
+      announcmentId: null
     };
   },
   methods: {
@@ -2272,6 +2273,9 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'ModaleMessage',
+  props: {
+    annId: Number
+  },
   data: function data() {
     return {
       name: '',
@@ -2313,7 +2317,7 @@ __webpack_require__.r(__webpack_exports__);
             _this.eMailVerify = '';
             _this.name = '';
             _this.eMail = '';
-            _this.text = '';
+            _this.text = 'Il tuo messaggio';
           }
         });
       }
@@ -2520,6 +2524,9 @@ var render = function render() {
   }, [_vm._v("\n                    Contatta l'host\n                    ")])]), _vm._v(" "), _c("span", {
     staticClass: "fs-6 gray-text"
   }, [_vm._v("\n                    Per proteggere i tuoi pagamenti, non trasferire mai del denaro e non comunicare fuori dal sito web o dall'app di BoolBnb.\n                ")])])])]), _vm._v(" "), _vm._m(4), _vm._v(" "), _vm.showModal ? _c("ModaleMessage", {
+    attrs: {
+      annId: _vm.announcmentId
+    },
     on: {
       isShow: _vm.toggleModal
     }
