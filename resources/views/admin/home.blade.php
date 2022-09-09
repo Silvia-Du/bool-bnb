@@ -23,14 +23,13 @@
 
                         {{-- <a class="font-weight-bolder text-white" href="#">Aggiorna foto</a> --}}
 
-                        <div class="border border-white my-3 p-3 info-user w-100 mx-lg-3 m-1">
-                            <h2 class="mb-3">Il tuo profilo</h2>
-                            <p>NOME UTENTE: {{$user->name }} {{ $user->surname }}</p>
-                            <p>DATA DI REGISTAZIONE: {{$user->created_at }}</p>
-                            <p>E-MAIL DI ACCESSO: {{$user->email }}</p>
-                            <button class="btn btn-outline-light mt-2" type="button">
+                        <div class="border border-white my-3 p-3 info-user w-100">
+                            <h2 class="mb-3">Profilo di {{$user->name }} {{ $user->surname }}</h2>
+                            <p>Su Bool BnB dal {{$user->created_at }}</p>
+                            <p>{{$user->email }}</p>
+                            <button class="btn btn-outline-light rounded-pill mt-2" type="button">
                                 Modifica dati
-                                <img class="gear ml-1" src="{{ asset('img/admin-icon3.png') }}" alt="gear">
+                                <i class="fa-solid fa-gear fa-lg"></i>
                             </button>
                         </div>
 
@@ -42,22 +41,25 @@
                         <h1 class="text-capitalize">Ciao <b>{{ Auth::user()->name }}!</b></h1>
                         {{-- IF NUOVI MESSAGGI --}}
                         <div class="my-3">
-                            <a href="{{ route('admin.messages.index') }}">
-                                <div class="card p-3 my-3">
-                                    <img class="posta mb-2" src="{{ asset('img/admin-icon1.png') }}" alt="posta">
-                                    <h3 class="mb-0">Vedi i tuoi messaggi</h3>
+                            <a href="{{ route('admin.messages.index') }}" class="text-dark">
+                                <div class="card my-3">
+                                    <ul class="fa-ul my-3 px-2">
+                                        <li><span class="fa-li"><i class="fa-solid fa-envelope-open-text fa-2xl"></i></span><h3 class="mx-3">Vedi i tuoi messaggi</h3></li>
+                                    </ul>
                                 </div>
                             </a>
-                            <a href="{{ route('admin.announcements.index') }}">
-                                <div class="card p-3 mb-3">
-                                    <img class="house ml-1 mb-2" src="{{ asset('img/admin-icon2.png') }}" alt="house">
-                                    <h3 class="mb-0">Vedi i tuoi annunci</h3>
+                            <a href="{{ route('admin.announcements.index') }}" class="text-dark">
+                                <div class="card my-3">
+                                    <ul class="fa-ul my-3 px-2">
+                                        <li><span class="fa-li"><i class="fa-solid fa-house-user fa-2xl"></i></span><h3 class="mx-3">Vedi i tuoi annunci</h3></li>
+                                    </ul>
                                 </div>
                             </a>
-                            <a href="{{ route('admin.announcements.index') }}">
-                                <div class="card p-3">
-                                    <img class="house-plus ml-1 mb-2" src="{{ asset('img/admin-icon4.png') }}" alt="house2">
-                                    <h3 class="mb-0">Aggiungi un nuovo appartamento</h3>
+                            <a href="{{ route('admin.announcements.index') }}" class="text-dark">
+                                <div class="card my-3">
+                                    <ul class="fa-ul my-3 px-2">
+                                        <li><span class="fa-li"><i class="fa-solid fa-map-location-dot fa-2xl"></i></span><h3 class="mx-3">Nuovo appartamento</h3></li>
+                                    </ul>
                                 </div>
                             </a>
                         </div>
@@ -65,7 +67,7 @@
                         <div class="border border-black my-3 p-3">
                             <h3>Migliora la tua esperienza come Host con le nostre <b>Sponsorships</b></h3>
                             <p>Incrementa le tue possibilità di ricevere prenotazioni pubblicizzando efficacemente il tuo annuncio.</p>
-                            <button class="btn btn-outline-dark" type="button">Scopri di più</button>
+                            <button class="btn btn-outline-dark rounded-pill" type="button">Scopri di più</button>
                         </div>
 
                     </div>

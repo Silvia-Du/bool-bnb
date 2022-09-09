@@ -9,7 +9,8 @@
                 </div>
             </div>
         </div>
-        <h2 class="d-none d-md-block selected mt-5 mb-0">Selezionati per te</h2>
+        <img src="images\selezionati-per-te.png" class="selected mt-5 mb-0 img-fluid" />
+        <!-- <h2 class="d-none d-md-block selected mt-5 mb-0">Selezionati per te</h2> -->
         <!-- row filter -->
         <div class="d-none d-md-block filter-row px-lg-5 py-4 container-fluid">
             <div class="row mx-lg-5">
@@ -17,7 +18,7 @@
                     <div @click="getCategory(i, category)"
                     v-for="(category, i) in categories" :key="`category${i}`"
                     class="categories d-flex flex-column pt-1 justify-content-center align-items-center" :class="{'active': i === isActive}">
-                        <i class="fa-brands fa-fort-awesome mb-1"></i>
+                        <i class="fa-solid fa-house my-2"></i>
                         <p class="mb-0 category">{{ category }}</p>
                     </div>
                 </div>
@@ -50,7 +51,7 @@
         data() {
             return {
                 // devono avere l'icona (stringe) e l'active (true/false)
-                categories : ['baite', 'campagna', 'wow', 'minicase', 'camper', 'design', 'b&b', 'luxe', 'ville', 'spazi creativi', 'co-working', 'co-leaving' ],
+                categories : ['Baite', 'Campagna', 'Wow!', 'Minicase', 'Camper', 'Design', 'B&B', 'Luxe', 'Ville', 'Spazi creativi', 'Co-working', 'Co-leaving' ],
                 announcApiUrl: 'api/announcements',
                 announcements: null,
                 isActive: -1,
@@ -87,7 +88,7 @@
             height: 75vh;
             position: relative;
             overflow-x: hidden;
-            background-image: url(../../../../public/img/4.png);
+            background-image: url(../../../../public/img/jumbo-bg.png);
             background-size: cover;
             background-position: center center;
             background-attachment: fixed;
@@ -140,7 +141,7 @@
                         flex-shrink: 0;
                         transition: ease-out 0.5s;
                         outline: none;
-                        color: #F38375;
+                        color: #EF6351;
                         cursor: pointer;
                     }
                     &.active{
@@ -148,7 +149,7 @@
                         transform: translateY(-15px);
                         background-color: rgba(255, 255, 255, 0.3);
                         backdrop-filter: blur(10px);
-                        color: #F38375;
+                        color: #EF6351;
                     }
                 }
             }
@@ -163,7 +164,7 @@
             }
         }
         .sponsorized-row{
-            background-color: #f0f0f0;
+            background-color: #ede6e3;
         }
     }
     </style>

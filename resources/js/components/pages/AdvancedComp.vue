@@ -27,11 +27,11 @@
                   py-2
                 "
               >
-                <p class="mb-0">Filtri</p>
+                <p class="mb-0 text-white">Filtri</p>
                 <div
                   class="i-box d-flex justify-content-center align-items-center"
                 >
-                  <i class="fa-solid fa-sliders"></i>
+                  <i class="fa-solid fa-sliders coral-text"></i>
                 </div>
               </div>
             </div>
@@ -219,7 +219,7 @@
             }
             .card-col {
                 border-radius: 10px;
-                background-color: #f8f3f1;
+                background-color: whitesmoke;
                 .title{
                     margin: 20px 85px;
                     text-align: left;
@@ -318,4 +318,8 @@
         height: calc(100vh - 169px);
         }
     }
+
+.coral-text {
+color: #EF6351;
+}
 </style>

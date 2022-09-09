@@ -3,7 +3,7 @@
     <div class="container w-75 my-5 create">
         <div class="row ">
             <div class=" box">
-                <h1 class="text-center my-4">Crea il tuo annuncio!</h1>
+                <h1 class="text-center my-4">Crea il tuo annuncio</h1>
                  @if ($errors->any())
                         <div class="col-8 offset-2 alert alert-danger">
                             <ul>
@@ -202,7 +202,7 @@
                                     </p>
                                 @enderror
 
-                                <button id="btn-create" class="sm w-100 btn btn-dark btn-lg my-3" type="submit">Invia</button>
+                                <button id="btn-create" class="btn-rounded-plus rounded-pill sm w-100 btn btn-lg my-3 " type="submit">Invia</button>
 
                             </div>
 

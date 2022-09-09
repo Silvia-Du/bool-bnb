@@ -33,7 +33,8 @@
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ route('home') }}">
-                    Logo
+                    {{-- <a href="/"><img src="images\logo.png" class="logo mx-3" /></a> --}}
+                    <i class="fa-solid fa-house fa-lg"></i>
                 </a>
                 <a class="navbar-brand" href="{{ route('admin.announcements.index') }}">
                     Dashboard

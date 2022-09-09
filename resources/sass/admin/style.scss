@@ -8,22 +8,43 @@
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
 
+
+.logo {
+    width: 130px;
+    height: 50px;
+}
+
 .btn-rounded-plus{
     border-radius: 30px;
     padding: 10px 15px;
-    background-color: rgb(167, 209, 199);
-    color: rgb(34, 34, 34);
+    background-color:#343a40;
+    border: 1px solid #343a40;
+    color: white;
+
+    &:hover {
+        background-color: white;
+        color: black
+    }
 }
 
-.debug{
-    background-color: rgba(95, 158, 160, 0.808);
-    border: 1px solid rgb(32, 32, 32);
+.coral {
+    background-color: #EF6351;
 }
+
+.b-round {
+    border-radius: 15px;
+}
+
+// .debug{
+//     background-color: rgba(95, 158, 160, 0.808);
+//     border: 1px solid rgb(32, 32, 32);
+// }
+
 
 //CREATE PAGE
 .create{
     i{
-        color: #2596be;
+        color: #343a40;
         font-size: 1rem;
         margin-right: 8px;
     }
@@ -36,7 +57,7 @@
 //EDIT
 .edit{
     i{
-        color: #2596be;
+        color: #343a40;
         font-size: 1rem;
         margin-right: 8px;
     }
@@ -203,21 +224,25 @@
 
     .house-info{
         padding: 10px;
-         border: 1px solid gray ;
-         width: 50%;
-         //background-color: aquamarine;
+        box-shadow: 0px 0px 50px 1px rgb(201, 200, 200);
+        width: 50%;
+        border-radius: 15px;
     }
 
     img{
         width: 30%;
+        border-radius: 15px;
+        box-shadow: 0px 0px 50px 1px rgb(201, 200, 200);
     }
     h6{
         text-transform: uppercase;
         display: block;
         padding: 10px;
         width: 100%;
-        background-color:#a7d1c7;
+        border-radius: 15px;
+        background-color:#5c5c5c;
         font-weight: bold;
+        color: white;
     }
 
     .house-action{
@@ -240,6 +265,7 @@
             width: 100%;
             object-fit: contain;
             margin-bottom: 20px;
+
         }
         h6{
             text-transform: uppercase;
