@@ -3,7 +3,7 @@
          <!-- Header Annuncio -->
             <header class="mb-2 my-5">
                 <div class="text-dark">
-                    <div>
+                    <div class="space">
                         <!-- Titolo -->
                         <h2 class="d-flex align-items-center coral-text">
                             Titolo annuncio casa
@@ -296,6 +296,10 @@ export default {
 
 <style lang="scss" scoped>
 
+.space {
+    margin-top: 110px;
+}
+
 ul, li {
    text-decoration: none;
    list-style: none;
@@ -355,14 +359,14 @@ i {
 .show-location {
     background: linear-gradient(to right, #EF6351, #F38375, #F7A399);
     color: white;
-    width: 172px;
+    width: 350px;
     flex-shrink: 0;
     transition: ease-out 0.5s;
     outline: none;
     cursor: pointer;
 
     &:hover {
-        box-shadow: inset 172px 0 0 0 #EF6351;
+        box-shadow: inset 350px 0 0 0 #EF6351;
     }
 }
 

@@ -1,8 +1,8 @@
 <template>
-    <div @click="getClick(announcementItem.id)" class="box">
+    <div class="box">
         <div class="card mb-4 p-1 border-0">
-            <div class="card-img mb-1">
-                <img src="http://sun-surfer.com/photos/2012/03/Glass-house-Vilnius-Lithuania-400x400.jpg" alt="casa">
+            <div class="card-img mb-1 hover-shine">
+                <figure><img src="http://sun-surfer.com/photos/2012/03/Glass-house-Vilnius-Lithuania-400x400.jpg" alt="casa"></figure>
                 <i class="fa-regular fa-heart"></i>
                 <!-- <i class="fa-solid fa-heart"></i> -->
             </div>
@@ -21,9 +21,6 @@ export default {
     name: 'CardComp',
     data(){
         return{
-            ipUser : null,
-            apiUrl: 'http://127.0.0.1:8000/api/announcements/visualization',
-
         }
     },
     props:{
@@ -32,41 +29,7 @@ export default {
     methods:{
         shortifyContent(text){
             return text.substring(1, 30)+ '...';
-        },
-        getClick(data){
-            this.getIp();
-            console.log(this.ipUser);
-            console.log('ip preso');
-
-            axios.post(this.apiUrl,{
-                    click:{
-                        'ip_address': this.ipUser,
-                        'ann_id': this.announcementItem.id,
-
-                    }
-                })
-                .then(response =>{
-
-                    console.log(response);
-
-                })
-        },
-        getIp(){
-            axios.get('https://ipgeolocation.abstractapi.com/v1/?api_key=e30e687407b64f74a8fa7d83dfa28bc4')
-                .then(res=>{
-                    //console.log(res.data);
-
-
-                this.ipUser =res.data.ip_address;
-            })
-
-        },
-
-
-
-
-
-
+        }
     }
 }
 </script>
@@ -85,6 +48,7 @@ export default {
         cursor: pointer;
         .card-img{
             padding: 15px 15px 0px 15px;
+
             img{
                 height: 250px;
                 max-width: 100% ;
@@ -124,5 +88,44 @@ export default {
             }
         }
     }
+
+    /* Hover Shine Effect */
+    .hover-shine figure {
+        position: relative;
+    }
+
+    .hover-shine figure::before {
+        position: absolute;
+        top: 0;
+        left: -75%;
+        z-index: 2;
+        display: block;
+        content: '';
+        width: 50%;
+        height: 100%;
+        background: -webkit-linear-gradient(left, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, .3) 100%);
+        background: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, .3) 100%);
+        -webkit-transform: skewX(-25deg);
+        transform: skewX(-25deg);
+    }
+
+    .hover-shine figure:hover::before {
+        -webkit-animation: shine 1.2s;
+        animation: shine 1.2s;
+    }
+
+    @-webkit-keyframes shine {
+        100% {
+            left: 125%;
+        }
+    }
+
+    @keyframes shine {
+        100% {
+            left: 125%;
+        }
+    }
+
 }
+
 </style>

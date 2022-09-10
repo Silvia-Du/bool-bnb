@@ -9,9 +9,20 @@
             {{-- NAV-MD --}}
             <div class=" d-md-block">
                 <div class="account py-3 ">
-                    <h4 class="mb-3 text-capitalize"> Gestione contatti</h4>
+                    <h3 class="mb-3 text-capitalize">Gestione contatti</h3>
                     <div class="user d-flex  align-items-center">
-                        <div class="img  mr-3"></div>
+                        <div class="img  mr-3">
+                            {{-- Placeholder IMG Utente --}}
+                            <a href="#" class="d-block text-decoration-none">
+                                <img
+                                src="https://upload.wikimedia.org/wikipedia/commons/8/89/Portrait_Placeholder.png"
+                                alt="mdo"
+                                width="56"
+                                height="56"
+                                class="rounded-circle"
+                                />
+                            </a>
+                        </div>
                         <h5 class="mb-0 text-capitalize">{{ $user->name }} {{ $user->surname }}</h5>
                          <img class=" mr-3" src="#" alt="">
                     </div>
@@ -20,30 +31,32 @@
 
                 {{-- GUSET --}}
                 @if (!count($user->announcements)>0)
-                <a href="{{ route('admin.index') }}">
+                <a class="link-light" href="{{ route('admin.index') }}">
 
                     <div id="view-for-user" class="message-user message-host py-4 d-flex align-items-center">
-                        <img src="{{ asset('img/icon-message3.png') }}" alt="users">
-                        <h6 class="mb-0 ml-3">Torna alla Dashboard</h6>
+                        <i class="fa-solid fa-circle-arrow-left fa-xl"></i>
+                        <h5 class="mb-0 ml-3">Torna alla Dashboard</h5>
                     </div>
+
                 </a>
 
                  @else
                 {{-- HOST --}}
-                <a href="{{ route('admin.index') }}">
+                <a class="ink-light" href="{{ route('admin.index') }}">
 
-                    <div id="view-for-user" class="message-host  py-4 d-flex align-items-center">
-                        <i class="fa-solid fa-circle-arrow-left"></i>
-                        <h6 class="mb-0 ml-3">Torna alla Dashboard</h6>
+                    <div id="view-for-user" class="message-host py-4 d-flex align-items-center">
+                        <i class="fa-solid fa-circle-arrow-left fa-xl"></i>
+                        <h5 class="mb-0 ml-3">Torna alla Dashboard</h5>
                     </div>
                 </a>
                 @endif
+
                 {{-- /HOST --}}
             </div>
             {{-- LISTA --}}
             <div class="d-none d-md-block">
                 @if (!count($user->announcements)>0)
-                <p class="mex-title my-3">Appartamenti contattai</p>
+                <p class="mex-title my-3">Appartamenti contattati</p>
                 @else
                 <p class="mex-title my-3">Messaggi Ricevuti</p>
                 @endif
@@ -56,11 +69,10 @@
                         @foreach ($messages as $message)
 
                             <div class="appart-item  py-3 d-flex justify-content-between align-items-center">
-                                <a href="{{ route('admin.messages.show', $message->id) }}">
+                                <a href="{{ route('admin.messages.show', $message->id)}}">
                                     <div class="d-flex align-items-center container-btn">
                                         <img class="mx-2 img" src="" alt="">
-                                        <p
-                                        class="mb-0">{{ $message->announcement->title }}</p>
+                                        <p class="mb-0">{{ $message->announcement->title }}</p>
                                     </div>
                                 </a>
                             </div>
@@ -142,8 +154,8 @@
                     <div class="col-5  d-flex justify-content-center">
                         <img src="{{ asset('img/message-people.png') }}" alt="">
                     </div>
-                    <div class="col-6 d-flex justify-content-center flex-column px-2 px-xl-4 text">
-                        <h5 class="mb-3">Cose da sapere nel conttato tra utenti:</h5>
+                    <div class="col-6 d-flex justify-content-center flex-column px-2 px-xl-4 text b-round b-shadow">
+                        <h5 class="mb-3">Cose da sapere nel contatto tra utenti:</h5>
                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas natus tempore voluptatem dolor sint! Necessitatibus soluta tempore ipsam temporibus eos.</p>
                         <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptas at perspiciatis, libero in nobis ex!</p>
                     </div>
