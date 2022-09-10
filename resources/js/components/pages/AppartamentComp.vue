@@ -6,7 +6,7 @@
                     <div>
                         <!-- Titolo -->
                         <h2 class="d-flex align-items-center coral-text">
-                            {{ apartamentDetails.title }} 
+                            {{ apartamentDetails.title }}
                         </h2>
                         <span><a href="#" class="gray-text"></a></span>
                             {{ apartamentDetails.address }}
@@ -96,9 +96,9 @@
                         <h5 class="my-3">Cosa offre questa proprietà:</h5>
                         <div class="d-flex align-items-center my-1">
                             <ul class="fa-ul">
-                                <li 
-                                v-for="(apartament_services, index) in apartamentDetails.services" 
-                                :key="`service:${index}`" 
+                                <li
+                                v-for="(apartament_services, index) in apartamentDetails.services"
+                                :key="`service:${index}`"
                                 class="gray-text my-1"><span class="fa-li"></span>{{ apartament_services.name }}</li>
                                 <!-- <li class="gray-text my-1"><span class="fa-li"><i class="fa-brands fa-pagelines fa-lg"></i></span>Giardino</li>
                                 <li class="gray-text my-1"><span class="fa-li"><i class="fa-solid fa-wifi fa-lg"></i></span>Wifi</li>
@@ -296,8 +296,8 @@ export default {
                 this.apartamentDetails = response.data.announcement[0];
                 this.userDetails = response.data.user[0];
                 this.announcmentId = response.data.announcement[0].id;
-                console.log(this.apartamentDetails);
-                console.log(this.userDetails);
+                // console.log(this.apartamentDetails);
+                // console.log(this.userDetails);
             })
         },
         getModal(){

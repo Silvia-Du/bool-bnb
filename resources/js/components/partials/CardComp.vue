@@ -1,11 +1,12 @@
 <template>
     <div class="box">
-        <div class="card mb-4 p-1 border-0">
-
-            <router-link
-            :to="{
-                name: 'app-details',
-                params: { ann: ann.id } }">
+        <div
+        class="card mb-4 p-1 border-0">
+                <router-link
+                :to="{
+                    name: 'app-details',
+                    params: { ann: ann.id }
+                }">
             <div class="card-img mb-1 hover-shine">
                 <figure><img src="http://sun-surfer.com/photos/2012/03/Glass-house-Vilnius-Lithuania-400x400.jpg" alt="casa"></figure>
                 <i class="fa-regular fa-heart"></i>
@@ -26,9 +27,10 @@
 export default {
     name: 'CardComp',
     data(){
-        return{
-            ann: null
-        }
+        return {
+      ipUser: null,
+      apiUrl: 'http://127.0.0.1:8000/api/announcements/visualization'
+    };
     },
     props:{
         announcementItem:Object,
@@ -36,8 +38,34 @@ export default {
     methods:{
         shortifyContent(text){
             return text.substring(1, 30)+ '...';
-        }
-    },
+        },
+        saluto(){
+            console.log('ciao');
+        },
+
+        getClick(data){
+            console.log(data);
+            this.getIp();
+            console.log(this.ipUser);
+            // axios.post(this.apiUrl,{
+            //         click:{
+            //             'ip_address': this.ipUser,
+            //             'ann_id': this.announcementItem.id,
+            //         }
+            //     })
+            //     .then(response =>{
+            //         console.log(response, 'response');
+            //     })
+        },
+        getIp(){
+            // axios.get('https://ipgeolocation.abstractapi.com/v1/?api_key=e30e687407b64f74a8fa7d83dfa28bc4')
+            //     .then(res=>{
+            //         //console.log(res.data);
+            //     this.ipUser =res.data.ip_address;
+            // })
+        },
+
+},
     watch:{
         announcementItem: {
             immediate: true,

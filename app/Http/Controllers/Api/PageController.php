@@ -70,8 +70,6 @@ class PageController extends Controller
         $new_visualization->save();
 
 
-
-
         return response()->json(['success'=>true]);
     }
 

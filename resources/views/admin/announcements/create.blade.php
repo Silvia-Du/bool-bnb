@@ -189,7 +189,7 @@
                             </div>
 
                             {{-- content --}}
-                            <div class="col-12 mb-3">
+                            <div class="col-12 mb-3 description">
                                 <label for="description" class="form-label">
                                     <i class="fa-solid fa-pen-nib"></i>
                                     Descrizione
