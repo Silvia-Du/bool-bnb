@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Message;
 use App\Service;
 use App\Sponsorization;
+use App\Visualization;
 use Illuminate\Http\Request;
 
 class PageController extends Controller
@@ -71,6 +72,18 @@ class PageController extends Controller
     /* public function getAdvancedFilter(Request $request){
         return response()->json($request->beds);
     } */
+    public function postVisualization(Request $request){
+        $data= $request->all();
 
+        $new_visualization = new Visualization();
+        $new_visualization->announcement_id = $data['click']['ann_id'];
+        $new_visualization->ip_address = $data['click']['ip_address'];
+        $new_visualization->save();
+
+
+
+
+        return response()->json(['success'=>true]);
+    }
 
 }

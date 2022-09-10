@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+
 <div class="container-fluid message-page ">
     <div class="row">
         {{-- NAV-MEX-COL --}}
@@ -8,9 +9,20 @@
             {{-- NAV-MD --}}
             <div class="d-none d-md-block">
                 <div class="account py-3 ">
-                    <h4 class="mb-3 text-capitalize"> Gestione contatti</h4>
+                    <h3 class="mb-3 text-capitalize"> Gestione contatti</h3>
                     <div class="user d-flex  align-items-center">
-                        <div class="img  mr-3"></div>
+                        <div class="img  mr-3">
+                            {{-- Placeholder IMG Utente --}}
+                            <a href="#" class="d-block text-decoration-none">
+                                <img
+                                src="https://upload.wikimedia.org/wikipedia/commons/8/89/Portrait_Placeholder.png"
+                                alt="mdo"
+                                width="56"
+                                height="56"
+                                class="rounded-circle"
+                                />
+                            </a>
+                        </div>
                         <h5 class="mb-0 text-capitalize">{{ $user->name }} {{ $user->surname }}</h5>
                         {{-- <img class=" mr-3" src="#" alt=""> --}}
                     </div>
@@ -18,11 +30,11 @@
                 {{-- MESSAGE SECTION --}}
 
 
-                <a href="{{ route('admin.messages.index') }}">
+                <a class="link-light" href="{{ route('admin.messages.index') }}">
 
                     <div id="view-for-appartament" class="message-appart  py-4 d-flex align-items-center">
-                        <i class="fa-solid fa-circle-arrow-left"></i>
-                        <h6 class="mb-0 ml-3">  Torna alla lista messaggi</h6>
+                        <i class="text-white fa-solid fa-circle-arrow-left fa-xl"></i>
+                        <h5 class="mb-0 ml-3 text-white">Torna alla lista messaggi</h5>
                     </div>
                 </a>
 
@@ -30,7 +42,7 @@
             {{-- LISTA --}}
             <div class="d-none d-md-block">
                 @if (!count($user->announcements)>0)
-                <p class="mex-title my-3">Appartamenti contattai</p>
+                <p class="mex-title my-3">Appartamenti contattati</p>
                 @else
                 <p class="mex-title my-3">Messaggi Ricevuti</p>
                 @endif
@@ -46,7 +58,6 @@
                             <div class="d-flex align-items-center container-btn">
                                 <img class="mx-2 img" src="" alt="">
                                 <p
-
                                 class="mb-0 d-none d-lg-block">{{ $message[0]['announcement']['title'] }}</p>
                             </div>
 

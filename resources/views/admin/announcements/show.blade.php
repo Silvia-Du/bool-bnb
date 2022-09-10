@@ -11,14 +11,14 @@
             <div class="row flex-lg-row align-items-center g-5 py-3">
                 <div class="col-10 col-sm-8 col-lg-6">
                     <img src="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/suburban-house-royalty-free-image-1584972559.jpg"
-                        class="img-fluid d-block mx-lg-auto rounded" alt="{{ $announcement->image_original_name }}">
+                        class="img-fluid d-block mx-lg-auto b-round b-shadow" alt="{{ $announcement->image_original_name }}">
                 </div>
 
                 <div class="col-lg-6">
                     <h4>{{ $announcement->house_type }}, {{ $announcement->room_type }}</h4>
                     <p>{{ $announcement->address }}, {{ $announcement->city }}, {{ $announcement->country }}</p>
 
-                    <div class="card">
+                    <div class="card b-round b-shadow ">
                         <div class="card-body">
                             <p>MQ: {{ $announcement->mq }}</p>
                             <p>Nr stanze: {{ $announcement->rooms }}</p>
@@ -26,15 +26,21 @@
                             <p>Nr Bagni: {{ $announcement->bathrooms }}</p>
 
                             <div class="d-flex flex-row-reverse">
-                                <a class="btn btn-warning"
-                                    href="{{ route('admin.announcements.index', $announcement) }}">BACK</a>
-                                <a class="btn btn-success mx-2"
-                                    href="{{ route('admin.announcements.edit', $announcement) }}">MODIFICA</a>
+                                <a class="btn-small-plus"
+                                    href="{{ route('admin.announcements.index', $announcement) }}">
+                                    <i class="fa-solid fa-arrow-left fa-xl mx-1"></i>
+                                </a>
+                                <a class="btn-small-plus"
+                                    href="{{ route('admin.announcements.edit', $announcement) }}">
+                                    <i class="fa-solid fa-pen-to-square fa-xl mx-1"></i>
+                                </a>
                                 <form action="{{ route('admin.announcements.destroy', $announcement) }}" method="POST"
                                     onsubmit="return confirm('Stai per cancellare questo annuncio, confermi?')">
                                     @csrf
                                     @method('DELETE')
-                                    <button class="btn btn-danger" type="submit">DELETE</button>
+                                    <button class="btn-small-plus" type="submit">
+                                        <i class="fa-solid fa-trash-can fa-xl"></i>
+                                    </button>
                                 </form>
                             </div>
                         </div>
@@ -42,20 +48,20 @@
                 </div>
             </div>
 
-            <div class="card">
+            <div class="card b-round b-shadow">
                 <div class="card-body">
                     <p class="lead"> {{ $announcement->description }} </p>
                 </div>
             </div>
 
-            <div class="card my-3">
+            <div class="card my-3 b-round b-shadow">
                 <div class="card-body">
                     <p class="lead">Sponsorizzazione</p>
                 </div>
             </div>
 
             {{-- Chart.Js --}}
-            <div class="card my-3">
+            <div class="card my-3 b-round b-shadow">
                 <div class="card-body">
                     <p class="lead">Statistiche annuncio</p>
 

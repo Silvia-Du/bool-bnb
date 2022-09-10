@@ -202,7 +202,11 @@
                                     </p>
                                 @enderror
 
-                                <button id="btn-create" class="btn-rounded-plus rounded-pill sm w-100 btn btn-lg my-3 " type="submit">Invia</button>
+                                <div class="d-flex justify-content-center">
+                                    <button id="btn-create" class="btn-big-plus sm my-3" type="submit">
+                                        Invia
+                                    </button>
+                                </div>
 
                             </div>
 

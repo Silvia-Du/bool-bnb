@@ -1,12 +1,17 @@
 <template>
     <div class="box">
         <div class="card mb-4 p-1 border-0">
+<<<<<<< HEAD
             <router-link
             :to="{
                 name: 'app-details',
                 params: { ann: ann.id } }">
             <div class="card-img mb-1">
                 <img src="http://sun-surfer.com/photos/2012/03/Glass-house-Vilnius-Lithuania-400x400.jpg" alt="casa">
+=======
+            <div class="card-img mb-1 hover-shine">
+                <figure><img src="http://sun-surfer.com/photos/2012/03/Glass-house-Vilnius-Lithuania-400x400.jpg" alt="casa"></figure>
+>>>>>>> 9557280b9314bdc520d0b0a5f293ac2987cb179e
                 <i class="fa-regular fa-heart"></i>
                 <!-- <i class="fa-solid fa-heart"></i> -->
             </div>
@@ -62,6 +67,7 @@ export default {
         cursor: pointer;
         .card-img{
             padding: 15px 15px 0px 15px;
+
             img{
                 height: 250px;
                 max-width: 100% ;
@@ -101,5 +107,44 @@ export default {
             }
         }
     }
+
+    /* Hover Shine Effect */
+    .hover-shine figure {
+        position: relative;
+    }
+
+    .hover-shine figure::before {
+        position: absolute;
+        top: 0;
+        left: -75%;
+        z-index: 2;
+        display: block;
+        content: '';
+        width: 50%;
+        height: 100%;
+        background: -webkit-linear-gradient(left, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, .3) 100%);
+        background: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, .3) 100%);
+        -webkit-transform: skewX(-25deg);
+        transform: skewX(-25deg);
+    }
+
+    .hover-shine figure:hover::before {
+        -webkit-animation: shine 1.2s;
+        animation: shine 1.2s;
+    }
+
+    @-webkit-keyframes shine {
+        100% {
+            left: 125%;
+        }
+    }
+
+    @keyframes shine {
+        100% {
+            left: 125%;
+        }
+    }
+
 }
+
 </style>
