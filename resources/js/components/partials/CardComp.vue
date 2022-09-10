@@ -1,17 +1,13 @@
 <template>
     <div class="box">
         <div class="card mb-4 p-1 border-0">
-<<<<<<< HEAD
+
             <router-link
             :to="{
                 name: 'app-details',
                 params: { ann: ann.id } }">
-            <div class="card-img mb-1">
-                <img src="http://sun-surfer.com/photos/2012/03/Glass-house-Vilnius-Lithuania-400x400.jpg" alt="casa">
-=======
             <div class="card-img mb-1 hover-shine">
                 <figure><img src="http://sun-surfer.com/photos/2012/03/Glass-house-Vilnius-Lithuania-400x400.jpg" alt="casa"></figure>
->>>>>>> 9557280b9314bdc520d0b0a5f293ac2987cb179e
                 <i class="fa-regular fa-heart"></i>
                 <!-- <i class="fa-solid fa-heart"></i> -->
             </div>
