@@ -258,7 +258,6 @@
             }
             .buttton-row{
                 ._btn{
-                    border: 1px solid #36382e;
                     background-color: #f0f0f0;
                     width: 120px;
                     text-align: center;

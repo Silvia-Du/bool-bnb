@@ -2203,10 +2203,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'CardComp',
   data: function data() {
-    return {
-      ipUser: null,
-      apiUrl: 'http://127.0.0.1:8000/api/announcements/visualization'
-    };
+    return {};
   },
   props: {
     announcementItem: Object
@@ -2214,27 +2211,6 @@ __webpack_require__.r(__webpack_exports__);
   methods: {
     shortifyContent: function shortifyContent(text) {
       return text.substring(1, 30) + '...';
-    },
-    getClick: function getClick(data) {
-      this.getIp();
-      console.log(this.ipUser);
-      console.log('ip preso');
-      axios.post(this.apiUrl, {
-        click: {
-          'ip_address': this.ipUser,
-          'ann_id': this.announcementItem.id
-        }
-      }).then(function (response) {
-        console.log(response);
-      });
-    },
-    getIp: function getIp() {
-      var _this = this;
-
-      axios.get('https://ipgeolocation.abstractapi.com/v1/?api_key=e30e687407b64f74a8fa7d83dfa28bc4').then(function (res) {
-        //console.log(res.data);
-        _this.ipUser = res.data.ip_address;
-      });
     }
   }
 });
@@ -2565,7 +2541,9 @@ var staticRenderFns = [function () {
     staticClass: "mb-2 my-5"
   }, [_c("div", {
     staticClass: "text-dark"
-  }, [_c("div", [_c("h2", {
+  }, [_c("div", {
+    staticClass: "space"
+  }, [_c("h2", {
     staticClass: "d-flex align-items-center coral-text"
   }, [_vm._v("\n                        Titolo annuncio casa\n                    ")]), _vm._v(" "), _c("span", [_c("a", {
     staticClass: "gray-text",
@@ -2903,7 +2881,20 @@ var staticRenderFns = [function () {
     staticClass: "row img h-100 d-flex align-items-center pl-4 lp-lg-0"
   }, [_c("div", {
     staticClass: "col-8 col-xl-4 text mex offset-lg-1 d-flex flex-column mt-5 py-2"
-  }, [_c("h1", [_vm._v("Il posto migliore dove sentirsi a casa!")]), _vm._v(" "), _c("h2", [_vm._v("Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores ad nobis soluta nulla, eius voluptas error sapiente cumque totam consectetur?")])])])]);
+  }, [_c("div", {
+    staticClass: "py-4"
+  }, [_c("a", {
+    attrs: {
+      href: "/"
+    }
+  }, [_c("img", {
+    staticClass: "my-4",
+    attrs: {
+      src: "images\\logo.png",
+      width: "530px",
+      height: "220px"
+    }
+  })]), _vm._v(" "), _c("h3", [_vm._v("Il luogo perfetto per trovare la tua nuova casa!")])])])])]);
 }, function () {
   var _vm = this,
       _c = _vm._self._c;
@@ -3111,12 +3102,7 @@ var render = function render() {
       _c = _vm._self._c;
 
   return _c("div", {
-    staticClass: "box",
-    on: {
-      click: function click($event) {
-        return _vm.getClick(_vm.announcementItem.id);
-      }
-    }
+    staticClass: "box"
   }, [_c("div", {
     staticClass: "card mb-4 p-1 border-0"
   }, [_vm._m(0), _vm._v(" "), _c("div", {
@@ -3139,13 +3125,13 @@ var staticRenderFns = [function () {
       _c = _vm._self._c;
 
   return _c("div", {
-    staticClass: "card-img mb-1"
-  }, [_c("img", {
+    staticClass: "card-img mb-1 hover-shine"
+  }, [_c("figure", [_c("img", {
     attrs: {
       src: "http://sun-surfer.com/photos/2012/03/Glass-house-Vilnius-Lithuania-400x400.jpg",
       alt: "casa"
     }
-  }), _vm._v(" "), _c("i", {
+  })]), _vm._v(" "), _c("i", {
     staticClass: "fa-regular fa-heart"
   })]);
 }];
@@ -3326,7 +3312,7 @@ var staticRenderFns = [function () {
   return _c("div", {
     staticClass: "col-3 d-none d-sm-block pl-lg-5"
   }, [_c("div", {
-    staticClass: "logo"
+    staticClass: "logo d-none d-none d-sm-block d-md-none"
   }, [_c("a", {
     attrs: {
       href: "/"
@@ -3554,7 +3540,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "ul[data-v-549b0066], li[data-v-549b0066] {\n  text-decoration: none;\n  list-style: none;\n}\nh1[data-v-549b0066], h2[data-v-549b0066], h3[data-v-549b0066], h4[data-v-549b0066], h5[data-v-549b0066], h6[data-v-549b0066] {\n  font-weight: bolder;\n}\na[data-v-549b0066] {\n  text-decoration: none;\n  color: #F38375;\n}\ni[data-v-549b0066] {\n  color: #EF6351;\n  padding-right: 3px;\n}\n.coral-text[data-v-549b0066] {\n  color: #EF6351;\n}\n.gray-text[data-v-549b0066] {\n  color: gray;\n}\n.bg-coral1[data-v-549b0066] {\n  background-color: #EF6351;\n}\n.btn[data-v-549b0066]:hover {\n  background-color: #F7A399;\n}\n.btn-sm[data-v-549b0066]:hover {\n  color: white;\n}\n.spacebar[data-v-549b0066] {\n  border-bottom: 1px solid rgb(192, 192, 192);\n  margin-top: 5px;\n  margin-bottom: 5px;\n}\n.slot-img[data-v-549b0066] {\n  border-radius: 15px;\n}\n.image-house[data-v-549b0066] {\n  max-width: 100%;\n  max-height: 100%;\n  border-radius: 15px;\n  box-shadow: 0px 5px 15px rgb(66, 66, 66);\n}\n.show-location[data-v-549b0066] {\n  background: linear-gradient(to right, #EF6351, #F38375, #F7A399);\n  color: white;\n  width: 172px;\n  flex-shrink: 0;\n  transition: ease-out 0.5s;\n  outline: none;\n  cursor: pointer;\n}\n.show-location[data-v-549b0066]:hover {\n  box-shadow: inset 172px 0 0 0 #EF6351;\n}\n.cat-box[data-v-549b0066] {\n  border-radius: 15px;\n  background-color: #ffffff;\n  border: 1px solid #f06449;\n  transition: ease-out 0.5s;\n  outline: none;\n}\n.cat-box[data-v-549b0066]:hover {\n  cursor: pointer;\n  color: white;\n}", ""]);
+exports.push([module.i, ".space[data-v-549b0066] {\n  margin-top: 110px;\n}\nul[data-v-549b0066], li[data-v-549b0066] {\n  text-decoration: none;\n  list-style: none;\n}\nh1[data-v-549b0066], h2[data-v-549b0066], h3[data-v-549b0066], h4[data-v-549b0066], h5[data-v-549b0066], h6[data-v-549b0066] {\n  font-weight: bolder;\n}\na[data-v-549b0066] {\n  text-decoration: none;\n  color: #F38375;\n}\ni[data-v-549b0066] {\n  color: #EF6351;\n  padding-right: 3px;\n}\n.coral-text[data-v-549b0066] {\n  color: #EF6351;\n}\n.gray-text[data-v-549b0066] {\n  color: gray;\n}\n.bg-coral1[data-v-549b0066] {\n  background-color: #EF6351;\n}\n.btn[data-v-549b0066]:hover {\n  background-color: #F7A399;\n}\n.btn-sm[data-v-549b0066]:hover {\n  color: white;\n}\n.spacebar[data-v-549b0066] {\n  border-bottom: 1px solid rgb(192, 192, 192);\n  margin-top: 5px;\n  margin-bottom: 5px;\n}\n.slot-img[data-v-549b0066] {\n  border-radius: 15px;\n}\n.image-house[data-v-549b0066] {\n  max-width: 100%;\n  max-height: 100%;\n  border-radius: 15px;\n  box-shadow: 0px 5px 15px rgb(66, 66, 66);\n}\n.show-location[data-v-549b0066] {\n  background: linear-gradient(to right, #EF6351, #F38375, #F7A399);\n  color: white;\n  width: 350px;\n  flex-shrink: 0;\n  transition: ease-out 0.5s;\n  outline: none;\n  cursor: pointer;\n}\n.show-location[data-v-549b0066]:hover {\n  box-shadow: inset 350px 0 0 0 #EF6351;\n}\n.cat-box[data-v-549b0066] {\n  border-radius: 15px;\n  background-color: #ffffff;\n  border: 1px solid #f06449;\n  transition: ease-out 0.5s;\n  outline: none;\n}\n.cat-box[data-v-549b0066]:hover {\n  cursor: pointer;\n  color: white;\n}", ""]);
 
 // exports
 
@@ -3593,7 +3579,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, ".modal-container[data-v-17e0e4f4] {\n  background-color: #ede6e3;\n  box-shadow: 0px 0px 10px 1px rgb(172, 172, 172);\n  position: absolute;\n  z-index: 999;\n  border-radius: 10px;\n  width: 60%;\n  top: 100px;\n  left: 50%;\n  transform: translate(-50%);\n}\n.modal-container p[data-v-17e0e4f4] {\n  font-weight: bold;\n}\n.modal-container .info[data-v-17e0e4f4] {\n  display: flex;\n  flex-wrap: wrap;\n  margin-bottom: 10px;\n}\n.modal-container .check-b[data-v-17e0e4f4] {\n  border: 1px solid rgb(51, 51, 51);\n  border-radius: 5px;\n  width: 20px;\n  height: 20px;\n  font-size: 1.5rem;\n  cursor: pointer;\n}\n.modal-container .m-modal[data-v-17e0e4f4] {\n  position: relative;\n  border-radius: 10px;\n}\n.modal-container .fa-x[data-v-17e0e4f4] {\n  position: absolute;\n  font-size: 1.2rem;\n  right: 18px;\n  top: 13px;\n}\n.modal-container .filter[data-v-17e0e4f4] {\n  border-top: 1px solid gray;\n  overflow-y: scroll;\n  height: calc(100vh - 250px);\n}\n.modal-container .filter[data-v-17e0e4f4]::-webkit-scrollbar {\n  width: 5px;\n}\n.modal-container .filter[data-v-17e0e4f4]::-webkit-scrollbar-track {\n  box-shadow: inset 0 0 5px grey;\n  border-radius: 10px;\n}\n.modal-container .filter[data-v-17e0e4f4]::-webkit-scrollbar-thumb {\n  background: linear-gradient(to top, #EF6351, #F38375, #F7A399);\n  border-radius: 10px;\n}\n.modal-container .filter .room-cad[data-v-17e0e4f4] {\n  height: 50px;\n  display: flex;\n  flex-wrap: wrap;\n}\n.modal-container .filter .buttton-row ._btn[data-v-17e0e4f4] {\n  border: 1px solid #36382e;\n  background-color: #f0f0f0;\n  width: 120px;\n  text-align: center;\n  margin: 20px 20px 10px 0;\n  cursor: pointer;\n}\n.modal-container .filter .buttton-row ._btn.black[data-v-17e0e4f4] {\n  background: linear-gradient(to right, #EF6351, #F38375, #F7A399);\n  color: rgb(219, 219, 219);\n}\n.modal-container .filter .cat-service-row .container-fluid[data-v-17e0e4f4] {\n  box-shadow: 0px 0px 10px 1px rgb(204, 202, 202);\n  border-radius: 5px;\n}\n.modal-container .filter .cat-service-row .cat-card[data-v-17e0e4f4] {\n  height: 100px;\n  border-radius: 15px;\n  flex-shrink: 0;\n  text-align: center;\n}\n.modal-container .filter .cat-service-row .cat-card .cat-box[data-v-17e0e4f4] {\n  border-radius: 15px;\n  background-color: #ede6e3;\n  border: 1px solid #f06449;\n  transition: ease-out 0.5s;\n  outline: none;\n}\n.modal-container .filter .cat-service-row .cat-card .cat-box[data-v-17e0e4f4]:hover {\n  cursor: pointer;\n  box-shadow: inset 0 172px 0 0 #EF6351;\n}\n.modal-container .filter .cat-service-row .cat-card .cat-box p[data-v-17e0e4f4] {\n  text-transform: capitalize;\n}\n.modal-container .filter .cat-service-row label[data-v-17e0e4f4] {\n  font-size: 1rem;\n}\n.modal-container .filter .cat-service-row i[data-v-17e0e4f4] {\n  font-size: 1.4rem;\n  color: #36382e;\n}\n.modal-container .filter .cat-service-row .category-col[data-v-17e0e4f4] {\n  border-top: 1px solid rgb(172, 172, 172);\n}\n.modal-container .filter .cat-service-row .category-col .fa-circle-check[data-v-17e0e4f4] {\n  top: 8px;\n  right: 7px;\n  color: #ef6351;\n}\n.modal-container .filter .cat-service-row services-col[data-v-17e0e4f4] {\n  border-top: 1px solid rgb(172, 172, 172);\n  border-radius: 5px;\n}\n.modal-container .filter .cat-service-row services-col .fa-square-check[data-v-17e0e4f4] {\n  color: #ef6351;\n  font-size: 1.4rem;\n}\n.modal-container .filter .action-row[data-v-17e0e4f4] {\n  border-top: 1px solid gray;\n  overflow: hidden;\n}\n.modal-container .filter .action-row .delete-all[data-v-17e0e4f4] {\n  text-decoration: underline;\n  font-weight: bold;\n  font-size: 1rem;\n  transition: 0.5s;\n  cursor: pointer;\n}\n.modal-container .filter .action-row .delete-all[data-v-17e0e4f4]:hover {\n  color: #EF6351;\n}\n.modal-container .filter .action-row .show-location[data-v-17e0e4f4] {\n  background: linear-gradient(to right, #EF6351, #F38375, #F7A399);\n  color: white;\n  width: 172px;\n  flex-shrink: 0;\n  transition: ease-out 0.5s;\n  outline: none;\n  cursor: pointer;\n}\n.modal-container .filter .action-row .show-location[data-v-17e0e4f4]:hover {\n  box-shadow: inset 172px 0 0 0 #EF6351;\n}", ""]);
+exports.push([module.i, ".modal-container[data-v-17e0e4f4] {\n  background-color: #ede6e3;\n  box-shadow: 0px 0px 10px 1px rgb(172, 172, 172);\n  position: absolute;\n  z-index: 999;\n  border-radius: 10px;\n  width: 60%;\n  top: 100px;\n  left: 50%;\n  transform: translate(-50%);\n}\n.modal-container p[data-v-17e0e4f4] {\n  font-weight: bold;\n}\n.modal-container .info[data-v-17e0e4f4] {\n  display: flex;\n  flex-wrap: wrap;\n  margin-bottom: 10px;\n}\n.modal-container .check-b[data-v-17e0e4f4] {\n  border: 1px solid rgb(51, 51, 51);\n  border-radius: 5px;\n  width: 20px;\n  height: 20px;\n  font-size: 1.5rem;\n  cursor: pointer;\n}\n.modal-container .m-modal[data-v-17e0e4f4] {\n  position: relative;\n  border-radius: 10px;\n}\n.modal-container .fa-x[data-v-17e0e4f4] {\n  position: absolute;\n  font-size: 1.2rem;\n  right: 18px;\n  top: 13px;\n}\n.modal-container .filter[data-v-17e0e4f4] {\n  border-top: 1px solid gray;\n  overflow-y: scroll;\n  height: calc(100vh - 250px);\n}\n.modal-container .filter[data-v-17e0e4f4]::-webkit-scrollbar {\n  width: 5px;\n}\n.modal-container .filter[data-v-17e0e4f4]::-webkit-scrollbar-track {\n  box-shadow: inset 0 0 5px grey;\n  border-radius: 10px;\n}\n.modal-container .filter[data-v-17e0e4f4]::-webkit-scrollbar-thumb {\n  background: linear-gradient(to top, #EF6351, #F38375, #F7A399);\n  border-radius: 10px;\n}\n.modal-container .filter .room-cad[data-v-17e0e4f4] {\n  height: 50px;\n  display: flex;\n  flex-wrap: wrap;\n}\n.modal-container .filter .buttton-row ._btn[data-v-17e0e4f4] {\n  background-color: #f0f0f0;\n  width: 120px;\n  text-align: center;\n  margin: 20px 20px 10px 0;\n  cursor: pointer;\n}\n.modal-container .filter .buttton-row ._btn.black[data-v-17e0e4f4] {\n  background: linear-gradient(to right, #EF6351, #F38375, #F7A399);\n  color: rgb(219, 219, 219);\n}\n.modal-container .filter .cat-service-row .container-fluid[data-v-17e0e4f4] {\n  box-shadow: 0px 0px 10px 1px rgb(204, 202, 202);\n  border-radius: 5px;\n}\n.modal-container .filter .cat-service-row .cat-card[data-v-17e0e4f4] {\n  height: 100px;\n  border-radius: 15px;\n  flex-shrink: 0;\n  text-align: center;\n}\n.modal-container .filter .cat-service-row .cat-card .cat-box[data-v-17e0e4f4] {\n  border-radius: 15px;\n  background-color: #ede6e3;\n  border: 1px solid #f06449;\n  transition: ease-out 0.5s;\n  outline: none;\n}\n.modal-container .filter .cat-service-row .cat-card .cat-box[data-v-17e0e4f4]:hover {\n  cursor: pointer;\n  box-shadow: inset 0 172px 0 0 #EF6351;\n}\n.modal-container .filter .cat-service-row .cat-card .cat-box p[data-v-17e0e4f4] {\n  text-transform: capitalize;\n}\n.modal-container .filter .cat-service-row label[data-v-17e0e4f4] {\n  font-size: 1rem;\n}\n.modal-container .filter .cat-service-row i[data-v-17e0e4f4] {\n  font-size: 1.4rem;\n  color: #36382e;\n}\n.modal-container .filter .cat-service-row .category-col[data-v-17e0e4f4] {\n  border-top: 1px solid rgb(172, 172, 172);\n}\n.modal-container .filter .cat-service-row .category-col .fa-circle-check[data-v-17e0e4f4] {\n  top: 8px;\n  right: 7px;\n  color: #ef6351;\n}\n.modal-container .filter .cat-service-row services-col[data-v-17e0e4f4] {\n  border-top: 1px solid rgb(172, 172, 172);\n  border-radius: 5px;\n}\n.modal-container .filter .cat-service-row services-col .fa-square-check[data-v-17e0e4f4] {\n  color: #ef6351;\n  font-size: 1.4rem;\n}\n.modal-container .filter .action-row[data-v-17e0e4f4] {\n  border-top: 1px solid gray;\n  overflow: hidden;\n}\n.modal-container .filter .action-row .delete-all[data-v-17e0e4f4] {\n  text-decoration: underline;\n  font-weight: bold;\n  font-size: 1rem;\n  transition: 0.5s;\n  cursor: pointer;\n}\n.modal-container .filter .action-row .delete-all[data-v-17e0e4f4]:hover {\n  color: #EF6351;\n}\n.modal-container .filter .action-row .show-location[data-v-17e0e4f4] {\n  background: linear-gradient(to right, #EF6351, #F38375, #F7A399);\n  color: white;\n  width: 172px;\n  flex-shrink: 0;\n  transition: ease-out 0.5s;\n  outline: none;\n  cursor: pointer;\n}\n.modal-container .filter .action-row .show-location[data-v-17e0e4f4]:hover {\n  box-shadow: inset 172px 0 0 0 #EF6351;\n}", ""]);
 
 // exports
 
@@ -3612,7 +3598,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, ".box[data-v-1eb78801] {\n  display: flex;\n  flex-wrap: wrap;\n  width: 320px;\n}\n.box .card[data-v-1eb78801] {\n  background-color: whitesmoke;\n  flex-shrink: 0;\n  margin: 10px;\n  position: relative;\n  overflow: hidden;\n  border-radius: 10px;\n  cursor: pointer;\n}\n.box .card .card-img[data-v-1eb78801] {\n  padding: 15px 15px 0px 15px;\n}\n.box .card .card-img img[data-v-1eb78801] {\n  height: 250px;\n  max-width: 100%;\n  border-radius: 10px;\n  box-shadow: 0px 5px 15px rgb(66, 66, 66);\n}\n.box .card .card-img .fa-regular[data-v-1eb78801] {\n  position: absolute;\n  font-size: 1.1rem;\n  right: 25px;\n  top: 25px;\n}\n.box .card .text[data-v-1eb78801] {\n  text-align: left;\n  position: relative;\n  margin: 15px;\n}\n.box .card .text .type[data-v-1eb78801],\n.box .card .text .title[data-v-1eb78801] {\n  font-size: 0.85rem;\n  font-weight: bold;\n}\n.box .card .text .street[data-v-1eb78801] {\n  font-size: 0.7rem;\n  color: rgb(65, 64, 64);\n}\n.box .card .text .price[data-v-1eb78801] {\n  font-size: 0.95rem;\n  font-weight: bold;\n}\n.box .card .text .fa-star[data-v-1eb78801] {\n  position: absolute;\n  right: 5px;\n  top: 1px;\n  color: rgb(255, 187, 0);\n}", ""]);
+exports.push([module.i, ".box[data-v-1eb78801] {\n  display: flex;\n  flex-wrap: wrap;\n  width: 320px;\n  /* Hover Shine Effect */\n}\n.box .card[data-v-1eb78801] {\n  background-color: whitesmoke;\n  flex-shrink: 0;\n  margin: 10px;\n  position: relative;\n  overflow: hidden;\n  border-radius: 10px;\n  cursor: pointer;\n}\n.box .card .card-img[data-v-1eb78801] {\n  padding: 15px 15px 0px 15px;\n}\n.box .card .card-img img[data-v-1eb78801] {\n  height: 250px;\n  max-width: 100%;\n  border-radius: 10px;\n  box-shadow: 0px 5px 15px rgb(66, 66, 66);\n}\n.box .card .card-img .fa-regular[data-v-1eb78801] {\n  position: absolute;\n  font-size: 1.1rem;\n  right: 25px;\n  top: 25px;\n}\n.box .card .text[data-v-1eb78801] {\n  text-align: left;\n  position: relative;\n  margin: 15px;\n}\n.box .card .text .type[data-v-1eb78801],\n.box .card .text .title[data-v-1eb78801] {\n  font-size: 0.85rem;\n  font-weight: bold;\n}\n.box .card .text .street[data-v-1eb78801] {\n  font-size: 0.7rem;\n  color: rgb(65, 64, 64);\n}\n.box .card .text .price[data-v-1eb78801] {\n  font-size: 0.95rem;\n  font-weight: bold;\n}\n.box .card .text .fa-star[data-v-1eb78801] {\n  position: absolute;\n  right: 5px;\n  top: 1px;\n  color: rgb(255, 187, 0);\n}\n.box .hover-shine figure[data-v-1eb78801] {\n  position: relative;\n}\n.box .hover-shine figure[data-v-1eb78801]::before {\n  position: absolute;\n  top: 0;\n  left: -75%;\n  z-index: 2;\n  display: block;\n  content: \"\";\n  width: 50%;\n  height: 100%;\n  background: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.3) 100%);\n  transform: skewX(-25deg);\n}\n.box .hover-shine figure[data-v-1eb78801]:hover::before {\n  -webkit-animation: shine-1eb78801 1.2s;\n  animation: shine-1eb78801 1.2s;\n}\n@-webkit-keyframes shine-1eb78801 {\n100% {\n    left: 125%;\n}\n}\n@keyframes shine-1eb78801 {\n100% {\n    left: 125%;\n}\n}", ""]);
 
 // exports
 
@@ -3650,7 +3636,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "header[data-v-494e1ffe] {\n  top: 0;\n  background-color: rgba(50, 50, 50, 0.432);\n  width: 100%;\n  position: fixed;\n  z-index: 999;\n  color: rgba(36, 36, 36, 0.8);\n}\nheader .logo[data-v-494e1ffe] {\n  width: 130px;\n  height: 50px;\n}\nheader .nav-map[data-v-494e1ffe] {\n  cursor: pointer;\n  width: 82%;\n  height: 45px;\n  background-color: #ede6e3;\n  border: 1px solid rgb(138, 135, 135);\n}\nheader .nav-map .bar[data-v-494e1ffe] {\n  width: 80%;\n  height: 40px;\n}\nheader .nav-map .bar input[data-v-494e1ffe] {\n  width: 100%;\n  height: 35px;\n  margin-top: 3px;\n  background-color: #ffffff;\n  border: none;\n}\nheader .nav-map .search-i[data-v-494e1ffe] {\n  font-size: 1.2rem;\n  color: #EF6351;\n}\nheader .nav-map .nav-text[data-v-494e1ffe] {\n  color: rgba(36, 36, 36, 0.884);\n}\nheader .nav-map .nav-text .question[data-v-494e1ffe] {\n  font-size: 0.7rem;\n  font-weight: bolder;\n}\nheader .nav-map .nav-text .answer[data-v-494e1ffe] {\n  font-size: 0.6rem;\n}\nheader .nav-map .slider-box[data-v-494e1ffe] {\n  border-radius: 50%;\n  height: 30px;\n  width: 30px;\n  font-size: 0.8rem;\n  background-color: #EF6351;\n}\nheader .nav-map .slider-box a[data-v-494e1ffe] {\n  color: #ede6e3;\n  margin-bottom: 0;\n}\nheader .box-host[data-v-494e1ffe] {\n  text-align: center;\n  color: #EF6351;\n}\nheader .link-host[data-v-494e1ffe] {\n  color: #EF6351;\n  transition: 0.5s;\n  text-decoration: none;\n  font-size: 1.2rem;\n}\nheader .link-host[data-v-494e1ffe]:hover {\n  color: #ede6e3;\n}\nheader .user-box[data-v-494e1ffe] {\n  cursor: pointer;\n  background-color: #ede6e3;\n  border: 1px solid rgb(138, 135, 135);\n  position: relative;\n  height: 45px;\n}\nheader .user-box i[data-v-494e1ffe] {\n  font-size: 1rem;\n  color: #EF6351;\n}\nheader .user-box .fa-circle-user[data-v-494e1ffe] {\n  font-size: 1.5rem;\n  color: rgba(0, 0, 0, 0.884);\n}\nheader .user-box .drop-d[data-v-494e1ffe] {\n  top: 46px;\n  left: 50%;\n  border: 1px solid rgb(138, 135, 135);\n  background-color: #ede6e3;\n  border-radius: 5px;\n  transform: translate(-50%);\n  width: 200%;\n  min-height: 100px;\n}\nheader .user-box .drop-d .dd-row[data-v-494e1ffe] {\n  border-bottom: 1px solid rgb(138, 135, 135);\n}\nheader .link-col .fa-globe[data-v-494e1ffe] {\n  font-size: 1rem;\n  color: white;\n}\nheader .link-col a[data-v-494e1ffe] {\n  color: white;\n}\nheader .link-col a[data-v-494e1ffe]:hover {\n  text-decoration: none;\n  color: #FFE3E0;\n}", ""]);
+exports.push([module.i, "header[data-v-494e1ffe] {\n  top: 0;\n  background-color: rgba(50, 50, 50, 0.432);\n  width: 100%;\n  position: fixed;\n  z-index: 999;\n  color: rgba(36, 36, 36, 0.8);\n}\nheader .logo[data-v-494e1ffe] {\n  width: 130px;\n  height: 50px;\n}\nheader .nav-map[data-v-494e1ffe] {\n  cursor: pointer;\n  width: 82%;\n  height: 45px;\n  background-color: #ede6e3;\n  border: 1px solid rgb(138, 135, 135);\n}\nheader .nav-map .bar[data-v-494e1ffe] {\n  width: 78%;\n  height: 40px;\n}\nheader .nav-map .bar input[data-v-494e1ffe] {\n  width: 100%;\n  height: 35px;\n  margin-top: 3px;\n  background-color: #ffffff;\n  border: none;\n}\nheader .nav-map .search-i[data-v-494e1ffe] {\n  font-size: 1.2rem;\n  color: #EF6351;\n}\nheader .nav-map .nav-text[data-v-494e1ffe] {\n  color: rgba(36, 36, 36, 0.884);\n}\nheader .nav-map .nav-text .question[data-v-494e1ffe] {\n  font-size: 0.7rem;\n  font-weight: bolder;\n}\nheader .nav-map .nav-text .answer[data-v-494e1ffe] {\n  font-size: 0.6rem;\n}\nheader .nav-map .slider-box[data-v-494e1ffe] {\n  border-radius: 50%;\n  height: 30px;\n  width: 30px;\n  font-size: 0.8rem;\n  background-color: #EF6351;\n}\nheader .nav-map .slider-box a[data-v-494e1ffe] {\n  color: #ede6e3;\n  margin-bottom: 0;\n}\nheader .box-host[data-v-494e1ffe] {\n  text-align: center;\n  color: #EF6351;\n}\nheader .link-host[data-v-494e1ffe] {\n  color: #EF6351;\n  transition: 0.5s;\n  text-decoration: none;\n  font-size: 1.2rem;\n}\nheader .link-host[data-v-494e1ffe]:hover {\n  color: #ede6e3;\n}\nheader .user-box[data-v-494e1ffe] {\n  cursor: pointer;\n  background-color: #ede6e3;\n  border: 1px solid rgb(138, 135, 135);\n  position: relative;\n  height: 45px;\n}\nheader .user-box i[data-v-494e1ffe] {\n  font-size: 1rem;\n  color: #EF6351;\n}\nheader .user-box .fa-circle-user[data-v-494e1ffe] {\n  font-size: 1.5rem;\n  color: rgba(0, 0, 0, 0.884);\n}\nheader .user-box .drop-d[data-v-494e1ffe] {\n  top: 46px;\n  left: 50%;\n  border: 1px solid rgb(138, 135, 135);\n  background-color: #ede6e3;\n  border-radius: 5px;\n  transform: translate(-50%);\n  width: 200%;\n  min-height: 100px;\n}\nheader .user-box .drop-d .dd-row[data-v-494e1ffe] {\n  border-bottom: 1px solid rgb(138, 135, 135);\n}\nheader .link-col .fa-globe[data-v-494e1ffe] {\n  font-size: 1rem;\n  color: white;\n}\nheader .link-col a[data-v-494e1ffe] {\n  color: white;\n}\nheader .link-col a[data-v-494e1ffe]:hover {\n  text-decoration: none;\n  color: #FFE3E0;\n}", ""]);
 
 // exports
 

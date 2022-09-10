@@ -4,8 +4,10 @@
         <div class="jumbo container-fluid px-0 mx-0 py-0 mb-0 d-none d-md-block mb-1">
             <div class="row img h-100 d-flex align-items-center pl-4 lp-lg-0">
                 <div class="col-8 col-xl-4 text mex offset-lg-1 d-flex flex-column mt-5 py-2">
-                    <h1>Il posto migliore dove sentirsi a casa!</h1>
-                    <h2>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores ad nobis soluta nulla, eius voluptas error sapiente cumque totam consectetur?</h2>
+                    <div class="py-4">
+                        <a href="/"><img src="images\logo.png" width="530px" height="220px" class="my-4" /></a>
+                        <h3>Il luogo perfetto per trovare la tua nuova casa!</h3>
+                    </div>
                 </div>
             </div>
         </div>
@@ -30,7 +32,6 @@
             <div class="row d-flex mx-lg-5 flex-wrap justify-content-center pt-5 px-sm-2">
                 <CardComp
                 class=""
-
                 v-for="(announcement, i) in announcements" :key="`ann${i}`" :announcementItem = "announcement" />
             </div>
         </div>
@@ -74,18 +75,9 @@
                     this.announcements = response.data;
                 })
             },
-
-
-
-
-
         },
         mounted(){
             this.getAnnouncement();
-
-
-
-
         }
     }
     </script>
