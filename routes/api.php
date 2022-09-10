@@ -27,12 +27,9 @@ Route::namespace('Api')
         Route::get('/category/{category}', 'PageController@getSelectedCategory');
         Route::get('/location/{location}', 'PageController@getAnnouncementFromLocation');
         Route::post('message/', 'PageController@postMessag');
-<<<<<<< HEAD
         Route::get('/appartament-details/{id}', 'PageController@getAnnouncementDetails');
-=======
         Route::post('visualization/','PageController@postVisualization');
 
->>>>>>> 9557280b9314bdc520d0b0a5f293ac2987cb179e
         /* Route::get('/advanced/{data}', 'PageController@getAdvancedFilter'); */
 
         /* Route::get('/advanced/{bathrooms}/{beds}/{houseType}/{roomType}/{rooms}/{services}', 'PageController@getAdvancedFilter'); */
