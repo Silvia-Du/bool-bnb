@@ -42,6 +42,7 @@
               <!-- card -->
               <!-- QUESTA è TUTTA LA CARD DA CICLARE -->
               <div
+              v-for="(announcement, index) in announcmentsFilteredLocation" :key="`announcement:${index}`"
                 class="
                   col-12
                   d-flex
@@ -54,29 +55,30 @@
                 <!-- img -->
                 <div class="box-img">
                   <div class="image mr-3">
+                    <router-link
+                    :to="{
+                      name: 'app-details',
+                      params: { ann: announcement.id } }">
+                      
                       <img
                       src="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/space-of-mind-studio-puisto-architects-archmospheres-14-1605277273.jpg?resize=480:*"
                       alt="#"
                       />
+                    </router-link>
                   </div>
-                  <div class="title d-sm-none">
-                      <h4>Bordeaux Getaway</h4>
-                      <i class="fa-solid fa-heart"></i>
-                      <!-- <i class="fa-regular fa-heart"></i> -->
-                      <h6>Bordeaux Getaway strassel,181.</h6>
-                      <p>360€/notte</p>
-                      <i class="fa-solid fa-star"></i>
-                      <span> (500)</span>
-                  </div>
+                  
                 </div>
                 <!-- text -->
                 <div class="d-none d-sm-block box-text w-100 pl-2">
-                  <p>Entire home in Bordeaux</p>
-                  <h2>Bordeaux Getaway</h2>
+                  <p>{{ announcement.address }}</p>
+                  <h2>{{ announcement.title }}</h2>
                   <div class="riga"></div>
                   <p>
-                    2 guests - Entire Home - 1 Bads - 1 Bath <br />
-                    Wifi - Kitchen - Free Parking
+                    {{ announcement.room_type }} - {{ announcement.beds }} letti - {{ announcement.bathrooms }} bagni <br />
+                    <span v-for="(service, index) in announcement.services" :key="`service:${index}`">{{ service.name }} 
+                      <span v-if="announcement.services.length > index + 1 "> - </span> 
+                      <!-- <span v-else-if="announcement.services.length < index">  </span> -->
+                    </span>
                   </p>
                   <div class="riga"></div>
                   <i class="fa-solid fa-star"></i>
@@ -130,7 +132,7 @@
             </div>
           </div>
           <div class="map debug d-flex justify-content-center align-items-center">
-            mappa
+            <Map :announcmentsCollection="announcmentsFilteredLocation" />
           </div>
         </div>
       </div>
@@ -144,10 +146,16 @@
 </template>
 <script>
     import ModaleFilter from "../pages/ModaleFilter.vue";
+    import Map from "../partials/Map.vue";
     export default {
         name: "AdvancedComp",
         components: {
-        ModaleFilter,
+          ModaleFilter,
+          Map
+        },
+        props:{
+          location: String,
+          input: String
         },
         data() {
             return {
@@ -173,32 +181,50 @@
                 showDropD: false,
                 isActive: -1,
                 selectedCat: "",
+                announcmentsFilteredLocation: null,
             };
         },
         methods: {
-        getCategory(index, category) {
-            this.isActive = index;
-            this.selectedCat = category;
-            axios
-            .get(this.announcApiUrl + "/category/" + this.selectedCat)
-            .then((response) => {
-                this.announcments = response.data;
-            });
+          getCategory(index, category) {
+              this.isActive = index;
+              this.selectedCat = category;
+              axios
+              .get(this.announcApiUrl + "/category/" + this.selectedCat)
+              .then((response) => {
+                  this.announcments = response.data;
+              });
+          },
+          hideModal(isShow) {
+              this.showDropD = isShow;
+          },
+          getFilteredAnnounce(data) {
+                  this.showDropD = false;
+                  axios
+                  .get(this.announcApiUrl + "/advanced/", {
+                      beds: data.beds,
+                  })
+                  .then((response) => {
+                      this.announcments = response.data;
+                  });
+          },
+          getAnnouncementFromLocation(newData){
+              axios.get(this.announcApiUrl + "/location/" + newData)
+              .then(response => {
+                  this.announcmentsFilteredLocation = response.data;
+                  
+              })
+          },
         },
-        hideModal(isShow) {
-            this.showDropD = isShow;
-        },
-        getFilteredAnnounce(data) {
-                this.showDropD = false;
-                axios
-                .get(this.announcApiUrl + "/advanced/", {
-                    beds: data.beds,
-                })
-                .then((response) => {
-                    this.announcments = response.data;
-                });
-            },
-        },
+          watch:{
+            input(newData, oldData){
+              if(newData){
+                this.getAnnouncementFromLocation(newData);
+              }
+            }
+          },
+        mounted(){
+          this.getAnnouncementFromLocation(this.input);
+        }
     };
 </script>
 <style lang='scss' scoped>

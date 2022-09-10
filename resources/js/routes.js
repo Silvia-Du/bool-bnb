@@ -30,7 +30,7 @@ const router = new VueRouter({
             component: AdvancedComp,
         },
         {
-            path: '/appartament-details',
+            path: '/appartament-details/:ann',
             name: 'app-details',
             component: AppartamentComp,
         },

@@ -1,11 +1,17 @@
 <template>
     <div class="box">
         <div class="card mb-4 p-1 border-0">
+                <router-link
+                :to="{
+                    name: 'app-details',
+                    params: { ann: ann.id }
+                }">
             <div class="card-img mb-1 hover-shine">
                 <figure><img src="http://sun-surfer.com/photos/2012/03/Glass-house-Vilnius-Lithuania-400x400.jpg" alt="casa"></figure>
                 <i class="fa-regular fa-heart"></i>
                 <!-- <i class="fa-solid fa-heart"></i> -->
             </div>
+            </router-link>
             <div class="text">
                 <p class="mb-0 type">{{ announcementItem.house_type }} - {{ announcementItem.beds }} letti - {{ announcementItem.bathrooms }} bagni</p>
                 <p class="mb-0 title">{{ announcementItem.title }}</p>
@@ -29,6 +35,14 @@ export default {
     methods:{
         shortifyContent(text){
             return text.substring(1, 30)+ '...';
+        }
+    },
+    watch:{
+        announcementItem: {
+            immediate: true,
+            handler(newVal, oldVal){
+                this.ann = newVal;
+            }
         }
     }
 }

@@ -26,6 +26,8 @@ Route::namespace('Api')
         Route::get('/get-services', 'PageController@getServices');
         Route::get('/category/{category}', 'PageController@getSelectedCategory');
         Route::get('/location/{location}', 'PageController@getAnnouncementFromLocation');
+        Route::get('/appartament-details/{id}', 'PageController@getAnnouncementDetails');
+
         Route::post('message/', 'PageController@postMessag');
         Route::post('visualization/','PageController@postVisualization');
 
