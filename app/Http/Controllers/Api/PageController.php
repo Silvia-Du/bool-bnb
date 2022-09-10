@@ -65,8 +65,8 @@ class PageController extends Controller
     public function postVisualization(Request $request){
         $data= $request->all();
         $old_data = Visualization::where('ip_address', $data['params']['ip_address'])->where('create_date', date("Y-m-d"))->get();
-        if($old_data){
-            $success = 'esiste';
+        if(count($old_data) > 0){
+            $success = count($old_data) > 0;
         }else{
             $new_visualization = new Visualization();
             $new_visualization->create_date = date("Y-m-d");
