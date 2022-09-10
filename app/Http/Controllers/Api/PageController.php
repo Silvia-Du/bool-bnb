@@ -12,7 +12,15 @@ use Illuminate\Http\Request;
 class PageController extends Controller
 {
     public function index(){
-        $announcement = Announcement::with('services')->with('sponsorizations')->paginate(20);
+        // ->whereDate('created_at', '2016-12-31')
+        // $announcement = Announcement::with('services')->with('sponsorizations')->paginate(20);
+        $announcement = Announcement::
+                        // where([['sponsorization_id','=' ,'1'] ])->
+                        with('services')->with('sponsorizations')->paginate(20);
+
+
+
+
 
         return response()->json($announcement);
     }

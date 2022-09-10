@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Service;
 use App\Visualization;
 use App\Announcement;
+use App\Sponsorization;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Http;
@@ -25,6 +26,11 @@ class AnnouncementController extends Controller
     {
         $user = Auth::id();
         $announcements = Announcement::orderBy('id', 'desc')->where('user_id', $user)->get();
+
+        // $spons = Sponsorization::where('id', 1)->with('announcements')->get();
+        $test = Announcement::join('announcement_sponsorization', 'announcement_id', '=', 'id')->where('sponsorization_id', 1)->whereDay('start')->get();
+        dd($test);
+
         return view('admin.announcements.index', compact('announcements'));
     }
 

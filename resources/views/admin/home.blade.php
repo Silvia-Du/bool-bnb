@@ -1,6 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
+
+
     <div class="container my-5 logged-admin-page">
 
         @if (session('status'))
