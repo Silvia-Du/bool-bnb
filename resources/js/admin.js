@@ -37,6 +37,7 @@ function registerValidation() {
         let preventDefaultRegister = false;
 
         const inputCollection = document.getElementsByClassName('js-data');
+
         const labelsCollection = document.getElementsByTagName('label');
 
         for (i = 0; i < inputCollection.length; i++) {
@@ -279,6 +280,7 @@ function getAddEvent(button) {
         let errorsAny = false;
         for (i = 0; i < inputCollection.length; i++) {
             if (inputCollection[i].value.length == 0) {
+                console.log('uguale a 0');
                 message = `Attenzione! il campo ${nameCollection[i]} è obbligatorio`;
                 tagPrinter(inputCollection[i], message);
                 errorsAny = true;
@@ -297,24 +299,40 @@ function getAddEvent(button) {
                 }
             }
 
-            // address
-            if (inputCollection[i].name === 'address') {
-                if (inputCollection[i].value.length < 7) {
-                    message = `Attenzione! l'indirizzo non può avere meno di 7 caratteri`;
-                    tagPrinter(inputCollection[i], message);
-                    errorsAny = true;
 
-                } else if (inputCollection[i].value.length > 200) {
-                    message = `Attenzione! l'indirizzo non può avere più di 200 caratteri`;
-                    tagPrinter(inputCollection[i], message);
-                    errorsAny = true;
+            if (inputSearchBox.value === '') {
 
-                } else if (!isNaN(inputCollection[i].value)) {
-                    message = `Attenzione! l'indirizzo non può essere solo numeri`;
-                    tagPrinter(inputCollection[i], message);
-                    errorsAny = true;
+                const divToAppend = document.querySelector('.col-12.address');
+                if (divToAppend.lastChild.tagName === 'DIV') {
+                    const error = document.createElement('p');
+                    error.classList.add('text-danger', 'm-0');
+                    error.innerHTML = `Attenzione! Il campo indirizzo è obbligatorio`;
+
+                    divToAppend.appendChild(error);
+                    inputSearchBox.addEventListener('click', function () {
+                        error.remove();
+                    });
                 }
             }
+
+            // address
+            // if (inputCollection[i].name === 'address') {
+            //     if (inputCollection[i].value.length < 7) {
+            //         message = `Attenzione! l'indirizzo non può avere meno di 7 caratteri`;
+            //         tagPrinter(inputCollection[i], message);
+            //         errorsAny = true;
+
+            //     } else if (inputCollection[i].value.length > 200) {
+            //         message = `Attenzione! l'indirizzo non può avere più di 200 caratteri`;
+            //         tagPrinter(inputCollection[i], message);
+            //         errorsAny = true;
+
+            //     } else if (!isNaN(inputCollection[i].value)) {
+            //         message = `Attenzione! l'indirizzo non può essere solo numeri`;
+            //         tagPrinter(inputCollection[i], message);
+            //         errorsAny = true;
+            //     }
+            // }
 
             //string Min
             if (stringMinMax.includes(inputCollection[i].name)) {
@@ -347,8 +365,10 @@ function getAddEvent(button) {
             }
 
             if (errorsAny) {
-
                 event.preventDefault();
+            }else{
+                console.log('tutto giusto');
+                errorsAny= false;
             }
 
         }
@@ -445,21 +465,21 @@ inputSearchBox.id = 'address';
 inputSearchBox.placeholder = 'Inserire l\'indirizzo';
 inputSearchBox.classList.add('js-data');
 
-btnCreate.addEventListener('click', function () {
-    if (inputSearchBox.value === '') {
+// btnCreate.addEventListener('click', function () {
+//     if (inputSearchBox.value === '') {
 
-        const divToAppend = document.querySelector('.col-12.address');
-        if (divToAppend.lastChild.tagName === 'DIV') {
-            const error = document.createElement('p');
-            error.classList.add('text-danger', 'm-0');
-            error.innerHTML = `Attenzione! Il campo indirizzo è obbligatorio`;
+//         const divToAppend = document.querySelector('.col-12.address');
+//         if (divToAppend.lastChild.tagName === 'DIV') {
+//             const error = document.createElement('p');
+//             error.classList.add('text-danger', 'm-0');
+//             error.innerHTML = `Attenzione! Il campo indirizzo è obbligatorio`;
 
-            divToAppend.appendChild(error);
-            inputSearchBox.addEventListener('click', function () {
-                error.remove();
-            });
-        }
-    }
-})
+//             divToAppend.appendChild(error);
+//             inputSearchBox.addEventListener('click', function () {
+//                 error.remove();
+//             });
+//         }
+//     }
+// })
   /* TOMTOM SEARCHBOX */
 

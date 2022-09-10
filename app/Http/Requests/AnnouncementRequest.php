@@ -24,13 +24,13 @@ class AnnouncementRequest extends FormRequest
     public function rules()
     {
         return [
-            'title'=>'required | min:3 | max:255 | unique:announcements',
+            'title'=>'required | min:3 | max:255 ',
             'description'=>'required | min:10 | max:400',
             'rooms'=>'required | min:1 | numeric',
             'beds'=>'required | min:1 | numeric',
             'bathrooms'=>'required | min:1 | numeric',
             'mq'=>'required | numeric',
-            'address'=>'required | min:7 | max:200',
+            'address'=>'required',
             'image'=>'nullable|image|max:32000',
             'house_type'=>'required | min:3 | max:200',
             'room_type'=>'required | min:3 | max:200',

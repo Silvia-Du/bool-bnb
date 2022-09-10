@@ -16,7 +16,7 @@
                             <div class="col-12 mb-3">
                                 <label for="title" class="form-label"><i class="fa-solid fa-pencil"></i> Titolo
                                     annuncio</label>
-                                <input type="text" class="edit-data form-control @error('title') is-invalid @enderror"
+                                <input type="text" class="js-data edit-data form-control @error('title') is-invalid @enderror"
                                     name="title" id="title" value="{{ old('title', $announcement->title) }}">
                                 @error('title')
                                     <p class="text-danger">{{ $message }}</p>
@@ -47,6 +47,7 @@
                                     Indirizzo</label>
                                 {{-- <input type="text" class="edit-data form-control @error('address') is-invalid @enderror"
                                     name="address" id="address" value="{{ old('address', $announcement->address) }}"> --}}
+                                    <input class="d-none" type="text">
                                 @error('address')
                                     <p class="text-danger">{{ $message }}</p>
                                 @enderror
@@ -56,7 +57,7 @@
                             <div class="col-sm-6 mb-4">
                                 <label for="mq" class="form-label"><i class="fa-solid fa-maximize"></i> Metri
                                     Quadri</label>
-                                <input type="text" class="edit-data form-control @error('mq') is-invalid @enderror"
+                                <input type="text" class="js-data edit-data form-control @error('mq') is-invalid @enderror"
                                     name="mq" id="mq" value="{{ old('mq', $announcement->mq) }}">
                                 @error('mq')
                                     <p class="text-danger">{{ $message }}</p>
@@ -65,9 +66,9 @@
 
                             {{-- rooms --}}
                             <div class="col-sm-6 mb-4">
-                                <label for="rooms" class="form-label"><i class="fa-solid fa-house"></i> Numero
+                                <label for="rooms" class=" form-label"><i class="fa-solid fa-house"></i> Numero
                                     Stanze</label>
-                                <input type="text" class="edit-data form-control @error('rooms') is-invalid @enderror"
+                                <input type="text" class="js-data edit-data form-control @error('rooms') is-invalid @enderror"
                                     name="rooms" id="rooms" value="{{ old('rooms', $announcement->rooms) }}">
                                 @error('rooms')
                                     <p class="text-danger">{{ $message }}</p>
@@ -76,9 +77,9 @@
 
                             {{-- beds --}}
                             <div class="col-sm-6 mb-4">
-                                <label for="beds" class="form-label"><i class="fa-solid fa-bed"></i> Numero
+                                <label for="beds" class=" form-label"><i class="fa-solid fa-bed"></i> Numero
                                     Letti</label>
-                                <input type="text" class="edit-data form-control @error('beds') is-invalid @enderror"
+                                <input type="text" class="js-data edit-data form-control @error('beds') is-invalid @enderror"
                                     name="beds" id="beds" value="{{ old('beds', $announcement->beds) }}">
                                 @error('beds')
                                     <p class="text-danger">{{ $message }}</p>
@@ -90,7 +91,7 @@
                                 <label for="bathrooms" class="form-label"><i class="fa-solid fa-sink"></i> Numero
                                     Bagni</label>
                                 <input type="text"
-                                    class="edit-data form-control @error('bathrooms') is-invalid @enderror"
+                                    class="js-data edit-data form-control @error('bathrooms') is-invalid @enderror"
                                     name="bathrooms" id="bathrooms"
                                     value="{{ old('bathrooms', $announcement->bathrooms) }}">
                                 @error('bathrooms')
@@ -103,7 +104,7 @@
                                 <label for="house_type" class="form-label"><i class="fa-solid fa-igloo"></i> Tipo di
                                     Casa</label>
                                 <input type="text"
-                                    class="edit-data form-control @error('house_type') is-invalid @enderror"
+                                    class="js-data edit-data form-control @error('house_type') is-invalid @enderror"
                                     name="house_type" id="house_type"
                                     value="{{ old('house_type', $announcement->house_type) }}">
                                 @error('house_type')
@@ -116,7 +117,7 @@
                                 <label for="room_type" class="form-label"><i class="fa-solid fa-door-open"></i> Tipo di
                                     Stanza</label>
                                 <input type="text"
-                                    class="edit-data form-control @error('room_type') is-invalid @enderror"
+                                    class="js-data edit-data form-control @error('room_type') is-invalid @enderror"
                                     name="room_type" id="room_type"
                                     value="{{ old('room_type', $announcement->room_type) }}">
                                 @error('room_type')

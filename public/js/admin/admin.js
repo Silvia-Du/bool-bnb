@@ -37566,6 +37566,7 @@ function getAddEvent(button) {
 
     for (i = 0; i < inputCollection.length; i++) {
       if (inputCollection[i].value.length == 0) {
+        console.log('uguale a 0');
         message = "Attenzione! il campo ".concat(nameCollection[i], " \xE8 obbligatorio");
         tagPrinter(inputCollection[i], message);
         errorsAny = true;
@@ -37582,24 +37583,39 @@ function getAddEvent(button) {
           tagPrinter(inputCollection[i], message);
           errorsAny = true;
         }
-      } // address
+      }
 
+      if (inputSearchBox.value === '') {
+        var divToAppend = document.querySelector('.col-12.address');
 
-      if (inputCollection[i].name === 'address') {
-        if (inputCollection[i].value.length < 7) {
-          message = "Attenzione! l'indirizzo non pu\xF2 avere meno di 7 caratteri";
-          tagPrinter(inputCollection[i], message);
-          errorsAny = true;
-        } else if (inputCollection[i].value.length > 200) {
-          message = "Attenzione! l'indirizzo non pu\xF2 avere pi\xF9 di 200 caratteri";
-          tagPrinter(inputCollection[i], message);
-          errorsAny = true;
-        } else if (!isNaN(inputCollection[i].value)) {
-          message = "Attenzione! l'indirizzo non pu\xF2 essere solo numeri";
-          tagPrinter(inputCollection[i], message);
-          errorsAny = true;
+        if (divToAppend.lastChild.tagName === 'DIV') {
+          (function () {
+            var error = document.createElement('p');
+            error.classList.add('text-danger', 'm-0');
+            error.innerHTML = "Attenzione! Il campo indirizzo \xE8 obbligatorio";
+            divToAppend.appendChild(error);
+            inputSearchBox.addEventListener('click', function () {
+              error.remove();
+            });
+          })();
         }
-      } //string Min
+      } // address
+      // if (inputCollection[i].name === 'address') {
+      //     if (inputCollection[i].value.length < 7) {
+      //         message = `Attenzione! l'indirizzo non può avere meno di 7 caratteri`;
+      //         tagPrinter(inputCollection[i], message);
+      //         errorsAny = true;
+      //     } else if (inputCollection[i].value.length > 200) {
+      //         message = `Attenzione! l'indirizzo non può avere più di 200 caratteri`;
+      //         tagPrinter(inputCollection[i], message);
+      //         errorsAny = true;
+      //     } else if (!isNaN(inputCollection[i].value)) {
+      //         message = `Attenzione! l'indirizzo non può essere solo numeri`;
+      //         tagPrinter(inputCollection[i], message);
+      //         errorsAny = true;
+      //     }
+      // }
+      //string Min
 
 
       if (stringMinMax.includes(inputCollection[i].name)) {
@@ -37629,6 +37645,9 @@ function getAddEvent(button) {
 
       if (errorsAny) {
         event.preventDefault();
+      } else {
+        console.log('tutto giusto');
+        errorsAny = false;
       }
     }
 
@@ -37726,24 +37745,21 @@ var inputSearchBox = ttSearchBox._container.firstChild.children[2];
 inputSearchBox.name = 'address';
 inputSearchBox.id = 'address';
 inputSearchBox.placeholder = 'Inserire l\'indirizzo';
-inputSearchBox.classList.add('js-data');
-btnCreate.addEventListener('click', function () {
-  if (inputSearchBox.value === '') {
-    var divToAppend = document.querySelector('.col-12.address');
+inputSearchBox.classList.add('js-data'); // btnCreate.addEventListener('click', function () {
+//     if (inputSearchBox.value === '') {
+//         const divToAppend = document.querySelector('.col-12.address');
+//         if (divToAppend.lastChild.tagName === 'DIV') {
+//             const error = document.createElement('p');
+//             error.classList.add('text-danger', 'm-0');
+//             error.innerHTML = `Attenzione! Il campo indirizzo è obbligatorio`;
+//             divToAppend.appendChild(error);
+//             inputSearchBox.addEventListener('click', function () {
+//                 error.remove();
+//             });
+//         }
+//     }
+// })
 
-    if (divToAppend.lastChild.tagName === 'DIV') {
-      var _error9 = document.createElement('p');
-
-      _error9.classList.add('text-danger', 'm-0');
-
-      _error9.innerHTML = "Attenzione! Il campo indirizzo \xE8 obbligatorio";
-      divToAppend.appendChild(_error9);
-      inputSearchBox.addEventListener('click', function () {
-        _error9.remove();
-      });
-    }
-  }
-});
 /* TOMTOM SEARCHBOX */
 
 /***/ }),
