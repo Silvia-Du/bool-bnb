@@ -64,6 +64,7 @@
             getAnnouncement(){
                 axios.get(this.announcApiUrl)
                 .then(response =>{
+
                     this.announcements = response.data.data;
                 })
             },

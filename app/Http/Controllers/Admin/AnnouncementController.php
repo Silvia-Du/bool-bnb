@@ -27,11 +27,9 @@ class AnnouncementController extends Controller
         $user = Auth::id();
         $announcements = Announcement::orderBy('id', 'desc')->where('user_id', $user)->get();
 
-        // $spons = Sponsorization::where('id', 1)->with('announcements')->get();
-        // $test = Announcement::join('announcement_sponsorization', 'announcement_id', '=', 'id')->where('sponsorization_id', 1)->whereDay('start')->get();
-        // dd($test);
-
         return view('admin.announcements.index', compact('announcements'));
+
+        //voglio gli annunci che hanno una sponsorizzazione non scaduta:
     }
 
     /**

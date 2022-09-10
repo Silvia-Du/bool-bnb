@@ -15,7 +15,24 @@ use Illuminate\Support\Facades\Date;
 class PageController extends Controller
 {
     public function index(){
-        $announcement = Announcement::with('services')->with('sponsorizations')->paginate(20);
+        $date=date_create();
+        $date2 = date_create();
+        $date3 = date_create();
+        date_sub($date,date_interval_create_from_date_string("24 hours"));
+        date_sub($date2,date_interval_create_from_date_string("74 hours"));
+        date_sub($date3,date_interval_create_from_date_string("144 hours"));
+        $back_one_day = date_format($date,"Y-m-d h:i:s");
+        $back_three_day = date_format($date2,"Y-m-d h:i:s");
+        $back_six_day = date_format($date3,"Y-m-d h:i:s");
+
+        $announcement = Announcement::join('announcement_sponsorization', 'announcement_id', '=', 'id')->
+        where([['sponsorization_id', 1],['start_date', '>', $back_one_day ]] )->
+        orWhere([['sponsorization_id', 2],['start_date', '>', $back_three_day ]] )->
+        orWhere([['sponsorization_id', 3],['start_date', '>', $back_six_day ]] )->
+        with('services')->with('sponsorizations')->
+        paginate(20);
+
+        // $announcement = Announcement::with('services')->with('sponsorizations')->paginate(20);
 
         return response()->json($announcement);
     }
@@ -75,7 +92,7 @@ class PageController extends Controller
             $new_visualization->save();
             $success = 'non esiste';
         }
-        
+
 
         return response()->json([$success]);
     }

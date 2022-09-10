@@ -15,7 +15,7 @@ class AnnouncementSponsorizationTableSeeder extends Seeder
     {
         $announcements = Announcement::all();
         foreach($announcements as $announcement){
-            $tot_random = rand(0, 5);
+            $tot_random = rand(0, 1);
             for($i=0; $i< $tot_random; $i++){
                 $sponsorization_id = Sponsorization::inRandomOrder()->first()->id;
                     $announcement->sponsorizations()->attach($sponsorization_id);

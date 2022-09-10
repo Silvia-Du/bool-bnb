@@ -2281,43 +2281,21 @@ __webpack_require__.r(__webpack_exports__);
     announcementItem: Object
   },
   methods: {
-    ciao: function ciao() {
-      console.log('ciao');
-    },
     shortifyContent: function shortifyContent(text) {
       return text.substring(1, 30) + '...';
     },
-    saluto: function saluto() {
-      console.log('ciao');
-    },
-
-    /* getClick(data){
-        const ip = this.getIp();
-        console.log(ip);
-        axios.post(this.apiUrl,{
-                click:{
-                    'ip_address': this.ipUser,
-                    'ann_id': this.announcementItem.id,
-                }
-            })
-            .then(response =>{
-                console.log(response, 'response');
-            })
-    }, */
     getIp: function getIp(data) {
       var _this = this;
 
-      // console.log(data);
       axios.get('https://ipgeolocation.abstractapi.com/v1/?api_key=e30e687407b64f74a8fa7d83dfa28bc4').then(function (res) {
-        _this.ipUser = res.data.ip_address;
-        console.log(res.data.ip_address);
+        _this.ipUser = res.data.ip_address; // console.log(res.data.ip_address);
+
         axios.post(_this.apiUrl, {
           params: {
             'ip_address': _this.ipUser,
             'ann_id': _this.announcementItem.id
           }
-        }).then(function (response) {
-          console.log(response, 'response');
+        }).then(function (response) {// console.log(response, 'response');
         });
       });
     }
@@ -21055,7 +21033,7 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\emanu\OneDrive\Desktop\BOOLEAN\LARAVEL\laravel-bnb\bool-bnb\resources\js\front.js */"./resources/js/front.js");
+module.exports = __webpack_require__(/*! C:\Users\silvi\Documents\BOOLEAN\LARAVEL\bool-bnb\resources\js\front.js */"./resources/js/front.js");
 
 
 /***/ })

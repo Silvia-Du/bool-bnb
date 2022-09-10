@@ -1,7 +1,7 @@
 <template>
     <div class="box">
                 <router-link
-                
+
                 :to="{
                     name: 'app-details',
                     params: { ann: ann.id }
@@ -38,36 +38,17 @@ export default {
         announcementItem:Object,
     },
     methods:{
-        ciao(){
-            console.log('ciao');
-        },
+
         shortifyContent(text){
             return text.substring(1, 30)+ '...';
         },
-        saluto(){
-            console.log('ciao');
-        },
 
-        /* getClick(data){
-            const ip = this.getIp();
-            console.log(ip);
-            axios.post(this.apiUrl,{
-                    click:{
-                        'ip_address': this.ipUser,
-                        'ann_id': this.announcementItem.id,
-                    }
-                })
-                .then(response =>{
-                    console.log(response, 'response');
-                })
-        }, */
         getIp(data){
-            // console.log(data);
 
             axios.get('https://ipgeolocation.abstractapi.com/v1/?api_key=e30e687407b64f74a8fa7d83dfa28bc4')
                 .then(res => {
                     this.ipUser = res.data.ip_address;
-                    console.log(res.data.ip_address);
+                    // console.log(res.data.ip_address);
                     axios.post(this.apiUrl,{
                                     params:{
                                         'ip_address': this.ipUser,
@@ -75,11 +56,11 @@ export default {
                                     }
                     })
                     .then(response =>{
-                        console.log(response, 'response');
+                        // console.log(response, 'response');
                     })
             });
-            
-            
+
+
         },
 
 },
@@ -105,7 +86,7 @@ export default {
     flex-wrap: wrap;
     width: 320px;
     .card{
-        
+
         background-color: whitesmoke;
         flex-shrink: 0;
         margin: 10px;
@@ -131,7 +112,7 @@ export default {
             }
         }
         .text{
-            
+
             text-align: left;
             position: relative;
             margin: 15px;
