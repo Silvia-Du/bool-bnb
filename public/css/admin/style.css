@@ -10975,7 +10975,7 @@ a.text-dark:focus {
 
 .debug {
   background-color: rgba(239, 99, 81, 0.3411764706);
-  border: 1px solid black;
+  border: 1px solid white;
 }
 
 .logo {
@@ -10986,26 +10986,112 @@ a.text-dark:focus {
 .btn-rounded-plus {
   border-radius: 30px;
   padding: 10px 15px;
-  background-color: #343a40;
-  border: 1px solid #343a40;
+  width: 200px;
+  transition: ease-out 0.5s;
+  background: linear-gradient(to right, #EF6351, #F38375, #F7A399);
   color: white;
 }
 
 .btn-rounded-plus:hover {
-  background-color: white;
-  color: black;
+  box-shadow: inset 200px 0 0 0 #EF6351;
+  color: white;
+}
+
+.btn-small-plus {
+  border-radius: 30px;
+  padding: 15px 12px;
+  margin-right: 5px;
+  width: 50px;
+  transition: ease-out 0.5s;
+  background: linear-gradient(to right, #EF6351, #F38375, #F7A399);
+  color: white;
+  border: none;
+}
+
+.btn-small-plus:hover {
+  box-shadow: inset 200px 0 0 0 #EF6351;
+  color: white;
+}
+
+.btn-big-plus {
+  border-radius: 30px;
+  border: none;
+  padding: 10px 15px;
+  width: 1014px;
+  transition: ease-out 0.5s;
+  background: linear-gradient(to left, #EF6351, #F38375, #F7A399);
+  color: white;
+}
+
+.btn-big-plus:hover {
+  box-shadow: inset 1014px 0 0 0 #EF6351;
+  color: white;
 }
 
 .coral {
   background-color: #EF6351;
 }
 
+.coral-t-color {
+  color: #EF6351;
+}
+
+.coral-bg-back {
+  background: linear-gradient(to top, #EF6351, #F38375, #F7A399);
+}
+
+.spacebar {
+  border-radius: 5px;
+  background: linear-gradient(to left, #EF6351 0%, #F38375 12%, #F7A399 47%, #EF6351 100%) left bottom rgba(119, 119, 119, 0) no-repeat;
+  background-size: 100% 5px;
+}
+
 .b-round {
   border-radius: 15px;
 }
 
+.b-shadow {
+  box-shadow: 0px 0px 50px 1px rgb(201, 200, 200);
+}
+
+/* Hover Shine Effect */
+
+.hover-shine figure {
+  position: relative;
+}
+
+.hover-shine figure::before {
+  position: absolute;
+  top: 0;
+  left: -75%;
+  z-index: 2;
+  display: block;
+  content: "";
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.3) 100%);
+  transform: skewX(-25deg);
+}
+
+.hover-shine figure:hover::before {
+  -webkit-animation: shine 1.2s;
+  animation: shine 1.2s;
+}
+
+@-webkit-keyframes shine {
+  100% {
+    left: 125%;
+  }
+}
+
+@keyframes shine {
+  100% {
+    left: 125%;
+  }
+}
+
 .create i {
-  color: #343a40;
+  color: #EF6351;
   font-size: 1rem;
   margin-right: 8px;
 }
@@ -11015,7 +11101,7 @@ a.text-dark:focus {
 }
 
 .edit i {
-  color: #343a40;
+  color: #EF6351;
   font-size: 1rem;
   margin-right: 8px;
 }
@@ -11053,6 +11139,16 @@ a.text-dark:focus {
   border-radius: 5px;
 }
 
+.logged-admin-page button:hover {
+  color: #EF6351;
+}
+
+.logged-admin-page #scopri:hover {
+  border: 1px solid white;
+  color: white;
+  background-color: #EF6351;
+}
+
 .show-col-message .mex-box {
   min-height: 250px;
   border-radius: 5px;
@@ -11086,36 +11182,23 @@ a.text-dark:focus {
 }
 
 .message-page .nav-mex {
-  background-color: rgb(49, 49, 49);
+  background: linear-gradient(to top, #EF6351, #F38375, #F7A399);
   min-height: 100vh;
+  color: white;
+}
+
+.message-page .nav-mex a {
+  color: black;
+  text-decoration: none;
+}
+
+.message-page .nav-mex #view-for-user {
   color: white;
 }
 
 .message-page .nav-mex .mex-title {
   font-weight: bold;
   font-size: 25px;
-}
-
-.message-page .nav-mex .message,
-.message-page .nav-mex .account,
-.message-page .nav-mex .message-appart,
-.message-page .nav-mex .message-user {
-  border-bottom: 1px solid gray;
-}
-
-.message-page .nav-mex .message h4,
-.message-page .nav-mex .message h5,
-.message-page .nav-mex .message h6,
-.message-page .nav-mex .account h4,
-.message-page .nav-mex .account h5,
-.message-page .nav-mex .account h6,
-.message-page .nav-mex .message-appart h4,
-.message-page .nav-mex .message-appart h5,
-.message-page .nav-mex .message-appart h6,
-.message-page .nav-mex .message-user h4,
-.message-page .nav-mex .message-user h5,
-.message-page .nav-mex .message-user h6 {
-  font-weight: bold;
 }
 
 .message-page .nav-mex .message img {
@@ -11174,7 +11257,7 @@ a.text-dark:focus {
 .message-page .jumbo .jumbo-host {
   background-size: cover;
   height: 500px;
-  border-radius: 5px;
+  border-radius: 15px;
   overflow: hidden;
 }
 
@@ -11209,14 +11292,14 @@ a.text-dark:focus {
 
 .message-page .jumbo .under-jumbo .text {
   background-color: #eeecec;
-  border-radius: 5px;
+  border-radius: 15px;
 }
 
 .message-page .show-col-message .mex-box {
-  background-color: #313131;
+  background: linear-gradient(to top, #EF6351, #F38375, #F7A399);
   min-height: 250px;
-  border-radius: 5px;
-  border-bottom: 1px solid black;
+  border-radius: 15px;
+  border: none;
 }
 
 .message-page .show-col-message .mex-box h6 {
@@ -11225,7 +11308,8 @@ a.text-dark:focus {
 
 .message-page .show-col-message .mex-box .box {
   background-color: #eeecec;
-  border-radius: 5px;
+  border-radius: 15px;
+  border: none;
 }
 
 .message-page .show-col-message .mex-box .box.text {
@@ -11279,9 +11363,8 @@ a.text-dark:focus {
   padding: 10px;
   width: 100%;
   border-radius: 15px;
-  background-color: #5c5c5c;
   font-weight: bold;
-  color: white;
+  color: #EF6351;
 }
 
 .box-house .house-action .btn {
@@ -11321,7 +11404,7 @@ a.text-dark:focus {
   border-radius: 15px;
   width: calc(33.3333333333% - 20px);
   margin: 0 20px;
-  box-shadow: 5px 5px 10px 0px #bbb9b9;
+  box-shadow: 0px 0px 50px 1px rgb(201, 200, 200);
   background-color: #f7f7f7;
   padding: 20px;
 }
@@ -11342,15 +11425,22 @@ a.text-dark:focus {
 }
 
 .text-cont .btn-create {
-  border-radius: 15px;
-  padding: 15px;
+  border-radius: 30px;
+  padding: 10px 15px;
+  width: 500px;
   font-size: 25px;
-  background-color: red;
   display: block;
-  width: 50%;
   margin: auto;
-  color: white;
   margin-top: 25px;
+  text-decoration: none;
+  transition: ease-out 0.5s;
+  background: linear-gradient(to right, #EF6351, #F38375, #F7A399);
+  color: white;
+}
+
+.text-cont .btn-create:hover {
+  box-shadow: inset 500px 0 0 0 #EF6351;
+  color: white;
 }
 
 .box h1 {
@@ -11376,7 +11466,7 @@ a.text-dark:focus {
     border-radius: 15px;
     display: block;
     width: 100%;
-    box-shadow: 5px 5px 10px 0px #bbb9b9;
+    box-shadow: 0px 0px 50px 1px rgb(201, 200, 200);
     background-color: #f7f7f7;
     margin: 20px 0;
     text-align: center;

@@ -34,7 +34,7 @@
             <div class="container">
                 <a class="navbar-brand" href="{{ route('home') }}">
                     {{-- <a href="/"><img src="images\logo.png" class="logo mx-3" /></a> --}}
-                    <i class="fa-solid fa-house fa-lg"></i>
+                    <i class="fa-solid fa-house fa-lg coral-t-color"></i>
                 </a>
                 <a class="navbar-brand" href="{{ route('admin.announcements.index') }}">
                     Dashboard

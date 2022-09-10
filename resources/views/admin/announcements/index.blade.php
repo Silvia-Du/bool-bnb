@@ -19,17 +19,23 @@
 
                 {{-- Nessun Annuncio --}}
                 @if (count($announcements) === 0)
-                    <h1 class="text-center ">Scopri quanto potresti guadagnare come host</h1>
-                    <div class=" stat-container container d-flex justify-content-around  my-5">
-                        <div class="stat  ">
+
+                    <div class="d-flex justify-content-center">
+                        <img src="https://fontmeme.com/permalink/220909/b9eb29d5a1b9109f77870b2bb7860631.png"
+                            class="mt-5 mb-0 img-fluid ">
+                    </div>
+
+                    <div class=" stat-container container d-flex justify-content-around my-5">
+
+                        <div class="stat">
                             <h5>gli host guadagnano in media</h5>
                             <span class="text-danger">1600 &euro; al mese</span>
                         </div>
-                        <div class="stat ">
+                        <div class="stat">
                             <h5>Una media di </h5>
                             <span>85 &euro; a notte</span>
                         </div>
-                        <div class="stat ">
+                        <div class="stat">
                             <h5>I loro alloggi sono prenotati</h5>
                             <span>20 notti al mese</span>
                         </div>
@@ -37,21 +43,21 @@
                     </div>
 
 
-                        <div id="carouselExampleIndicators" class="carousel slide d-none  d-xl-block d-md-block  container   m-auto " data-ride="carousel">
+                        <div id="carouselExampleIndicators" class="carousel slide d-none  d-xl-block d-md-block  container   m-auto b-round " data-ride="carousel">
                             <ol class="carousel-indicators">
                               <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
                               <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
                               <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
                             </ol>
-                            <div class="carousel-inner">
+                            <div class="carousel-inner b-round b-shadow">
                               <div class="carousel-item active">
                                 <img class="d-block w-100 " src="https://www.smilingischic.com/wp-content/uploads/2017/01/smilingischic-travel-homeaway-francia-altasavoia-9439.jpg" alt="First slide">
                                 <div class="carousel-caption ">
-                                    <h3>Airbnb mi ha permesso di fare il lavoro che amo: prendermi cura degli ospiti nella nostra casa.</h3>
+                                    <h3>Bool BnB mi ha permesso di fare il lavoro che amo: prendermi cura degli ospiti nella nostra casa.</h3>
                                     <p>Michela Mai</p>
                                 </div>
                               </div>
-                              <div class="carousel-item">
+                              <div class="carousel-item b-round b-shadow">
                                 <img class="d-block w-100 " src="https://jeve.it/wp-content/uploads/2021/03/PAS.05.21.Brunello_Cucinelli-featured-2240x1493.jpg" alt="Second slide">
                                 <div class="carousel-caption ">
                                     <h3>Affittare la mia casa mi ha permesso di intraprendere un'attività imprenditoriale, aprendomi la strada verso la libertà finanziaria.</h3>
@@ -82,19 +88,19 @@
                         <div class="row">
                             <div class="col-12 col-md-12 col-lg-6 p-0 m-0">
                                  <img class="d-block w-100" src="{{ asset('images/ezgif.com-gif-maker (2).gif') }}" alt="Third slide">
-
                             </div>
                             <div class="col-12 col-md-12 col-lg-6 bg-dark p-0 m-0 d-flex justify-content-center align-items-center">
+                                <div class="d-flex justify-content-center">
                                     <div class="text-cont p-sm-5 ">
-                                        <h2 class="text-center">Prova ad ospitare su AirBnB</h2>
-                                        <h4>Unisciti a noi. Saremo al tuo fianco
-                                            in ogni momento.</h4>
-                                            <a class="btn-create  text-center"
-                                                href="{{ route('admin.announcements.create') }}">
-                                                Crea un nuovo annuncio
-                                            </a>
+                                        <h2 class="text-center">Prova ad ospitare su Bool BnB</h2>
+                                        {{-- <img src="https://i.ibb.co/J286Vhh/Logo-Bool-Bn-B.png" class="image-fluid" width="430px" height="180px"/> --}}
+                                        <h4 class="text-center">Unisciti a noi, saremo al tuo fianco in ogni momento!</h4>
+                                        <a class="btn-create  text-center"
+                                            href="{{ route('admin.announcements.create') }}">
+                                            Crea un nuovo annuncio
+                                        </a>
                                     </div>
-
+                                </div>
 
                             </div>
                         </div>
@@ -123,13 +129,13 @@
                                 alt="">
 
                             <div class=" house-info py-4 ">
-                                <h6> indirizzo :</h6>
+                                <h6 class="spacebar"> indirizzo :</h6>
                                 <p>{{ $announcement->address }}</p>
                                 <p>{{ $announcement->city }}</p>
                                 <p>{{ $announcement->country }}</p>
-                                <h6> tipologia camera :</h6>
+                                <h6 class="spacebar"> tipologia camera :</h6>
                                 <p>{{ $announcement->house_type }}</p>
-                                <h6> status:</h6>
+                                <h6 class="spacebar"> status:</h6>
                                 @if ($announcement->is_visible == 1)
                                     <p>Pubblico</p>
                                 @else
@@ -138,14 +144,14 @@
 
                             </div>
 
-                            <div class="house-action  justify-content-center py-4">
-                                <a class="btn btn-dark rounded-pill p-4 my-3"
+                            <div class="house-action d-flex flex-column justify-content-center">
+                                <a class="btn-small-plus my-2"
                                     href="{{ route('admin.announcements.show', $announcement) }}">
-                                <i class="fa-solid fa-eye fa-lg"></i></a>
+                                <i class="fa-solid fa-eye fa-lg my-2 mx-1"></i></a>
 
-                                <a class="btn btn-dark rounded-pill p-4 my-3"
+                                <a class="btn-small-plus my-2"
                                     href="{{ route('admin.announcements.edit', $announcement) }}">
-                                <i class="fa-solid fa-pen-to-square fa-lg"></i></a>
+                                <i class="fa-solid fa-pen-to-square fa-lg my-2 mx-1"></i></a>
 
                                 {{-- <form action="{{ route('admin.announcements.destroy', $announcement) }}" method="POST"
                                     onsubmit="return confirm('Stai per cancellare questo annuncio, confermi?')">
@@ -154,9 +160,9 @@
                                     <button class="btn btn-danger" type="submit">DELETE</button>
                                 </form> --}}
                                 {{-- sostituito con questo bottone qui sotto --}}
-                                <a href="#" data-id={{ $announcement->id }} class="btn btn-dark rounded-pill p-4 my-3"
+                                <a href="#" data-id={{ $announcement->id }} class="btn-small-plus my-2"
                                     data-toggle="modal" data-target="#deleteModal">
-                                    <i class="fa-solid fa-trash-can fa-lg"></i>
+                                    <i class="fa-solid fa-trash-can fa-lg my-2 mx-1"></i>
                                 </a>
                             </div>
 

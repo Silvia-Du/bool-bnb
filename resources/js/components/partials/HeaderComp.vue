@@ -4,8 +4,8 @@
         <div class="row px-xl-5">
             <!-- logo col -->
             <div class="col-3 d-none d-sm-block pl-lg-5">
-                <div class="logo">
-                    <a href="/"><img src="images\logo.png" class="logo" /></a>
+                <div class="logo d-none d-none d-sm-block d-md-none">
+                    <a href="/"><img src="images\logo.png" class="logo " /></a>
                 </div>
             </div>
             <!-- nav-map col -->
@@ -118,7 +118,7 @@ header{
         background-color: #ede6e3;
         border: 1px solid rgb(138, 135, 135);
         .bar{
-            width: 80%;
+            width: 78%;
             height: 40px;
             input{
                 width: 100%;
