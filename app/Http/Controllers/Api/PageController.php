@@ -10,6 +10,7 @@ use App\Service;
 use App\Sponsorization;
 use App\Visualization;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Date;
 
 class PageController extends Controller
 {
@@ -63,14 +64,20 @@ class PageController extends Controller
     } */
     public function postVisualization(Request $request){
         $data= $request->all();
+        $old_data = Visualization::where('ip_address', $data['params']['ip_address'])->where('create_date', date("Y-m-d"))->get();
+        if($old_data){
+            $success = 'esiste';
+        }else{
+            $new_visualization = new Visualization();
+            $new_visualization->create_date = date("Y-m-d");
+            $new_visualization->announcement_id = $data['params']['ann_id'];
+            $new_visualization->ip_address = $data['params']['ip_address'];
+            $new_visualization->save();
+            $success = 'non esiste';
+        }
+        
 
-        $new_visualization = new Visualization();
-        $new_visualization->announcement_id = $data['click']['ann_id'];
-        $new_visualization->ip_address = $data['click']['ip_address'];
-        $new_visualization->save();
-
-
-        return response()->json(['success'=>true]);
+        return response()->json([$success]);
     }
 
 }

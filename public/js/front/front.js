@@ -2281,30 +2281,45 @@ __webpack_require__.r(__webpack_exports__);
     announcementItem: Object
   },
   methods: {
+    ciao: function ciao() {
+      console.log('ciao');
+    },
     shortifyContent: function shortifyContent(text) {
       return text.substring(1, 30) + '...';
     },
     saluto: function saluto() {
       console.log('ciao');
     },
-    getClick: function getClick(data) {
-      console.log(data);
-      this.getIp();
-      console.log(this.ipUser); // axios.post(this.apiUrl,{
-      //         click:{
-      //             'ip_address': this.ipUser,
-      //             'ann_id': this.announcementItem.id,
-      //         }
-      //     })
-      //     .then(response =>{
-      //         console.log(response, 'response');
-      //     })
-    },
-    getIp: function getIp() {// axios.get('https://ipgeolocation.abstractapi.com/v1/?api_key=e30e687407b64f74a8fa7d83dfa28bc4')
-      //     .then(res=>{
-      //         //console.log(res.data);
-      //     this.ipUser =res.data.ip_address;
-      // })
+
+    /* getClick(data){
+        const ip = this.getIp();
+        console.log(ip);
+        axios.post(this.apiUrl,{
+                click:{
+                    'ip_address': this.ipUser,
+                    'ann_id': this.announcementItem.id,
+                }
+            })
+            .then(response =>{
+                console.log(response, 'response');
+            })
+    }, */
+    getIp: function getIp(data) {
+      var _this = this;
+
+      // console.log(data);
+      axios.get('https://ipgeolocation.abstractapi.com/v1/?api_key=e30e687407b64f74a8fa7d83dfa28bc4').then(function (res) {
+        _this.ipUser = res.data.ip_address;
+        console.log(res.data.ip_address);
+        axios.post(_this.apiUrl, {
+          params: {
+            'ip_address': _this.ipUser,
+            'ann_id': _this.announcementItem.id
+          }
+        }).then(function (response) {
+          console.log(response, 'response');
+        });
+      });
     }
   },
   watch: {
@@ -3418,13 +3433,6 @@ var render = function render() {
 
   return _c("div", {
     staticClass: "box"
-  }, [_c("div", {
-    staticClass: "card mb-4 p-1 border-0",
-    on: {
-      click: function click($event) {
-        return _vm.saluto();
-      }
-    }
   }, [_c("router-link", {
     attrs: {
       to: {
@@ -3432,6 +3440,13 @@ var render = function render() {
         params: {
           ann: _vm.ann.id
         }
+      }
+    }
+  }, [_c("div", {
+    staticClass: "card mb-4 p-1 border-0",
+    on: {
+      click: function click($event) {
+        return _vm.getIp(_vm.announcementItem.id);
       }
     }
   }, [_c("div", {
@@ -3443,7 +3458,7 @@ var render = function render() {
     }
   })]), _vm._v(" "), _c("i", {
     staticClass: "fa-regular fa-heart"
-  })])]), _vm._v(" "), _c("div", {
+  })]), _vm._v(" "), _c("div", {
     staticClass: "text"
   }, [_c("p", {
     staticClass: "mb-0 type"
@@ -3455,7 +3470,7 @@ var render = function render() {
     staticClass: "mb-0 price"
   }, [_vm._v(_vm._s(_vm.announcementItem.price) + " €/ notte")]), _vm._v(" "), _c("i", {
     staticClass: "fa-solid fa-star"
-  })])], 1)]);
+  })])])])], 1);
 };
 
 var staticRenderFns = [];
@@ -3957,7 +3972,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, ".box[data-v-1eb78801] {\n  display: flex;\n  flex-wrap: wrap;\n  width: 320px;\n  /* Hover Shine Effect */\n}\n.box .card[data-v-1eb78801] {\n  background-color: whitesmoke;\n  flex-shrink: 0;\n  margin: 10px;\n  position: relative;\n  overflow: hidden;\n  border-radius: 10px;\n  cursor: pointer;\n}\n.box .card .card-img[data-v-1eb78801] {\n  padding: 15px 15px 0px 15px;\n}\n.box .card .card-img img[data-v-1eb78801] {\n  height: 250px;\n  max-width: 100%;\n  border-radius: 10px;\n  box-shadow: 0px 5px 15px rgb(66, 66, 66);\n}\n.box .card .card-img .fa-regular[data-v-1eb78801] {\n  position: absolute;\n  font-size: 1.1rem;\n  right: 25px;\n  top: 25px;\n}\n.box .card .text[data-v-1eb78801] {\n  text-align: left;\n  position: relative;\n  margin: 15px;\n}\n.box .card .text .type[data-v-1eb78801],\n.box .card .text .title[data-v-1eb78801] {\n  font-size: 0.85rem;\n  font-weight: bold;\n}\n.box .card .text .street[data-v-1eb78801] {\n  font-size: 0.7rem;\n  color: rgb(65, 64, 64);\n}\n.box .card .text .price[data-v-1eb78801] {\n  font-size: 0.95rem;\n  font-weight: bold;\n}\n.box .card .text .fa-star[data-v-1eb78801] {\n  position: absolute;\n  right: 5px;\n  top: 1px;\n  color: rgb(255, 187, 0);\n}\n.box .hover-shine figure[data-v-1eb78801] {\n  position: relative;\n}\n.box .hover-shine figure[data-v-1eb78801]::before {\n  position: absolute;\n  top: 0;\n  left: -75%;\n  z-index: 2;\n  display: block;\n  content: \"\";\n  width: 50%;\n  height: 100%;\n  background: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.3) 100%);\n  transform: skewX(-25deg);\n}\n.box .hover-shine figure[data-v-1eb78801]:hover::before {\n  -webkit-animation: shine-1eb78801 1.2s;\n  animation: shine-1eb78801 1.2s;\n}\n@-webkit-keyframes shine-1eb78801 {\n100% {\n    left: 125%;\n}\n}\n@keyframes shine-1eb78801 {\n100% {\n    left: 125%;\n}\n}", ""]);
+exports.push([module.i, ".box[data-v-1eb78801] {\n  display: flex;\n  flex-wrap: wrap;\n  width: 320px;\n  /* Hover Shine Effect */\n}\n.box a[data-v-1eb78801] {\n  color: rgb(65, 64, 64);\n}\n.box a[data-v-1eb78801]:hover {\n  text-decoration: none;\n}\n.box .card[data-v-1eb78801] {\n  background-color: whitesmoke;\n  flex-shrink: 0;\n  margin: 10px;\n  position: relative;\n  overflow: hidden;\n  border-radius: 10px;\n  cursor: pointer;\n}\n.box .card .card-img[data-v-1eb78801] {\n  padding: 15px 15px 0px 15px;\n}\n.box .card .card-img img[data-v-1eb78801] {\n  height: 250px;\n  max-width: 100%;\n  border-radius: 10px;\n  box-shadow: 0px 5px 15px rgb(66, 66, 66);\n}\n.box .card .card-img .fa-regular[data-v-1eb78801] {\n  position: absolute;\n  font-size: 1.1rem;\n  right: 25px;\n  top: 25px;\n}\n.box .card .text[data-v-1eb78801] {\n  text-align: left;\n  position: relative;\n  margin: 15px;\n}\n.box .card .text .type[data-v-1eb78801],\n.box .card .text .title[data-v-1eb78801] {\n  font-size: 0.85rem;\n  font-weight: bold;\n}\n.box .card .text .street[data-v-1eb78801] {\n  font-size: 0.7rem;\n  color: rgb(65, 64, 64);\n}\n.box .card .text .price[data-v-1eb78801] {\n  font-size: 0.95rem;\n  font-weight: bold;\n}\n.box .card .text .fa-star[data-v-1eb78801] {\n  position: absolute;\n  right: 5px;\n  top: 1px;\n  color: rgb(255, 187, 0);\n}\n.box .hover-shine figure[data-v-1eb78801] {\n  position: relative;\n}\n.box .hover-shine figure[data-v-1eb78801]::before {\n  position: absolute;\n  top: 0;\n  left: -75%;\n  z-index: 2;\n  display: block;\n  content: \"\";\n  width: 50%;\n  height: 100%;\n  background: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.3) 100%);\n  transform: skewX(-25deg);\n}\n.box .hover-shine figure[data-v-1eb78801]:hover::before {\n  -webkit-animation: shine-1eb78801 1.2s;\n  animation: shine-1eb78801 1.2s;\n}\n@-webkit-keyframes shine-1eb78801 {\n100% {\n    left: 125%;\n}\n}\n@keyframes shine-1eb78801 {\n100% {\n    left: 125%;\n}\n}", ""]);
 
 // exports
 
@@ -21040,7 +21055,7 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\silvi\Documents\BOOLEAN\LARAVEL\bool-bnb\resources\js\front.js */"./resources/js/front.js");
+module.exports = __webpack_require__(/*! C:\Users\emanu\OneDrive\Desktop\BOOLEAN\LARAVEL\laravel-bnb\bool-bnb\resources\js\front.js */"./resources/js/front.js");
 
 
 /***/ })

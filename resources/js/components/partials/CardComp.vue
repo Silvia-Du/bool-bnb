@@ -1,18 +1,19 @@
 <template>
     <div class="box">
-        <div
-        class="card mb-4 p-1 border-0">
                 <router-link
+                
                 :to="{
                     name: 'app-details',
                     params: { ann: ann.id }
                 }">
+        <div
+        @click="getIp(announcementItem.id)"
+        class="card mb-4 p-1 border-0">
             <div class="card-img mb-1 hover-shine">
                 <figure><img src="http://sun-surfer.com/photos/2012/03/Glass-house-Vilnius-Lithuania-400x400.jpg" alt="casa"></figure>
                 <i class="fa-regular fa-heart"></i>
                 <!-- <i class="fa-solid fa-heart"></i> -->
             </div>
-            </router-link>
             <div class="text">
                 <p class="mb-0 type">{{ announcementItem.house_type }} - {{ announcementItem.beds }} letti - {{ announcementItem.bathrooms }} bagni</p>
                 <p class="mb-0 title">{{ announcementItem.title }}</p>
@@ -21,6 +22,7 @@
                 <i class="fa-solid fa-star"></i>
             </div>
         </div>
+            </router-link>
     </div>
 </template>
 <script>
@@ -36,6 +38,9 @@ export default {
         announcementItem:Object,
     },
     methods:{
+        ciao(){
+            console.log('ciao');
+        },
         shortifyContent(text){
             return text.substring(1, 30)+ '...';
         },
@@ -43,26 +48,38 @@ export default {
             console.log('ciao');
         },
 
-        getClick(data){
-            console.log(data);
-            this.getIp();
-            console.log(this.ipUser);
-            // axios.post(this.apiUrl,{
-            //         click:{
-            //             'ip_address': this.ipUser,
-            //             'ann_id': this.announcementItem.id,
-            //         }
-            //     })
-            //     .then(response =>{
-            //         console.log(response, 'response');
-            //     })
-        },
-        getIp(){
-            // axios.get('https://ipgeolocation.abstractapi.com/v1/?api_key=e30e687407b64f74a8fa7d83dfa28bc4')
-            //     .then(res=>{
-            //         //console.log(res.data);
-            //     this.ipUser =res.data.ip_address;
-            // })
+        /* getClick(data){
+            const ip = this.getIp();
+            console.log(ip);
+            axios.post(this.apiUrl,{
+                    click:{
+                        'ip_address': this.ipUser,
+                        'ann_id': this.announcementItem.id,
+                    }
+                })
+                .then(response =>{
+                    console.log(response, 'response');
+                })
+        }, */
+        getIp(data){
+            // console.log(data);
+
+            axios.get('https://ipgeolocation.abstractapi.com/v1/?api_key=e30e687407b64f74a8fa7d83dfa28bc4')
+                .then(res => {
+                    this.ipUser = res.data.ip_address;
+                    console.log(res.data.ip_address);
+                    axios.post(this.apiUrl,{
+                                    params:{
+                                        'ip_address': this.ipUser,
+                                        'ann_id': this.announcementItem.id,
+                                    }
+                    })
+                    .then(response =>{
+                        console.log(response, 'response');
+                    })
+            });
+            
+            
         },
 
 },
@@ -78,10 +95,17 @@ export default {
 </script>
 <style lang="scss" scoped >
 .box{
+    a{
+                color: rgb(65, 64, 64);
+                    &:hover{
+                        text-decoration: none;
+                    }
+            }
     display: flex;
     flex-wrap: wrap;
     width: 320px;
     .card{
+        
         background-color: whitesmoke;
         flex-shrink: 0;
         margin: 10px;
@@ -107,6 +131,7 @@ export default {
             }
         }
         .text{
+            
             text-align: left;
             position: relative;
             margin: 15px;
