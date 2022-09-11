@@ -36,8 +36,10 @@
                    <img src="https://i.ibb.co/12xdr7G/Logo-Bool-Bn-B-bnw.png" class="logo mx-3" />
                 </a>
 
-                <a class="navbar-brand" href="{{ route('admin.announcements.index') }}" class="my-5">
-                    Dashboard
+                <a class="navbar-brand mt-3 ml-3" href="{{ route('admin.index') }}" class="my-5">
+                    Dashb
+                    <i class="fa-solid fa-circle-user word-icon"></i>
+                    ard
                 </a>
 
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">

@@ -11114,6 +11114,10 @@ a.text-dark:focus {
   border-bottom: 1px solid rgb(214, 207, 207);
 }
 
+.word-icon {
+  font-size: 0.8rem;
+}
+
 .edit i {
   color: #EF6351;
   font-size: 1rem;
