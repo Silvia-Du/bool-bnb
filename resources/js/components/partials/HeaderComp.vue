@@ -68,7 +68,7 @@
             pr-lg-5
           "
         >
-          <router-link to="">Diventa un host</router-link>
+          <router-link :to="{ name:'become-host' }">Diventa un host</router-link>
           <i class="fa-solid fa-globe mx-3"></i>
           <!-- user button -->
           <div

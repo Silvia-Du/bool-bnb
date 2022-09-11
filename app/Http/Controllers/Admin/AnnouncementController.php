@@ -75,7 +75,7 @@ class AnnouncementController extends Controller
 
         $new_announcement->fill($data);
         $new_announcement->save();
-        dd('eccoci');
+        // dd('eccoci');
          if(array_key_exists("services", $data)){
             $new_announcement->services()->attach($data["services"]);
         }
@@ -121,7 +121,8 @@ class AnnouncementController extends Controller
             ]
         ];
 
-        $announcement = Announcement::find($id);
+        $announcement = Announcement::with('sponsorizations')->find($id);
+        // dd($announcement);
         for ($i=0; $i < $tot_month ; $i++) {
             $month = Visualization::where('announcement_id',$id)->whereMonth('create_date', $limit)->count();
 

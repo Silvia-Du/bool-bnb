@@ -10,8 +10,8 @@ Vue.use(VueRouter);
 //importo i componenti di cui voglio le rotte
 import HomeComp from './components/pages/HomeComp';
 import AdvancedComp from './components/pages/AdvancedComp';
-import AppartamentComp from './components/pages/AppartamentComp.vue'
-
+import AppartamentComp from './components/pages/AppartamentComp.vue';
+import BecomeHostComp from './components/pages/BecomeHostComp';
 
 //creo il router
 const router = new VueRouter({
@@ -34,6 +34,12 @@ const router = new VueRouter({
             name: 'app-details',
             component: AppartamentComp,
         },
+        {
+            path: '/become-host',
+            name: 'become-host',
+            component: BecomeHostComp,
+        },
+          
 
 
     ]
