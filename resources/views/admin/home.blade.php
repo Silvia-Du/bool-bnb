@@ -55,7 +55,7 @@
                                     </ul>
                                 </div>
                             </a>
-                            <a href="{{ route('admin.announcements.index') }}" class="text-dark">
+                            <a href="{{ route('admin.announcements.create') }}" class="text-dark">
                                 <div class="card my-3 b-round hover-card">
                                     <ul class="fa-ul my-3 px-2">
                                         <li><span class="fa-li"><i class="fa-solid fa-map-location-dot fa-2xl coral-t-color"></i></span><h3 class="mx-3">Nuovo appartamento</h3></li>
