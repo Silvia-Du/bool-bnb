@@ -15,14 +15,28 @@
             </div>
         @endif
 
+
+
             <div class="box">
 
                 {{-- Nessun Annuncio --}}
                 @if (count($announcements) === 0)
 
-                    <div class="d-flex justify-content-center">
-                        <img src="https://fontmeme.com/permalink/220909/b9eb29d5a1b9109f77870b2bb7860631.png"
-                            class="mt-5 mb-0 img-fluid ">
+                    <div class="debug p-3 container">
+                        <div class="row">
+                            <div class="col-6 debug d-flex justify-content-center">
+                                <img src="{{ asset('img/message-people.png') }}" alt="people">
+                            </div>
+                            <div class="col-6 debug py-3 d-flex flex-column justify-content-center">
+                                <h3 class="mb-4">Non hai ancora annunci pubblicati</h3>
+                                <h4>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio voluptatem impedit sapiente vero? Facere consequatur laudantium culpa, corrupti mollitia atque.</h4>
+                                <a
+                                class="btn-create  text-center"
+                                href="{{ route('admin.announcements.create') }}">
+                                Crea un nuovo annuncio
+                                </a>
+                            </div>
+                        </div>
                     </div>
 
                     <div class=" stat-container container d-flex justify-content-around my-5">
@@ -82,29 +96,6 @@
                               <span class="sr-only">Next</span>
                             </a>
                         </div>
-
-
-                    <div class="container-fluid bg-light mt-5 ">
-                        <div class="row">
-                            <div class="col-12 col-md-12 col-lg-6 p-0 m-0">
-                                 <img class="d-block w-100" src="{{ asset('images/ezgif.com-gif-maker (2).gif') }}" alt="Third slide">
-                            </div>
-                            <div class="col-12 col-md-12 col-lg-6 bg-dark p-0 m-0 d-flex justify-content-center align-items-center">
-                                <div class="d-flex justify-content-center">
-                                    <div class="text-cont p-sm-5 ">
-                                        <h2 class="text-center">Prova ad ospitare su Bool BnB</h2>
-                                        {{-- <img src="https://i.ibb.co/J286Vhh/Logo-Bool-Bn-B.png" class="image-fluid" width="430px" height="180px"/> --}}
-                                        <h4 class="text-center">Unisciti a noi, saremo al tuo fianco in ogni momento!</h4>
-                                        <a class="btn-create  text-center"
-                                            href="{{ route('admin.announcements.create') }}">
-                                            Crea un nuovo annuncio
-                                        </a>
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
 
                 @endif
 
