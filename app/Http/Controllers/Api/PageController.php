@@ -38,19 +38,27 @@ class PageController extends Controller
 
         return response()->json($announcement);
     }
+
+
     public function getServices(){
         $services = Service::all();
 
         return response()->json($services);
     }
+
+
     public function getSelectedCategory($category){
         $announcement = Announcement::where('house_type', $category)->get();
         return response()->json($announcement);
     }
+
+
     public function getAnnouncementFromLocation($location){
         $announcement = Announcement::where('address', 'LIKE', '%' . $location . '%')->with('services')->with('sponsorizations')->get();
         return response()->json($announcement);
     }
+
+
     public function getAnnouncementDetails($id){
         $announcement = Announcement::where('id', $id)->with('services')->with('sponsorizations')->get();
         $user = DB::table('users')
@@ -99,5 +107,15 @@ class PageController extends Controller
 
         return response()->json([$success]);
     }
+
+    public function filter(Request $request){
+
+        $data = $request->all();
+        return response()->json(['eccomi']);
+
+    }
+
+
+
 
 }

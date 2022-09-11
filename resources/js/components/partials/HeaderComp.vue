@@ -57,9 +57,6 @@
                 <div @click="getRoute('register')" class="dd-row py-3 pl-3">
                   <p class="mb-0">Registrati</p>
                 </div>
-                <div @click="getRoute('logout')" class="dd-row py-3 pl-3">
-                  <p class="mb-0">Log out</p>
-                </div>
               </div>
             </div>
           </div>

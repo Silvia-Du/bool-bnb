@@ -14,7 +14,7 @@
               align-items-center
             "
           >
-            <p class="num-result mb-0">Tot risultati</p>
+            <p class="num-result mb-0">{{ announcmentsFilteredLocation.length+' ' }}Risultati</p>
             <div class="advanced-filter">
               <div
                 @click="showDropD = !showDropD"
@@ -40,6 +40,8 @@
           <div class="container-fluid box-card">
             <div class="row pt-2">
               <!-- card -->
+              <!-- v-if = "announcmentsFilteredLocation.lenght >0 " -->
+              <!-- v-else mostra il cane che si è perso   -->
               <!-- QUESTA è TUTTA LA CARD DA CICLARE -->
               <div
               v-for="(announcement, index) in announcmentsFilteredLocation" :key="`announcement:${index}`"
@@ -59,14 +61,14 @@
                     :to="{
                       name: 'app-details',
                       params: { ann: announcement.id } }">
-                      
+
                       <img
                       src="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/space-of-mind-studio-puisto-architects-archmospheres-14-1605277273.jpg?resize=480:*"
                       alt="#"
                       />
                     </router-link>
                   </div>
-                  
+
                 </div>
                 <!-- text -->
                 <div class="d-none d-sm-block box-text w-100 pl-2">
@@ -75,8 +77,8 @@
                   <div class="riga"></div>
                   <p>
                     {{ announcement.room_type }} - {{ announcement.beds }} letti - {{ announcement.bathrooms }} bagni <br />
-                    <span v-for="(service, index) in announcement.services" :key="`service:${index}`">{{ service.name }} 
-                      <span v-if="announcement.services.length > index + 1 "> - </span> 
+                    <span v-for="(service, index) in announcement.services" :key="`service:${index}`">{{ service.name }}
+                      <span v-if="announcement.services.length > index + 1 "> - </span>
                       <!-- <span v-else-if="announcement.services.length < index">  </span> -->
                     </span>
                   </p>
@@ -198,11 +200,10 @@
               this.showDropD = isShow;
           },
           getFilteredAnnounce(data) {
+                    console.log(data);
                   this.showDropD = false;
-                  axios
-                  .get(this.announcApiUrl + "/advanced/", {
-                      beds: data.beds,
-                  })
+                //   axios.get(this.announcApiUrl+ "filter/" + data.bathrooms+'/'+data.beds+'/'+data.houseType+'/'+data.rooms)
+                  axios.get(this.announcApiUrl+ "/filter/"+data.bathrooms+'/'+data.beds)
                   .then((response) => {
                       this.announcments = response.data;
                   });
@@ -211,7 +212,7 @@
               axios.get(this.announcApiUrl + "/location/" + newData)
               .then(response => {
                   this.announcmentsFilteredLocation = response.data;
-                  
+
               })
           },
         },

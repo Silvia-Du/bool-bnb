@@ -68,13 +68,13 @@
  <div class="container-fluid bg-light mt-5 ">
      <div class="row">
          <div class="col-12 col-md-12 col-lg-6 p-0 m-0">
-              <img class="d-block w-100" src="../../../../public/images/ezgif.com-gif-maker (2).gif" alt="Third slide">
+              <!-- <img class="d-block w-100" src="../../../../public/images/ezgif.com-gif-maker (2).gif" alt="Third slide"> -->
          </div>
          <div class="col-12 col-md-12 col-lg-6 bg-dark p-0 m-0 d-flex justify-content-center align-items-center">
              <div class="d-flex justify-content-center">
                  <div class="text-cont p-sm-5 ">
                      <h2 class="text-center">Prova ad ospitare su Bool BnB</h2>
-                      <img src="https://i.ibb.co/J286Vhh/Logo-Bool-Bn-B.png" class="image-fluid" width="430px" height="180px"/> 
+                      <img src="https://i.ibb.co/J286Vhh/Logo-Bool-Bn-B.png" class="image-fluid" width="430px" height="180px"/>
                      <h4 class="text-center">Unisciti a noi, saremo al tuo fianco in ogni momento!</h4>
                      <a @click="getRoute('admin/announcements')"
                      class="btn-create  text-center"

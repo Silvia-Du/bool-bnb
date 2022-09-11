@@ -28,13 +28,12 @@ Route::namespace('Api')
         Route::get('/location/{location}', 'PageController@getAnnouncementFromLocation');
         Route::get('/appartament-details/{id}', 'PageController@getAnnouncementDetails');
 
-        Route::post('message/', 'PageController@postMessag');
         Route::get('/appartament-details/{id}', 'PageController@getAnnouncementDetails');
+        // Route::get('/filter/{bathrooms}/{beds}/{houseType}/{rooms}', 'PageController@filter');
+        Route::get('/filter/{bathrooms}/{beds}', 'PageController@filter');
+        Route::post('message/', 'PageController@postMessag');
         Route::post('visualization/','PageController@postVisualization');
 
-        /* Route::get('/advanced/{data}', 'PageController@getAdvancedFilter'); */
-
-        /* Route::get('/advanced/{bathrooms}/{beds}/{houseType}/{roomType}/{rooms}/{services}', 'PageController@getAdvancedFilter'); */
     });
 
 

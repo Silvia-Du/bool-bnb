@@ -24,10 +24,10 @@
 
                 <div class="debug p-3 container">
                     <div class="row">
-                        <div class="col-6 debug d-flex justify-content-center">
+                        <div class="col-6 debug d-flex justify-content-center debug">
                             <img src="{{ asset('img/message-people.png') }}" alt="people">
                         </div>
-                        <div class="col-6 debug py-3 d-flex flex-column justify-content-center">
+                        <div class="col-6 debug py-3 d-flex flex-column justify-content-center debug">
                             <h3 class="mb-4">Non hai ancora annunci pubblicati</h3>
                             <h4>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio voluptatem impedit sapiente vero? Facere consequatur laudantium culpa, corrupti mollitia atque.</h4>
                             <a

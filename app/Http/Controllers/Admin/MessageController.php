@@ -33,9 +33,7 @@ class MessageController extends Controller
             // dd($ann_id_collection);
 
             return view('admin.announcements.message', compact('messages', 'user'));
-            echo('non ne ha');
         }else{
-            echo('ce li ha');
             $announcements = Announcement::where('user_id', $user_id)->with('messages')->get();
             return view('admin.announcements.message', compact('announcements', 'user'));
         }

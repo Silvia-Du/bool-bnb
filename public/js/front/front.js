@@ -2009,10 +2009,10 @@ __webpack_require__.r(__webpack_exports__);
     getFilteredAnnounce: function getFilteredAnnounce(data) {
       var _this2 = this;
 
-      this.showDropD = false;
-      axios.get(this.announcApiUrl + "/advanced/", {
-        beds: data.beds
-      }).then(function (response) {
+      console.log(data);
+      this.showDropD = false; //   axios.get(this.announcApiUrl+ "filter/" + data.bathrooms+'/'+data.beds+'/'+data.houseType+'/'+data.rooms)
+
+      axios.get(this.announcApiUrl + "/filter/" + data.bathrooms + '/' + data.beds).then(function (response) {
         _this2.announcments = response.data;
       });
     },
@@ -2182,12 +2182,12 @@ __webpack_require__.r(__webpack_exports__);
     return {
       isShow: true,
       servicesApi: 'api/announcements/get-services',
-      services: 'all',
-      checkedServices: [],
+      // services: 'all',
+      // checkedServices: [],
       checkedCategory: [],
-      selectedRoomType: 'all',
-      indexSelectedRoom: -1,
-      roomTypeCollection: ['stanza singola', 'stanza condivisa', 'intero alloggio'],
+      // selectedRoomType: 'all',
+      // indexSelectedRoom: -1,
+      // roomTypeCollection: ['stanza singola', 'stanza condivisa', 'intero alloggio'],
       numberOfSheet: ['Qualsiasi', '1', '2', '3+'],
       selectedRooms: 'all',
       roomIndex: 0,
@@ -2258,8 +2258,8 @@ __webpack_require__.r(__webpack_exports__);
       this.bedsIndex = 0;
       this.selectedBathroms = 'all';
       this.bathromsIndex = 0;
-      this.checkedCategory = [];
-      this.selectedRoomType = 'all';
+      this.checkedCategory = []; // this.selectedRoomType = 'all';
+
       this.indexSelectedRoom = -1;
     },
     getFilteredAnnounce: function getFilteredAnnounce() {
@@ -2267,8 +2267,8 @@ __webpack_require__.r(__webpack_exports__);
         rooms: this.selectedRooms,
         beds: this.selectedBeds,
         bathrooms: this.selectedBathroms,
-        roomType: this.selectedRoomType,
-        services: this.checkedServices,
+        // roomType: this.selectedRoomType,
+        // services: this.checkedServices,
         houseType: this.checkedCategory
       }, this.$emit('filterData', this.data); // console.log(this.data);
     }
@@ -2698,7 +2698,7 @@ var render = function render() {
     staticClass: "d-flex d-md-none d-xl-flex container-fluid filter py-3 justify-content-between align-items-center"
   }, [_c("p", {
     staticClass: "num-result mb-0"
-  }, [_vm._v("Tot risultati")]), _vm._v(" "), _c("div", {
+  }, [_vm._v(_vm._s(_vm.announcmentsFilteredLocation.length + " ") + "Risultati")]), _vm._v(" "), _c("div", {
     staticClass: "advanced-filter"
   }, [_c("div", {
     staticClass: "box d-flex align-items-center justify-content-between px-2 py-2",
@@ -2742,7 +2742,7 @@ var render = function render() {
     }), _vm._v(" "), _c("p", [_vm._v("\n                " + _vm._s(announcement.room_type) + " - " + _vm._s(announcement.beds) + " letti - " + _vm._s(announcement.bathrooms) + " bagni "), _c("br"), _vm._v(" "), _vm._l(announcement.services, function (service, index) {
       return _c("span", {
         key: "service:".concat(index)
-      }, [_vm._v(_vm._s(service.name) + " \n                  "), announcement.services.length > index + 1 ? _c("span", [_vm._v(" - ")]) : _vm._e()]);
+      }, [_vm._v(_vm._s(service.name) + "\n                  "), announcement.services.length > index + 1 ? _c("span", [_vm._v(" - ")]) : _vm._e()]);
     })], 2), _vm._v(" "), _c("div", {
       staticClass: "riga"
     }), _vm._v(" "), _c("i", {
@@ -3170,7 +3170,9 @@ var render = function render() {
     staticClass: "container-fluid bg-light mt-5"
   }, [_c("div", {
     staticClass: "row"
-  }, [_vm._m(3), _vm._v(" "), _c("div", {
+  }, [_c("div", {
+    staticClass: "col-12 col-md-12 col-lg-6 p-0 m-0"
+  }), _vm._v(" "), _c("div", {
     staticClass: "col-12 col-md-12 col-lg-6 bg-dark p-0 m-0 d-flex justify-content-center align-items-center"
   }, [_c("div", {
     staticClass: "d-flex justify-content-center"
@@ -3197,7 +3199,7 @@ var render = function render() {
         return _vm.getRoute("admin/announcements");
       }
     }
-  }, [_vm._v("\r\n                         Crea un nuovo annuncio\r\n                     ")])])])])])])]);
+  }, [_vm._v("\n                         Crea un nuovo annuncio\n                     ")])])])])])])]);
 };
 
 var staticRenderFns = [function () {
@@ -3316,19 +3318,6 @@ var staticRenderFns = [function () {
   }), _vm._v(" "), _c("span", {
     staticClass: "sr-only"
   }, [_vm._v("Next")])])]);
-}, function () {
-  var _vm = this,
-      _c = _vm._self._c;
-
-  return _c("div", {
-    staticClass: "col-12 col-md-12 col-lg-6 p-0 m-0"
-  }, [_c("img", {
-    staticClass: "d-block w-100",
-    attrs: {
-      src: __webpack_require__(/*! ../../../../public/images/ezgif.com-gif-maker (2).gif */ "./public/images/ezgif.com-gif-maker (2).gif"),
-      alt: "Third slide"
-    }
-  })]);
 }];
 render._withStripped = true;
 
@@ -3457,29 +3446,11 @@ var render = function render() {
         return _vm.hideModal();
       }
     }
-  }), _vm._v(" "), _c("div", {
+  }), _vm._v(" "), _c("h5", {
+    staticClass: "title mb-3"
+  }, [_vm._v("Filtri di reicerca avanzata")]), _vm._v(" "), _c("div", {
     staticClass: "filter container-fluid pt-2"
-  }, [_c("h5", {
-    staticClass: "my-3"
-  }, [_vm._v("Tipologia di alloggio")]), _vm._v(" "), _c("div", {
-    staticClass: "row d-flex py-3 px-lg-5 mb-3"
-  }, _vm._l(_vm.roomTypeCollection, function (roomT, i) {
-    return _c("div", {
-      key: "room".concat(i),
-      staticClass: "col-3 room-cad mx-xl-4 d-flex justify-content-between align-items-center",
-      on: {
-        click: function click($event) {
-          return _vm.getRoomType(roomT, i);
-        }
-      }
-    }, [_c("p", {
-      staticClass: "mb-0 text-capitalize"
-    }, [_vm._v(_vm._s(roomT))]), _vm._v(" "), _c("div", {
-      staticClass: "check-b d-flex align-items-center justify-content-center"
-    }, [_vm.indexSelectedRoom === i ? _c("i", {
-      staticClass: "fa-solid fa-square-check"
-    }) : _vm._e()])]);
-  }), 0), _vm._v(" "), _c("h5", [_vm._v("Stanze e letti")]), _vm._v(" "), _c("div", {
+  }, [_c("h5", [_vm._v("Stanze e letti")]), _vm._v(" "), _c("div", {
     staticClass: "row buttton-row d-flex p-3"
   }, [_c("p", {
     staticClass: "my-2"
@@ -3535,28 +3506,6 @@ var render = function render() {
   }), 0)]), _vm._v(" "), _c("div", {
     staticClass: "row cat-service-row d-flex justify-content-around py-3 mb-3 px-2"
   }, [_c("div", {
-    staticClass: "col-12 col-md-6 services-col"
-  }, [_c("h5", {
-    staticClass: "my-3 ml-3"
-  }, [_vm._v("Servizi")]), _vm._v(" "), _c("div", {
-    staticClass: "container-fluid"
-  }, _vm._l(_vm.services, function (service, i) {
-    return _c("div", {
-      key: "s".concat(i),
-      staticClass: "d-flex justify-content-between py-2 px-3"
-    }, [_c("p", {
-      staticClass: "mb-0"
-    }, [_vm._v(_vm._s(service.name))]), _vm._v(" "), _c("div", {
-      staticClass: "check-b d-flex align-items-center justify-content-center",
-      on: {
-        click: function click($event) {
-          return _vm.getCheckedService(service.name);
-        }
-      }
-    }, [_vm.checkedServices.includes(service.name) ? _c("i", {
-      staticClass: "fa-solid fa-square-check"
-    }) : _vm._e()])]);
-  }), 0)]), _vm._v(" "), _c("div", {
     staticClass: "col-12 col-md-6 category-col d-flex flex-column justify-content-between"
   }, [_c("h5", {
     staticClass: "my-3 ml-3"
@@ -3804,16 +3753,7 @@ var render = function render() {
     }
   }, [_c("p", {
     staticClass: "mb-0"
-  }, [_vm._v("Registrati")])]), _vm._v(" "), _c("div", {
-    staticClass: "dd-row py-3 pl-3",
-    on: {
-      click: function click($event) {
-        return _vm.getRoute("logout");
-      }
-    }
-  }, [_c("p", {
-    staticClass: "mb-0"
-  }, [_vm._v("Log out")])])]) : _vm._e()])], 1)])])]);
+  }, [_vm._v("Registrati")])])]) : _vm._e()])], 1)])])]);
 };
 
 var staticRenderFns = [function () {
@@ -55410,17 +55350,6 @@ module.exports = function(module) {
 	return module;
 };
 
-
-/***/ }),
-
-/***/ "./public/images/ezgif.com-gif-maker (2).gif":
-/*!***************************************************!*\
-  !*** ./public/images/ezgif.com-gif-maker (2).gif ***!
-  \***************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "/images/ezgif.com-gif-maker (2).gif?f1685fa4817ac3034a6af8a7f49e1b9b";
 
 /***/ }),
 

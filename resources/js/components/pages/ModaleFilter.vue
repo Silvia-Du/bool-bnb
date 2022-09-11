@@ -3,9 +3,11 @@
         <div class="m-modal h-100 pt-5">
             <!-- x -->
             <i @click=" hideModal() " class="fa-solid fa-x"></i>
+            <h5 class="title mb-3">Filtri di reicerca avanzata</h5>
             <div class="filter container-fluid pt-2">
-                <h5 class="my-3">Tipologia di alloggio</h5>
                 <!-- tipo di stanza -->
+
+                <!-- <h5 class="my-3">Tipologia di alloggio</h5>
                 <div class="row d-flex  py-3 px-lg-5 mb-3">
                     <div @click="getRoomType(roomT, i)"
                     v-for="(roomT, i) in roomTypeCollection" :key="`room${i}`"
@@ -16,10 +18,10 @@
                             class="fa-solid fa-square-check"></i>
                         </div>
                     </div>
-                </div>
+                </div> -->
                 <!-- stanze e letti -->
                 <h5>Stanze e letti</h5>
-                <div class="row buttton-row d-flex p-3">
+                <div class="row buttton-row d-flex p-3 ">
                     <!-- camere -->
                     <p class=" my-2">Camere</p>
                     <div class="col-12 d-flex justify-content-lg-start align-items-center info">
@@ -45,7 +47,7 @@
                 <!-- categoria alloggio -->
                 <div class="row cat-service-row d-flex justify-content-around py-3 mb-3 px-2">
                     <!-- servizi -->
-                    <div class="col-12 col-md-6 services-col">
+                    <!-- <div class="col-12 col-md-6 services-col">
                         <h5 class="my-3 ml-3">Servizi</h5>
                         <div class="container-fluid">
                             <div v-for="(service, i) in services" :key="`s${i}`"
@@ -58,7 +60,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                     <!-- categorie -->
                     <div class="col-12 col-md-6 category-col d-flex flex-column justify-content-between">
                         <h5 class="my-3 ml-3">Tipologia di alloggio</h5>
@@ -102,12 +104,12 @@
             return{
                 isShow: true,
                 servicesApi: 'api/announcements/get-services',
-                services: 'all',
-                checkedServices: [],
+                // services: 'all',
+                // checkedServices: [],
                 checkedCategory: [],
-                selectedRoomType: 'all',
-                indexSelectedRoom: -1,
-                roomTypeCollection: ['stanza singola', 'stanza condivisa', 'intero alloggio'],
+                // selectedRoomType: 'all',
+                // indexSelectedRoom: -1,
+                // roomTypeCollection: ['stanza singola', 'stanza condivisa', 'intero alloggio'],
                 numberOfSheet: [ 'Qualsiasi', '1', '2', '3+'],
                 selectedRooms:'all',
                 roomIndex:0,
@@ -176,7 +178,7 @@
                 this.selectedBathroms = 'all';
                 this.bathromsIndex = 0;
                 this.checkedCategory = [];
-                this.selectedRoomType = 'all';
+                // this.selectedRoomType = 'all';
                 this.indexSelectedRoom = -1;
             },
             getFilteredAnnounce(){
@@ -185,8 +187,8 @@
                         rooms: this.selectedRooms,
                         beds: this.selectedBeds,
                         bathrooms: this.selectedBathroms,
-                        roomType: this.selectedRoomType,
-                        services: this.checkedServices,
+                        // roomType: this.selectedRoomType,
+                        // services: this.checkedServices,
                         houseType: this.checkedCategory
                     },
                 this.$emit('filterData', this.data);

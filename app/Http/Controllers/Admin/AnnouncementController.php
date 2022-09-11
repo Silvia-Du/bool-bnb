@@ -223,7 +223,7 @@ class AnnouncementController extends Controller
         return redirect()->route('admin.announcements.index')->with('delete_announcement', "Annuncio $announcement->title eliminato correttamente");
     }
 
-    // public function getAnnouncements()
+    // public function filter()
     // {
     //     $announcements = Announcement::all();
     //     return $announcements;
