@@ -14,34 +14,35 @@
         <div class="modal-body p-5 pt-0">
             <form @submit.prevent="sendMessage"
             class="">
-                <label for="floatingInput"></label>
+
+                <label  for="floatingInput">Indirizzo eMail</label>
                 <label for="floatingInput">Indirizzo eMail</label>
                     <!-- Indirizzo eMail -->
                     <input v-model="eMail"
-                    type="eMail" class="form-control rounded-4 mb-1" id="floatingInput" placeholder="personabellissima@eMail.it">
+                    type="eMail" class="form-control rounded-4 mb-1" id="floatingInput" placeholder="personabellissima@eMail.it" required>
                     <p v-if="showAlert" class="error">Errore</p>
                     <!-- <hr class="mt-4 mb-2"> -->
                     <label class="mt-2" for="floatingInput">Verifica indirizzo eMail</label>
 
                     <!-- Verifica Indirizzo eMail -->
                     <input v-model="eMailVerify"
-                    type="eMail" class="form-control rounded-4 mb-1" id="floatingInput" placeholder="personabellissima@eMail.it">
+                    type="eMail" class="form-control rounded-4 mb-1" id="floatingInput" placeholder="personabellissima@eMail.it" required>
                     <p v-if="showAlert" class="error">L'indirizzo e-mail è diverso dalla verifica</p>
                 <hr class="my-4">
 
                 <label for="floatingInput">Nome</label>
                     <!-- Nome mittente -->
                     <input v-model="name"
-                    type="text" class="form-control rounded-4" id="floatingInput" placeholder="il tuo nome">
+                    type="text" class="form-control rounded-4" id="floatingInput" placeholder="il tuo nome" required>
                 <hr class="my-4">
 
                 <div class="form-floating">
                     <!-- Text area messaggio -->
 
                     <textarea v-model="text" rows="5"
-                    class="form-control" id="floatingTextarea"></textarea>
-                    <button class="cat-box btn rounded-pill my-3" type="submit">
-
+                    class="form-control" id="floatingTextarea" placeholder="il tuo messaggio" required></textarea>
+                    <button
+                    class="cat-box btn rounded-pill my-3" type="submit">
                         Invia messaggio
                     </button>
                 </div>
@@ -55,15 +56,14 @@
 export default {
     name: 'ModaleMessage',
     props:{
-        annId:Number,
-        authUser: Object
+        annId:Number
     },
     data() {
         return {
             name: '',
             eMail: '',
             eMailVerify: '',
-            text: 'Il tuo messaggio',
+            text: '',
             apiUrl: 'http://127.0.0.1:8000/api/announcements/message',
 
             showAlert: false,
@@ -81,6 +81,7 @@ export default {
                 this.showAlert = true;
                 console.log('errore');
             }else{
+                this.$emit('isShow', false);
                 this.showAlert= false;
                 //chiamata axios
                 axios.post(this.apiUrl,{
@@ -117,7 +118,7 @@ export default {
     .modal-content{
         position: absolute;
         z-index: 999;
-        top: 85%;
+        top: 66%;
         left: 50%;
         transform: translate(-50%, 0);
         width: 50%;
