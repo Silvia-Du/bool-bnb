@@ -18,7 +18,7 @@ class AnnouncementServiceTableSeeder extends Seeder
 
 
     foreach($announcements as $announcement){
-        $services_id = Service::inRandomOrder()->take(rand(1,9))->select('id')->get();
+        $services_id = Service::inRandomOrder()->take(rand(1,5))->select('id')->get();
         //ho un tot di servizi per id
         foreach( $services_id as  $service_id){
             if(!$announcement->services->contains($service_id)){

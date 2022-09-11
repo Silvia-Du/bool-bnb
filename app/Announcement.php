@@ -33,7 +33,9 @@ class Announcement extends Model
         }
         return $slug;
     }
-    protected $fillable = ['title', 'price', 'description', 'address', 'mq', 'rooms', 'beds', 'bathrooms', 'house_type', 'room_type', 'user_id', 'slug', 'latitude', 'longitude' ];
+
+
+    protected $fillable = ['title', 'price', 'description', 'address', 'mq', 'rooms', 'beds', 'bathrooms', 'house_type', 'room_type', 'user_id', 'slug', 'latitude', 'longitude', 'image', 'image_original_name' ];
 }
 
 

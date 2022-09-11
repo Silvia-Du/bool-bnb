@@ -10,8 +10,16 @@
         <div class="container col-xxl-8 px-4 py-3">
             <div class="row flex-lg-row align-items-center g-5 py-3">
                 <div class="col-10 col-sm-8 col-lg-6">
+                    @if ($announcement->image)
+
+                    <div class="image" >
+                        <img src="{{ asset('storage/' . $announcement->image ) }}" alt="{{ $announcement->image_original_name }}">
+                    </div>
+                    @else
+
                     <img src="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/suburban-house-royalty-free-image-1584972559.jpg"
                         class="img-fluid d-block mx-lg-auto b-round b-shadow" alt="{{ $announcement->image_original_name }}">
+                    @endif
                 </div>
 
                 <div class="col-lg-6">

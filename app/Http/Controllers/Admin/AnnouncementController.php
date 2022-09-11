@@ -54,6 +54,7 @@ class AnnouncementController extends Controller
     {
 
         $data = $request->all();
+
         $new_announcement = new Announcement();
 
         $encoded_address = urlencode($data['address']);
@@ -181,14 +182,15 @@ class AnnouncementController extends Controller
     public function update(AnnouncementRequest $request, Announcement $announcement)
     {
         $data = $request->all();
-
         if (array_key_exists('image', $data)) {
+
             if ($announcement->image) {
                 Storage::delete($announcement->image);
             }
             $data['image_original_name'] = $request->file('image')
                 ->getClientOriginalName();
             $data['image'] = Storage::put('uploads', $data['image']);
+
         }
 
         if ($data['title'] != $announcement->title) {
@@ -200,7 +202,6 @@ class AnnouncementController extends Controller
         }else{
             $announcement->services()->detach();
         }
-
 
         $announcement->update($data);
 
