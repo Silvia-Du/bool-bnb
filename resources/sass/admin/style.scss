@@ -1,17 +1,22 @@
 // Fonts
-@import url('https://fonts.googleapis.com/css?family=Nunito');
-
+// * {
+//     font-family: 'Varela Round', sans-serif;
+// }
 // Variables
 @import './variables';
-
 
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
 
-.debug {
-    background-color: #ef635157;
-    border: 1px solid white;
-}
+// .debug {
+//     background-color: #ef635157;
+//     border: 1px solid white;
+// }
+
+// .debug {
+//     background-color: rgba(95, 158, 160, 0.808);
+//     border: 1px solid rgb(32, 32, 32);
+// }
 
 .logo {
     width: 130px;
@@ -28,6 +33,21 @@
 
     &:hover {
         box-shadow: inset 200px 0 0 0 #EF6351;
+        color: white;
+    }
+}
+
+.btn-login-plus {
+    border-radius: 30px;
+    padding: 10px 15px;
+    width: 80px;
+    border: none;
+    transition: ease-out 0.5s;
+    background: linear-gradient(to right, #EF6351, #F38375, #F7A399);
+    color: white;
+
+    &:hover {
+        box-shadow: inset 80px 0 0 0 #EF6351;
         color: white;
     }
 }
@@ -94,6 +114,12 @@
     box-shadow: 0px 0px 50px 1px rgb(201, 200, 200);
 }
 
+// Hover card home admin
+
+.hover-card:hover {
+    box-shadow: 0px 0px 50px 1px rgb(201, 200, 200);
+}
+
 /* Hover Shine Effect */
 .hover-shine figure {
     position: relative;
@@ -130,12 +156,6 @@
         left: 125%;
     }
 }
-
-// .debug{
-//     background-color: rgba(95, 158, 160, 0.808);
-//     border: 1px solid rgb(32, 32, 32);
-// }
-
 
 //CREATE PAGE
 .create {

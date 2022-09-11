@@ -374,14 +374,14 @@ i {
 .show-location {
     background: linear-gradient(to right, #EF6351, #F38375, #F7A399);
     color: white;
-    width: 172px;
+    width: 350px;
     flex-shrink: 0;
     transition: ease-out 0.5s;
     outline: none;
     cursor: pointer;
 
     &:hover {
-        box-shadow: inset 172px 0 0 0 #EF6351;
+        box-shadow: inset 350px 0 0 0 #EF6351;
     }
 }
 

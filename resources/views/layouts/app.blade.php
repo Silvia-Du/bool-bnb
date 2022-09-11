@@ -33,10 +33,10 @@
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ route('home') }}">
-                    {{-- <a href="/"><img src="images\logo.png" class="logo mx-3" /></a> --}}
-                    <i class="fa-solid fa-house fa-lg"></i>
+                   <img src="https://i.ibb.co/12xdr7G/Logo-Bool-Bn-B-bnw.png" class="logo mx-3" />
                 </a>
-                <a class="navbar-brand" href="{{ route('admin.announcements.index') }}">
+
+                <a class="navbar-brand" href="{{ route('admin.announcements.index') }}" class="my-5">
                     Dashboard
                 </a>
 

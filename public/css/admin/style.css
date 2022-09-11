@@ -1,4 +1,4 @@
-@import url(https://fonts.googleapis.com/css?family=Nunito);@import url(https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@200;
+@import url(https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@200;
 
 300;800&display=swap);@charset "UTF-8";
 * {
@@ -10973,11 +10973,6 @@ a.text-dark:focus {
   }
 }
 
-.debug {
-  background-color: rgba(239, 99, 81, 0.3411764706);
-  border: 1px solid white;
-}
-
 .logo {
   width: 130px;
   height: 50px;
@@ -10994,6 +10989,21 @@ a.text-dark:focus {
 
 .btn-rounded-plus:hover {
   box-shadow: inset 200px 0 0 0 #EF6351;
+  color: white;
+}
+
+.btn-login-plus {
+  border-radius: 30px;
+  padding: 10px 15px;
+  width: 80px;
+  border: none;
+  transition: ease-out 0.5s;
+  background: linear-gradient(to right, #EF6351, #F38375, #F7A399);
+  color: white;
+}
+
+.btn-login-plus:hover {
+  box-shadow: inset 80px 0 0 0 #EF6351;
   color: white;
 }
 
@@ -11051,6 +11061,10 @@ a.text-dark:focus {
 }
 
 .b-shadow {
+  box-shadow: 0px 0px 50px 1px rgb(201, 200, 200);
+}
+
+.hover-card:hover {
   box-shadow: 0px 0px 50px 1px rgb(201, 200, 200);
 }
 

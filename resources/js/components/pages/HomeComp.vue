@@ -5,7 +5,7 @@
             <div class="row img h-100 d-flex align-items-center pl-4 lp-lg-0">
                 <div class="col-8 col-xl-4 text mex offset-lg-1 d-flex flex-column mt-5 py-2">
                     <div class="py-4">
-                        <a href="/"><img src="images\logo.png" width="530px" height="220px" class="my-4" /></a>
+                        <a href="/"><img src="images\logo.png" class="my-4 logo-jumbo" /></a>
                         <h3>Il luogo perfetto per trovare la tua nuova casa!</h3>
                     </div>
                 </div>
@@ -64,7 +64,6 @@
             getAnnouncement(){
                 axios.get(this.announcApiUrl)
                 .then(response =>{
-
                     this.announcements = response.data.data;
                 })
             },
@@ -76,6 +75,7 @@
                     this.announcements = response.data;
                 })
             },
+
         },
         mounted(){
             this.getAnnouncement();
@@ -95,6 +95,12 @@
             background-size: cover;
             background-position: center center;
             background-attachment: fixed;
+
+            .logo-jumbo{
+                max-width: 100%;
+                height: auto;
+            }
+
             .mex{
                 background-color: rgba(44, 78, 78, 0.3);
                 color: white;
