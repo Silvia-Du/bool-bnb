@@ -14,6 +14,7 @@
         <div class="modal-body p-5 pt-0">
             <form @submit.prevent="sendMessage"
             class="">
+                <label for="floatingInput"></label>
                 <label for="floatingInput">Indirizzo eMail</label>
                     <!-- Indirizzo eMail -->
                     <input v-model="eMail"
@@ -54,7 +55,8 @@
 export default {
     name: 'ModaleMessage',
     props:{
-        annId:Number
+        annId:Number,
+        authUser: Object
     },
     data() {
         return {

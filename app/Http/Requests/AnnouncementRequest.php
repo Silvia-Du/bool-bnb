@@ -49,7 +49,7 @@ class AnnouncementRequest extends FormRequest
         ],
 
         'max'=> [
-            'string'=> 'il campo :attribute non può avere meno di :max caratteri'
+            'string'=> 'il campo :attribute non può avere più di :max caratteri'
         ],
 
         'numeric'=> 'Il campo :attribute deve essere un numero'

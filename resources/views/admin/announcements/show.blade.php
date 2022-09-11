@@ -12,9 +12,7 @@
                 <div class="col-10 col-sm-8 col-lg-6">
                     @if ($announcement->image)
 
-                    <div class="image" >
-                        <img src="{{ asset('storage/' . $announcement->image ) }}" alt="{{ $announcement->image_original_name }}">
-                    </div>
+                    <img class="img-fluid d-block mx-lg-auto b-round b-shadow" src="{{ asset('storage/' . $announcement->image ) }}" alt="{{ $announcement->image_original_name }}">
                     @else
 
                     <img src="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/suburban-house-royalty-free-image-1584972559.jpg"
@@ -64,7 +62,33 @@
 
             <div class="card my-3 b-round b-shadow">
                 <div class="card-body">
-                    <p class="lead">Sponsorizzazione</p>
+                    <p class="lead">Sponsorizzazioni</p>
+                    <div class="debug">
+                        @if (count($announcement->sponsorizations) > 0)
+                            {{-- @dd($announcement->sponsorizations) --}}
+                            <div class="container">
+                                <h5>Sponsorizzazioni attive</h5>
+                                @foreach ($announcement->sponsorizations as $sponsorization)
+                
+                                <div class="row mb-2">
+                                    <div class="col-4 debug p-2">
+                                        {{ $sponsorization->name }}
+                                    </div>
+                                    <div class="col-4 debug p-2">
+                                        {{ $sponsorization->price }}
+                                    </div>
+                                    <div class="col-4 debug p-2">
+                                        {{ $sponsorization->total_hours }}
+                                    </div>
+                                </div>
+                                @endforeach
+                            </div>
+                        @else
+                            <div class="container p-3 debug">
+                                <h5>Non ci sono sponsorizzazioni attive</h5>
+                            </div>
+                        @endif
+                    </div>
                 </div>
             </div>
 

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Api;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 
 use App\Announcement;
 use App\Http\Controllers\Controller;
@@ -9,6 +10,7 @@ use App\Message;
 use App\Service;
 use App\Sponsorization;
 use App\Visualization;
+use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Date;
 
@@ -55,7 +57,8 @@ class PageController extends Controller
         ->join('announcements', 'announcements.user_id', '=', 'users.id')
         ->where('announcements.id', $id)
         ->get();
-        return response()->json(compact('announcement', 'user'));
+        $auth_user = User::find(Auth::id());
+        return response()->json(compact('announcement', 'user', 'auth_user'));
     }
 
     public function postMessag(Request $request){

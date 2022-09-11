@@ -33,7 +33,7 @@
                             </div>
 
                             {{-- image --}}
-                            <div class="col-12 mb-3">
+                            <div class="col-sm-6 mb-4">
                                 <label for="image" class="form-label">
                                     <i class="fa-solid fa-image"></i>
                                     Immagine
@@ -41,6 +41,19 @@
                                 <input type="file" class="form-control @error('image') is-invalid @enderror"
                                     id="image" name="image">
                                 @error('image')
+                                    <p class="text-danger"> {{ $message }} </p>
+                                @enderror
+                            </div>
+
+                            {{-- Price --}}
+                            <div class="col-sm-6 mb-4">
+                                <label for="price" class="form-label">
+                                    <i class="fa-solid fa-hand-holding-dollar"></i>
+                                    Prezzo &euro;/notte
+                                </label>
+                                <input type="number" class="form-control @error('price') is-invalid @enderror"
+                                    id="price" name="price" value="{{ old('price') }}">
+                                @error('price')
                                     <p class="text-danger"> {{ $message }} </p>
                                 @enderror
                             </div>
