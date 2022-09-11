@@ -12,9 +12,10 @@
                 <div class="col-10 col-sm-8 col-lg-6">
                     @if ($announcement->image)
 
-                    <div class="image" >
-                        <img src="{{ asset('storage/' . $announcement->image ) }}" alt="{{ $announcement->image_original_name }}">
-                    </div>
+
+                        <img class="img-fluid d-block mx-lg-auto b-round b-shadow"
+                        src="{{ asset('storage/' . $announcement->image ) }}" alt="{{ $announcement->image_original_name }}">
+
                     @else
 
                     <img src="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/suburban-house-royalty-free-image-1584972559.jpg"
