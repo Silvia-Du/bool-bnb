@@ -17,19 +17,19 @@
 
 
 
-            <div class="box">
+            <div class="box ">
                 {{-- Nessun Annuncio --}}
 
                 @if (count($announcements) === 0)
 
-                <div class="debug p-3 container">
+                <div class=" banner-ann p-3 container">
                     <div class="row">
-                        <div class="col-6 debug d-flex justify-content-center debug">
+                        <div class="col-12 col-md-12 col-lg-6  d-flex justify-content-center ">
                             <img src="{{ asset('img/message-people.png') }}" alt="people">
                         </div>
-                        <div class="col-6 debug py-3 d-flex flex-column justify-content-center debug">
-                            <h3 class="mb-4">Non hai ancora annunci pubblicati</h3>
-                            <h4>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio voluptatem impedit sapiente vero? Facere consequatur laudantium culpa, corrupti mollitia atque.</h4>
+                        <div class="col-12 col-md-12 col-lg-6 p-3 d-flex flex-column justify-content-center bann-create ">
+                            <h3 class="mb-4">Non hai ancora annunci pubblicati!</h3>
+                            <h4>Cosa aspetti?<br>Pubblica subito il tuo primo annuncio.<br> Con Bool BnB riceveri in poco tempo le prime prenotazioni e iniziera a guadagnare fin da subito.</h4>
                             <a
                             class="btn-create  text-center"
                             href="{{ route('admin.announcements.create') }}">
@@ -43,19 +43,23 @@
 
 
 
-                {{-- Annunci presenti --}}
 
-                @if (count($announcements) > 0)
-                <h1 class="text-center">Elenco annunci</h1>
-                    <a class="btn btn-rounded-plus mb-3 ml-5 text-center" href="{{ route('admin.announcements.create') }}">
-                        Crea un nuovo annuncio
-                    </a>
 
             </div>
+             {{-- Annunci presenti --}}
+
+             @if (count($announcements) > 0)
+             <div class="text-center">
+                <h1 class="text-center">Elenco annunci</h1>
+                 <a class="btn btn-rounded-plus m-5 text-center" href="{{ route('admin.announcements.create') }}">
+                     Crea un nuovo annuncio
+                 </a>
+             </div>
 
             <div class="container-fluid  px-5">
 
                 <div class="row ">
+
                     @foreach ($announcements as $announcement)
                         <div class="box-house col-sm-12 col-lg-12 container-fluid d-flex justify-content-around p-4">
                               <img src="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/suburban-house-royalty-free-image-1584972559.jpg"
@@ -77,12 +81,12 @@
 
                             </div>
 
-                            <div class="house-action d-flex flex-column justify-content-center">
-                                <a class="btn-small-plus my-2"
+                            <div class="house-action d-flex flex-row justify-content-center flex-lg-column my-3">
+                                <a class="btn-small-plus m-4"
                                     href="{{ route('admin.announcements.show', $announcement) }}">
                                 <i class="fa-solid fa-eye fa-lg my-2 mx-1"></i></a>
 
-                                <a class="btn-small-plus my-2"
+                                <a class="btn-small-plus m-4"
                                     href="{{ route('admin.announcements.edit', $announcement) }}">
                                 <i class="fa-solid fa-pen-to-square fa-lg my-2 mx-1"></i></a>
 
@@ -93,7 +97,7 @@
                                     <button class="btn btn-danger" type="submit">DELETE</button>
                                 </form> --}}
                                 {{-- sostituito con questo bottone qui sotto --}}
-                                <a href="#" data-id={{ $announcement->id }} class="btn-small-plus my-2"
+                                <a href="#" data-id={{ $announcement->id }} class="btn-small-plus m-4"
                                     data-toggle="modal" data-target="#deleteModal">
                                     <i class="fa-solid fa-trash-can fa-lg my-2 mx-1"></i>
                                 </a>

@@ -589,6 +589,47 @@
     }
 }
 
+.banner-ann{
+
+
+    text-align: center;
+
+    .bann-create{
+        background-color: #fac9c2;
+        border-radius: 10px;
+        padding: 10px;
+    }
+
+    h3{
+        font-size: 35px;
+
+
+    }
+    h4{
+        line-height: 35px;
+    }
+
+    .btn-create {
+        border-radius: 30px;
+        padding: 10px 15px;
+        width: 80%;
+        font-size: 25px;
+        display: block;
+        margin: auto;
+          margin-top: auto;
+        margin-top: 25px;
+        text-decoration: none;
+        transition: ease-out 0.5s;
+        background: linear-gradient(to right, #EF6351, #F38375, #F7A399);
+        color: white;
+
+        &:hover{
+            box-shadow: inset 500px 0 0 0 #EF6351;
+            color: white;
+        }
+    }
+}
+
 
 @media screen and (max-width: 800px) {
 
@@ -644,6 +685,9 @@
             margin: auto;
             color: white;
             margin-top: 25px;
+
+
+
         }
     }
 

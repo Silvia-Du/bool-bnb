@@ -3199,7 +3199,7 @@ var render = function render() {
         return _vm.getRoute("admin/announcements");
       }
     }
-  }, [_vm._v("\n                         Crea un nuovo annuncio\n                     ")])])])])])])]);
+  }, [_vm._v("\r\n                         Crea un nuovo annuncio\r\n                     ")])])])])])])]);
 };
 
 var staticRenderFns = [function () {
@@ -56524,7 +56524,7 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\silvi\Documents\BOOLEAN\LARAVEL\bool-bnb\resources\js\front.js */"./resources/js/front.js");
+module.exports = __webpack_require__(/*! C:\Users\giova\Desktop\BOOLEAN\Esercizi\progetto finale\bool-bnb\resources\js\front.js */"./resources/js/front.js");
 
 
 /***/ })
