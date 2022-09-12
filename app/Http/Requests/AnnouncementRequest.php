@@ -26,9 +26,9 @@ class AnnouncementRequest extends FormRequest
         return [
             'title'=>'required | min:3 | max:255 ',
             'description'=>'required | min:10 | max:400',
-            'rooms'=>'required | min:1 | numeric',
-            'beds'=>'required | min:1 | numeric',
-            'bathrooms'=>'required | min:1 | numeric',
+            'rooms'=>'required | numeric',
+            'beds'=>'required | numeric',
+            'bathrooms'=>'required | numeric',
             'mq'=>'required | numeric',
             'address'=>'required',
             'image'=>'nullable|image|max:32000',

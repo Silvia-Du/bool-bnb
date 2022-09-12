@@ -2327,6 +2327,9 @@ __webpack_require__.r(__webpack_exports__);
         this.ann = newVal;
       }
     }
+  },
+  mounted: function mounted() {
+    console.log(this.announcementItem);
   }
 });
 
@@ -2365,7 +2368,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "HeaderComp",
   props: {},
-  data: function data() {
+  data: function data(hideLogo) {
     return {
       hideLogo: true,
       showNavDropD: false,
@@ -2419,15 +2422,17 @@ __webpack_require__.r(__webpack_exports__);
       searchBoxHTML.firstChild.style.padding = 0;
       var inputDiv = document.querySelector(".input-div");
       inputDiv.style.width = '100%';
+      inputDiv.style.borderRadius = '15px';
       inputDiv.append(searchBoxHTML);
       var ttSearchBoxDiv = document.querySelector('.tt-search-box');
       ttSearchBoxDiv.style.width = '100%';
+      ttSearchBoxDiv.style.borderRadius = '15px';
       var ttSearchBoxInputContainer = document.querySelector('.tt-search-box-input-container');
       ttSearchBoxInputContainer.firstChild.remove();
       ttSearchBoxInputContainer.lastChild.remove();
       var input = document.querySelector('.tt-search-box-input');
       input.style.width = '100%';
-      input.style.borderRadius = '10px';
+      input.style.borderRadius = '15px';
       var ttSearchBoxList = document.querySelector('.tt-search-box-result-list-container');
       ttSearchBoxList.style.height = '0px';
     }
@@ -2435,6 +2440,7 @@ __webpack_require__.r(__webpack_exports__);
   mounted: function mounted() {
     this.getSearchBox();
     window.addEventListener("scroll", this.checkLogoHidden);
+    window.addEventListener('click', this.checkLogoHidden);
   }
 });
 
@@ -2713,7 +2719,7 @@ var render = function render() {
     staticClass: "container-fluid box-card"
   }, [_c("div", {
     staticClass: "row pt-2"
-  }, _vm._l(_vm.announcmentsFilteredLocation, function (announcement, index) {
+  }, [_vm.announcmentsFilteredLocation.length > 0 ? _c("div") : _c("div", [_vm._m(1)]), _vm._v(" "), _vm._l(_vm.announcmentsFilteredLocation, function (announcement, index) {
     return _c("div", {
       key: "announcement:".concat(index),
       staticClass: "col-12 d-flex py-md-33 mb-3 p-3 card-col"
@@ -2747,10 +2753,10 @@ var render = function render() {
       staticClass: "riga"
     }), _vm._v(" "), _c("i", {
       staticClass: "fa-solid fa-star"
-    })]), _vm._v(" "), _vm._m(1, true), _vm._v(" "), _c("p", {
+    })]), _vm._v(" "), _vm._m(2, true), _vm._v(" "), _c("p", {
       staticClass: "price d-none d-sm-block position-absolute mb-0"
     }, [_vm._v("\n              360€/notte\n            ")])]);
-  }), 0)])]), _vm._v(" "), _c("div", {
+  })], 2)])]), _vm._v(" "), _c("div", {
     staticClass: "d-none d-md-block col-12 col-xl-6"
   }, [_c("div", {
     staticClass: "d-flex d-xl-none container-fluid filter py-3 justify-content-between align-items-center"
@@ -2767,7 +2773,7 @@ var render = function render() {
     }
   }, [_c("p", {
     staticClass: "mb-0"
-  }, [_vm._v("Filtri")]), _vm._v(" "), _vm._m(2)])])]), _vm._v(" "), _c("div", {
+  }, [_vm._v("Filtri")]), _vm._v(" "), _vm._m(3)])])]), _vm._v(" "), _c("div", {
     staticClass: "map debug d-flex justify-content-center align-items-center"
   }, [_c("Map", {
     attrs: {
@@ -2793,6 +2799,27 @@ var staticRenderFns = [function () {
   }, [_c("i", {
     staticClass: "fa-solid fa-sliders coral-text"
   })]);
+}, function () {
+  var _vm = this,
+      _c = _vm._self._c;
+
+  return _c("div", {
+    staticClass: "px-4 text-center"
+  }, [_c("h1", {
+    staticClass: "display-5 fw-bold"
+  }, [_vm._v("Ops sembra che non ci siano risultati")]), _vm._v(" "), _c("p", {
+    staticClass: "lead mb-4"
+  }, [_vm._v("Prova a controllare che l'indirizzo e la località siano corretti")]), _vm._v(" "), _c("div", {
+    staticClass: "col-lg-6 mx-auto"
+  }, [_c("div", {
+    staticClass: "d-grid gap-2 d-sm-flex justify-content-sm-center"
+  }, [_c("img", {
+    staticClass: "d-block mx-auto mb-4 image-fluid",
+    attrs: {
+      src: "https://i.ibb.co/WHnt9P4/doggo.png",
+      alt: "doggo"
+    }
+  })])])]);
 }, function () {
   var _vm = this,
       _c = _vm._self._c;
@@ -3165,32 +3192,21 @@ var render = function render() {
       _c = _vm._self._c;
 
   return _c("div", {
-    staticClass: "pt-5"
+    staticClass: "pt-5 container"
   }, [_vm._m(0), _vm._v(" "), _vm._m(1), _vm._v(" "), _vm._m(2), _vm._v(" "), _c("div", {
-    staticClass: "container-fluid bg-light mt-5"
+    staticClass: "container col-xxl-8 py-3"
   }, [_c("div", {
-    staticClass: "row"
-  }, [_c("div", {
-    staticClass: "col-12 col-md-12 col-lg-6 p-0 m-0"
-  }), _vm._v(" "), _c("div", {
-    staticClass: "col-12 col-md-12 col-lg-6 bg-dark p-0 m-0 d-flex justify-content-center align-items-center"
-  }, [_c("div", {
-    staticClass: "d-flex justify-content-center"
-  }, [_c("div", {
-    staticClass: "text-cont p-sm-5"
-  }, [_c("h2", {
+    staticClass: "row flex-lg-row-reverse align-items-center g-5 py-3"
+  }, [_vm._m(3), _vm._v(" "), _c("div", {
+    staticClass: "col-lg-6 b-round b-shadow p-3"
+  }, [_c("h3", {
     staticClass: "text-center"
-  }, [_vm._v("Prova ad ospitare su Bool BnB")]), _vm._v(" "), _c("img", {
-    staticClass: "image-fluid",
-    attrs: {
-      src: "https://i.ibb.co/J286Vhh/Logo-Bool-Bn-B.png",
-      width: "430px",
-      height: "180px"
-    }
-  }), _vm._v(" "), _c("h4", {
+  }, [_vm._v("Prova ad ospitare su")]), _vm._v(" "), _vm._m(4), _vm._v(" "), _c("h5", {
     staticClass: "text-center"
-  }, [_vm._v("Unisciti a noi, saremo al tuo fianco in ogni momento!")]), _vm._v(" "), _c("a", {
-    staticClass: "btn-create text-center",
+  }, [_vm._v("Unisciti a noi, saremo al tuo fianco in ogni momento!")]), _vm._v(" "), _c("div", {
+    staticClass: "d-flex justify-content-center my-2"
+  }, [_c("a", {
+    staticClass: "btn-rounded-plus text-center my-1",
     attrs: {
       href: "#"
     },
@@ -3199,7 +3215,7 @@ var render = function render() {
         return _vm.getRoute("admin/announcements");
       }
     }
-  }, [_vm._v("\n                         Crea un nuovo annuncio\n                     ")])])])])])])]);
+  }, [_vm._v("\r\n                        Crea un nuovo annuncio\r\n                    ")])])])])])]);
 };
 
 var staticRenderFns = [function () {
@@ -3318,6 +3334,31 @@ var staticRenderFns = [function () {
   }), _vm._v(" "), _c("span", {
     staticClass: "sr-only"
   }, [_vm._v("Next")])])]);
+}, function () {
+  var _vm = this,
+      _c = _vm._self._c;
+
+  return _c("div", {
+    staticClass: "col-10 col-sm-8 col-lg-6 d-none d-xxl-block d-xl-block d-xxl-none d-lg-block d-xl-none"
+  }, [_c("img", {
+    staticClass: "b-round b-shadow img-fluid",
+    attrs: {
+      src: "https://i.ibb.co/dLPRxbJ/ezgif-com-gif-maker-2.gif"
+    }
+  })]);
+}, function () {
+  var _vm = this,
+      _c = _vm._self._c;
+
+  return _c("div", {
+    staticClass: "d-flex justify-content-center my-2"
+  }, [_c("img", {
+    staticClass: "image-fluid py-3",
+    attrs: {
+      src: "https://i.ibb.co/12xdr7G/Logo-Bool-Bn-B-bnw.png",
+      width: "50%"
+    }
+  })]);
 }];
 render._withStripped = true;
 
@@ -3438,7 +3479,7 @@ var render = function render() {
   return _c("div", {
     staticClass: "modal-container"
   }, [_c("div", {
-    staticClass: "m-modal h-100 pt-5"
+    staticClass: "m-modal h-100 pt-5 container"
   }, [_c("i", {
     staticClass: "fa-solid fa-x",
     on: {
@@ -3448,8 +3489,8 @@ var render = function render() {
     }
   }), _vm._v(" "), _c("h5", {
     staticClass: "title mb-3"
-  }, [_vm._v("Filtri di reicerca avanzata")]), _vm._v(" "), _c("div", {
-    staticClass: "filter container-fluid pt-2"
+  }, [_vm._v("Filtri di ricerca avanzata")]), _vm._v(" "), _c("div", {
+    staticClass: "filter container-fluid py-3"
   }, [_c("h5", [_vm._v("Stanze e letti")]), _vm._v(" "), _c("div", {
     staticClass: "row buttton-row d-flex p-3"
   }, [_c("p", {
@@ -3504,13 +3545,13 @@ var render = function render() {
       }
     }, [_vm._v(_vm._s(bathrom))]);
   }), 0)]), _vm._v(" "), _c("div", {
-    staticClass: "row cat-service-row d-flex justify-content-around py-3 mb-3 px-2"
+    staticClass: "row buttton-row d-flex cat-service-row"
   }, [_c("div", {
-    staticClass: "col-12 col-md-6 category-col d-flex flex-column justify-content-between"
+    staticClass: "col-12 d-flex justify-content-lg-start align-items-center info category-col"
   }, [_c("h5", {
-    staticClass: "my-3 ml-3"
+    staticClass: "my-3"
   }, [_vm._v("Tipologia di alloggio")]), _vm._v(" "), _c("div", {
-    staticClass: "container-fluid py-4 category-container h-100"
+    staticClass: "container my-2 p-3"
   }, [_c("div", {
     staticClass: "row px-1"
   }, _vm._l(_vm.catCollection, function (category, i) {
@@ -3595,8 +3636,8 @@ var render = function render() {
     staticClass: "card-img mb-1 hover-shine"
   }, [_c("figure", [_c("img", {
     attrs: {
-      src: "http://sun-surfer.com/photos/2012/03/Glass-house-Vilnius-Lithuania-400x400.jpg",
-      alt: "casa"
+      src: _vm.announcementItem.image,
+      alt: _vm.announcementItem.title
     }
   })]), _vm._v(" "), _c("i", {
     staticClass: "fa-regular fa-heart"
@@ -3685,12 +3726,19 @@ var render = function render() {
     staticClass: "container-fluid px-lg-5 py-3"
   }, [_c("div", {
     staticClass: "row px-xl-5"
-  }, [_vm._m(0), _vm._v(" "), _c("div", {
+  }, [_c("div", {
+    staticClass: "col-3 d-none d-sm-block pl-lg-5"
+  }, [_c("div", {
+    staticClass: "logo",
+    "class": {
+      hidden: _vm.hideLogo
+    }
+  }, [_vm._m(0)])]), _vm._v(" "), _c("div", {
     staticClass: "col col-sm-6 d-flex justify-content-center align-items-center"
   }, [_c("div", {
     staticClass: "nav-map mx-5 rounded-pill d-flex align-items-center justify-content-between px-2 py-1"
   }, [_vm._m(1), _vm._v(" "), _c("div", {
-    staticClass: "slider-box d-flex justify-content-center align-items-center"
+    staticClass: "slider-box b-round d-flex justify-content-center align-items-center mx-2"
   }, [_c("router-link", {
     attrs: {
       to: {
@@ -3706,7 +3754,7 @@ var render = function render() {
       }
     }
   }, [_c("p", {
-    staticClass: "mb-0",
+    staticClass: "mb-0 mx-1",
     on: {
       click: _vm.sendInput
     }
@@ -3737,6 +3785,9 @@ var render = function render() {
     staticClass: "drop-d position-absolute"
   }, [_c("div", {
     staticClass: "dd-row py-3 pl-3",
+    attrs: {
+      id: "login"
+    },
     on: {
       click: function click($event) {
         return _vm.getRoute("login");
@@ -3746,6 +3797,9 @@ var render = function render() {
     staticClass: "mb-0"
   }, [_vm._v("Login")])]), _vm._v(" "), _c("div", {
     staticClass: "dd-row py-3 pl-3",
+    attrs: {
+      id: "register"
+    },
     on: {
       click: function click($event) {
         return _vm.getRoute("register");
@@ -3760,20 +3814,16 @@ var staticRenderFns = [function () {
   var _vm = this,
       _c = _vm._self._c;
 
-  return _c("div", {
-    staticClass: "col-3 d-none d-sm-block pl-lg-5"
-  }, [_c("div", {
-    staticClass: "logo d-none d-none d-sm-block d-md-none"
-  }, [_c("a", {
+  return _c("a", {
     attrs: {
       href: "/"
     }
   }, [_c("img", {
     staticClass: "logo",
     attrs: {
-      src: "images\\logo.png"
+      src: "https://i.ibb.co/QXT39vV/Logo-Bool-Bn-B.png"
     }
-  })])])]);
+  })]);
 }, function () {
   var _vm = this,
       _c = _vm._self._c;
@@ -3783,9 +3833,12 @@ var staticRenderFns = [function () {
   }, [_c("i", {
     staticClass: "fa-solid fa-magnifying-glass search-i"
   }), _vm._v(" "), _c("div", {
-    staticClass: "nav-text ml-3 d-none d-md-block"
-  }, [_c("p", {
-    staticClass: "question mb-0"
+    staticClass: "nav-text ml-1 d-none d-md-block text-center"
+  }, [_c("h4", {
+    staticClass: "question mb-0",
+    attrs: {
+      "with": "100px"
+    }
   }, [_vm._v("Dove si va?")])])]);
 }];
 render._withStripped = true;
@@ -8444,7 +8497,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, ".stat[data-v-8a0b5c58] {\n  border-radius: 15px;\n  width: calc(33.3333333333% - 20px);\n  margin: 0 20px;\n  box-shadow: 0px 0px 50px 1px rgb(201, 200, 200);\n  background-color: #f7f7f7;\n  padding: 20px;\n}\n.stat span[data-v-8a0b5c58] {\n  font-size: 30px;\n}\n.text-cont h2[data-v-8a0b5c58] {\n  font-size: 60px;\n  color: white;\n  margin-bottom: 40px;\n}\n.text-cont h4[data-v-8a0b5c58] {\n  color: white;\n  font-size: 30px;\n}\n.text-cont .btn-create[data-v-8a0b5c58] {\n  border-radius: 30px;\n  padding: 10px 15px;\n  width: 500px;\n  font-size: 25px;\n  display: block;\n  margin: auto;\n  margin-top: 25px;\n  text-decoration: none;\n  transition: ease-out 0.5s;\n  background: linear-gradient(to right, #EF6351, #F38375, #F7A399);\n  color: white;\n}\n.text-cont .btn-create[data-v-8a0b5c58]:hover {\n  box-shadow: inset 500px 0 0 0 #EF6351;\n  color: white;\n}\n.box h1[data-v-8a0b5c58] {\n  font-size: 60px;\n  text-transform: uppercase;\n}\n.box img[data-v-8a0b5c58] {\n  filter: contrast(0.75);\n}\n@media screen and (max-width: 800px) {\n.box h1[data-v-8a0b5c58] {\n    font-size: 1.5rem;\n    text-align: justify;\n}\n.stat-container[data-v-8a0b5c58] {\n    flex-direction: column;\n}\n.stat[data-v-8a0b5c58] {\n    border-radius: 15px;\n    display: block;\n    width: 100%;\n    box-shadow: 0px 0px 50px 1px rgb(201, 200, 200);\n    background-color: #f7f7f7;\n    margin: 20px 0;\n    text-align: center;\n    padding: 40px;\n}\n.stat span[data-v-8a0b5c58] {\n    font-size: 20px;\n}\n.text-cont[data-v-8a0b5c58] {\n    padding: 20px;\n}\n.text-cont h2[data-v-8a0b5c58] {\n    font-size: 30px;\n    color: white;\n    margin-bottom: 40px;\n}\n.text-cont h4[data-v-8a0b5c58] {\n    color: white;\n    font-size: 20px;\n    text-align: center;\n}\n.text-cont .btn-create[data-v-8a0b5c58] {\n    border-radius: 15px;\n    padding: 15px;\n    font-size: 15px;\n    background-color: red;\n    display: block;\n    width: 50%;\n    margin: auto;\n    color: white;\n    margin-top: 25px;\n}\n.box h1[data-v-8a0b5c58] {\n    font-size: 60px;\n    text-transform: uppercase;\n}\n.box img[data-v-8a0b5c58] {\n    filter: contrast(0.75);\n}\n}", ""]);
+exports.push([module.i, ".stat[data-v-8a0b5c58] {\n  border-radius: 15px;\n  width: calc(33.3333333333% - 20px);\n  margin: 0 20px;\n  box-shadow: 0px 0px 50px 1px rgb(201, 200, 200);\n  background-color: #f7f7f7;\n  padding: 20px;\n}\n.stat span[data-v-8a0b5c58] {\n  font-size: 30px;\n}\n.text-cont[data-v-8a0b5c58] {\n  background: white;\n  border-radius: 15px;\n  color: black;\n  box-shadow: 0px 0px 50px 1px rgb(201, 200, 200);\n}\n.text-cont .btn-create[data-v-8a0b5c58] {\n  border-radius: 30px;\n  padding: 10px 15px;\n  width: 500px;\n  font-size: 25px;\n  display: block;\n  margin-top: 5px;\n  text-decoration: none;\n  transition: ease-out 0.5s;\n  background: linear-gradient(to right, #EF6351, #F38375, #F7A399);\n  color: white;\n}\n.text-cont .btn-create[data-v-8a0b5c58]:hover {\n  box-shadow: inset 500px 0 0 0 #EF6351;\n  color: white;\n}\n.box h1[data-v-8a0b5c58] {\n  font-size: 60px;\n  text-transform: uppercase;\n}\n.box img[data-v-8a0b5c58] {\n  filter: contrast(0.75);\n}\n@media screen and (max-width: 800px) {\n.box h1[data-v-8a0b5c58] {\n    font-size: 1.5rem;\n    text-align: justify;\n}\n.stat-container[data-v-8a0b5c58] {\n    flex-direction: column;\n}\n.stat[data-v-8a0b5c58] {\n    border-radius: 15px;\n    display: block;\n    width: 100%;\n    box-shadow: 0px 0px 50px 1px rgb(201, 200, 200);\n    background-color: #f7f7f7;\n    margin: 20px 0;\n    text-align: center;\n    padding: 40px;\n}\n.stat span[data-v-8a0b5c58] {\n    font-size: 20px;\n}\n.text-cont[data-v-8a0b5c58] {\n    padding: 20px;\n}\n.text-cont h2[data-v-8a0b5c58] {\n    font-size: 30px;\n    color: white;\n    margin-bottom: 40px;\n}\n.text-cont h4[data-v-8a0b5c58] {\n    color: white;\n    font-size: 20px;\n    text-align: center;\n}\n.text-cont .btn-create[data-v-8a0b5c58] {\n    border-radius: 15px;\n    padding: 15px;\n    font-size: 15px;\n    background-color: red;\n    display: block;\n    width: 50%;\n    margin: auto;\n    color: white;\n    margin-top: 25px;\n}\n.box h1[data-v-8a0b5c58] {\n    font-size: 60px;\n    text-transform: uppercase;\n}\n.box img[data-v-8a0b5c58] {\n    filter: contrast(0.75);\n}\n}\n.b-round[data-v-8a0b5c58] {\n  border-radius: 15px;\n}\n.b-shadow[data-v-8a0b5c58] {\n  box-shadow: 0px 0px 50px 1px rgb(201, 200, 200);\n}\n.btn-rounded-plus[data-v-8a0b5c58] {\n  border-radius: 30px;\n  padding: 10px 15px;\n  width: 200px;\n  transition: ease-out 0.5s;\n  background: linear-gradient(to right, #EF6351, #F38375, #F7A399);\n  color: white;\n}\n.btn-rounded-plus[data-v-8a0b5c58]:hover {\n  box-shadow: inset 200px 0 0 0 #EF6351;\n  color: white;\n}\na[data-v-8a0b5c58] {\n  text-decoration: none;\n}", ""]);
 
 // exports
 
@@ -8483,7 +8536,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, ".modal-container[data-v-17e0e4f4] {\n  background-color: #ede6e3;\n  box-shadow: 0px 0px 10px 1px rgb(172, 172, 172);\n  position: absolute;\n  z-index: 999;\n  border-radius: 10px;\n  width: 60%;\n  top: 100px;\n  left: 50%;\n  transform: translate(-50%);\n}\n.modal-container p[data-v-17e0e4f4] {\n  font-weight: bold;\n}\n.modal-container .info[data-v-17e0e4f4] {\n  display: flex;\n  flex-wrap: wrap;\n  margin-bottom: 10px;\n}\n.modal-container .check-b[data-v-17e0e4f4] {\n  border: 1px solid rgb(51, 51, 51);\n  border-radius: 5px;\n  width: 20px;\n  height: 20px;\n  font-size: 1.5rem;\n  cursor: pointer;\n}\n.modal-container .m-modal[data-v-17e0e4f4] {\n  position: relative;\n  border-radius: 10px;\n}\n.modal-container .fa-x[data-v-17e0e4f4] {\n  position: absolute;\n  font-size: 1.2rem;\n  right: 18px;\n  top: 13px;\n}\n.modal-container .filter[data-v-17e0e4f4] {\n  border-top: 1px solid gray;\n  overflow-y: scroll;\n  height: calc(100vh - 250px);\n}\n.modal-container .filter[data-v-17e0e4f4]::-webkit-scrollbar {\n  width: 5px;\n}\n.modal-container .filter[data-v-17e0e4f4]::-webkit-scrollbar-track {\n  box-shadow: inset 0 0 5px grey;\n  border-radius: 10px;\n}\n.modal-container .filter[data-v-17e0e4f4]::-webkit-scrollbar-thumb {\n  background: linear-gradient(to top, #EF6351, #F38375, #F7A399);\n  border-radius: 10px;\n}\n.modal-container .filter .room-cad[data-v-17e0e4f4] {\n  height: 50px;\n  display: flex;\n  flex-wrap: wrap;\n}\n.modal-container .filter .buttton-row ._btn[data-v-17e0e4f4] {\n  background-color: #f0f0f0;\n  width: 120px;\n  text-align: center;\n  margin: 20px 20px 10px 0;\n  cursor: pointer;\n}\n.modal-container .filter .buttton-row ._btn.black[data-v-17e0e4f4] {\n  background: linear-gradient(to right, #EF6351, #F38375, #F7A399);\n  color: rgb(219, 219, 219);\n}\n.modal-container .filter .cat-service-row .container-fluid[data-v-17e0e4f4] {\n  box-shadow: 0px 0px 10px 1px rgb(204, 202, 202);\n  border-radius: 5px;\n}\n.modal-container .filter .cat-service-row .cat-card[data-v-17e0e4f4] {\n  height: 100px;\n  border-radius: 15px;\n  flex-shrink: 0;\n  text-align: center;\n}\n.modal-container .filter .cat-service-row .cat-card .cat-box[data-v-17e0e4f4] {\n  border-radius: 15px;\n  background-color: #ede6e3;\n  border: 1px solid #f06449;\n  transition: ease-out 0.5s;\n  outline: none;\n}\n.modal-container .filter .cat-service-row .cat-card .cat-box[data-v-17e0e4f4]:hover {\n  cursor: pointer;\n  box-shadow: inset 0 172px 0 0 #EF6351;\n}\n.modal-container .filter .cat-service-row .cat-card .cat-box p[data-v-17e0e4f4] {\n  text-transform: capitalize;\n}\n.modal-container .filter .cat-service-row label[data-v-17e0e4f4] {\n  font-size: 1rem;\n}\n.modal-container .filter .cat-service-row i[data-v-17e0e4f4] {\n  font-size: 1.4rem;\n  color: #36382e;\n}\n.modal-container .filter .cat-service-row .category-col[data-v-17e0e4f4] {\n  border-top: 1px solid rgb(172, 172, 172);\n}\n.modal-container .filter .cat-service-row .category-col .fa-circle-check[data-v-17e0e4f4] {\n  top: 8px;\n  right: 7px;\n  color: #ef6351;\n}\n.modal-container .filter .cat-service-row services-col[data-v-17e0e4f4] {\n  border-top: 1px solid rgb(172, 172, 172);\n  border-radius: 5px;\n}\n.modal-container .filter .cat-service-row services-col .fa-square-check[data-v-17e0e4f4] {\n  color: #ef6351;\n  font-size: 1.4rem;\n}\n.modal-container .filter .action-row[data-v-17e0e4f4] {\n  border-top: 1px solid gray;\n  overflow: hidden;\n}\n.modal-container .filter .action-row .delete-all[data-v-17e0e4f4] {\n  text-decoration: underline;\n  font-weight: bold;\n  font-size: 1rem;\n  transition: 0.5s;\n  cursor: pointer;\n}\n.modal-container .filter .action-row .delete-all[data-v-17e0e4f4]:hover {\n  color: #EF6351;\n}\n.modal-container .filter .action-row .show-location[data-v-17e0e4f4] {\n  background: linear-gradient(to right, #EF6351, #F38375, #F7A399);\n  color: white;\n  width: 172px;\n  flex-shrink: 0;\n  transition: ease-out 0.5s;\n  outline: none;\n  cursor: pointer;\n}\n.modal-container .filter .action-row .show-location[data-v-17e0e4f4]:hover {\n  box-shadow: inset 172px 0 0 0 #EF6351;\n}", ""]);
+exports.push([module.i, ".modal-container[data-v-17e0e4f4] {\n  background-color: #ede6e3;\n  box-shadow: 0px 0px 10px 1px rgb(172, 172, 172);\n  position: absolute;\n  z-index: 999;\n  border-radius: 10px;\n  width: 60%;\n  top: 100px;\n  left: 50%;\n  transform: translate(-50%);\n}\n.modal-container p[data-v-17e0e4f4] {\n  font-weight: bold;\n}\n.modal-container .info[data-v-17e0e4f4] {\n  display: flex;\n  flex-wrap: wrap;\n  margin-bottom: 10px;\n}\n.modal-container .check-b[data-v-17e0e4f4] {\n  border: 1px solid rgb(51, 51, 51);\n  border-radius: 5px;\n  width: 20px;\n  height: 20px;\n  font-size: 1.5rem;\n  cursor: pointer;\n}\n.modal-container .m-modal[data-v-17e0e4f4] {\n  position: relative;\n  border-radius: 10px;\n}\n.modal-container .fa-x[data-v-17e0e4f4] {\n  position: absolute;\n  font-size: 1.2rem;\n  right: 18px;\n  top: 13px;\n}\n.modal-container .filter[data-v-17e0e4f4] {\n  border-top: 1px solid gray;\n  overflow-y: scroll;\n  height: calc(100vh - 250px);\n}\n.modal-container .filter[data-v-17e0e4f4]::-webkit-scrollbar {\n  width: 5px;\n}\n.modal-container .filter[data-v-17e0e4f4]::-webkit-scrollbar-track {\n  box-shadow: inset 0 0 5px grey;\n  border-radius: 10px;\n}\n.modal-container .filter[data-v-17e0e4f4]::-webkit-scrollbar-thumb {\n  background: linear-gradient(to top, #EF6351, #F38375, #F7A399);\n  border-radius: 10px;\n}\n.modal-container .filter .room-cad[data-v-17e0e4f4] {\n  height: 50px;\n  display: flex;\n  flex-wrap: wrap;\n}\n.modal-container .filter .buttton-row ._btn[data-v-17e0e4f4] {\n  background-color: #f0f0f0;\n  width: 120px;\n  text-align: center;\n  margin: 20px 20px 10px 0;\n  cursor: pointer;\n}\n.modal-container .filter .buttton-row ._btn.black[data-v-17e0e4f4] {\n  background: linear-gradient(to right, #EF6351, #F38375, #F7A399);\n  color: rgb(219, 219, 219);\n}\n.modal-container .filter .cat-service-row .container-fluid[data-v-17e0e4f4] {\n  box-shadow: 0px 0px 10px 1px rgb(204, 202, 202);\n  border-radius: 15px;\n}\n.modal-container .filter .cat-service-row .cat-card[data-v-17e0e4f4] {\n  height: 100px;\n  border-radius: 15px;\n  flex-shrink: 0;\n  text-align: center;\n}\n.modal-container .filter .cat-service-row .cat-card .cat-box[data-v-17e0e4f4] {\n  border-radius: 15px;\n  background-color: #ede6e3;\n  border: 1px solid #f06449;\n  transition: ease-out 0.5s;\n  outline: none;\n}\n.modal-container .filter .cat-service-row .cat-card .cat-box[data-v-17e0e4f4]:hover {\n  cursor: pointer;\n  box-shadow: inset 0 172px 0 0 #EF6351;\n}\n.modal-container .filter .cat-service-row .cat-card .cat-box p[data-v-17e0e4f4] {\n  text-transform: capitalize;\n}\n.modal-container .filter .cat-service-row label[data-v-17e0e4f4] {\n  font-size: 1rem;\n}\n.modal-container .filter .cat-service-row i[data-v-17e0e4f4] {\n  font-size: 1.4rem;\n  color: #36382e;\n}\n.modal-container .filter .cat-service-row .category-col[data-v-17e0e4f4] {\n  border-top: 1px solid rgb(172, 172, 172);\n}\n.modal-container .filter .cat-service-row .category-col .fa-circle-check[data-v-17e0e4f4] {\n  top: 8px;\n  right: 7px;\n  color: #36382e;\n}\n.modal-container .filter .cat-service-row services-col[data-v-17e0e4f4] {\n  border-top: 1px solid rgb(172, 172, 172);\n  border-radius: 5px;\n}\n.modal-container .filter .cat-service-row services-col .fa-square-check[data-v-17e0e4f4] {\n  color: #ef6351;\n  font-size: 1.4rem;\n}\n.modal-container .filter .action-row[data-v-17e0e4f4] {\n  border-top: 1px solid gray;\n  overflow: hidden;\n}\n.modal-container .filter .action-row .delete-all[data-v-17e0e4f4] {\n  text-decoration: underline;\n  font-weight: bold;\n  font-size: 1rem;\n  transition: 0.5s;\n  cursor: pointer;\n}\n.modal-container .filter .action-row .delete-all[data-v-17e0e4f4]:hover {\n  color: #EF6351;\n}\n.modal-container .filter .action-row .show-location[data-v-17e0e4f4] {\n  background: linear-gradient(to right, #EF6351, #F38375, #F7A399);\n  color: white;\n  width: 172px;\n  flex-shrink: 0;\n  transition: ease-out 0.5s;\n  outline: none;\n  cursor: pointer;\n}\n.modal-container .filter .action-row .show-location[data-v-17e0e4f4]:hover {\n  box-shadow: inset 172px 0 0 0 #EF6351;\n}", ""]);
 
 // exports
 
@@ -8540,7 +8593,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "header[data-v-494e1ffe] {\n  top: 0;\n  background-color: rgba(50, 50, 50, 0.432);\n  width: 100%;\n  position: fixed;\n  z-index: 999;\n  color: rgba(36, 36, 36, 0.8);\n  /* Scroll */\n}\nheader .logo[data-v-494e1ffe] {\n  width: 130px;\n  height: 50px;\n}\nheader .nav-map[data-v-494e1ffe] {\n  cursor: pointer;\n  width: 82%;\n  height: 45px;\n  background-color: #ede6e3;\n  border: 1px solid rgb(138, 135, 135);\n}\nheader .nav-map .bar[data-v-494e1ffe] {\n  width: 78%;\n  height: 40px;\n}\nheader .nav-map .bar input[data-v-494e1ffe] {\n  width: 100%;\n  height: 35px;\n  margin-top: 3px;\n  background-color: #ffffff;\n  border: none;\n}\nheader .nav-map .search-i[data-v-494e1ffe] {\n  font-size: 1.2rem;\n  color: #EF6351;\n}\nheader .nav-map .nav-text[data-v-494e1ffe] {\n  color: rgba(36, 36, 36, 0.884);\n}\nheader .nav-map .nav-text .question[data-v-494e1ffe] {\n  font-size: 0.7rem;\n  font-weight: bolder;\n}\nheader .nav-map .nav-text .answer[data-v-494e1ffe] {\n  font-size: 0.6rem;\n}\nheader .nav-map .slider-box[data-v-494e1ffe] {\n  border-radius: 50%;\n  height: 30px;\n  width: 30px;\n  font-size: 0.8rem;\n  background-color: #EF6351;\n}\nheader .nav-map .slider-box a[data-v-494e1ffe] {\n  color: #ede6e3;\n  margin-bottom: 0;\n}\nheader .box-host[data-v-494e1ffe] {\n  text-align: center;\n  color: #EF6351;\n}\nheader .link-host[data-v-494e1ffe] {\n  color: #EF6351;\n  transition: 0.5s;\n  text-decoration: none;\n  font-size: 1.2rem;\n}\nheader .link-host[data-v-494e1ffe]:hover {\n  color: #ede6e3;\n}\nheader .user-box[data-v-494e1ffe] {\n  cursor: pointer;\n  background-color: #ede6e3;\n  border: 1px solid rgb(138, 135, 135);\n  position: relative;\n  height: 45px;\n}\nheader .user-box i[data-v-494e1ffe] {\n  font-size: 1rem;\n  color: #EF6351;\n}\nheader .user-box .fa-circle-user[data-v-494e1ffe] {\n  font-size: 1.5rem;\n  color: rgba(0, 0, 0, 0.884);\n}\nheader .user-box .drop-d[data-v-494e1ffe] {\n  top: 46px;\n  left: 50%;\n  border: 1px solid rgb(138, 135, 135);\n  background-color: #ede6e3;\n  border-radius: 5px;\n  transform: translate(-50%);\n  width: 200%;\n  min-height: 100px;\n}\nheader .user-box .drop-d .dd-row[data-v-494e1ffe] {\n  border-bottom: 1px solid rgb(138, 135, 135);\n}\nheader .link-col .fa-globe[data-v-494e1ffe] {\n  font-size: 1rem;\n  color: white;\n}\nheader .link-col a[data-v-494e1ffe] {\n  color: white;\n}\nheader .link-col a[data-v-494e1ffe]:hover {\n  text-decoration: none;\n  color: #FFE3E0;\n}\nheader .hidden[data-v-494e1ffe] {\n  display: none;\n}\nheader .show[data-v-494e1ffe] {\n  display: block;\n}", ""]);
+exports.push([module.i, "header[data-v-494e1ffe] {\n  top: 0;\n  background-color: rgba(50, 50, 50, 0.432);\n  width: 100%;\n  position: fixed;\n  z-index: 999;\n  color: rgba(36, 36, 36, 0.8);\n  /* Scroll */\n}\nheader .logo[data-v-494e1ffe] {\n  width: 130px;\n  height: 50px;\n}\nheader .nav-map[data-v-494e1ffe] {\n  cursor: pointer;\n  width: 82%;\n  height: 45px;\n  background-color: #ede6e3;\n  border: 1px solid rgb(138, 135, 135);\n}\nheader .nav-map .bar[data-v-494e1ffe] {\n  width: 78%;\n  height: 40px;\n}\nheader .nav-map .bar input[data-v-494e1ffe] {\n  width: 100%;\n  height: 35px;\n  margin-top: 3px;\n  background-color: #ffffff;\n  border: none;\n  border-radius: 15px;\n}\nheader .nav-map .search-i[data-v-494e1ffe] {\n  font-size: 1.2rem;\n  color: #EF6351;\n  margin-left: 5px;\n  margin-right: 2px;\n}\nheader .nav-map .nav-text[data-v-494e1ffe] {\n  color: rgba(36, 36, 36, 0.884);\n}\nheader .nav-map .nav-text .question[data-v-494e1ffe] {\n  font-size: 0.7rem;\n  font-weight: bolder;\n}\nheader .nav-map .nav-text .answer[data-v-494e1ffe] {\n  font-size: 0.6rem;\n}\nheader .nav-map .slider-box[data-v-494e1ffe] {\n  height: 30px;\n  width: 30px;\n  font-size: 0.8rem;\n  background-color: #EF6351;\n}\nheader .nav-map .slider-box a[data-v-494e1ffe] {\n  color: #ede6e3;\n  margin-bottom: 0;\n}\nheader .box-host[data-v-494e1ffe] {\n  text-align: center;\n  color: #EF6351;\n}\nheader .link-host[data-v-494e1ffe] {\n  color: #EF6351;\n  transition: 0.5s;\n  text-decoration: none;\n  font-size: 1.2rem;\n}\nheader .link-host[data-v-494e1ffe]:hover {\n  color: #ede6e3;\n}\nheader .user-box[data-v-494e1ffe] {\n  cursor: pointer;\n  background-color: #ede6e3;\n  border: 1px solid rgb(138, 135, 135);\n  position: relative;\n  height: 45px;\n}\nheader .user-box i[data-v-494e1ffe] {\n  font-size: 1rem;\n  color: #EF6351;\n}\nheader .user-box .fa-circle-user[data-v-494e1ffe] {\n  font-size: 1.5rem;\n  color: rgba(0, 0, 0, 0.884);\n}\nheader .user-box .drop-d[data-v-494e1ffe] {\n  top: 46px;\n  left: 50%;\n  border: 1px solid rgb(138, 135, 135);\n  background-color: #ede6e3;\n  border-radius: 5px;\n  transform: translate(-50%);\n  width: 200%;\n  min-height: 100px;\n}\nheader .user-box .drop-d .dd-row[data-v-494e1ffe] {\n  border-bottom: 1px solid rgb(138, 135, 135);\n}\nheader .link-col .fa-globe[data-v-494e1ffe] {\n  font-size: 1rem;\n  color: white;\n}\nheader .link-col a[data-v-494e1ffe] {\n  color: white;\n}\nheader .link-col a[data-v-494e1ffe]:hover {\n  text-decoration: none;\n  color: #FFE3E0;\n}\nheader input[data-v-494e1ffe] {\n  border-radius: 15px;\n}\nheader #login[data-v-494e1ffe]:hover {\n  color: #EF6351;\n}\nheader #register[data-v-494e1ffe]:hover {\n  color: #EF6351;\n}\nheader .hidden[data-v-494e1ffe] {\n  display: none;\n}\nheader .show[data-v-494e1ffe] {\n  display: block;\n}\nheader .tt-search-box-input-container[data-v-494e1ffe] {\n  border-radius: 15px;\n}", ""]);
 
 // exports
 

@@ -10,6 +10,7 @@
         <div class="container col-xxl-8 px-4 py-3">
             <div class="row flex-lg-row align-items-center g-5 py-3">
                 <div class="col-10 col-sm-8 col-lg-6">
+                    {{-- @dd($announcement->image) --}}
                     @if ($announcement->image)
 
                     <img class="img-fluid d-block mx-lg-auto b-round b-shadow" src="{{ asset('storage/' . $announcement->image ) }}" alt="{{ $announcement->image_original_name }}">

@@ -63,11 +63,18 @@
                 <div class="row ">
                     @foreach ($announcements as $announcement)
                         <div class="box-house col-sm-12 col-lg-12 container-fluid d-flex justify-content-around p-4">
-                              <img src="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/suburban-house-royalty-free-image-1584972559.jpg"
-                                alt="">
+                            @if ($announcement->image)
+
+                            <img class="img-fluid d-block  b-round b-shadow" src="{{ asset('storage/' . $announcement->image ) }}" alt="{{ $announcement->image_original_name }}">
+                            @else
+
+                            <img src="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/suburban-house-royalty-free-image-1584972559.jpg"
+                                class="img-fluid d-block  b-round b-shadow" alt="{{ $announcement->image_original_name }}">
+                            @endif
 
                             <div class=" house-info py-4 ">
                                 <h6 class="spacebar"> indirizzo :</h6>
+                                <p>{{ $announcement->id }}</p>
                                 <p>{{ $announcement->address }}</p>
                                 <p>{{ $announcement->city }}</p>
                                 <p>{{ $announcement->country }}</p>

@@ -56,9 +56,15 @@
             {{-- LISTA --}}
             <div class="d-none d-md-block">
                 @if (!count($user->announcements)>0)
-                <p class="mex-title my-3">Appartamenti contattati</p>
+                    @if (!count($messages)>0)
+
+                    <p class="mex-title my-3">Ancora nessun messaggio inviato</p>
+                    @else
+
+                    <p class="mex-title my-3">Appartamenti contattati</p>
+                    @endif
                 @else
-                <p class="mex-title my-3">Messaggi Ricevuti</p>
+                    <p class="mex-title my-3">Messaggi Ricevuti</p>
                 @endif
 
             </div>

@@ -11007,6 +11007,21 @@ a.text-dark:focus {
   color: white;
 }
 
+.btn-register-plus {
+  border-radius: 30px;
+  padding: 10px 15px;
+  width: 100px;
+  border: none;
+  transition: ease-out 0.5s;
+  background: linear-gradient(to right, #EF6351, #F38375, #F7A399);
+  color: white;
+}
+
+.btn-register-plus:hover {
+  box-shadow: inset 100px 0 0 0 #EF6351;
+  color: white;
+}
+
 .btn-small-plus {
   border-radius: 30px;
   padding: 15px 12px;
@@ -11104,6 +11119,10 @@ a.text-dark:focus {
   }
 }
 
+#no-deco a {
+  text-decoration: none;
+}
+
 .create i {
   color: #EF6351;
   font-size: 1rem;
@@ -11170,6 +11189,7 @@ a.text-dark:focus {
 .show-col-message .mex-box {
   min-height: 250px;
   border-radius: 5px;
+  margin-left: 3px;
 }
 
 .show-col-message .mex-box .box {
@@ -11318,6 +11338,7 @@ a.text-dark:focus {
   min-height: 250px;
   border-radius: 15px;
   border: none;
+  margin-left: 3px;
 }
 
 .message-page .show-col-message .mex-box h6 {
@@ -11328,6 +11349,7 @@ a.text-dark:focus {
   background-color: #eeecec;
   border-radius: 15px;
   border: none;
+  padding: 3px;
 }
 
 .message-page .show-col-message .mex-box .box.text {
@@ -11372,6 +11394,7 @@ a.text-dark:focus {
 .box-house img {
   width: 30%;
   border-radius: 15px;
+  max-height: 340px;
   box-shadow: 0px 0px 50px 1px rgb(201, 200, 200);
 }
 

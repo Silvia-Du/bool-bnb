@@ -34,9 +34,9 @@ class AnnouncementsTableSeeder extends Seeder
         $new_announcement->house_type = $announcement['house_type'];
         $new_announcement->price = $announcement['price'] . '€';
         $new_announcement->room_type = $announcement['room_type'];
-
-        $user_id = User::inRandomOrder()->first()->id;
-        $new_announcement->user_id = $user_id;
+        $new_announcement->user_id = 10;
+        // $user_id = User::inRandomOrder()->first()->id;
+        // $new_announcement->user_id = $user_id;
 
         $new_announcement->save();
        };

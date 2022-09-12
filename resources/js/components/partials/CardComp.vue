@@ -1,4 +1,5 @@
 <template>
+
     <div class="box">
                 <router-link
 
@@ -7,10 +8,14 @@
                     params: { ann: ann.id }
                 }">
         <div
+
         @click="getIp(announcementItem.id)"
         class="card mb-4 p-1 border-0">
             <div class="card-img mb-1 hover-shine">
-                <figure><img src="http://sun-surfer.com/photos/2012/03/Glass-house-Vilnius-Lithuania-400x400.jpg" alt="casa"></figure>
+                <figure>
+                    <img :src="announcementItem.image" :alt="announcementItem.title">
+                    <!-- <img src="http://sun-surfer.com/photos/2012/03/Glass-house-Vilnius-Lithuania-400x400.jpg" alt="casa"> -->
+                </figure>
                 <i class="fa-regular fa-heart"></i>
                 <!-- <i class="fa-solid fa-heart"></i> -->
             </div>
@@ -71,7 +76,10 @@ export default {
                 this.ann = newVal;
             }
         }
-    }
+    },
+    mounted() {
+        console.log(this.announcementItem);
+    },
 }
 </script>
 <style lang="scss" scoped >
