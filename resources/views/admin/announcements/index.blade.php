@@ -22,19 +22,24 @@
 
                 @if (count($announcements) === 0)
 
-                <div class="debug p-3 container">
+                <div class="p-3 container b-round b-shadow">
                     <div class="row">
-                        <div class="col-6 debug d-flex justify-content-center debug">
-                            <img src="{{ asset('img/message-people.png') }}" alt="people">
+                        <div class="col-6 d-flex justify-content-center">
+                            <img src="https://i.ibb.co/BnVxbZH/people3.png" alt="people">
                         </div>
-                        <div class="col-6 debug py-3 d-flex flex-column justify-content-center debug">
-                            <h3 class="mb-4">Non hai ancora annunci pubblicati</h3>
-                            <h4>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio voluptatem impedit sapiente vero? Facere consequatur laudantium culpa, corrupti mollitia atque.</h4>
-                            <a
-                            class="btn-create  text-center"
-                            href="{{ route('admin.announcements.create') }}">
-                            Crea un nuovo annuncio
-                            </a>
+                        <div class="col-6 py-3 d-flex flex-column justify-content-center">
+                            <div>
+                                <h3 class="mb-4">Non hai ancora annunci pubblicati</h3>
+                                <h4>Perché non ne creiamo qualcuno?</h4>
+                                <div class="my-5">
+                                    <a
+                                    class="btn-rounded-plus text-center text-decoration-none"
+                                    id="no-deco"
+                                    href="{{ route('admin.announcements.create') }}">
+                                    Crea un nuovo annuncio
+                                    </a>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>

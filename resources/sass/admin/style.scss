@@ -52,6 +52,21 @@
     }
 }
 
+.btn-register-plus {
+    border-radius: 30px;
+    padding: 10px 15px;
+    width: 100px;
+    border: none;
+    transition: ease-out 0.5s;
+    background: linear-gradient(to right, #EF6351, #F38375, #F7A399);
+    color: white;
+
+    &:hover {
+        box-shadow: inset 100px 0 0 0 #EF6351;
+        color: white;
+    }
+}
+
 .btn-small-plus {
     border-radius: 30px;
     padding: 15px 12px;
@@ -157,6 +172,12 @@
     }
 }
 
+#no-deco {
+    a {
+        text-decoration: none;
+    }
+}
+
 //CREATE PAGE
 .create {
     i {
@@ -173,7 +194,7 @@
 }
 
 //APP BLADE
-.word-icon{
+.word-icon {
     font-size: 0.8rem;
 }
 
@@ -238,6 +259,7 @@
     .mex-box {
         min-height: 250px;
         border-radius: 5px;
+        margin-left: 3px;
 
         .box {
             border-radius: 5px;
@@ -419,6 +441,7 @@
             min-height: 250px;
             border-radius: 15px;
             border: none;
+            margin-left: 3px;
 
             h6 {
                 color: white;
@@ -428,6 +451,7 @@
                 background-color: #eeecec;
                 border-radius: 15px;
                 border: none;
+                padding: 3px;
 
                 &.text {
                     overflow-y: auto;

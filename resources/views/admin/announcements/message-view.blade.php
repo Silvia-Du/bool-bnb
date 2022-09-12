@@ -102,7 +102,7 @@
 
 
             {{-- NAV-SM ----------}}
-            <div class="small-nav debug">
+            <div class="small-nav">
 
             </div>
 
@@ -135,7 +135,6 @@
             {{-- SHOW MESSAGE --}}
             <div class="container-fluid  show-col-message mt-3">
                 <a href="{{ route('admin.messages.index') }}">
-
                     <div id="view-for-appartament" class=" d-block d-md-none message-appart  py-4 d-flex align-items-center">
                         <i class="fa-solid fa-circle-arrow-left"></i>
                         <h6 class="mb-0 ml-3">  Torna alla lista messaggi</h6>
@@ -148,7 +147,7 @@
                 <div class="row  user-container px-2 px-xl-5">
 
                     <div class="col-12 col-lg-5  py-3">
-                        <div >
+                        <div>
                             {{-- mex-item --}}
                             <a href="">
                                 <div class="user-item  d-flex align-items-center justify-content-between py-2 mb-1">
@@ -166,18 +165,17 @@
                     <div class="col-12 col-lg-7  py-3 px-2 px-xl-5 d-flex">
                         <div class="container-fluid">
                             <div class="row flex-wrap-reverse">
-
                                 <div class="mex-box  col-12 d-flex flex-column justify-content-around py-3">
                                     <h6 class="mb-0">Messaggio:</h6>
-                                    <div class="text box debug py-3 px-lg-3 mb-2">
+                                    <div class="text box py-3 px-lg-3 mb-2 p-3">
                                         <p class="mb-2">{{ $message[0]['text'] }}</p>
                                     </div>
                                     <h6 class="mb-2">E-mail mittente:</h6>
-                                    <div class="email box debug py-2 px-lg-3">
+                                    <div class="email box py-2 px-lg-3 p-3">
                                         <p class="mb-1">{{ $message[0]['email'] }}</p>
                                     </div>
                                     <h6 class="my-2">Nome mittente:</h6>
-                                    <div class="email box debug py-2 px-lg-3">
+                                    <div class="email box py-2 px-lg-3 p-3">
                                         <p class="mb-0">{{ $message[0]['name'] }}</p>
                                     </div>
                                 </div>
@@ -198,7 +196,7 @@
                     <div class="col-12 col-lg-5  py-3">
                         <div >
                             {{-- mex-item --}}
-                            <a href="{{ route('admin.messages.show', $message) }}">
+                            <a href="{{ route('admin.messages.show', $message) }}" class="text-decoration-none">
                                 <div class="user-item  d-flex align-items-center justify-content-between py-2 mb-1">
                                 <div class="d-flex align-items-center">
                                     <div class="img  ml-2"></div>
@@ -217,15 +215,15 @@
 
                                 <div class="mex-box  col-12 d-flex flex-column justify-content-around py-3">
                                     <h6 class="mb-2">Messaggio:</h6>
-                                    <div class="text box debug py-3 px-lg-3 mb-2">
+                                    <div class="text box py-3 px-lg-3 mb-2">
                                         <p class="mb-0">{{ $message->text }}</p>
                                     </div>
                                     <h6 class="mb-2">E-mail mittente:</h6>
-                                    <div class="email box debug py-2 px-lg-3">
+                                    <div class="email box py-2 px-lg-3">
                                         <p class="mb-1">{{ $message->email }}</p>
                                     </div>
                                     <h6 class="my-2">Nome mittente:</h6>
-                                    <div class="email box debug py-2 px-lg-3">
+                                    <div class="email box py-2 px-lg-3">
                                         <p class="mb-0">{{ $message->name }}</p>
                                     </div>
                                 </div>

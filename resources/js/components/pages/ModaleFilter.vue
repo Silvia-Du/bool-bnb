@@ -1,10 +1,10 @@
 <template>
     <div class="modal-container">
-        <div class="m-modal h-100 pt-5">
+        <div class="m-modal h-100 pt-5 container">
             <!-- x -->
             <i @click=" hideModal() " class="fa-solid fa-x"></i>
-            <h5 class="title mb-3">Filtri di reicerca avanzata</h5>
-            <div class="filter container-fluid pt-2">
+            <h5 class="title mb-3">Filtri di ricerca avanzata</h5>
+            <div class="filter container-fluid py-3">
                 <!-- tipo di stanza -->
 
                 <!-- <h5 class="my-3">Tipologia di alloggio</h5>
@@ -19,6 +19,7 @@
                         </div>
                     </div>
                 </div> -->
+
                 <!-- stanze e letti -->
                 <h5>Stanze e letti</h5>
                 <div class="row buttton-row d-flex p-3 ">
@@ -44,8 +45,29 @@
                         class="_btn rounded-pill p-3" :class="{'black': i === bathromsIndex}">{{bathrom}}</div>
                     </div>
                 </div>
+
+                <!-- Tipologia di alloggio (NUOVO)-->
+                <div class="row buttton-row d-flex cat-service-row">
+                    <div class="col-12 d-flex justify-content-lg-start align-items-center info category-col ">
+                        <h5 class="my-3">Tipologia di alloggio</h5>
+                        <div class="container my-2 p-3">
+                            <div class="row px-1">
+                                <div  v-for="(category, i) in catCollection" :key="`cat-${i}`"
+                                    class="col-4 col-md-3 mb-3 cat-card p-2 position-relative">
+                                        <div @click="checkedCat(category)"
+                                            class="cat-box h-100 d-flex flex-column align-items-center justify-content-center">
+                                            <i class="fa-solid fa-house mb-1 p-1"></i>
+                                            <p class="mb-0">{{ category }}</p>
+                                        </div>
+                                    <i v-if="checkedCategory.includes(category)"
+                                    class="fa-solid fa-circle-check position-absolute"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <!-- categoria alloggio -->
-                <div class="row cat-service-row d-flex justify-content-around py-3 mb-3 px-2">
+                <!-- <div class="row cat-service-row d-flex justify-content-around py-3 mb-3 px-2"> -->
                     <!-- servizi -->
                     <!-- <div class="col-12 col-md-6 services-col">
                         <h5 class="my-3 ml-3">Servizi</h5>
@@ -62,9 +84,9 @@
                         </div>
                     </div> -->
                     <!-- categorie -->
-                    <div class="col-12 col-md-6 category-col d-flex flex-column justify-content-between">
+                    <!-- <div class="col-12 col-md-6 category-col d-flex flex-column justify-content-between">
                         <h5 class="my-3 ml-3">Tipologia di alloggio</h5>
-                        <div class="container-fluid py-4 category-container h-100">
+                        <div class="container-fluid py-4">
                             <div class="row px-1">
                                 <div  v-for="(category, i) in catCollection" :key="`cat-${i}`"
                                 class="col-4 col-md-3 mb-3 cat-card p-2 position-relative">
@@ -79,7 +101,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> -->
                 <!-- button row -->
                 <div class="row action-row  d-flex justify-content-between py-3 px-5 align-items-center">
                     <p @click="deleteAll()"
@@ -274,7 +296,7 @@
           .cat-service-row{
               .container-fluid{
                   box-shadow: 0px 0px 10px 1px rgb(204, 202, 202) ;
-                  border-radius: 5px;
+                  border-radius: 15px;
               }
               .cat-card{
                     height: 100px;
@@ -308,7 +330,7 @@
                     .fa-circle-check{
                         top: 8px;
                         right: 7px;
-                        color: #ef6351;
+                        color: #36382e;
                     }
                 }
                 services-col{

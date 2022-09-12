@@ -37,9 +37,7 @@
                 </a>
 
                 <a class="navbar-brand mt-3 ml-3" href="{{ route('admin.index') }}" class="my-5">
-                    Dashb
-                    <i class="fa-solid fa-circle-user word-icon"></i>
-                    ard
+                    <i class="fa-solid fa-circle-user fa-xl mx-2"></i> Dashboard
                 </a>
 
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">

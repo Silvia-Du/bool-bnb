@@ -89,9 +89,9 @@ class MessageController extends Controller
          $user_id = Auth::id();
          $user = User::find($user_id);
         if(!$user->announcement){
-            echo('non ne ha');
+            // echo('non ne ha');
         }else{
-            echo('ce li ha');
+            // echo('ce li ha');
         }
          $announcement = Announcement::where('id',$id)->with('messages')->get();
          // dd($id);
