@@ -108,7 +108,7 @@
                             @else
                             <div class="no-mex p-2 d-flex">
                                 <p class="mb-0 ">Nessun</p>
-                                <img src="{{ asset('img/admin-icon1.png') }}" alt="">
+                                <i class="fa-solid fa-message"></i>
                             </div>
                             @endif
 

@@ -1,27 +1,27 @@
 <template>
 
-<div class="pt-5">
+<div class="pt-5 container">
 
- <div class="d-flex justify-content-center">
-     <img src="https://fontmeme.com/permalink/220909/b9eb29d5a1b9109f77870b2bb7860631.png" class="mt-5 mb-0 img-fluid ">
- </div>
+    <div class="d-flex justify-content-center">
+        <img src="https://fontmeme.com/permalink/220909/b9eb29d5a1b9109f77870b2bb7860631.png" class="mt-5 mb-0 img-fluid ">
+    </div>
 
- <div class=" stat-container container d-flex justify-content-around my-5">
+    <div class=" stat-container container d-flex justify-content-around my-5">
 
-     <div class="stat">
-         <h5>gli host guadagnano in media</h5>
-         <span class="text-danger">1600 &euro; al mese</span>
-     </div>
-     <div class="stat">
-         <h5>Una media di </h5>
-         <span>85 &euro; a notte</span>
-     </div>
-     <div class="stat">
-         <h5>I loro alloggi sono prenotati</h5>
-         <span>20 notti al mese</span>
-     </div>
+        <div class="stat">
+            <h5>gli host guadagnano in media</h5>
+            <span class="text-danger">1600 &euro; al mese</span>
+        </div>
+        <div class="stat">
+            <h5>Una media di </h5>
+            <span>85 &euro; a notte</span>
+        </div>
+        <div class="stat">
+            <h5>I loro alloggi sono prenotati</h5>
+            <span>20 notti al mese</span>
+        </div>
 
- </div>
+    </div>
 
 
      <div id="carouselExampleIndicators" class="carousel slide d-none  d-xl-block d-md-block  container   m-auto b-round " data-ride="carousel">
@@ -64,29 +64,60 @@
          </a>
      </div>
 
+     <!-- NUOVO -->
+    <div class="container col-xxl-8 py-3">
+        <div class="row flex-lg-row-reverse align-items-center g-5 py-3">
 
- <div class="container-fluid bg-light mt-5 ">
-     <div class="row">
-         <div class="col-12 col-md-12 col-lg-6 p-0 m-0">
-            <img class="d-block w-100" src="../../../../public/images/ezgif.com-gif-maker (2).gif" alt="Third slide">
-         </div>
-         <div class="col-12 col-md-12 col-lg-6 bg-dark p-0 m-0 d-flex justify-content-center align-items-center">
-             <div class="d-flex justify-content-center">
-                 <div class="text-cont p-sm-5 ">
-                     <h2 class="text-center">Prova ad ospitare su Bool BnB</h2>
-                      <img src="https://i.ibb.co/J286Vhh/Logo-Bool-Bn-B.png" class="image-fluid" width="430px" height="180px"/>
-                     <h4 class="text-center">Unisciti a noi, saremo al tuo fianco in ogni momento!</h4>
-                     <a @click="getRoute('admin/announcements')"
-                     class="btn-create  text-center"
-                         href="#">
-                         Crea un nuovo annuncio
-                     </a>
-                 </div>
-             </div>
+            <div class="col-10 col-sm-8 col-lg-6 d-none d-xxl-block d-xl-block d-xxl-none d-lg-block d-xl-none">
+                <img src="https://i.ibb.co/dLPRxbJ/ezgif-com-gif-maker-2.gif"
+                    class="b-round b-shadow img-fluid "/>
+            </div>
 
-         </div>
-     </div>
- </div>
+            <div class="col-lg-6 b-round b-shadow p-3">
+                <h3 class="text-center">Prova ad ospitare su</h3>
+
+                <div class="d-flex justify-content-center my-2">
+                    <img src="https://i.ibb.co/12xdr7G/Logo-Bool-Bn-B-bnw.png" class="image-fluid py-3" width="50%"/>
+                </div>
+
+                <h5 class="text-center">Unisciti a noi, saremo al tuo fianco in ogni momento!</h5>
+
+                <div class="d-flex justify-content-center my-2">
+                    <a @click="getRoute('admin/announcements')"
+                        class="btn-rounded-plus  text-center my-1" href="#">
+                        Crea un nuovo annuncio
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+     <!-- VECCHIO -->
+    <!-- <div class="container-fluid bg-light mt-5 ">
+        <div class="row">
+            <div class="col-12 col-md-12 col-lg-6 p-0 m-0"> -->
+                <!-- <img class="d-block w-100" src="../../../../public/images/ezgif.com-gif-maker (2).gif" alt="Third slide"> -->
+            <!-- </div>
+            <div class="col-12 col-md-12 col-lg-6 bg-dark p-0 m-0 d-flex justify-content-center align-items-center">
+                <div class="d-flex justify-content-center">
+                    <div class="text-cont p-sm-5 ">
+                        <h2 class="text-center">Prova ad ospitare su Bool BnB</h2>
+                        <img src="https://i.ibb.co/J286Vhh/Logo-Bool-Bn-B.png" class="image-fluid" width="430px" height="180px"/>
+                        <h4 class="text-center">Unisciti a noi, saremo al tuo fianco in ogni momento!</h4>
+                        <a @click="getRoute('admin/announcements')"
+                        class="btn-create  text-center"
+                            href="#">
+                            Crea un nuovo annuncio
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div> -->
 
 </div>
 </template>
@@ -121,16 +152,22 @@ export default{
 }
 
 .text-cont {
-    h2 {
-        font-size: 60px;
-        color: white;
-        margin-bottom: 40px;
-    }
+    background: white;
+    border-radius: 15px;
+    color: black;
+    box-shadow: 0px 0px 50px 1px rgb(201, 200, 200);
 
-    h4 {
-        color: white;
-        font-size: 30px;
-    }
+
+    // h2 {
+    //     font-size: 60px;
+    //     color: white;
+    //     margin-bottom: 40px;
+    // }
+
+    // h4 {
+    //     color: white;
+    //     font-size: 30px;
+    // }
 
     .btn-create {
         border-radius: 30px;
@@ -138,8 +175,7 @@ export default{
         width: 500px;
         font-size: 25px;
         display: block;
-        margin: auto;
-        margin-top: 25px;
+        margin-top: 5px;
         text-decoration: none;
         transition: ease-out 0.5s;
         background: linear-gradient(to right, #EF6351, #F38375, #F7A399);
@@ -213,6 +249,7 @@ export default{
             text-align: center;
         }
 
+
         .btn-create {
             border-radius: 15px;
             padding: 15px;
@@ -239,5 +276,34 @@ export default{
         }
     }
 }
+
+ .b-round {
+    border-radius: 15px;
+    }
+
+.b-shadow {
+    box-shadow: 0px 0px 50px 1px rgb(201, 200, 200);
+}
+
+.btn-rounded-plus {
+    border-radius: 30px;
+    padding: 10px 15px;
+    width: 200px;
+    transition: ease-out 0.5s;
+    background: linear-gradient(to right, #EF6351, #F38375, #F7A399);
+    color: white;
+
+    &:hover {
+        box-shadow: inset 200px 0 0 0 #EF6351;
+        color: white;
+    }
+}
+
+a{
+    text-decoration: none;
+}
+
+
+
 </style>
 

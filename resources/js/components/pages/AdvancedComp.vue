@@ -40,8 +40,20 @@
           <div class="container-fluid box-card">
             <div class="row pt-2">
               <!-- card -->
-              <!-- v-if = "announcmentsFilteredLocation.lenght >0 " -->
-              <!-- v-else mostra il cane che si è perso   -->
+              <!-- Risultati Presenti -->
+              <div v-if="announcmentsFilteredLocation.length > 0"></div>
+              <!-- Nessun Risultato -->
+              <div v-else>
+                <div class="px-4 text-center">
+                    <h1 class="display-5 fw-bold">Ops sembra che non ci siano risultati</h1>
+                        <p class="lead mb-4">Prova a controllare che l'indirizzo e la località siano corretti</p>
+                    <div class="col-lg-6 mx-auto">
+                        <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+                            <img src="https://i.ibb.co/WHnt9P4/doggo.png" alt="doggo" class="d-block mx-auto mb-4 image-fluid">
+                        </div>
+                    </div>
+                </div>
+              </div>
               <!-- QUESTA è TUTTA LA CARD DA CICLARE -->
               <div
               v-for="(announcement, index) in announcmentsFilteredLocation" :key="`announcement:${index}`"
