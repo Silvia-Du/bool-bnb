@@ -2009,10 +2009,10 @@ __webpack_require__.r(__webpack_exports__);
     getFilteredAnnounce: function getFilteredAnnounce(data) {
       var _this2 = this;
 
-      console.log(data);
-      this.showDropD = false; //   axios.get(this.announcApiUrl+ "filter/" + data.bathrooms+'/'+data.beds+'/'+data.houseType+'/'+data.rooms)
-
-      axios.get(this.announcApiUrl + "/filter/" + data.bathrooms + '/' + data.beds).then(function (response) {
+      this.showDropD = false;
+      axios.get(this.announcApiUrl + "/advanced/", {
+        beds: data.beds
+      }).then(function (response) {
         _this2.announcments = response.data;
       });
     },
@@ -2022,6 +2022,9 @@ __webpack_require__.r(__webpack_exports__);
       axios.get(this.announcApiUrl + "/location/" + newData).then(function (response) {
         _this3.announcmentsFilteredLocation = response.data;
       });
+    },
+    getImage: function getImage(img) {
+      return /storage/ + img;
     }
   },
   watch: {
@@ -2083,6 +2086,9 @@ __webpack_require__.r(__webpack_exports__);
     },
     toggleModal: function toggleModal() {
       this.showModal = false;
+    },
+    getImage: function getImage(img) {
+      return /storage/ + img;
     }
   },
   mounted: function mounted() {
@@ -2318,6 +2324,9 @@ __webpack_require__.r(__webpack_exports__);
         }).then(function (response) {// console.log(response, 'response');
         });
       });
+    },
+    getImage: function getImage(img) {
+      return /storage/ + img;
     }
   },
   watch: {
@@ -2738,8 +2747,8 @@ var render = function render() {
       }
     }, [_c("img", {
       attrs: {
-        src: "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/space-of-mind-studio-puisto-architects-archmospheres-14-1605277273.jpg?resize=480:*",
-        alt: "#"
+        src: _vm.getImage(announcement.image),
+        alt: announcement.title
       }
     })])], 1)]), _vm._v(" "), _c("div", {
       staticClass: "d-none d-sm-block box-text w-100 pl-2"
@@ -2869,7 +2878,17 @@ var render = function render() {
     staticClass: "d-flex align-items-center coral-text"
   }, [_vm._v("\n                        " + _vm._s(_vm.apartamentDetails.title) + "\n                    ")]), _vm._v(" "), _vm._m(0), _vm._v("\n                        " + _vm._s(_vm.apartamentDetails.address) + "\n                    "), _vm._m(1), _vm._v(" "), _c("div", {
     staticClass: "row align-items-md-stretch"
-  }, [_vm._m(2), _vm._v(" "), _c("div", {
+  }, [_c("div", {
+    staticClass: "col-md-8"
+  }, [_c("div", {
+    staticClass: "h-100 shadow-lg image-house"
+  }, [_c("img", {
+    staticClass: "image-fluid image-house",
+    attrs: {
+      src: _vm.getImage(_vm.apartamentDetails.image),
+      alt: _vm.apartamentDetails.title
+    }
+  })])]), _vm._v(" "), _c("div", {
     staticClass: "col-md-4"
   }, [_c("MapAnnDetails", {
     attrs: {
@@ -2885,7 +2904,7 @@ var render = function render() {
     staticClass: "w-100"
   }, [_c("h3", {
     staticClass: "coral-text"
-  }, [_vm._v(_vm._s(_vm.userDetails.name) + " " + _vm._s(_vm.userDetails.surname) + " - Nome Host")]), _vm._v(" "), _c("span", [_vm._v(_vm._s(_vm.apartamentDetails.rooms) + " ospiti - ")]), _vm._v(" "), _c("span", [_vm._v(_vm._s(_vm.apartamentDetails.beds) + " Camere da letto - ")]), _vm._v(" "), _c("span", [_vm._v(_vm._s(_vm.apartamentDetails.beds) + " letti - ")]), _vm._v(" "), _c("span", [_vm._v(_vm._s(_vm.apartamentDetails.bathrooms) + " bagni")])]), _vm._v(" "), _vm._m(3)]), _vm._v(" "), _vm._m(4), _vm._v(" "), _c("div", {
+  }, [_vm._v(_vm._s(_vm.userDetails.name) + " " + _vm._s(_vm.userDetails.surname) + " - Nome Host")]), _vm._v(" "), _c("span", [_vm._v(_vm._s(_vm.apartamentDetails.rooms) + " ospiti - ")]), _vm._v(" "), _c("span", [_vm._v(_vm._s(_vm.apartamentDetails.beds) + " Camere da letto - ")]), _vm._v(" "), _c("span", [_vm._v(_vm._s(_vm.apartamentDetails.beds) + " letti - ")]), _vm._v(" "), _c("span", [_vm._v(_vm._s(_vm.apartamentDetails.bathrooms) + " bagni")])]), _vm._v(" "), _vm._m(2)]), _vm._v(" "), _vm._m(3), _vm._v(" "), _c("div", {
     staticClass: "d-flex align-items-center spacebar"
   }, [_c("span", {
     staticClass: "my-3"
@@ -2921,15 +2940,15 @@ var render = function render() {
     staticClass: "col-md-8"
   }, [_c("div", [_c("div", {
     staticClass: "d-flex align-items-center"
-  }, [_vm._m(5), _vm._v(" "), _c("div", {
+  }, [_vm._m(4), _vm._v(" "), _c("div", {
     staticClass: "mx-3"
   }, [_c("h3", {
     staticClass: "coral-text"
   }, [_vm._v("Host: " + _vm._s(_vm.userDetails.name) + " " + _vm._s(_vm.userDetails.surname))]), _vm._v(" "), _c("span", {
     staticClass: "gray-text"
-  }, [_vm._v("Membro da: " + _vm._s(_vm.userDetails.created_at))])])]), _vm._v(" "), _vm._m(6), _vm._v(" "), _vm._m(7)])]), _vm._v(" "), _c("div", {
+  }, [_vm._v("Membro da: " + _vm._s(_vm.userDetails.created_at))])])]), _vm._v(" "), _vm._m(5), _vm._v(" "), _vm._m(6)])]), _vm._v(" "), _c("div", {
     staticClass: "col-md-4"
-  }, [_vm._m(8), _vm._v(" "), _c("div", {
+  }, [_vm._m(7), _vm._v(" "), _c("div", {
     staticClass: "h-100"
   }, [_c("div", {
     staticClass: "d-flex align-content-center"
@@ -2942,7 +2961,7 @@ var render = function render() {
     }
   }, [_vm._v("\n\n                    Contatta l'host\n                    ")])]), _vm._v(" "), _c("span", {
     staticClass: "fs-6 gray-text"
-  }, [_vm._v("\n                    Per proteggere i tuoi pagamenti, non trasferire mai del denaro e non comunicare fuori dal sito web o dall'app di BoolBnb.\n                ")])])])]), _vm._v(" "), _vm._m(9), _vm._v(" "), _vm.showModal ? _c("ModaleMessage", {
+  }, [_vm._v("\n                    Per proteggere i tuoi pagamenti, non trasferire mai del denaro e non comunicare fuori dal sito web o dall'app di BoolBnb.\n                ")])])])]), _vm._v(" "), _vm._m(8), _vm._v(" "), _vm.showModal ? _c("ModaleMessage", {
     attrs: {
       annId: _vm.announcmentId
     },
@@ -2977,20 +2996,6 @@ var staticRenderFns = [function () {
   }, [_c("i", {
     staticClass: "fa-solid fa-share-from-square"
   }), _vm._v("\n                        Condividi\n                        ")])]);
-}, function () {
-  var _vm = this,
-      _c = _vm._self._c;
-
-  return _c("div", {
-    staticClass: "col-md-8"
-  }, [_c("div", {
-    staticClass: "h-100 shadow-lg image-house"
-  }, [_c("img", {
-    staticClass: "image-fluid image-house",
-    attrs: {
-      src: "https://i.pinimg.com/originals/94/45/94/9445949707ee30f609bc44e20cd2bf62.jpg"
-    }
-  })])]);
 }, function () {
   var _vm = this,
       _c = _vm._self._c;
@@ -3634,12 +3639,12 @@ var render = function render() {
     }
   }, [_c("div", {
     staticClass: "card-img mb-1 hover-shine"
-  }, [_c("figure", [_c("img", {
+  }, [_vm.announcementItem.image ? _c("img", {
     attrs: {
-      src: _vm.announcementItem.image,
+      src: _vm.getImage(_vm.announcementItem.image),
       alt: _vm.announcementItem.title
     }
-  })]), _vm._v(" "), _c("i", {
+  }) : _vm._e(), _vm._v(" "), _c("i", {
     staticClass: "fa-regular fa-heart"
   })]), _vm._v(" "), _c("div", {
     staticClass: "text"
@@ -8478,7 +8483,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "ul[data-v-549b0066], li[data-v-549b0066] {\n  text-decoration: none;\n  list-style: none;\n}\nh1[data-v-549b0066], h2[data-v-549b0066], h3[data-v-549b0066], h4[data-v-549b0066], h5[data-v-549b0066], h6[data-v-549b0066] {\n  font-weight: bolder;\n}\na[data-v-549b0066] {\n  text-decoration: none;\n  color: #F38375;\n}\ni[data-v-549b0066] {\n  color: #EF6351;\n  padding-right: 3px;\n}\n.coral-text[data-v-549b0066] {\n  color: #EF6351;\n}\n.gray-text[data-v-549b0066] {\n  color: gray;\n}\n.bg-coral1[data-v-549b0066] {\n  background-color: #EF6351;\n}\n.btn[data-v-549b0066]:hover {\n  background-color: #F7A399;\n}\n.btn-sm[data-v-549b0066]:hover {\n  color: white;\n}\n.spacebar[data-v-549b0066] {\n  border-bottom: 1px solid rgb(192, 192, 192);\n  margin-top: 5px;\n  margin-bottom: 5px;\n}\n.slot-img[data-v-549b0066] {\n  border-radius: 15px;\n}\n.image-house[data-v-549b0066] {\n  max-width: 100%;\n  max-height: 100%;\n  border-radius: 15px;\n  box-shadow: 0px 5px 15px rgb(66, 66, 66);\n}\n.show-location[data-v-549b0066] {\n  background: linear-gradient(to right, #EF6351, #F38375, #F7A399);\n  color: white;\n  width: 350px;\n  flex-shrink: 0;\n  transition: ease-out 0.5s;\n  outline: none;\n  cursor: pointer;\n}\n.show-location[data-v-549b0066]:hover {\n  box-shadow: inset 350px 0 0 0 #EF6351;\n}\n.cat-box[data-v-549b0066] {\n  border-radius: 15px;\n  background-color: #ffffff;\n  border: 1px solid #f06449;\n  transition: ease-out 0.5s;\n  outline: none;\n}\n.cat-box[data-v-549b0066]:hover {\n  cursor: pointer;\n  color: white;\n}", ""]);
+exports.push([module.i, "ul[data-v-549b0066], li[data-v-549b0066] {\n  text-decoration: none;\n  list-style: none;\n}\nh1[data-v-549b0066], h2[data-v-549b0066], h3[data-v-549b0066], h4[data-v-549b0066], h5[data-v-549b0066], h6[data-v-549b0066] {\n  font-weight: bolder;\n}\na[data-v-549b0066] {\n  text-decoration: none;\n  color: #F38375;\n}\ni[data-v-549b0066] {\n  color: #EF6351;\n  padding-right: 3px;\n}\n.coral-text[data-v-549b0066] {\n  color: #EF6351;\n}\n.gray-text[data-v-549b0066] {\n  color: gray;\n}\n.bg-coral1[data-v-549b0066] {\n  background-color: #EF6351;\n}\n.btn[data-v-549b0066]:hover {\n  background-color: #F7A399;\n}\n.btn-sm[data-v-549b0066]:hover {\n  color: white;\n}\n.spacebar[data-v-549b0066] {\n  border-bottom: 1px solid rgb(192, 192, 192);\n  margin-top: 5px;\n  margin-bottom: 5px;\n}\n.slot-img[data-v-549b0066] {\n  border-radius: 15px;\n}\n.image-house[data-v-549b0066] {\n  width: 100%;\n  max-height: 100%;\n  border-radius: 15px;\n  box-shadow: 0px 5px 15px rgb(66, 66, 66);\n}\n.show-location[data-v-549b0066] {\n  background: linear-gradient(to right, #EF6351, #F38375, #F7A399);\n  color: white;\n  width: 350px;\n  flex-shrink: 0;\n  transition: ease-out 0.5s;\n  outline: none;\n  cursor: pointer;\n}\n.show-location[data-v-549b0066]:hover {\n  box-shadow: inset 350px 0 0 0 #EF6351;\n}\n.cat-box[data-v-549b0066] {\n  border-radius: 15px;\n  background-color: #ffffff;\n  border: 1px solid #f06449;\n  transition: ease-out 0.5s;\n  outline: none;\n}\n.cat-box[data-v-549b0066]:hover {\n  cursor: pointer;\n  color: white;\n}", ""]);
 
 // exports
 

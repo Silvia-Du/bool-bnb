@@ -74,7 +74,6 @@
 
                             <div class=" house-info py-4 ">
                                 <h6 class="spacebar"> indirizzo :</h6>
-                                <p>{{ $announcement->id }}</p>
                                 <p>{{ $announcement->address }}</p>
                                 <p>{{ $announcement->city }}</p>
                                 <p>{{ $announcement->country }}</p>

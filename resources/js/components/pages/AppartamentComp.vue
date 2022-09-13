@@ -25,7 +25,8 @@
                         <div class="row align-items-md-stretch ">
                             <div class="col-md-8">
                                 <div class="h-100 shadow-lg image-house">
-                                 <img src="https://i.pinimg.com/originals/94/45/94/9445949707ee30f609bc44e20cd2bf62.jpg" class="image-fluid image-house"/>
+                                 <!-- <img src="https://i.pinimg.com/originals/94/45/94/9445949707ee30f609bc44e20cd2bf62.jpg" class="image-fluid image-house"/> -->
+                                 <img class="image-fluid image-house" :src="getImage(apartamentDetails.image)" :alt="apartamentDetails.title"/>
                                 </div>
                             </div>
 
@@ -305,6 +306,9 @@ export default {
         },
         toggleModal(){
             this.showModal = false;
+        },
+        getImage(img){
+            return  /storage/ + img;
         }
     },
     mounted(){
@@ -364,7 +368,7 @@ i {
 }
 
 .image-house {
-    max-width:100%;
+    width:100%;
     max-height:100%;
     border-radius: 15px;
     box-shadow: 0px 5px 15px rgb(66, 66, 66);

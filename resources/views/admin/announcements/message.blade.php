@@ -77,7 +77,7 @@
                             <div class="appart-item  py-3 d-flex justify-content-between align-items-center">
                                 <a href="{{ route('admin.messages.show', $message->id)}}">
                                     <div class="d-flex align-items-center container-btn">
-                                        <img class="mx-2 img" src="" alt="">
+                                        <img class="mx-2 img" src="{{ asset('storage/' . $message->$announcement->image ) }}" alt="">
                                         <p class="mb-0">{{ $message->announcement->title }}</p>
                                     </div>
                                 </a>
@@ -99,7 +99,8 @@
 
                             <div
                             class="d-flex align-items-center container-btn">
-                                <div class="mx-2 img "></div>
+
+                                <img class="mx-2 img" src="{{ asset('storage/' . $announcement->image ) }}" alt="">
                                 <p
                                 class="mb-0">{{ $announcement->title }}</p>
                                 <p class="d-none loop-p">{{ $loop->iteration }}</p>

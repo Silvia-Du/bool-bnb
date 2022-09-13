@@ -56,7 +56,7 @@
                         <div class="appart-item  py-3 d-flex justify-content-between align-items-center">
 
                             <div class="d-flex align-items-center container-btn">
-                                <img class="mx-2 img" src="" alt="">
+                                <img class="mx-2 img" src="{{ asset('storage/' . $message[0]['announcement']['image'] ) }}" alt="">
                                 <p
                                 class="mb-0 d-none d-lg-block">{{ $message[0]['announcement']['title'] }}</p>
                             </div>
@@ -75,7 +75,7 @@
                         <div class="appart-item  py-3 d-flex justify-content-between align-items-center">
 
                             <div class="d-flex align-items-center container-btn">
-                                <img class="mx-2 img" src="" alt="">
+                                <img class="mx-2 img" src="{{ asset('storage/' . $announcement[0]->image ) }}" alt="">
                                 <p
                                 class="mb-0 d-none d-lg-block">{{ $announcement[0]->title }}</p>
                             </div>

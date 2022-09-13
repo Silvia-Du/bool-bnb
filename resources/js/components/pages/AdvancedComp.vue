@@ -73,11 +73,11 @@
                     :to="{
                       name: 'app-details',
                       params: { ann: announcement.id } }">
-
-                      <img
+                    <img  :src="getImage(announcement.image)" :alt="announcement.title">
+                      <!-- <img
                       src="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/space-of-mind-studio-puisto-architects-archmospheres-14-1605277273.jpg?resize=480:*"
                       alt="#"
-                      />
+                      /> -->
                     </router-link>
                   </div>
 
@@ -212,10 +212,11 @@
               this.showDropD = isShow;
           },
           getFilteredAnnounce(data) {
-                    console.log(data);
                   this.showDropD = false;
-                //   axios.get(this.announcApiUrl+ "filter/" + data.bathrooms+'/'+data.beds+'/'+data.houseType+'/'+data.rooms)
-                  axios.get(this.announcApiUrl+ "/filter/"+data.bathrooms+'/'+data.beds)
+                  axios
+                  .get(this.announcApiUrl + "/advanced/", {
+                      beds: data.beds,
+                  })
                   .then((response) => {
                       this.announcments = response.data;
                   });
@@ -227,6 +228,12 @@
 
               })
           },
+
+        getImage(img){
+            return  /storage/ + img
+        }
+
+
         },
           watch:{
             input(newData, oldData){
@@ -357,7 +364,6 @@
         height: calc(100vh - 169px);
         }
     }
-
 .coral-text {
 color: #EF6351;
 }

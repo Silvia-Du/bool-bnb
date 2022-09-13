@@ -12,10 +12,10 @@
         @click="getIp(announcementItem.id)"
         class="card mb-4 p-1 border-0">
             <div class="card-img mb-1 hover-shine">
-                <figure>
-                    <img :src="announcementItem.image" :alt="announcementItem.title">
+                <!-- <figure> -->
+                    <img v-if="announcementItem.image" :src="getImage(announcementItem.image)" :alt="announcementItem.title">
                     <!-- <img src="http://sun-surfer.com/photos/2012/03/Glass-house-Vilnius-Lithuania-400x400.jpg" alt="casa"> -->
-                </figure>
+                <!-- </figure> -->
                 <i class="fa-regular fa-heart"></i>
                 <!-- <i class="fa-solid fa-heart"></i> -->
             </div>
@@ -67,6 +67,10 @@ export default {
 
 
         },
+
+        getImage(img){
+            return  /storage/ + img
+        }
 
 },
     watch:{
